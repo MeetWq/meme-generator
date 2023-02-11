@@ -6,8 +6,7 @@ from PIL.Image import Image as IMG
 from argparse import ArgumentParser
 
 from meme_generator.utils import save_gif
-from meme_generator.manager import new_meme
-from meme_generator.models import MemeArgsType
+from meme_generator.meme import add_meme, MemeArgsType
 
 
 img_dir = Path(__file__).parent / "images"
@@ -20,14 +19,7 @@ class Model(BaseModel):
     circle: bool = False
 
 
-@new_meme(
-    "petpet",
-    ["摸", "摸摸", "摸头", "rua"],
-    min_images=1,
-    max_images=1,
-    args_type=MemeArgsType(parser, Model),
-)
-def _(images: List[BuildImage], texts, args: Model):
+def petpet(images: List[BuildImage], texts, args: Model):
     img = images[0].convert("RGBA").square()
     if args.circle:
         img = img.circle()
@@ -48,3 +40,13 @@ def _(images: List[BuildImage], texts, args: Model):
         frame.paste(hand, alpha=True)
         frames.append(frame.image)
     return save_gif(frames, 0.06)
+
+
+add_meme(
+    "petpet",
+    ["摸", "摸摸", "摸头", "rua"],
+    petpet,
+    min_images=1,
+    max_images=1,
+    args_type=MemeArgsType(parser, Model),
+)

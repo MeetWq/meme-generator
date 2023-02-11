@@ -4,17 +4,12 @@ import httpx
 import hashlib
 from enum import Enum
 from io import BytesIO
-from pathlib import Path
 from pil_utils import BuildImage
 from PIL.Image import Image as IMG
 from typing import List, Protocol, Optional
 
 
 from .config import meme_config
-
-
-def load_image(path: Path) -> BuildImage:
-    return BuildImage.open(path)
 
 
 def save_gif(frames: List[IMG], duration: float) -> BytesIO:

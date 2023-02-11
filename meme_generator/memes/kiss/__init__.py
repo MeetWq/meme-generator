@@ -3,15 +3,14 @@ from pathlib import Path
 from pil_utils import BuildImage
 from PIL.Image import Image as IMG
 
+from meme_generator.meme import add_meme
 from meme_generator.utils import save_gif
-from meme_generator.manager import new_meme
 
 
 img_dir = Path(__file__).parent / "images"
 
 
-@new_meme("kiss", ["亲", "亲亲"], min_images=2, max_images=2)
-def _(images: List[BuildImage], texts, args):
+def kiss(images: List[BuildImage], texts, args):
     self_head = images[0].convert("RGBA").circle().resize((40, 40))
     user_head = images[1].convert("RGBA").circle().resize((50, 50))
     # fmt: off
@@ -31,3 +30,6 @@ def _(images: List[BuildImage], texts, args):
         frame.paste(self_head, self_locs[i], alpha=True)
         frames.append(frame.image)
     return save_gif(frames, 0.05)
+
+
+add_meme("kiss", ["亲", "亲亲"], kiss, min_images=2, max_images=2)
