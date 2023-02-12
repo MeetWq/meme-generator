@@ -53,6 +53,7 @@ def add_meme(
     max_images: int = 0,
     min_texts: int = 0,
     max_texts: int = 0,
+    default_texts: List[str] = [],
     args_type: Optional[MemeArgsType] = None,
 ):
     if key in _memes:
@@ -63,7 +64,9 @@ def add_meme(
         key,
         keywords,
         function,
-        MemeParamsType(min_images, max_images, min_texts, max_texts, args_type),
+        MemeParamsType(
+            min_images, max_images, min_texts, max_texts, default_texts, args_type
+        ),
     )
 
     _memes[key] = meme
@@ -79,6 +82,3 @@ def get_meme(key: str) -> Meme:
 
 def get_meme_keys() -> List[str]:
     return list(_memes.keys())
-
-
-load_memes(Path(__file__).parent / "memes")

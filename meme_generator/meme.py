@@ -2,8 +2,8 @@ from io import BytesIO
 from typing import Union
 from pathlib import Path
 from pil_utils import BuildImage
-from dataclasses import dataclass
 from argparse import ArgumentParser
+from dataclasses import dataclass, field
 from pydantic import BaseModel, ValidationError
 from typing import List, Dict, Any, Optional, Callable, Type, TypeVar
 
@@ -32,6 +32,7 @@ class MemeParamsType:
     max_images: int = 0
     min_texts: int = 0
     max_texts: int = 0
+    default_texts: List[str] = field(default_factory=list)
     args_type: Optional[MemeArgsType] = None
 
 

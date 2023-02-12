@@ -1,4 +1,6 @@
+import asyncio
 import filetype
+from functools import partial
 from typing import List, Optional
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ValidationError
@@ -32,7 +34,7 @@ def register_router(meme: Meme):
     @app.post(f"/memes/{meme.key}/")
     async def _(
         images: List[UploadFile] = [],
-        texts: List[str] = [],
+        texts: List[str] = meme.params_type.default_texts,
         args: Optional[args_model] = Depends(args_checker),  # type: ignore
     ):
         imgs: List[bytes] = []
@@ -42,7 +44,9 @@ def register_router(meme: Meme):
         texts = [text for text in texts if text]
 
         try:
-            result = meme(images=imgs, texts=texts, args=args)
+            loop = asyncio.get_running_loop()
+            pfunc = partial(meme, images=imgs, texts=texts, args=args)
+            result = await loop.run_in_executor(None, pfunc)
         except MemeGeneratorException as e:
             raise HTTPException(status_code=500, detail=str(e))
 

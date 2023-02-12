@@ -14,6 +14,14 @@ class NoSuchMeme(MemeGeneratorException):
         return f'No such meme with key="{self.meme_key}"'
 
 
+class TextOverLength(MemeGeneratorException):
+    def __init__(self, text: str):
+        self.text = text
+
+    def __repr__(self) -> str:
+        return f'Text "{self.text}" is too long!'
+
+
 class ParamsMismatch(MemeGeneratorException):
     def __init__(self, meme_key: str, message: Optional[str] = None):
         self.meme_key = meme_key

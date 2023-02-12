@@ -6,8 +6,7 @@ from PIL.Image import Image as IMG
 from argparse import ArgumentParser
 
 from meme_generator.utils import save_gif
-from meme_generator.manager import add_meme
-from meme_generator.meme import MemeArgsType
+from meme_generator import add_meme, MemeArgsType
 
 
 img_dir = Path(__file__).parent / "images"
