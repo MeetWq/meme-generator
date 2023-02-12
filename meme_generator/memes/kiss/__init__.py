@@ -3,7 +3,7 @@ from pathlib import Path
 from pil_utils import BuildImage
 from PIL.Image import Image as IMG
 
-from meme_generator.meme import add_meme
+from meme_generator.manager import add_meme
 from meme_generator.utils import save_gif
 
 
