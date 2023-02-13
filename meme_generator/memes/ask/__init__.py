@@ -4,14 +4,20 @@ from PIL import ImageFilter
 from pil_utils import BuildImage, Text2Image
 from pil_utils.gradient import LinearGradient, ColorStop
 
-from meme_generator import add_meme
-from meme_generator.exception import TextOverLength
+from meme_generator import add_meme, MemeArgsModel
+from meme_generator.exception import ImageTextNumberMismatch, TextOverLength
 
 
 img_dir = Path(__file__).parent / "images"
 
 
-def ask(images: List[BuildImage], texts: List[str], args):
+def ask(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+    if not texts and not args.user_infos:
+        raise ImageTextNumberMismatch("ask")
+
+    name = texts[0] if texts else args.user_infos[0].name
+    ta = "他" if args.user_infos and args.user_infos[0].gender == "male" else "她"
+
     img = images[0].resize_width(640)
     img_w, img_h = img.size
     gradient_h = 150
@@ -24,9 +30,6 @@ def ask(images: List[BuildImage], texts: List[str], args):
     mask.paste(gradient_img, (0, img_h - gradient_h), alpha=True)
     mask = mask.filter(ImageFilter.GaussianBlur(radius=3))
     img.paste(mask, alpha=True)
-
-    name = texts[0]
-    ta = "他"
 
     start_w = 20
     start_h = img_h - gradient_h + 5
@@ -76,4 +79,4 @@ def ask(images: List[BuildImage], texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("ask", ["问问"], ask, min_images=1, max_images=1, min_texts=1, max_texts=1)
+add_meme("ask", ["问问"], ask, min_images=1, max_images=1, min_texts=0, max_texts=1)

@@ -1,9 +1,8 @@
-from pydantic import BaseModel
 from pil_utils import BuildImage
+from typing import List, Literal
 from argparse import ArgumentParser
-from typing import List, Literal, Optional
 
-from meme_generator import add_meme, MemeArgsType
+from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 from meme_generator.utils import (
     make_jpg_or_gif,
     make_gif_or_combined_gif,
@@ -22,7 +21,7 @@ parser.add_argument(
 )
 
 
-class Model(BaseModel):
+class Model(MemeArgsModel):
     mode: Literal["normal", "loop", "circle"] = "normal"
 
 
@@ -86,9 +85,9 @@ def always_always(img: BuildImage, loop: bool = False):
     )
 
 
-def always(images: List[BuildImage], texts, args: Optional[Model]):
+def always(images: List[BuildImage], texts, args: Model):
     img = images[0]
-    mode = "normal" if not args else args.mode
+    mode = args.mode
 
     if mode == "normal":
         return always_normal(img)

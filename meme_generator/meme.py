@@ -5,7 +5,7 @@ from pil_utils import BuildImage
 from argparse import ArgumentParser
 from dataclasses import dataclass, field
 from pydantic import BaseModel, ValidationError
-from typing import List, Dict, Any, Optional, Callable, Type, TypeVar
+from typing import List, Dict, Any, Literal, Optional, Callable, Type, TypeVar
 
 from .exception import (
     ImageNumberMismatch,
@@ -15,15 +15,24 @@ from .exception import (
 )
 
 
-MemeArgsModel = TypeVar("MemeArgsModel", bound=BaseModel)
+class UserInfo(BaseModel):
+    name: str = ""
+    gender: Literal["male", "female", "unknown"] = "unknown"
 
-MemeFunction = Callable[[List[BuildImage], List[str], Optional[MemeArgsModel]], BytesIO]
+
+class MemeArgsModel(BaseModel):
+    user_infos: List[UserInfo] = []
+
+
+ArgsModel = TypeVar("ArgsModel", bound=MemeArgsModel)
+
+MemeFunction = Callable[[List[BuildImage], List[str], ArgsModel], BytesIO]
 
 
 @dataclass
 class MemeArgsType:
     parser: ArgumentParser
-    model: Type[BaseModel]
+    model: Type[MemeArgsModel]
 
 
 @dataclass
@@ -48,7 +57,7 @@ class Meme:
         *,
         images: Union[List[str], List[Path], List[bytes], List[BytesIO]] = [],
         texts: List[str] = [],
-        args: Optional[Union[BaseModel, Dict[str, Any]]] = None,
+        args: Dict[str, Any] = {},
     ) -> BytesIO:
 
         if not (
@@ -63,15 +72,15 @@ class Meme:
                 self.key, self.params_type.min_texts, self.params_type.max_texts
             )
 
-        model = None
-        if args:
-            if isinstance(args, BaseModel):
-                model = args
-            elif args_type := self.params_type.args_type:
-                try:
-                    model = args_type.model.parse_obj(args)
-                except ValidationError as e:
-                    raise ArgModelMismatch(self.key, str(e))
+        if args_type := self.params_type.args_type:
+            args_model = args_type.model
+        else:
+            args_model = MemeArgsModel
+
+        try:
+            model = args_model.parse_obj(args)
+        except ValidationError as e:
+            raise ArgModelMismatch(self.key, str(e))
 
         imgs: List[BuildImage] = []
         try:

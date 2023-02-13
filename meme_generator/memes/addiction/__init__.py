@@ -15,7 +15,7 @@ def addiction(images: List[BuildImage], texts: List[str], args):
 
     if texts:
         text = texts[0]
-        frame.resize_canvas((246, 286), direction="north", bg_color="white")
+        frame = frame.resize_canvas((246, 286), direction="north", bg_color="white")
         try:
             frame.draw_text((10, 246, 236, 286), texts[0], max_fontsize=45)
         except ValueError:

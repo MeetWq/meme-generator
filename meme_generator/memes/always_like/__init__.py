@@ -3,19 +3,19 @@ from typing import List
 from pathlib import Path
 from pil_utils import BuildImage, Text2Image
 
-from meme_generator import add_meme
-from meme_generator.exception import ParamsMismatch, TextOverLength
+from meme_generator import add_meme, MemeArgsModel
+from meme_generator.exception import ImageTextNumberMismatch, TextOverLength
 
 
 img_dir = Path(__file__).parent / "images"
 
 
-def always_like(images: List[BuildImage], texts: List[str], args):
-    if len(images) != len(texts):
-        raise ParamsMismatch(
-            "always_like",
-            "The number of images must be the same as the number of texts!",
-        )
+def always_like(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+    names = [info.name for info in args.user_infos]
+
+    if len(images) > len(texts) + len(names):
+        raise ImageTextNumberMismatch("always_like")
+    texts = texts + names
 
     img = images[0].convert("RGBA")
     name = texts[0]
@@ -89,6 +89,6 @@ add_meme(
     always_like,
     min_images=1,
     max_images=6,
-    min_texts=1,
+    min_texts=0,
     max_texts=6,
 )

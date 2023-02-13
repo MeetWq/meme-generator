@@ -1,12 +1,11 @@
+from typing import List
 from pathlib import Path
-from pydantic import BaseModel
 from pil_utils import BuildImage
-from typing import List, Optional
 from PIL.Image import Image as IMG
 from argparse import ArgumentParser
 
 from meme_generator.utils import save_gif
-from meme_generator import add_meme, MemeArgsType
+from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 
 img_dir = Path(__file__).parent / "images"
@@ -15,13 +14,13 @@ parser = ArgumentParser(prefix_chars="-/")
 parser.add_argument("--circle", "/圆", action="store_true")
 
 
-class Model(BaseModel):
+class Model(MemeArgsModel):
     circle: bool = False
 
 
-def petpet(images: List[BuildImage], texts, args: Optional[Model]):
+def petpet(images: List[BuildImage], texts, args: Model):
     img = images[0].convert("RGBA").square()
-    if args and args.circle:
+    if args.circle:
         img = img.circle()
 
     frames: List[IMG] = []
