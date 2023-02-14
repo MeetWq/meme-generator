@@ -1,13 +1,9 @@
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import translate, run_sync
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 @run_sync

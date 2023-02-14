@@ -1,14 +1,10 @@
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage
 from argparse import ArgumentParser
 
 from meme_generator.utils import make_jpg_or_gif
 from meme_generator.exception import TextOverLength
 from meme_generator import add_meme, MemeArgsType, MemeArgsModel
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 parser = ArgumentParser()

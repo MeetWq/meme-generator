@@ -1,14 +1,10 @@
 import random
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage
 from PIL.Image import Image as IMG
 
 from meme_generator import add_meme
 from meme_generator.utils import save_gif
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 def shock(images: List[BuildImage], texts, args):

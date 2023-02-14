@@ -1,13 +1,9 @@
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator.utils import make_jpg_or_gif
 from meme_generator import add_meme, MemeArgsModel
 from meme_generator.exception import TextOverLength
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 def littleangel(images: List[BuildImage], texts: List[str], args: MemeArgsModel):

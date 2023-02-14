@@ -1,14 +1,10 @@
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage
 from pil_utils.fonts import Font
 from PIL import Image, ImageDraw
 
 from meme_generator import add_meme
 from meme_generator.utils import make_jpg_or_gif
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 def charpic(images: List[BuildImage], texts, args):

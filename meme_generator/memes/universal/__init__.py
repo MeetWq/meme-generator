@@ -1,12 +1,8 @@
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
 from meme_generator.utils import make_jpg_or_gif
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 def universal(images: List[BuildImage], texts: List[str], args):

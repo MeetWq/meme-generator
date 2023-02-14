@@ -1,5 +1,4 @@
 from PIL import Image
-from pathlib import Path
 from pil_utils import BuildImage
 from collections import namedtuple
 from argparse import ArgumentParser
@@ -7,9 +6,6 @@ from typing import List, Dict, Literal
 
 from meme_generator.utils import make_jpg_or_gif
 from meme_generator import add_meme, MemeArgsType, MemeArgsModel
-
-
-img_dir = Path(__file__).parent / "images"
 
 
 parser = ArgumentParser(prefix_chars="-/")
