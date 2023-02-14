@@ -4,7 +4,7 @@ from pathlib import Path
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme, MemeArgsModel
-from meme_generator.exception import ImageTextNumberMismatch, TextOverLength
+from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 
 
 img_dir = Path(__file__).parent / "images"
@@ -14,7 +14,7 @@ def always_like(images: List[BuildImage], texts: List[str], args: MemeArgsModel)
     names = [info.name for info in args.user_infos]
 
     if len(images) > len(texts) + len(names):
-        raise ImageTextNumberMismatch("always_like")
+        raise TextOrNameNotEnough("always_like")
     texts = texts + names
 
     img = images[0].convert("RGBA")

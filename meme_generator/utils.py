@@ -1,15 +1,57 @@
 import math
 import time
 import httpx
+import asyncio
 import hashlib
+import inspect
 from enum import Enum
 from io import BytesIO
 from pil_utils import BuildImage
 from PIL.Image import Image as IMG
-from typing import List, Protocol, Optional
+from functools import wraps, partial
+from typing import (
+    List,
+    Any,
+    Protocol,
+    Optional,
+    Callable,
+    ParamSpec,
+    TypeVar,
+    Coroutine,
+)
 
 
 from .config import meme_config
+
+
+P = ParamSpec("P")
+R = TypeVar("R")
+
+
+def run_sync(call: Callable[P, R]) -> Callable[P, Coroutine[None, None, R]]:
+    """一个用于包装 sync function 为 async function 的装饰器
+    参数:
+        call: 被装饰的同步函数
+    """
+
+    @wraps(call)
+    async def _wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+        loop = asyncio.get_running_loop()
+        pfunc = partial(call, *args, **kwargs)
+        result = await loop.run_in_executor(None, pfunc)
+        return result
+
+    return _wrapper
+
+
+def is_coroutine_callable(call: Callable[..., Any]) -> bool:
+    """检查 call 是否是一个 callable 协程函数"""
+    if inspect.isroutine(call):
+        return inspect.iscoroutinefunction(call)
+    if inspect.isclass(call):
+        return False
+    func_ = getattr(call, "__call__", None)
+    return inspect.iscoroutinefunction(func_)
 
 
 def save_gif(frames: List[IMG], duration: float) -> BytesIO:

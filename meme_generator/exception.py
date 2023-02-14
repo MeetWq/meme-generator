@@ -53,12 +53,10 @@ class TextNumberMismatch(ParamsMismatch):
         super().__init__(meme_key, message)
 
 
-class ImageTextNumberMismatch(ParamsMismatch):
+class TextOrNameNotEnough(ParamsMismatch):
     def __init__(self, meme_key: str, message: Optional[str] = None):
         self.meme_key = meme_key
-        self.message = (
-            message or "The number of images and the number of texts must be the same"
-        )
+        self.message = message or "The number of texts or user names is not enough"
 
 
 class ArgMismatch(ParamsMismatch):

@@ -5,8 +5,20 @@ from pil_utils import BuildImage
 from argparse import ArgumentParser
 from dataclasses import dataclass, field
 from pydantic import BaseModel, ValidationError
-from typing import List, Dict, Any, Literal, Optional, Callable, Type, TypeVar
+from typing import (
+    List,
+    Dict,
+    Any,
+    cast,
+    Literal,
+    Optional,
+    Callable,
+    Type,
+    TypeVar,
+    Awaitable,
+)
 
+from .utils import run_sync, is_coroutine_callable
 from .exception import (
     ImageNumberMismatch,
     TextNumberMismatch,
@@ -26,7 +38,10 @@ class MemeArgsModel(BaseModel):
 
 ArgsModel = TypeVar("ArgsModel", bound=MemeArgsModel)
 
-MemeFunction = Callable[[List[BuildImage], List[str], ArgsModel], BytesIO]
+MemeFunction = Union[
+    Callable[[List[BuildImage], List[str], ArgsModel], BytesIO],
+    Callable[[List[BuildImage], List[str], ArgsModel], Awaitable[BytesIO]],
+]
 
 
 @dataclass
@@ -52,7 +67,7 @@ class Meme:
     function: MemeFunction
     params_type: MemeParamsType
 
-    def __call__(
+    async def __call__(
         self,
         *,
         images: Union[List[str], List[Path], List[bytes], List[BytesIO]] = [],
@@ -91,4 +106,11 @@ class Meme:
         except Exception as e:
             raise OpenImageFailed(self.key, str(e))
 
-        return self.function(imgs, texts, model)
+        values = {"images": imgs, "texts": texts, "args": model}
+
+        if is_coroutine_callable(self.function):
+            return await cast(Callable[..., Awaitable[BytesIO]], self.function)(
+                **values
+            )
+        else:
+            return await run_sync(cast(Callable[..., BytesIO], self.function))(**values)

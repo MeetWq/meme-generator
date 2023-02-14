@@ -1,6 +1,4 @@
-import asyncio
 import filetype
-from functools import partial
 from typing import List, Optional
 from pydantic import ValidationError
 from fastapi.encoders import jsonable_encoder
@@ -46,9 +44,7 @@ def register_router(meme: Meme):
         assert isinstance(args, args_model)
 
         try:
-            loop = asyncio.get_running_loop()
-            pfunc = partial(meme, images=imgs, texts=texts, args=args.dict())
-            result = await loop.run_in_executor(None, pfunc)
+            result = await meme(images=imgs, texts=texts, args=args.dict())
         except MemeGeneratorException as e:
             raise HTTPException(status_code=500, detail=str(e))
 

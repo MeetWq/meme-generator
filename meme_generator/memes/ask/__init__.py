@@ -5,7 +5,7 @@ from pil_utils import BuildImage, Text2Image
 from pil_utils.gradient import LinearGradient, ColorStop
 
 from meme_generator import add_meme, MemeArgsModel
-from meme_generator.exception import ImageTextNumberMismatch, TextOverLength
+from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 
 
 img_dir = Path(__file__).parent / "images"
@@ -13,7 +13,7 @@ img_dir = Path(__file__).parent / "images"
 
 def ask(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     if not texts and not args.user_infos:
-        raise ImageTextNumberMismatch("ask")
+        raise TextOrNameNotEnough("ask")
 
     name = texts[0] if texts else args.user_infos[0].name
     ta = "他" if args.user_infos and args.user_infos[0].gender == "male" else "她"
