@@ -18,5 +18,10 @@ def google(images, texts: List[str], args):
 
 
 add_meme(
-    "google", ["google"], google, min_texts=1, max_texts=1, default_texts=["Google"]
+    "google",
+    google,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["Google"],
+    keywords=["google"],
 )

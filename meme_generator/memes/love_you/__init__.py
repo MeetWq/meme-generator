@@ -23,4 +23,4 @@ def love_you(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.2)
 
 
-add_meme("love_you", ["永远爱你"], love_you, min_images=1, max_images=1)
+add_meme("love_you", love_you, min_images=1, max_images=1, keywords=["永远爱你"])

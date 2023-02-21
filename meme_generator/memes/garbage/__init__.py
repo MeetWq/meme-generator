@@ -27,4 +27,4 @@ def garbage(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("garbage", ["垃圾", "垃圾桶"], garbage, min_images=1, max_images=1)
+add_meme("garbage", garbage, min_images=1, max_images=1, keywords=["垃圾", "垃圾桶"])

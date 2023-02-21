@@ -49,4 +49,6 @@ def scroll(images, texts: List[str], args):
     return save_gif(frames, 0.05)
 
 
-add_meme("scroll", ["滚屏"], scroll, min_texts=1, max_texts=1, default_texts=["你们说话啊"])
+add_meme(
+    "scroll", scroll, min_texts=1, max_texts=1, default_texts=["你们说话啊"], keywords=["滚屏"]
+)

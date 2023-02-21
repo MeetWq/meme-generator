@@ -46,5 +46,10 @@ def wujing(images, texts: List[str], args):
 
 
 add_meme(
-    "wujing", ["吴京"], wujing, min_texts=2, max_texts=2, default_texts=["不买华为不是", "人"]
+    "wujing",
+    wujing,
+    min_texts=2,
+    max_texts=2,
+    default_texts=["不买华为不是", "人"],
+    keywords=["吴京"],
 )

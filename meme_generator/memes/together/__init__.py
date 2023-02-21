@@ -29,5 +29,11 @@ def together(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
 
 
 add_meme(
-    "together", ["一起"], together, min_images=1, max_images=1, min_texts=0, max_texts=1
+    "together",
+    together,
+    min_images=1,
+    max_images=1,
+    min_texts=0,
+    max_texts=1,
+    keywords=["一起"],
 )

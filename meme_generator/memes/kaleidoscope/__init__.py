@@ -46,9 +46,9 @@ def kaleidoscope(images: List[BuildImage], texts, args: Model):
 
 add_meme(
     "kaleidoscope",
-    ["万花筒", "万花镜"],
     kaleidoscope,
     min_images=1,
     max_images=1,
     args_type=MemeArgsType(parser, Model),
+    keywords=["万花筒", "万花镜"],
 )

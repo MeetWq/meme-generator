@@ -16,4 +16,4 @@ def call_110(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("call_110", ["遇到困难请拨打"], call_110, min_images=2, max_images=2)
+add_meme("call_110", call_110, min_images=2, max_images=2, keywords=["遇到困难请拨打"])

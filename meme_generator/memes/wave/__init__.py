@@ -41,4 +41,4 @@ def wave(images: List[BuildImage], texts, args):
     )
 
 
-add_meme("wave", ["波纹"], wave, min_images=1, max_images=1)
+add_meme("wave", wave, min_images=1, max_images=1, keywords=["波纹"])

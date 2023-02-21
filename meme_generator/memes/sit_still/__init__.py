@@ -30,10 +30,10 @@ def sit_still(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
 
 add_meme(
     "sit_still",
-    ["坐得住", "坐的住"],
     sit_still,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
+    keywords=["坐得住", "坐的住"],
 )

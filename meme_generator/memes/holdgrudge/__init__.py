@@ -27,5 +27,10 @@ def holdgrudge(images, texts: List[str], args):
 
 
 add_meme(
-    "holdgrudge", ["记仇"], holdgrudge, min_texts=1, max_texts=1, default_texts=["群友不发涩图"]
+    "holdgrudge",
+    holdgrudge,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["群友不发涩图"],
+    keywords=["记仇"],
 )

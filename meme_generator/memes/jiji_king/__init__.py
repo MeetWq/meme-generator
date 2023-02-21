@@ -92,11 +92,11 @@ def jiji_king(images: List[BuildImage], texts: List[str], args: Model):
 
 add_meme(
     "jiji_king",
-    ["急急国王"],
     jiji_king,
     min_images=1,
     max_images=11,
     min_texts=0,
     max_texts=11,
     args_type=MemeArgsType(parser, Model),
+    keywords=["急急国王"],
 )

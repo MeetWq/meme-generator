@@ -46,7 +46,6 @@ def load_memes(dir_path: Union[str, Path]):
 
 def add_meme(
     key: str,
-    keywords: List[str],
     function: MemeFunction,
     *,
     min_images: int = 0,
@@ -55,6 +54,8 @@ def add_meme(
     max_texts: int = 0,
     default_texts: List[str] = [],
     args_type: Optional[MemeArgsType] = None,
+    keywords: List[str] = [],
+    patterns: List[str] = [],
 ):
     if key in _memes:
         logger.warning(f"Meme with key {key} always exists!")
@@ -62,11 +63,12 @@ def add_meme(
 
     meme = Meme(
         key,
-        keywords,
         function,
         MemeParamsType(
             min_images, max_images, min_texts, max_texts, default_texts, args_type
         ),
+        keywords=keywords,
+        patterns=patterns,
     )
 
     _memes[key] = meme

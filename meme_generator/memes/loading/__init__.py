@@ -33,4 +33,4 @@ def loading(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("loading", ["加载中"], loading, min_images=1, max_images=1)
+add_meme("loading", loading, min_images=1, max_images=1, keywords=["加载中"])

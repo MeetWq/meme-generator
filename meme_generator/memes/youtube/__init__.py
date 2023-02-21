@@ -53,9 +53,9 @@ def youtube(images, texts: List[str], args):
 
 add_meme(
     "youtube",
-    ["yt", "youtube"],
     youtube,
     min_texts=2,
     max_texts=2,
     default_texts=["Porn", "Hub"],
+    keywords=["yt", "youtube"],
 )

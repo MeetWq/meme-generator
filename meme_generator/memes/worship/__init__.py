@@ -22,4 +22,4 @@ def worship(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("worship", ["膜", "膜拜"], worship, min_images=1, max_images=1)
+add_meme("worship", worship, min_images=1, max_images=1, keywords=["膜", "膜拜"])

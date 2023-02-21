@@ -45,7 +45,6 @@ def look_flat(images: List[BuildImage], texts: List[str], args: Model):
 
 add_meme(
     "look_flat",
-    ["看扁"],
     look_flat,
     min_images=1,
     max_images=1,
@@ -53,4 +52,5 @@ add_meme(
     max_texts=1,
     default_texts=["可恶...被人看扁了"],
     args_type=MemeArgsType(parser, Model),
+    keywords=["看扁"],
 )

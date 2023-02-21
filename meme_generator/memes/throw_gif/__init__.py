@@ -31,4 +31,4 @@ def throw_gif(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("throw_gif", ["抛", "掷"], throw_gif, min_images=1, max_images=1)
+add_meme("throw_gif", throw_gif, min_images=1, max_images=1, keywords=["抛", "掷"])

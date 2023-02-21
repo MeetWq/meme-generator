@@ -37,4 +37,10 @@ def name_generator(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("name_generator", ["亚文化取名机", "亚名"], name_generator, min_images=1, max_images=1)
+add_meme(
+    "name_generator",
+    name_generator,
+    min_images=1,
+    max_images=1,
+    keywords=["亚文化取名机", "亚名"],
+)

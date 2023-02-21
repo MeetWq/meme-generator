@@ -27,4 +27,4 @@ def hammer(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.07)
 
 
-add_meme("hammer", ["锤"], hammer, min_images=1, max_images=1)
+add_meme("hammer", hammer, min_images=1, max_images=1, keywords=["锤"])

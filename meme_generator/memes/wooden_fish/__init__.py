@@ -18,4 +18,4 @@ def wooden_fish(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("wooden_fish", ["木鱼"], wooden_fish, min_images=1, max_images=1)
+add_meme("wooden_fish", wooden_fish, min_images=1, max_images=1, keywords=["木鱼"])

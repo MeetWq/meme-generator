@@ -20,4 +20,4 @@ def dont_touch(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("dont_touch", ["不要靠近"], dont_touch, min_images=1, max_images=1)
+add_meme("dont_touch", dont_touch, min_images=1, max_images=1, keywords=["不要靠近"])

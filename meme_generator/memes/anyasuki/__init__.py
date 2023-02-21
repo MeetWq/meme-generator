@@ -36,11 +36,11 @@ def anyasuki(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "anyasuki",
-    ["阿尼亚喜欢"],
     anyasuki,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["阿尼亚喜欢这个"],
+    keywords=["阿尼亚喜欢"],
 )

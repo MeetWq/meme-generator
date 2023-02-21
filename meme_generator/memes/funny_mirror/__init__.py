@@ -19,4 +19,4 @@ def funny_mirror(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("funny_mirror", ["哈哈镜"], funny_mirror, min_images=1, max_images=1)
+add_meme("funny_mirror", funny_mirror, min_images=1, max_images=1, keywords=["哈哈镜"])

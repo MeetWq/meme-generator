@@ -26,5 +26,10 @@ def wish_fail(images, texts: List[str], args):
 
 
 add_meme(
-    "wish_fail", ["许愿失败"], wish_fail, min_texts=1, max_texts=1, default_texts=["我要对象"]
+    "wish_fail",
+    wish_fail,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["我要对象"],
+    keywords=["许愿失败"],
 )

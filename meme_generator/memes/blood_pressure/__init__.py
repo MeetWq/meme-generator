@@ -21,4 +21,4 @@ def blood_pressure(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(img, make)
 
 
-add_meme("blood_pressure", ["高血压"], blood_pressure, min_images=1, max_images=1)
+add_meme("blood_pressure", blood_pressure, min_images=1, max_images=1, keywords=["高血压"])

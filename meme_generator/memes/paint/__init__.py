@@ -15,4 +15,4 @@ def paint(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("paint", ["这像画吗"], paint, min_images=1, max_images=1)
+add_meme("paint", paint, min_images=1, max_images=1, keywords=["这像画吗"])

@@ -30,4 +30,4 @@ def confuse(images: List[BuildImage], texts, args):
     )
 
 
-add_meme("confuse", ["迷惑"], confuse, min_images=1, max_images=1)
+add_meme("confuse", confuse, min_images=1, max_images=1, keywords=["迷惑"])

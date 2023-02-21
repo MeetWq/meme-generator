@@ -23,4 +23,4 @@ def distracted(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("distracted", ["注意力涣散"], distracted, min_images=1, max_images=1)
+add_meme("distracted", distracted, min_images=1, max_images=1, keywords=["注意力涣散"])

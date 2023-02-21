@@ -33,5 +33,10 @@ def nokia(images, texts: List[str], args):
 
 
 add_meme(
-    "nokia", ["诺基亚", "有内鬼"], nokia, min_texts=1, max_texts=1, default_texts=["无内鬼，继续交易"]
+    "nokia",
+    nokia,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["无内鬼，继续交易"],
+    keywords=["诺基亚", "有内鬼"],
 )

@@ -25,4 +25,11 @@ def shutup(images, texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("shutup", ["别说了"], shutup, min_texts=1, max_texts=1, default_texts=["你不要再说了"])
+add_meme(
+    "shutup",
+    shutup,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["你不要再说了"],
+    keywords=["别说了"],
+)

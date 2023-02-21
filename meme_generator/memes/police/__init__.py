@@ -27,5 +27,5 @@ def police1(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("police", ["出警"], police, min_images=1, max_images=1)
-add_meme("police1", ["警察"], police1, min_images=1, max_images=1)
+add_meme("police", police, min_images=1, max_images=1, keywords=["出警"])
+add_meme("police1", police1, min_images=1, max_images=1, keywords=["警察"])

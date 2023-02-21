@@ -45,4 +45,4 @@ def hit_screen(images: List[BuildImage], texts, args):
     )
 
 
-add_meme("hit_screen", ["打穿", "打穿屏幕"], hit_screen, min_images=1, max_images=1)
+add_meme("hit_screen", hit_screen, min_images=1, max_images=1, keywords=["打穿", "打穿屏幕"])

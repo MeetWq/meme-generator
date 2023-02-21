@@ -33,9 +33,9 @@ def crawl(images: List[BuildImage], texts: List[str], args: Model):
 
 add_meme(
     "crawl",
-    ["爬"],
     crawl,
     min_images=1,
     max_images=1,
     args_type=MemeArgsType(parser, Model),
+    keywords=["爬"],
 )

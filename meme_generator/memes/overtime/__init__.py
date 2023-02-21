@@ -15,4 +15,4 @@ def overtime(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("overtime", ["加班"], overtime, min_images=1, max_images=1)
+add_meme("overtime", overtime, min_images=1, max_images=1, keywords=["加班"])

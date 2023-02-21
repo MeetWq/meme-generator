@@ -45,10 +45,10 @@ def littleangel(images: List[BuildImage], texts: List[str], args: MemeArgsModel)
 
 add_meme(
     "littleangel",
-    ["小天使"],
     littleangel,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
+    keywords=["小天使"],
 )

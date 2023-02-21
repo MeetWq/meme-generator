@@ -15,4 +15,4 @@ def perfect(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("perfect", ["完美"], perfect, min_images=1, max_images=1)
+add_meme("perfect", perfect, min_images=1, max_images=1, keywords=["完美"])

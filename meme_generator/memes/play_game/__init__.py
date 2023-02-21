@@ -35,11 +35,11 @@ def play_game(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "play_game",
-    ["玩游戏"],
     play_game,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["来玩休闲游戏啊"],
+    keywords=["玩游戏"],
 )

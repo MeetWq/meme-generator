@@ -30,4 +30,4 @@ def bite(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.07)
 
 
-add_meme("bite", ["啃"], bite, min_images=1, max_images=1)
+add_meme("bite", bite, min_images=1, max_images=1, keywords=["啃"])

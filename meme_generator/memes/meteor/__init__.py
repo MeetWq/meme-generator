@@ -26,4 +26,6 @@ def meteor(images, texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("meteor", ["流星"], meteor, min_texts=1, max_texts=1, default_texts=["我要对象"])
+add_meme(
+    "meteor", meteor, min_texts=1, max_texts=1, default_texts=["我要对象"], keywords=["流星"]
+)

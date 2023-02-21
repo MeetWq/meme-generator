@@ -27,4 +27,4 @@ def pound(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("pound", ["捣"], pound, min_images=1, max_images=1)
+add_meme("pound", pound, min_images=1, max_images=1, keywords=["捣"])

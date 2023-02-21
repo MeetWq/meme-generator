@@ -99,9 +99,9 @@ def always(images: List[BuildImage], texts, args: Model):
 
 add_meme(
     "always",
-    ["一直"],
     always,
     min_images=1,
     max_images=1,
     args_type=MemeArgsType(parser, Model),
+    keywords=["一直"],
 )

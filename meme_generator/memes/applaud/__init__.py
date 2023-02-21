@@ -28,4 +28,4 @@ def applaud(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("applaud", ["鼓掌"], applaud, min_images=1, max_images=1)
+add_meme("applaud", applaud, min_images=1, max_images=1, keywords=["鼓掌"])

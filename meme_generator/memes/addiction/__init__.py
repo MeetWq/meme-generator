@@ -29,10 +29,10 @@ def addiction(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "addiction",
-    ["上瘾", "毒瘾发作"],
     addiction,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
+    keywords=["上瘾", "毒瘾发作"],
 )

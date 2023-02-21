@@ -15,4 +15,4 @@ def china_flag(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("china_flag", ["国旗"], china_flag, min_images=1, max_images=1)
+add_meme("china_flag", china_flag, min_images=1, max_images=1, keywords=["国旗"])

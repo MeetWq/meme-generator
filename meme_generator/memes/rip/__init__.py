@@ -27,4 +27,4 @@ def rip(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("rip", ["撕"], rip, min_images=1, max_images=2)
+add_meme("rip", rip, min_images=1, max_images=2, keywords=["撕"])

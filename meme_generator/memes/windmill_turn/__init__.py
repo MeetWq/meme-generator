@@ -23,4 +23,4 @@ def windmill_turn(images: List[BuildImage], texts, args):
     )
 
 
-add_meme("windmill_turn", ["风车转"], windmill_turn, min_images=1, max_images=1)
+add_meme("windmill_turn", windmill_turn, min_images=1, max_images=1, keywords=["风车转"])

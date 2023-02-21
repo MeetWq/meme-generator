@@ -28,4 +28,4 @@ def printing(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("printing", ["打印"], printing, min_images=1, max_images=1)
+add_meme("printing", printing, min_images=1, max_images=1, keywords=["打印"])

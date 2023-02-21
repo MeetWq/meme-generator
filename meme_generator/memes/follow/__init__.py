@@ -32,4 +32,12 @@ def follow(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     return frame.save_jpg()
 
 
-add_meme("follow", ["关注"], follow, min_images=1, max_images=1, min_texts=0, max_texts=1)
+add_meme(
+    "follow",
+    follow,
+    min_images=1,
+    max_images=1,
+    min_texts=0,
+    max_texts=1,
+    keywords=["关注"],
+)

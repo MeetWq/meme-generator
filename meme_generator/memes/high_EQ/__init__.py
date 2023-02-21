@@ -34,9 +34,9 @@ def high_EQ(images, texts: List[str], args):
 
 add_meme(
     "high_EQ",
-    ["低情商xx高情商xx"],
     high_EQ,
     min_texts=2,
     max_texts=2,
     default_texts=["高情商", "低情商"],
+    keywords=["低情商xx高情商xx"],
 )

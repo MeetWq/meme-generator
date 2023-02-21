@@ -15,4 +15,4 @@ def hold_tight(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("hold_tight", ["抱紧"], hold_tight, min_images=1, max_images=1)
+add_meme("hold_tight", hold_tight, min_images=1, max_images=1, keywords=["抱紧"])

@@ -30,9 +30,9 @@ def pornhub(images, texts: List[str], args):
 
 add_meme(
     "pornhub",
-    ["ph", "pornhub"],
     pornhub,
     min_texts=2,
     max_texts=2,
     default_texts=["You", "Tube"],
+    keywords=["ph", "pornhub"],
 )

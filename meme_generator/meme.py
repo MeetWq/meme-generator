@@ -63,9 +63,10 @@ class MemeParamsType:
 @dataclass
 class Meme:
     key: str
-    keywords: List[str]
     function: MemeFunction
     params_type: MemeParamsType
+    keywords: List[str] = []
+    patterns: List[str] = []
 
     async def __call__(
         self,

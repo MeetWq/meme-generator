@@ -28,9 +28,9 @@ def bronya_holdsign(images, texts: List[str], args):
 
 add_meme(
     "bronya_holdsign",
-    ["大鸭鸭举牌"],
     bronya_holdsign,
     min_texts=1,
     max_texts=1,
     default_texts=["V我50"],
+    keywords=["大鸭鸭举牌"],
 )

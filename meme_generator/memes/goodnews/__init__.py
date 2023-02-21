@@ -29,4 +29,11 @@ def goodnews(images, texts: List[str], args):
     return frame.save_png()
 
 
-add_meme("goodnews", ["喜报"], goodnews, min_texts=1, max_texts=1, default_texts=["悲报"])
+add_meme(
+    "goodnews",
+    goodnews,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["悲报"],
+    keywords=["喜报"],
+)

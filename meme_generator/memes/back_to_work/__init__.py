@@ -17,4 +17,6 @@ def back_to_work(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("back_to_work", ["继续干活", "打工人"], back_to_work, min_images=1, max_images=1)
+add_meme(
+    "back_to_work", back_to_work, min_images=1, max_images=1, keywords=["继续干活", "打工人"]
+)

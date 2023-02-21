@@ -189,9 +189,9 @@ def fivethousand_choyen(images, texts: List[str], args):
 
 add_meme(
     "5000choyen",
-    ["5000兆"],
     fivethousand_choyen,
     min_texts=2,
     max_texts=2,
     default_texts=["我去", "洛天依"],
+    keywords=["5000兆"],
 )

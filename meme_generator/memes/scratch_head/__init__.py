@@ -29,4 +29,4 @@ def scratch_head(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("scratch_head", ["挠头"], scratch_head, min_images=1, max_images=1)
+add_meme("scratch_head", scratch_head, min_images=1, max_images=1, keywords=["挠头"])

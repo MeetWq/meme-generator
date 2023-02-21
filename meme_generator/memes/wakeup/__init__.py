@@ -22,4 +22,6 @@ def wakeup(images, texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("wakeup", ["xx起来了"], wakeup, min_texts=1, max_texts=1, default_texts=["好"])
+add_meme(
+    "wakeup", wakeup, min_texts=1, max_texts=1, default_texts=["好"], keywords=["xx起来了"]
+)

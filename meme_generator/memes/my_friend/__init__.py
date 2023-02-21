@@ -66,7 +66,6 @@ def my_friend(images: List[BuildImage], texts: List[str], args: Model):
 
 add_meme(
     "my_friend",
-    ["我朋友说"],
     my_friend,
     min_images=1,
     max_images=1,
@@ -74,4 +73,5 @@ add_meme(
     max_texts=10,
     default_texts=["让我康康"],
     args_type=MemeArgsType(parser, Model),
+    keywords=["我朋友说"],
 )

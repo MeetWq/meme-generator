@@ -36,4 +36,4 @@ def rub(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("rub", ["贴", "贴贴", "蹭", "蹭蹭"], rub, min_images=2, max_images=2)
+add_meme("rub", rub, min_images=2, max_images=2, keywords=["贴", "贴贴", "蹭", "蹭蹭"])

@@ -20,4 +20,4 @@ def jiujiu(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.06)
 
 
-add_meme("jiujiu", ["啾啾"], jiujiu, min_images=1, max_images=1)
+add_meme("jiujiu", jiujiu, min_images=1, max_images=1, keywords=["啾啾"])

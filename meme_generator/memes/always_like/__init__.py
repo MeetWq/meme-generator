@@ -85,10 +85,10 @@ def always_like(images: List[BuildImage], texts: List[str], args: MemeArgsModel)
 
 add_meme(
     "always_like",
-    ["我永远喜欢"],
     always_like,
     min_images=1,
     max_images=6,
     min_texts=0,
     max_texts=6,
+    keywords=["我永远喜欢"],
 )

@@ -16,4 +16,4 @@ def cover_face(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("cover_face", ["捂脸"], cover_face, min_images=1, max_images=1)
+add_meme("cover_face", cover_face, min_images=1, max_images=1, keywords=["捂脸"])

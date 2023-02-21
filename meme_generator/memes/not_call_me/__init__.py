@@ -27,9 +27,9 @@ def not_call_me(images, texts: List[str], args):
 
 add_meme(
     "not_call_me",
-    ["不喊我"],
     not_call_me,
     min_texts=1,
     max_texts=1,
     default_texts=["开银趴不喊我是吧"],
+    keywords=["不喊我"],
 )

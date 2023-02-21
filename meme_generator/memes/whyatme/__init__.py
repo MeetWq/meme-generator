@@ -15,4 +15,4 @@ def whyatme(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("whyatme", ["为什么@我"], whyatme, min_images=1, max_images=1)
+add_meme("whyatme", whyatme, min_images=1, max_images=1, keywords=["为什么@我"])

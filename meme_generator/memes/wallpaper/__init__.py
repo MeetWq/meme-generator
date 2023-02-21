@@ -22,4 +22,4 @@ def wallpaper(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.07)
 
 
-add_meme("wallpaper", ["墙纸"], wallpaper, min_images=1, max_images=1)
+add_meme("wallpaper", wallpaper, min_images=1, max_images=1, keywords=["墙纸"])

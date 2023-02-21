@@ -36,11 +36,11 @@ def keepaway(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "keepaway",
-    ["远离"],
     keepaway,
     min_images=1,
     max_images=8,
     min_texts=0,
     max_texts=1,
     default_texts=["如何提高社交质量 : \n远离以下头像的人"],
+    keywords=["远离"],
 )

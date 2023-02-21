@@ -22,4 +22,4 @@ def hutao_bite(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("hutao_bite", ["胡桃啃"], hutao_bite, min_images=1, max_images=1)
+add_meme("hutao_bite", hutao_bite, min_images=1, max_images=1, keywords=["胡桃啃"])

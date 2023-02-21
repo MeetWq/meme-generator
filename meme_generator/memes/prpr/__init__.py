@@ -20,4 +20,4 @@ def prpr(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("prpr", ["舔", "舔屏", "prpr"], prpr, min_images=1, max_images=1)
+add_meme("prpr", prpr, min_images=1, max_images=1, keywords=["舔", "舔屏", "prpr"])

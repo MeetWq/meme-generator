@@ -34,11 +34,11 @@ def look_this_icon(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "look_this_icon",
-    ["看图标"],
     look_this_icon,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["朋友\n先看看这个图标再说话"],
+    keywords=["看图标"],
 )

@@ -43,9 +43,9 @@ def petpet(images: List[BuildImage], texts, args: Model):
 
 add_meme(
     "petpet",
-    ["摸", "摸摸", "摸头", "rua"],
     petpet,
     min_images=1,
     max_images=1,
     args_type=MemeArgsType(parser, Model),
+    keywords=["摸", "摸摸", "摸头", "rua"],
 )

@@ -30,5 +30,10 @@ def scratchoff(images, texts: List[str], args):
 
 
 add_meme(
-    "scratchoff", ["刮刮乐"], scratchoff, min_texts=1, max_texts=1, default_texts=["谢谢参与"]
+    "scratchoff",
+    scratchoff,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["谢谢参与"],
+    keywords=["刮刮乐"],
 )

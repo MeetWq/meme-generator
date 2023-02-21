@@ -35,11 +35,11 @@ def interview(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "interview",
-    ["采访"],
     interview,
     min_images=1,
     max_images=2,
     min_texts=0,
     max_texts=1,
     default_texts=["采访大佬经验"],
+    keywords=["采访"],
 )

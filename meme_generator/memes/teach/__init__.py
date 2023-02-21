@@ -35,11 +35,11 @@ def teach(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "teach",
-    ["讲课", "敲黑板"],
     teach,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["我老婆"],
+    keywords=["讲课", "敲黑板"],
 )

@@ -15,4 +15,4 @@ def anti_kidnap(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("anti_kidnap", ["防诱拐"], anti_kidnap, min_images=1, max_images=1)
+add_meme("anti_kidnap", anti_kidnap, min_images=1, max_images=1, keywords=["防诱拐"])

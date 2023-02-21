@@ -19,4 +19,4 @@ def shock(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.01)
 
 
-add_meme("shock", ["震惊"], shock, min_images=1, max_images=1)
+add_meme("shock", shock, min_images=1, max_images=1, keywords=["震惊"])

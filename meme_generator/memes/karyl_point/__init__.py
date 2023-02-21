@@ -15,4 +15,4 @@ def karyl_point(images: List[BuildImage], texts, args):
     return frame.save_png()
 
 
-add_meme("karyl_point", ["凯露指"], karyl_point, min_images=1, max_images=1)
+add_meme("karyl_point", karyl_point, min_images=1, max_images=1, keywords=["凯露指"])

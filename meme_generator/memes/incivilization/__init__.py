@@ -33,11 +33,11 @@ def incivilization(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "incivilization",
-    ["不文明"],
     incivilization,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["你刚才说的话不是很礼貌！"],
+    keywords=["不文明"],
 )

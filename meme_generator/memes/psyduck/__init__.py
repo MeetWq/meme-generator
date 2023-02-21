@@ -67,5 +67,10 @@ def psyduck(images, texts: List[str], args):
 
 
 add_meme(
-    "psyduck", ["可达鸭"], psyduck, min_texts=2, max_texts=2, default_texts=["来份", "涩图"]
+    "psyduck",
+    psyduck,
+    min_texts=2,
+    max_texts=2,
+    default_texts=["来份", "涩图"],
+    keywords=["可达鸭"],
 )

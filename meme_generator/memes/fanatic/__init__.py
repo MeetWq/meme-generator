@@ -27,5 +27,10 @@ def fanatic(images, texts: List[str], args):
 
 
 add_meme(
-    "fanatic", ["狂爱", "狂粉"], fanatic, min_texts=1, max_texts=1, default_texts=["洛天依"]
+    "fanatic",
+    fanatic,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["洛天依"],
+    keywords=["狂爱", "狂粉"],
 )

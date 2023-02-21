@@ -24,4 +24,11 @@ def murmur(images, texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("murmur", ["低语"], murmur, min_texts=1, max_texts=1, default_texts=["你的假期余额不足"])
+add_meme(
+    "murmur",
+    murmur,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["你的假期余额不足"],
+    keywords=["低语"],
+)

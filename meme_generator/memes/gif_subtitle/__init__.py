@@ -58,11 +58,11 @@ def add_gif_meme(
     text_num = len(pieces)
     add_meme(
         key,
-        keywords,
         gif_func,
         min_texts=text_num,
         max_texts=text_num,
         default_texts=list(examples),
+        keywords=keywords,
     )
 
 

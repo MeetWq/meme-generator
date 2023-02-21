@@ -19,4 +19,4 @@ def trance(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("trance", ["恍惚"], trance, min_images=1, max_images=1)
+add_meme("trance", trance, min_images=1, max_images=1, keywords=["恍惚"])

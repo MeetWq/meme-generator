@@ -17,4 +17,4 @@ def painter(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("painter", ["小画家"], painter, min_images=1, max_images=1)
+add_meme("painter", painter, min_images=1, max_images=1, keywords=["小画家"])

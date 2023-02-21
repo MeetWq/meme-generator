@@ -27,4 +27,4 @@ def tightly(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.08)
 
 
-add_meme("tightly", ["紧贴", "紧紧贴着"], tightly, min_images=1, max_images=1)
+add_meme("tightly", tightly, min_images=1, max_images=1, keywords=["紧贴", "紧紧贴着"])

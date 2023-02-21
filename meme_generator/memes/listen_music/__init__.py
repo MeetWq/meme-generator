@@ -23,4 +23,4 @@ def listen_music(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("listen_music", ["听音乐"], listen_music, min_images=1, max_images=1)
+add_meme("listen_music", listen_music, min_images=1, max_images=1, keywords=["听音乐"])

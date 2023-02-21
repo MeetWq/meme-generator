@@ -54,11 +54,11 @@ async def dianzhongdian(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "dianzhongdian",
-    ["典中典", "黑白草图"],
     dianzhongdian,
     min_images=1,
     max_images=1,
     min_texts=1,
     max_texts=2,
     default_texts=["救命啊"],
+    keywords=["典中典", "黑白草图"],
 )

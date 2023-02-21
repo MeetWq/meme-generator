@@ -26,4 +26,4 @@ def pat(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.085)
 
 
-add_meme("pat", ["拍"], pat, min_images=1, max_images=1)
+add_meme("pat", pat, min_images=1, max_images=1, keywords=["拍"])

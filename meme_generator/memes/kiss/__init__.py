@@ -32,4 +32,4 @@ def kiss(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("kiss", ["亲", "亲亲"], kiss, min_images=2, max_images=2)
+add_meme("kiss", kiss, min_images=2, max_images=2, keywords=["亲", "亲亲"])

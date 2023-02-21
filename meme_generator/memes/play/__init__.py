@@ -41,4 +41,4 @@ def play(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.06)
 
 
-add_meme("play", ["顶", "玩"], play, min_images=1, max_images=1)
+add_meme("play", play, min_images=1, max_images=1, keywords=["顶", "玩"])

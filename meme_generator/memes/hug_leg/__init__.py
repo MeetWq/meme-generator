@@ -29,4 +29,4 @@ def hug_leg(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.06)
 
 
-add_meme("hug_leg", ["抱大腿"], hug_leg, min_images=1, max_images=1)
+add_meme("hug_leg", hug_leg, min_images=1, max_images=1, keywords=["抱大腿"])

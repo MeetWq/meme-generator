@@ -15,4 +15,4 @@ def no_response(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("no_response", ["无响应"], no_response, min_images=1, max_images=1)
+add_meme("no_response", no_response, min_images=1, max_images=1, keywords=["无响应"])

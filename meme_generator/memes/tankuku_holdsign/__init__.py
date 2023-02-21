@@ -38,4 +38,6 @@ def tankuku_holdsign(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.2)
 
 
-add_meme("tankuku_holdsign", ["唐可可举牌"], tankuku_holdsign, min_images=1, max_images=1)
+add_meme(
+    "tankuku_holdsign", tankuku_holdsign, min_images=1, max_images=1, keywords=["唐可可举牌"]
+)

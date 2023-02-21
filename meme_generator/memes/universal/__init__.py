@@ -31,11 +31,11 @@ def universal(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "universal",
-    ["万能表情", "空白表情"],
     universal,
     min_images=1,
     max_images=1,
     min_texts=1,
     max_texts=10,
     default_texts=["在此处添加文字"],
+    keywords=["万能表情", "空白表情"],
 )

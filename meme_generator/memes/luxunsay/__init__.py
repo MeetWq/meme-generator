@@ -29,9 +29,9 @@ def luxunsay(images, texts: List[str], args):
 
 add_meme(
     "luxunsay",
-    ["鲁迅说", "鲁迅说过"],
     luxunsay,
     min_texts=1,
     max_texts=1,
     default_texts=["我没有说过这句话"],
+    keywords=["鲁迅说", "鲁迅说过"],
 )

@@ -54,4 +54,4 @@ def read_book(images: List[BuildImage], texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("read_book", ["看书"], read_book, min_images=1, max_images=1)
+add_meme("read_book", read_book, min_images=1, max_images=1, keywords=["看书"])

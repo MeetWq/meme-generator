@@ -68,5 +68,10 @@ def douyin(images, texts: List[str], args):
 
 
 add_meme(
-    "douyin", ["douyin"], douyin, min_texts=1, max_texts=1, default_texts=["douyin"]
+    "douyin",
+    douyin,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["douyin"],
+    keywords=["douyin"],
 )

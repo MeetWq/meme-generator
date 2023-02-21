@@ -75,4 +75,6 @@ def ask(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     return frame.save_jpg()
 
 
-add_meme("ask", ["问问"], ask, min_images=1, max_images=1, min_texts=0, max_texts=1)
+add_meme(
+    "ask", ask, min_images=1, max_images=1, min_texts=0, max_texts=1, keywords=["问问"]
+)

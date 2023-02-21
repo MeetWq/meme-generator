@@ -27,4 +27,4 @@ def suck(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.08)
 
 
-add_meme("suck", ["吸", "嗦"], suck, min_images=1, max_images=1)
+add_meme("suck", suck, min_images=1, max_images=1, keywords=["吸", "嗦"])

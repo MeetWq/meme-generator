@@ -33,4 +33,4 @@ def walnut_zoom(images: List[BuildImage], texts, args):
     )
 
 
-add_meme("walnut_zoom", ["胡桃放大"], walnut_zoom, min_images=1, max_images=1)
+add_meme("walnut_zoom", walnut_zoom, min_images=1, max_images=1, keywords=["胡桃放大"])

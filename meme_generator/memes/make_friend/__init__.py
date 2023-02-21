@@ -41,10 +41,10 @@ def make_friend(images: List[BuildImage], texts: List[str], args: MemeArgsModel)
 
 add_meme(
     "make_friend",
-    ["交个朋友"],
     make_friend,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
+    keywords=["交个朋友"],
 )

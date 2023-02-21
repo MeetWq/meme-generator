@@ -32,9 +32,9 @@ def slogan(images, texts: List[str], args):
 
 add_meme(
     "slogan",
-    ["口号"],
     slogan,
     min_texts=6,
     max_texts=6,
     default_texts=["我们是谁？", "浙大人！", "到浙大来做什么？", "混！", "将来毕业后要做什么样的人？", "混混！"],
+    keywords=["口号"],
 )

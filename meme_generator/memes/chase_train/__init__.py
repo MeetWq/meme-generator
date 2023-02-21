@@ -55,4 +55,6 @@ def chase_train(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("chase_train", ["追列车", "追火车"], chase_train, min_images=1, max_images=1)
+add_meme(
+    "chase_train", chase_train, min_images=1, max_images=1, keywords=["追列车", "追火车"]
+)

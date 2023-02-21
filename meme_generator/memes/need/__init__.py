@@ -21,4 +21,4 @@ def need(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("need", ["需要", "你可能需要"], need, min_images=1, max_images=1)
+add_meme("need", need, min_images=1, max_images=1, keywords=["需要", "你可能需要"])

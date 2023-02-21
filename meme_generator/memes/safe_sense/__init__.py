@@ -34,11 +34,11 @@ def safe_sense(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
 
 add_meme(
     "safe_sense",
-    ["安全感"],
     safe_sense,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["你给我的安全感\n远不及它的万分之一"],
+    keywords=["安全感"],
 )

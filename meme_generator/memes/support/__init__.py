@@ -15,4 +15,4 @@ def support(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("support", ["精神支柱"], support, min_images=1, max_images=1)
+add_meme("support", support, min_images=1, max_images=1, keywords=["精神支柱"])

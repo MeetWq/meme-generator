@@ -16,4 +16,4 @@ def rip_angrily(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("rip_angrily", ["怒撕"], rip_angrily, min_images=1, max_images=1)
+add_meme("rip_angrily", rip_angrily, min_images=1, max_images=1, keywords=["怒撕"])

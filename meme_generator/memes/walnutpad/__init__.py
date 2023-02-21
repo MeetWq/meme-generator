@@ -20,4 +20,4 @@ def walnutpad(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("walnutpad", ["胡桃平板"], walnutpad, min_images=1, max_images=1)
+add_meme("walnutpad", walnutpad, min_images=1, max_images=1, keywords=["胡桃平板"])

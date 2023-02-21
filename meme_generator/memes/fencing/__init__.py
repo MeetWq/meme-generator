@@ -34,4 +34,4 @@ def fencing(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("fencing", ["击剑", "🤺"], fencing, min_images=2, max_images=2)
+add_meme("fencing", fencing, min_images=2, max_images=2, keywords=["击剑", "🤺"])

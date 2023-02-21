@@ -20,4 +20,4 @@ def smash(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("smash", ["砸"], smash, min_images=1, max_images=1)
+add_meme("smash", smash, min_images=1, max_images=1, keywords=["砸"])

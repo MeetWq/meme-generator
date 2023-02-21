@@ -29,7 +29,6 @@ def findchips(images, texts: List[str], args):
 
 add_meme(
     "findchips",
-    ["整点薯条"],
     findchips,
     min_texts=4,
     max_texts=4,
@@ -39,4 +38,5 @@ add_meme(
         "你误会我了伙计，我说的是咱们这一辈子的终极目标。归根结底，活着是为了什么",
         "为了待会去码头整点薯条",
     ],
+    keywords=["整点薯条"],
 )

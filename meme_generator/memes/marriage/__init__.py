@@ -24,4 +24,4 @@ def marriage(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("marriage", ["结婚申请", "结婚登记"], marriage, min_images=1, max_images=1)
+add_meme("marriage", marriage, min_images=1, max_images=1, keywords=["结婚申请", "结婚登记"])

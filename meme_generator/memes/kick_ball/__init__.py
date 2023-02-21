@@ -27,4 +27,4 @@ def kick_ball(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("kick_ball", ["踢球"], kick_ball, min_images=1, max_images=1)
+add_meme("kick_ball", kick_ball, min_images=1, max_images=1, keywords=["踢球"])

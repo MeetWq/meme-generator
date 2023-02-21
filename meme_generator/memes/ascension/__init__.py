@@ -27,9 +27,9 @@ def ascension(images, texts: List[str], args):
 
 add_meme(
     "ascension",
-    ["升天"],
     ascension,
     min_texts=1,
     max_texts=1,
     default_texts=["学的是机械"],
+    keywords=["升天"],
 )

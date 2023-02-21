@@ -33,5 +33,10 @@ def raisesign(images, texts: List[str], args):
 
 
 add_meme(
-    "raisesign", ["举牌"], raisesign, min_texts=1, max_texts=1, default_texts=["大佬带带我"]
+    "raisesign",
+    raisesign,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["大佬带带我"],
+    keywords=["举牌"],
 )

@@ -26,4 +26,4 @@ def captain(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("captain", ["舰长"], captain, min_images=2, max_images=5)
+add_meme("captain", captain, min_images=2, max_images=5, keywords=["舰长"])

@@ -32,4 +32,4 @@ def lim_x_0(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("lim_x_0", ["等价无穷小"], lim_x_0, min_images=1, max_images=1)
+add_meme("lim_x_0", lim_x_0, min_images=1, max_images=1, keywords=["等价无穷小"])

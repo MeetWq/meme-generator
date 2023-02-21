@@ -22,4 +22,4 @@ def throw(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("throw", ["丢", "扔"], throw, min_images=1, max_images=1)
+add_meme("throw", throw, min_images=1, max_images=1, keywords=["丢", "扔"])

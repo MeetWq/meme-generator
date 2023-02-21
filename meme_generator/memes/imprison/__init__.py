@@ -26,5 +26,10 @@ def imprison(images, texts: List[str], args):
 
 
 add_meme(
-    "imprison", ["坐牢"], imprison, min_texts=1, max_texts=1, default_texts=["等我出去就打死你"]
+    "imprison",
+    imprison,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["我发涩图被抓起来了"],
+    keywords=["坐牢"],
 )

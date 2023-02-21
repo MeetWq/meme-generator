@@ -15,4 +15,4 @@ def potato(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("potato", ["土豆"], potato, min_images=1, max_images=1)
+add_meme("potato", potato, min_images=1, max_images=1, keywords=["土豆"])

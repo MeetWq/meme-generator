@@ -34,11 +34,11 @@ def learn(images: List[BuildImage], texts: List[str], args):
 
 add_meme(
     "learn",
-    ["偷学"],
     learn,
     min_images=1,
     max_images=1,
     min_texts=0,
     max_texts=1,
     default_texts=["偷学群友数理基础"],
+    keywords=["偷学"],
 )

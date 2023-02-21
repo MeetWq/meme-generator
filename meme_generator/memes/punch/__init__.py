@@ -28,4 +28,4 @@ def punch(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.03)
 
 
-add_meme("punch", ["打拳"], punch, min_images=1, max_images=1)
+add_meme("punch", punch, min_images=1, max_images=1, keywords=["打拳"])

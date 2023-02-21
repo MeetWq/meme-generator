@@ -33,5 +33,11 @@ def coupon(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
 
 
 add_meme(
-    "coupon", ["兑换券"], coupon, min_images=1, max_images=1, min_texts=0, max_texts=1
+    "coupon",
+    coupon,
+    min_images=1,
+    max_images=1,
+    min_texts=0,
+    max_texts=1,
+    keywords=["兑换券"],
 )

@@ -20,4 +20,4 @@ def dinosaur(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("dinosaur", ["恐龙", "小恐龙"], dinosaur, min_images=1, max_images=1)
+add_meme("dinosaur", dinosaur, min_images=1, max_images=1, keywords=["恐龙", "小恐龙"])

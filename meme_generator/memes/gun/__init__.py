@@ -15,4 +15,4 @@ def gun(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("gun", ["手枪"], gun, min_images=1, max_images=1)
+add_meme("gun", gun, min_images=1, max_images=1, keywords=["手枪"])

@@ -30,4 +30,4 @@ def klee_eat(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("klee_eat", ["可莉吃"], klee_eat, min_images=1, max_images=1)
+add_meme("klee_eat", klee_eat, min_images=1, max_images=1, keywords=["可莉吃"])

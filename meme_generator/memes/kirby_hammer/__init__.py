@@ -54,9 +54,9 @@ def kirby_hammer(images: List[BuildImage], texts, args: Model):
 
 add_meme(
     "kirby_hammer",
-    ["卡比锤", "卡比重锤"],
     kirby_hammer,
     min_images=1,
     max_images=1,
     args_type=MemeArgsType(parser, Model),
+    keywords=["卡比锤", "卡比重锤"],
 )

@@ -24,4 +24,4 @@ def thump(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("thump", ["捶"], thump, min_images=1, max_images=1)
+add_meme("thump", thump, min_images=1, max_images=1, keywords=["捶"])

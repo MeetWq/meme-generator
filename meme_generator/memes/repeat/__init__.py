@@ -64,11 +64,11 @@ def repeat(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
 
 add_meme(
     "repeat",
-    ["复读"],
     repeat,
     min_images=1,
     max_images=5,
     min_texts=1,
     max_texts=1,
     default_texts=["救命啊"],
+    keywords=["复读"],
 )
