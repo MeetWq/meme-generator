@@ -95,12 +95,12 @@ def generate_meme(
 
 def handle(args: Namespace):
     handle = str(args.handle)
-    if handle == "list":
+    if handle in ["list", "ls"]:
         print(list_memes())
-    elif handle == "info":
+    elif handle in ["info", "show"]:
         key = str(args.key)
         print(meme_info(key))
-    elif handle == "generate":
+    elif handle in ["generate", "make"]:
         kwargs = vars(args)
         key: str = kwargs.pop("key")
         images: List[str] = kwargs.pop("images")
