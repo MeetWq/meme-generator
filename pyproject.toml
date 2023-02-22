@@ -24,6 +24,7 @@ black = "^22.1.0"
 
 [tool.poetry.extras]
 api = ["fastapi", "uvicorn", "python-multipart", "filetype"]
+cli = ["filetype"]
 all = ["fastapi", "uvicorn", "python-multipart", "filetype"]
 
 [build-system]
