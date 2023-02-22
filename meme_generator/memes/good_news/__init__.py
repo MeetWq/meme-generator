@@ -9,29 +9,31 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def luxunsay(images, texts: List[str], args):
+def good_news(images, texts: List[str], args):
     text = texts[0]
     frame = BuildImage.open(img_dir / "0.jpg")
     try:
         frame.draw_text(
-            (40, frame.height - 200, frame.width - 40, frame.height - 100),
+            (50, 100, frame.width - 50, frame.height - 100),
             text,
             allow_wrap=True,
-            max_fontsize=40,
+            lines_align="center",
+            max_fontsize=60,
             min_fontsize=30,
-            fill="white",
+            fill=(238, 0, 0),
+            stroke_ratio=1 / 15,
+            stroke_fill=(255, 255, 153),
         )
     except ValueError:
         raise TextOverLength(text)
-    frame.draw_text((320, 400), "--鲁迅", fontsize=30, fill="white")
-    return frame.save_jpg()
+    return frame.save_png()
 
 
 add_meme(
-    "luxunsay",
-    luxunsay,
+    "good_news",
+    good_news,
     min_texts=1,
     max_texts=1,
-    default_texts=["我没有说过这句话"],
-    keywords=["鲁迅说", "鲁迅说过"],
+    default_texts=["悲报"],
+    keywords=["喜报"],
 )

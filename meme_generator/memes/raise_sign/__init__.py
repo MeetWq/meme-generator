@@ -9,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def raisesign(images, texts: List[str], args):
+def raise_sign(images, texts: List[str], args):
     text = texts[0]
     frame = BuildImage.open(img_dir / "0.jpg")
     text_img = BuildImage.new("RGBA", (360, 260))
@@ -33,8 +33,8 @@ def raisesign(images, texts: List[str], args):
 
 
 add_meme(
-    "raisesign",
-    raisesign,
+    "raise_sign",
+    raise_sign,
     min_texts=1,
     max_texts=1,
     default_texts=["大佬带带我"],

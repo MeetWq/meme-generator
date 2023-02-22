@@ -8,7 +8,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def mywife(images: List[BuildImage], texts, args):
+def my_wife(images: List[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize_width(400)
     img_w, img_h = img.size
     frame = BuildImage.new("RGBA", (650, img_h + 500), "white")
@@ -50,4 +50,4 @@ def mywife(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("mywife", mywife, min_images=1, max_images=1, keywords=["我老婆", "这是我老婆"])
+add_meme("my_wife", my_wife, min_images=1, max_images=1, keywords=["我老婆", "这是我老婆"])

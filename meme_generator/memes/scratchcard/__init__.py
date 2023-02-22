@@ -9,26 +9,31 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def badnews(images, texts: List[str], args):
+def scratchcard(images, texts: List[str], args):
     text = texts[0]
     frame = BuildImage.open(img_dir / "0.png")
     try:
         frame.draw_text(
-            (50, 100, frame.width - 50, frame.height - 100),
+            (80, 160, 360, 290),
             text,
             allow_wrap=True,
-            lines_align="center",
-            max_fontsize=60,
+            max_fontsize=80,
             min_fontsize=30,
-            fill=(0, 0, 0),
-            stroke_ratio=1 / 15,
-            stroke_fill="white",
+            fill="white",
+            lines_align="center",
         )
     except ValueError:
         raise TextOverLength(text)
-    return frame.save_png()
+    mask = BuildImage.open(img_dir / "1.png")
+    frame.paste(mask, alpha=True)
+    return frame.save_jpg()
 
 
 add_meme(
-    "badnews", badnews, min_texts=1, max_texts=1, default_texts=["喜报"], keywords=["悲报"]
+    "scratchcard",
+    scratchcard,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["谢谢参与"],
+    keywords=["刮刮乐"],
 )

@@ -9,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def findchips(images, texts: List[str], args):
+def find_chips(images, texts: List[str], args):
     frame = BuildImage.open(img_dir / "0.jpg")
 
     def draw(pos: Tuple[float, float, float, float], text: str):
@@ -28,8 +28,8 @@ def findchips(images, texts: List[str], args):
 
 
 add_meme(
-    "findchips",
-    findchips,
+    "find_chips",
+    find_chips,
     min_texts=4,
     max_texts=4,
     default_texts=[

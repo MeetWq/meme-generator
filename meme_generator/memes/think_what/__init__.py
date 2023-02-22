@@ -9,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def thinkwhat(images: List[BuildImage], texts, args):
+def think_what(images: List[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
@@ -20,4 +20,4 @@ def thinkwhat(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("thinkwhat", thinkwhat, min_images=1, max_images=1, keywords=["想什么"])
+add_meme("think_what", think_what, min_images=1, max_images=1, keywords=["想什么"])

@@ -9,9 +9,9 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def goodnews(images, texts: List[str], args):
+def bad_news(images, texts: List[str], args):
     text = texts[0]
-    frame = BuildImage.open(img_dir / "0.jpg")
+    frame = BuildImage.open(img_dir / "0.png")
     try:
         frame.draw_text(
             (50, 100, frame.width - 50, frame.height - 100),
@@ -20,9 +20,9 @@ def goodnews(images, texts: List[str], args):
             lines_align="center",
             max_fontsize=60,
             min_fontsize=30,
-            fill=(238, 0, 0),
+            fill=(0, 0, 0),
             stroke_ratio=1 / 15,
-            stroke_fill=(255, 255, 153),
+            stroke_fill="white",
         )
     except ValueError:
         raise TextOverLength(text)
@@ -30,10 +30,10 @@ def goodnews(images, texts: List[str], args):
 
 
 add_meme(
-    "goodnews",
-    goodnews,
+    "bad_news",
+    bad_news,
     min_texts=1,
     max_texts=1,
-    default_texts=["悲报"],
-    keywords=["喜报"],
+    default_texts=["喜报"],
+    keywords=["悲报"],
 )

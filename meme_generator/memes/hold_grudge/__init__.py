@@ -10,7 +10,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def holdgrudge(images, texts: List[str], args):
+def hold_grudge(images, texts: List[str], args):
     date = datetime.today().strftime("%Y{}%m{}%d{}").format("年", "月", "日")
     text = f"{date} 晴\n{texts[0]}\n这个仇我先记下了"
     text2image = Text2Image.from_text(text, 45, fill="black", spacing=10).wrap(440)
@@ -27,8 +27,8 @@ def holdgrudge(images, texts: List[str], args):
 
 
 add_meme(
-    "holdgrudge",
-    holdgrudge,
+    "hold_grudge",
+    hold_grudge,
     min_texts=1,
     max_texts=1,
     default_texts=["群友不发涩图"],

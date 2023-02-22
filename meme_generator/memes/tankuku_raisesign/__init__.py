@@ -10,7 +10,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def tankuku_holdsign(images: List[BuildImage], texts, args):
+def tankuku_raisesign(images: List[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((300, 230), keep_ratio=True)
     params = (
         (((0, 46), (320, 0), (350, 214), (38, 260)), (68, 91)),
@@ -39,5 +39,9 @@ def tankuku_holdsign(images: List[BuildImage], texts, args):
 
 
 add_meme(
-    "tankuku_holdsign", tankuku_holdsign, min_images=1, max_images=1, keywords=["唐可可举牌"]
+    "tankuku_raisesign",
+    tankuku_raisesign,
+    min_images=1,
+    max_images=1,
+    keywords=["唐可可举牌"],
 )

@@ -10,7 +10,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def anyasuki(images: List[BuildImage], texts: List[str], args):
+def anya_suki(images: List[BuildImage], texts: List[str], args):
     img = images[0]
     text = texts[0] if texts else "阿尼亚喜欢这个"
     frame = BuildImage.open(img_dir / "0.png")
@@ -35,8 +35,8 @@ def anyasuki(images: List[BuildImage], texts: List[str], args):
 
 
 add_meme(
-    "anyasuki",
-    anyasuki,
+    "anya_suki",
+    anya_suki,
     min_images=1,
     max_images=1,
     min_texts=0,

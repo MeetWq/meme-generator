@@ -5,7 +5,7 @@ from pil_utils import BuildImage
 from meme_generator import add_meme
 
 
-def keepaway(images: List[BuildImage], texts: List[str], args):
+def keep_away(images: List[BuildImage], texts: List[str], args):
     def trans(img: BuildImage, n: int) -> BuildImage:
         img = img.convert("RGBA").square().resize((100, 100))
         if n < 4:
@@ -35,8 +35,8 @@ def keepaway(images: List[BuildImage], texts: List[str], args):
 
 
 add_meme(
-    "keepaway",
-    keepaway,
+    "keep_away",
+    keep_away,
     min_images=1,
     max_images=8,
     min_texts=0,

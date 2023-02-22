@@ -60,5 +60,5 @@ add_meme(
     min_texts=1,
     max_texts=2,
     default_texts=["救命啊"],
-    keywords=["典中典", "黑白草图"],
+    keywords=["入典", "典中典", "黑白草图"],
 )

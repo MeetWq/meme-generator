@@ -6,7 +6,7 @@ from meme_generator import add_meme, MemeArgsModel
 from meme_generator.exception import TextOverLength
 
 
-def littleangel(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def little_angel(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     img_w, img_h = images[0].convert("RGBA").resize_width(500).size
     frame = BuildImage.new("RGBA", (600, img_h + 230), "white")
     text = "非常可爱！简直就是小天使"
@@ -44,8 +44,8 @@ def littleangel(images: List[BuildImage], texts: List[str], args: MemeArgsModel)
 
 
 add_meme(
-    "littleangel",
-    littleangel,
+    "little_angel",
+    little_angel,
     min_images=1,
     max_images=1,
     min_texts=0,
