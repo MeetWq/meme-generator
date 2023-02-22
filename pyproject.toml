@@ -11,15 +11,20 @@ repository = "https://github.com/MeetWq/meme-generator"
 [tool.poetry.dependencies]
 python = "^3.8"
 httpx = ">=0.20.0,<1.0.0"
-fastapi = ">=0.87.0,<1.0.0"
-uvicorn = ">0.17.0,<1.0.0"
-python-multipart = "^0.0.5"
 loguru = "^0.6.0"
-filetype = "^1.2.0"
 pil-utils = "^0.1.0"
+
+fastapi = { version = ">=0.87.0,<1.0.0", optional = true }
+uvicorn = { version = ">0.17.0,<1.0.0", optional = true }
+python-multipart = { version = "^0.0.5", optional = true }
+filetype = { version = "^1.2.0", optional = true }
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.1.0"
+
+[tool.poetry.extras]
+api = ["fastapi", "uvicorn", "python-multipart", "filetype"]
+all = ["fastapi", "uvicorn", "python-multipart", "filetype"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

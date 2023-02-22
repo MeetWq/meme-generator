@@ -65,8 +65,8 @@ class Meme:
     key: str
     function: MemeFunction
     params_type: MemeParamsType
-    keywords: List[str] = []
-    patterns: List[str] = []
+    keywords: List[str] = field(default_factory=list)
+    patterns: List[str] = field(default_factory=list)
 
     async def __call__(
         self,

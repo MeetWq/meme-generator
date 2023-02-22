@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import List, Dict, Optional
 
 from .log import logger
-from .app import register_router
 from .exception import NoSuchMeme
 from .meme import Meme, MemeFunction, MemeArgsType, MemeParamsType
 
@@ -73,13 +72,15 @@ def add_meme(
 
     _memes[key] = meme
 
-    register_router(meme)
-
 
 def get_meme(key: str) -> Meme:
     if key not in _memes:
         raise NoSuchMeme(key)
     return _memes[key]
+
+
+def get_memes() -> List[Meme]:
+    return list(_memes.values())
 
 
 def get_meme_keys() -> List[str]:
