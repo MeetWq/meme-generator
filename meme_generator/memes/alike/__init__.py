@@ -1,20 +1,21 @@
 from typing import List
-from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.utils import make_jpg_or_gif
 
 
-img_dir = Path(__file__).parent / "images"
-
-
 def alike(images: List[BuildImage], texts, args):
-    frame = BuildImage.open(img_dir / "0.png")
+    frame = BuildImage.new("RGBA", (470, 180), "white")
+    frame.draw_text(
+        (10, 10, 185, 140), "你怎么跟", max_fontsize=40, min_fontsize=30, halign="right"
+    ).draw_text(
+        (365, 10, 460, 140), "一样", max_fontsize=40, min_fontsize=30, halign="left"
+    )
 
     def make(img: BuildImage) -> BuildImage:
         return frame.copy().paste(
-            img.resize((90, 90), keep_ratio=True), (131, 14), alpha=True
+            img.resize((150, 150), keep_ratio=True), (200, 15), alpha=True
         )
 
     return make_jpg_or_gif(images[0], make)
