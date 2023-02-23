@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import List, Dict, Optional
 
 from .log import logger
+from .config import meme_config
 from .exception import NoSuchMeme
 from .meme import Meme, MemeFunction, MemeArgsType, MemeParamsType
 
@@ -57,7 +58,11 @@ def add_meme(
     patterns: List[str] = [],
 ):
     if key in _memes:
-        logger.warning(f"Meme with key {key} always exists!")
+        logger.warning(f'Meme with key "{key}" always exists!')
+        return
+
+    if key in meme_config.meme.meme_disabled_list:
+        logger.warning(f'The key "{key}" is in the disabled list!')
         return
 
     meme = Meme(
