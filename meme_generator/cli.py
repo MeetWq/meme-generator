@@ -2,14 +2,12 @@ import asyncio
 import filetype
 from pathlib import Path
 from typing import List, Dict, Any
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 
+from meme_generator.app import run_server
 from meme_generator.meme import MemeArgsModel
 from meme_generator.manager import get_meme, get_memes
 from meme_generator.exception import NoSuchMeme, MemeGeneratorException
-
-
-memes = sorted(get_memes(), key=lambda meme: meme.key)
 
 
 parser = ArgumentParser("meme")
@@ -25,23 +23,30 @@ generate_parser = subparsers.add_parser(
 )
 memes_subparsers = generate_parser.add_subparsers(dest="key")
 
-for meme in memes:
-    meme_parser = (
-        meme.params_type.args_type.parser
-        if meme.params_type.args_type
-        else ArgumentParser()
-    )
-    meme_parser.add_argument("-i", "--images", nargs="+", default=[])
-    meme_parser.add_argument("-t", "--texts", nargs="+", default=[])
-    memes_subparsers.add_parser(
-        meme.key,
-        parents=[meme_parser],
-        add_help=False,
-        prefix_chars=meme_parser.prefix_chars,
-    )
+run_parser = subparsers.add_parser(
+    "run", aliases=["start"], help="run meme_generator server"
+)
+
+
+def add_parsers():
+    for meme in get_memes():
+        meme_parser = (
+            meme.params_type.args_type.parser
+            if meme.params_type.args_type
+            else ArgumentParser()
+        )
+        meme_parser.add_argument("-i", "--images", nargs="+", default=[])
+        meme_parser.add_argument("-t", "--texts", nargs="+", default=[])
+        memes_subparsers.add_parser(
+            meme.key,
+            parents=[meme_parser],
+            add_help=False,
+            prefix_chars=meme_parser.prefix_chars,
+        )
 
 
 def list_memes() -> str:
+    memes = sorted(get_memes(), key=lambda meme: meme.key)
     return "\n".join(
         f"{i}. {meme.key} ({'/'.join(meme.keywords)})" for i, meme in enumerate(memes)
     )
@@ -93,23 +98,32 @@ def generate_meme(
         return str(e)
 
 
-def handle(args: Namespace):
+def main():
+    add_parsers()
+
+    args = parser.parse_args()
     handle = str(args.handle)
+
     if handle in ["list", "ls"]:
         print(list_memes())
+
     elif handle in ["info", "show"]:
         key = str(args.key)
         print(meme_info(key))
+
     elif handle in ["generate", "make"]:
         kwargs = vars(args)
         key: str = kwargs.pop("key")
         images: List[str] = kwargs.pop("images")
         texts: List[str] = kwargs.pop("texts")
         print(generate_meme(key, images, texts, kwargs))
+
+    elif handle in ["run", "start"]:
+        run_server()
+
     else:
-        return
+        print(parser.format_help())
 
 
 if __name__ == "__main__":
-    args = parser.parse_args()
-    handle(args)
+    main()

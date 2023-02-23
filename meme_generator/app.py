@@ -5,6 +5,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi import FastAPI, UploadFile, HTTPException, Response, status, Form, Depends
 
 from meme_generator.manager import get_memes
+from meme_generator.config import meme_config
 from meme_generator.meme import Meme, MemeArgsModel
 from meme_generator.exception import MemeGeneratorException
 
@@ -60,8 +61,12 @@ def register_routers():
         register_router(meme)
 
 
-if __name__ == "__main__":
+def run_server():
     import uvicorn
 
     register_routers()
-    uvicorn.run(app, host="0.0.0.0", port=2233)
+    uvicorn.run(app, host=meme_config.server.host, port=meme_config.server.port)
+
+
+if __name__ == "__main__":
+    run_server()

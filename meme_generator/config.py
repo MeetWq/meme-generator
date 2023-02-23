@@ -24,10 +24,16 @@ class TranslatorConfig(BaseModel):
     baidu_trans_apikey: str = ""
 
 
+class ServerConfig(BaseModel):
+    host: str = "127.0.0.1"
+    port: int = 2233
+
+
 class Config(BaseModel, extra=Extra.ignore):
     meme: MemeConfig = MemeConfig()
     gif: GifConfig = GifConfig()
     translate: TranslatorConfig = TranslatorConfig()
+    server: ServerConfig = ServerConfig()
 
     @classmethod
     def load(cls) -> "Config":
@@ -40,6 +46,6 @@ class Config(BaseModel, extra=Extra.ignore):
 
 if not config_file_path.exists():
     meme_config = Config()
-    meme_config.dump()
 else:
     meme_config = Config.load()
+meme_config.dump()

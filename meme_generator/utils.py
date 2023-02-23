@@ -69,12 +69,12 @@ def save_gif(frames: List[IMG], duration: float) -> BytesIO:
 
     # 没有超出最大大小，直接返回
     nbytes = output.getbuffer().nbytes
-    if nbytes <= meme_config.gif_max_size * 10**6:
+    if nbytes <= meme_config.gif.gif_max_size * 10**6:
         return output
 
     # 超出最大大小，帧数超出最大帧数时，缩减帧数
     n_frames = len(frames)
-    gif_max_frames = meme_config.gif_max_frames
+    gif_max_frames = meme_config.gif.gif_max_frames
     if n_frames > gif_max_frames:
         index = range(n_frames)
         ratio = n_frames / gif_max_frames
@@ -233,7 +233,7 @@ def make_gif_or_combined_gif(
         elif frame_align == FrameAlignPolicy.extend_loop:
             frame_num_total = frame_num_base
             # 重复基准gif，直到两个gif总时长之差在1个间隔以内，或总帧数超出最大帧数
-            while frame_num_total + frame_num_base <= meme_config.gif_max_frames:
+            while frame_num_total + frame_num_base <= meme_config.gif.gif_max_frames:
                 frame_num_total += frame_num_base
                 frame_idxs += list(range(frame_num_base))
                 multiple = round(frame_num_total * duration_base / total_duration_fit)
@@ -282,8 +282,8 @@ def make_gif_or_combined_gif(
 
 async def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> str:
     salt = str(round(time.time() * 1000))
-    appid = meme_config.baidu_trans_appid
-    apikey = meme_config.baidu_trans_apikey
+    appid = meme_config.translate.baidu_trans_appid
+    apikey = meme_config.translate.baidu_trans_apikey
     sign_raw = appid + text + salt + apikey
     sign = hashlib.md5(sign_raw.encode("utf8")).hexdigest()
     params = {
