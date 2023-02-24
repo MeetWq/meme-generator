@@ -22,6 +22,7 @@ from typing import (
 
 
 from .config import meme_config
+from .exception import MemeGeneratorException
 
 
 P = ParamSpec("P")
@@ -281,9 +282,14 @@ def make_gif_or_combined_gif(
 
 
 async def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> str:
-    salt = str(round(time.time() * 1000))
     appid = meme_config.translate.baidu_trans_appid
     apikey = meme_config.translate.baidu_trans_apikey
+    if not appid or not apikey:
+        raise MemeGeneratorException(
+            "The `baidu_trans_appid` or `baidu_trans_apikey` is not set."
+            "Please check your config file!"
+        )
+    salt = str(round(time.time() * 1000))
     sign_raw = appid + text + salt + apikey
     sign = hashlib.md5(sign_raw.encode("utf8")).hexdigest()
     params = {

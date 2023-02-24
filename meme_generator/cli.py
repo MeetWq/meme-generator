@@ -6,6 +6,7 @@ from argparse import ArgumentParser
 
 from meme_generator.app import run_server
 from meme_generator.meme import MemeArgsModel
+from meme_generator.download import check_resources
 from meme_generator.manager import get_meme, get_memes
 from meme_generator.exception import NoSuchMeme, MemeGeneratorException
 
@@ -25,6 +26,10 @@ memes_subparsers = generate_parser.add_subparsers(dest="key")
 
 run_parser = subparsers.add_parser(
     "run", aliases=["start"], help="run meme_generator server"
+)
+
+download_parser = subparsers.add_parser(
+    "download", help="download builtin memes images"
 )
 
 
@@ -120,6 +125,10 @@ def main():
 
     elif handle in ["run", "start"]:
         run_server()
+
+    elif handle in ["download"]:
+        loop = asyncio.new_event_loop()
+        loop.run_until_complete(check_resources())
 
     else:
         print(parser.format_help())

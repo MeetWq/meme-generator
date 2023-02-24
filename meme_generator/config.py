@@ -14,6 +14,10 @@ class MemeConfig(BaseModel):
     meme_disabled_list: List[str] = []
 
 
+class ResourceConfig(BaseModel):
+    resource_url: str = "https://ghproxy.com/https://github.com/MeetWq/meme-generator"
+
+
 class GifConfig(BaseModel):
     gif_max_size: float = 10
     gif_max_frames: int = 100
@@ -31,6 +35,7 @@ class ServerConfig(BaseModel):
 
 class Config(BaseModel, extra=Extra.ignore):
     meme: MemeConfig = MemeConfig()
+    resource: ResourceConfig = ResourceConfig()
     gif: GifConfig = GifConfig()
     translate: TranslatorConfig = TranslatorConfig()
     server: ServerConfig = ServerConfig()

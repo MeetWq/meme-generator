@@ -1,12 +1,17 @@
 [tool.poetry]
 name = "meme-generator"
-version = "0.0.1"
+version = "0.0.1a1"
 description = "Python package for making fun pictures"
 authors = ["meetwq <meetwq@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/MeetWq/meme-generator"
 repository = "https://github.com/MeetWq/meme-generator"
+exclude = [
+    "meme_generator/memes/**/*.jpg",
+    "meme_generator/memes/**/*.png",
+    "meme_generator/memes/**/*.gif",
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -21,6 +26,9 @@ filetype = "^1.2.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.1.0"
+
+[tool.poetry.scripts]
+meme = "meme_generator.cli:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

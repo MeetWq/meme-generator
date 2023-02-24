@@ -12,6 +12,7 @@ from meme_generator.manager import get_meme_keys as get_meme_keys
 
 from meme_generator.config import meme_config as config
 
+from meme_generator.version import __version__
 
 load_memes(Path(__file__).parent / "memes")
 for meme_dir in config.meme.meme_dirs:
