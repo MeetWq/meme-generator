@@ -147,7 +147,7 @@ meme -h/--help
 
 执行 `meme run` 可以启动 web 服务器
 
-web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访问 http://127.0.0.1:2233/docs）
+web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访问 http://127.0.0.1:2233/docs ）
 
 可以调用 api 接口使用，python 调用方式可参考 [docs/examples/test_api.py](https://github.com/MeetWq/meme-generator/tree/main/docs/examples/test_api.py)
 
