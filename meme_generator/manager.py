@@ -21,6 +21,18 @@ def path_to_module_name(path: Path) -> str:
         return ".".join(rel_path.parts[:-1] + (rel_path.stem,))
 
 
+def load_meme(module_path: Union[str, Path]):
+    module_name = (
+        path_to_module_name(module_path)
+        if isinstance(module_path, Path)
+        else module_path
+    )
+    try:
+        importlib.import_module(module_name)
+    except Exception as e:
+        logger.opt(colors=True, exception=e).error(f"Failed to import {module_path}!")
+
+
 def load_memes(dir_path: Union[str, Path]):
     if isinstance(dir_path, Path):
         dir_path = str(dir_path.resolve())

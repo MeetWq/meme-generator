@@ -10,6 +10,7 @@ config_file_path = get_config_file("config.toml")
 
 
 class MemeConfig(BaseModel):
+    load_builtin_memes: bool = True
     meme_dirs: List[Path] = []
     meme_disabled_list: List[str] = []
 
