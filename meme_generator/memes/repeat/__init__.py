@@ -1,13 +1,12 @@
-import random
 from pathlib import Path
 from datetime import datetime
 from typing import List, Tuple
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
 
-from meme_generator.utils import save_gif
 from meme_generator import add_meme, MemeArgsModel
 from meme_generator.exception import TextOverLength
+from meme_generator.utils import save_gif, random_text
 
 
 img_dir = Path(__file__).parent / "images"
@@ -34,11 +33,7 @@ def repeat(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     users: List[Tuple[BuildImage, str]] = []
     user_infos = args.user_infos
     for i, image in enumerate(images):
-        name = (
-            user_infos[i].name
-            if len(user_infos) > i
-            else random.choice(["张三", "李四", "王麻子"])
-        )
+        name = user_infos[i].name if len(user_infos) > i else random_text()
         users.append((image, name))
 
     msg_img = BuildImage.new("RGB", (1079, 1000))

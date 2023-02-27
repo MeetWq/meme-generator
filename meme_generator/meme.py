@@ -18,12 +18,13 @@ from typing import (
     Awaitable,
 )
 
-from .utils import run_sync, is_coroutine_callable
+from .utils import run_sync, is_coroutine_callable, random_text, random_image
 from .exception import (
     ImageNumberMismatch,
     TextNumberMismatch,
     ArgModelMismatch,
     OpenImageFailed,
+    TextOrNameNotEnough,
 )
 
 
@@ -115,3 +116,24 @@ class Meme:
             )
         else:
             return await run_sync(cast(Callable[..., BytesIO], self.function))(**values)
+
+    async def generate_preview(self) -> BytesIO:
+        default_images = [random_image() for _ in range(self.params_type.min_images)]
+        default_texts = (
+            self.params_type.default_texts
+            if (
+                self.params_type.min_texts
+                <= len(self.params_type.default_texts)
+                <= self.params_type.max_texts
+            )
+            else [random_text() for _ in range(self.params_type.min_texts)]
+        )
+
+        async def _generate_preview(images: List[BytesIO], texts: List[str]):
+            try:
+                return await self.__call__(images=images, texts=texts)
+            except TextOrNameNotEnough:
+                texts.append(random_text())
+                return await _generate_preview(images, texts)
+
+        return await _generate_preview(default_images, default_texts)

@@ -19,6 +19,9 @@ list_parser = subparsers.add_parser("list", aliases=["ls"], help="get meme list"
 show_parser = subparsers.add_parser("info", aliases=["show"], help="get meme info")
 show_parser.add_argument("key", type=str, help="the key of the meme")
 
+preview_parser = subparsers.add_parser("preview", help="get preview result of the meme")
+preview_parser.add_argument("key", type=str, help="the key of the meme")
+
 generate_parser = subparsers.add_parser(
     "generate", aliases=["make"], help="generate meme"
 )
@@ -76,8 +79,28 @@ def meme_info(key: str) -> str:
         f"  max_images: {meme.params_type.max_images}\n"
         f"  min_texts: {meme.params_type.min_texts}\n"
         f"  max_texts: {meme.params_type.max_texts}\n"
+        f"  default_texts: {meme.params_type.default_texts}\n"
         f"  args: {args_model().json()}"
     )
+
+
+def generate_meme_preview(key: str) -> str:
+    try:
+        meme = get_meme(key)
+    except NoSuchMeme as e:
+        return str(e)
+
+    try:
+        loop = asyncio.new_event_loop()
+        result = loop.run_until_complete(meme.generate_preview())
+        content = result.getvalue()
+        ext = filetype.guess_extension(content)
+        filename = f"result.{ext}"
+        with open(filename, "wb") as f:
+            f.write(content)
+        return f'Generate successfully! The generated file is "{filename}"'
+    except MemeGeneratorException as e:
+        return str(e)
 
 
 def generate_meme(
@@ -115,6 +138,10 @@ def main():
     elif handle in ["info", "show"]:
         key = str(args.key)
         print(meme_info(key))
+
+    elif handle in ["preview"]:
+        key = str(args.key)
+        print(generate_meme_preview(key))
 
     elif handle in ["generate", "make"]:
         kwargs = vars(args)

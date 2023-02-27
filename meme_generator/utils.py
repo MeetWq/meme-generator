@@ -1,6 +1,7 @@
 import math
 import time
 import httpx
+import random
 import asyncio
 import hashlib
 import inspect
@@ -305,3 +306,16 @@ async def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> 
         resp = await client.get(url, params=params)
         result = resp.json()
     return result["trans_result"][0]["dst"]
+
+
+def random_text() -> str:
+    return random.choice(["刘一", "陈二", "张三", "李四", "王五", "赵六", "孙七", "周八", "吴九", "郑十"])
+
+
+def random_image() -> BytesIO:
+    text = random.choice(["😂", "😅", "🤗", "🤤", "🥵", "🥰", "😍", "😭", "😋", "😏"])
+    return (
+        BuildImage.new("RGBA", (500, 500))
+        .draw_text((0, 0, 500, 500), text, max_fontsize=400)
+        .save_png()
+    )
