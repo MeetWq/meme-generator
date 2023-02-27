@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "meme-generator"
-version = "0.0.1a1"
+version = "0.0.1a2"
 description = "Python package for making fun pictures"
 authors = ["meetwq <meetwq@gmail.com>"]
 license = "MIT"
@@ -23,6 +23,7 @@ fastapi = ">=0.87.0,<1.0.0"
 uvicorn = ">0.17.0,<1.0.0"
 python-multipart = "^0.0.5"
 filetype = "^1.2.0"
+tqdm = "^4.60.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.1.0"
