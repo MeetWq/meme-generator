@@ -1,4 +1,4 @@
-name: Update resource_list.json
+name: Update resource_list.json & memes.md
 
 on:
   push:
@@ -18,11 +18,23 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Install fonts
+        run: |
+          sudo apt install fonts-noto-cjk fonts-noto-color-emoji
+          sudo locale-gen zh_CN zh_CN.UTF-8
+          sudo update-locale LC_ALL=zh_CN.UTF-8 LANG=zh_CN.UTF-8
+          sudo mkdir /usr/share/fonts/myfonts
+          sudo cp resources/fonts/* /usr/share/fonts/myfonts/
+          fc-cache -fv
+
       - name: Update resource_list.json
         run: python resources/update_list.py
+
+      - name: Update memes.md
+        run: python docs/update_doc.py
 
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: "v0.3.x"
+          branch: "main"
