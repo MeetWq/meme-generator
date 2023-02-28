@@ -29,26 +29,28 @@ def ask(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
 
     start_w = 20
     start_h = img_h - gradient_h + 5
-    text_img1 = Text2Image.from_text(
-        f"{name}", 28, fill="orange", weight="bold"
-    ).to_image()
-    text_img2 = Text2Image.from_text(
-        f"{name}不知道哦。", 28, fill="white", weight="bold"
-    ).to_image()
-    img.paste(
-        text_img1,
-        (start_w + 40 + (text_img2.width - text_img1.width) // 2, start_h),
-        alpha=True,
+    text1 = name
+    text2 = f"{name}不知道哦。"
+    text2img1 = Text2Image.from_text(text1, 28, weight="bold")
+    text2img2 = Text2Image.from_text(text2, 28, weight="bold")
+    img.draw_text(
+        (start_w + 40 + (text2img2.width - text2img1.width) // 2, start_h),
+        text1,
+        fontsize=28,
+        fill="orange",
+        weight="bold",
     )
-    img.paste(
-        text_img2,
-        (start_w + 40, start_h + text_img1.height + 10),
-        alpha=True,
+    img.draw_text(
+        (start_w + 40, start_h + text2img1.height + 10),
+        text2,
+        fontsize=28,
+        fill="white",
+        weight="bold",
     )
 
-    line_h = start_h + text_img1.height + 5
+    line_h = start_h + text2img1.height + 5
     img.draw_line(
-        (start_w, line_h, start_w + text_img2.width + 80, line_h),
+        (start_w, line_h, start_w + text2img2.width + 80, line_h),
         fill="orange",
         width=2,
     )
@@ -71,8 +73,8 @@ def ask(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
         )
     except ValueError:
         raise TextOverLength(name)
-    frame.paste(img, (sep_w, sep_h))
-    return frame.save_jpg()
+    frame.paste(img, (sep_w, sep_h), alpha=True)
+    return frame.save_png()
 
 
 add_meme(
