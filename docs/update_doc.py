@@ -1,0 +1,133 @@
+import asyncio
+import filetype
+from pathlib import Path
+from typing import Dict, Any
+from meme_generator import get_memes
+from meme_generator.meme import Meme
+
+
+memes = sorted(get_memes(), key=lambda meme: meme.key)
+
+image_path = Path("docs/images")
+
+
+async def generate_preview_images():
+    for meme in memes:
+
+        async def generate_image(name: str, args: Dict[str, Any] = {}):
+            for path in image_path.iterdir():
+                if name == path.stem:
+                    return
+
+            result = await meme.generate_preview(args=args)
+            content = result.getvalue()
+            ext = filetype.guess_extension(content)
+            filename = f"{name}.{ext}"
+            with open(image_path / filename, "wb") as f:
+                f.write(content)
+
+        await generate_image(f"{meme.key}")
+        if args := meme.params_type.args_type:
+            if instances := args.instances:
+                for i, instance in enumerate(instances):
+                    await generate_image(f"{meme.key}_instance{i}", instance.dict())
+
+
+def meme_doc(meme: Meme) -> str:
+    keywords = "、".join([f"`{keyword}`" for keyword in meme.keywords])
+
+    patterns = "、".join([f"`{pattern}`" for pattern in meme.patterns])
+
+    image_num = f"`{meme.params_type.min_images}`"
+    if meme.params_type.max_images > meme.params_type.min_images:
+        image_num += f" ~ `{meme.params_type.max_images}`"
+
+    text_num = f"`{meme.params_type.min_texts}`"
+    if meme.params_type.max_texts > meme.params_type.min_texts:
+        text_num += f" ~ `{meme.params_type.max_texts}`"
+
+    default_texts = (
+        f"[{', '.join([f'`{text}`' for text in meme.params_type.default_texts])}]"
+    )
+
+    def arg_info(name: str, info: Dict[str, Any]) -> str:
+        text = (
+            f"    - `{name}`\n"
+            f"        - 描述：{info.get('description', '')}\n"
+            f"        - 类型：`{info.get('type', '')}`\n"
+            f"        - 默认值：`{info.get('default', '')}`"
+        )
+        if enum := info.get("enum", []):
+            assert isinstance(enum, list)
+            text += f"\n        - 可选值：{'、'.join([f'`{e}`' for e in enum])}"
+        return text
+
+    if args := meme.params_type.args_type:
+        model = args.model
+        properties: Dict[str, Dict[str, Any]] = model.schema().get("properties", {})
+        properties.pop("user_infos")
+        args_info = "\n" + "\n".join(
+            [arg_info(name, info) for name, info in properties.items()]
+        )
+    else:
+        args_info = ""
+
+    def image_doc(name: str) -> str:
+        for path in image_path.iterdir():
+            if name == path.stem:
+                img_path = path.relative_to(Path("docs"))
+                return (
+                    '<div align="left">\n'
+                    f'  <img src="{img_path}" width="200" />\n'
+                    "</div>"
+                )
+        return ""
+
+    preview_image = ""
+    if args := meme.params_type.args_type:
+        if instances := args.instances:
+            preview_image = "\n\n".join(
+                [
+                    f"> 参数：{instance.json(exclude={'user_infos'})}\n"
+                    + image_doc(meme.key + f"_instance{i}")
+                    for i, instance in enumerate(instances)
+                ]
+            )
+    if not preview_image:
+        preview_image = image_doc(meme.key)
+
+    return f"""## {meme.key}
+
+- 关键词：{keywords}
+- 正则表达式：{patterns}
+- 需要图片数目：{image_num}
+- 需要文字数目：{text_num}
+- 默认文字：{default_texts}
+- 其他参数：{args_info}
+- 预览：
+{preview_image}
+"""
+
+
+def generate_doc():
+    doc = """# 表情包列表
+
+以下为内置表情的关键词、所需参数、等信息及表情预览
+
+按照表情的 `key` 排列
+
+
+"""
+    doc += "\n\n".join(meme_doc(meme) for meme in memes)
+    with open("docs/memes.md", "w") as f:
+        f.write(doc)
+
+
+async def main():
+    await generate_preview_images()
+    generate_doc()
+
+
+if __name__ == "__main__":
+    loop = asyncio.new_event_loop()
+    loop.run_until_complete(main())

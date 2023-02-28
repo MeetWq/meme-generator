@@ -21,7 +21,7 @@ def bite(images: List[BuildImage], texts, args):
     # fmt: on
     for i in range(6):
         frame = BuildImage.open(img_dir / f"{i}.png")
-        x, y, w, h = locs[i]
+        w, h, x, y = locs[i]
         frame.paste(img.resize((w, h)), (x, y), below=True)
         frames.append(frame.image)
     for i in range(6, 16):

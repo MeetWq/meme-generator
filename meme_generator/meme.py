@@ -121,7 +121,7 @@ class Meme:
     async def generate_preview(self, *, args: Dict[str, Any] = {}) -> BytesIO:
         default_images = [random_image() for _ in range(self.params_type.min_images)]
         default_texts = (
-            self.params_type.default_texts
+            self.params_type.default_texts.copy()
             if (
                 self.params_type.min_texts
                 <= len(self.params_type.default_texts)

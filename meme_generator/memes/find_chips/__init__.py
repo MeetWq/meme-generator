@@ -15,7 +15,7 @@ def find_chips(images, texts: List[str], args):
     def draw(pos: Tuple[float, float, float, float], text: str):
         try:
             frame.draw_text(
-                pos, text, max_fontsize=40, min_fontsize=20, allow_wrap=True
+                pos, text, max_fontsize=30, min_fontsize=12, allow_wrap=True
             )
         except ValueError:
             raise TextOverLength(text)
@@ -35,7 +35,7 @@ add_meme(
     default_texts=[
         "我们要飞向何方",
         "我打算待会去码头整点薯条",
-        "你误会我了伙计，我说的是咱们这一辈子的终极目标。归根结底，活着是为了什么",
+        "我说的是归根结底，活着是为了什么",
         "为了待会去码头整点薯条",
     ],
     keywords=["整点薯条"],

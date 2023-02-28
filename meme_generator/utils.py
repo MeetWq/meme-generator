@@ -315,7 +315,7 @@ def random_text() -> str:
 def random_image() -> BytesIO:
     text = random.choice(["😂", "😅", "🤗", "🤤", "🥵", "🥰", "😍", "😭", "😋", "😏"])
     return (
-        BuildImage.new("RGBA", (500, 500))
+        BuildImage.new("RGBA", (500, 500), "white")
         .draw_text((0, 0, 500, 500), text, max_fontsize=400)
         .save_png()
     )
