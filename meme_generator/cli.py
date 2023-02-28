@@ -62,7 +62,8 @@ def add_parsers():
 def list_memes() -> str:
     memes = sorted(get_memes(), key=lambda meme: meme.key)
     return "\n".join(
-        f"{i}. {meme.key} ({'/'.join(meme.keywords)})" for i, meme in enumerate(memes)
+        f"{i}. {meme.key} ({'/'.join(meme.keywords)})"
+        for i, meme in enumerate(memes, start=1)
     )
 
 

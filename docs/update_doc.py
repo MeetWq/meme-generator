@@ -47,7 +47,7 @@ def meme_doc(meme: Meme) -> str:
         text_num += f" ~ `{meme.params_type.max_texts}`"
 
     default_texts = (
-        f"[{', '.join([f'`{text}`' for text in meme.params_type.default_texts])}]"
+        f"{', '.join([f'`{text}`' for text in meme.params_type.default_texts])}"
     )
 
     def arg_info(name: str, info: Dict[str, Any]) -> str:
@@ -96,29 +96,30 @@ def meme_doc(meme: Meme) -> str:
     if not preview_image:
         preview_image = image_doc(meme.key)
 
-    return f"""## {meme.key}
+    return (
+        f"## {meme.key}\n\n"
+        + f"- 关键词：{keywords}\n"
+        + (f"- 正则表达式：{patterns}\n" if patterns else "")
+        + f"- 需要图片数目：{image_num}\n"
+        + f"- 需要文字数目：{text_num}\n"
+        + (f"- 默认文字：[{default_texts}]\n" if default_texts else "")
+        + (f"- 其他参数：{args_info}\n" if args_info else "")
+        + "- 预览：\n"
+        + f"{preview_image}"
+    )
 
-- 关键词：{keywords}
-- 正则表达式：{patterns}
-- 需要图片数目：{image_num}
-- 需要文字数目：{text_num}
-- 默认文字：{default_texts}
-- 其他参数：{args_info}
-- 预览：
-{preview_image}
-"""
+
+def generate_toc():
+    return "\n".join(
+        f"{i}. [{meme.key} ({'/'.join(meme.keywords)})](#{meme.key})"
+        for i, meme in enumerate(memes, start=1)
+    )
 
 
 def generate_doc():
-    doc = """# 表情包列表
-
-以下为内置表情的关键词、所需参数、等信息及表情预览
-
-按照表情的 `key` 排列
-
-
-"""
-    doc += "\n\n".join(meme_doc(meme) for meme in memes)
+    doc = "# 表情包列表\n\n以下为内置表情的关键词、所需参数、等信息及表情预览\n\n按照表情的 `key` 排列\n\n\n"
+    doc += generate_toc() + "\n\n\n"
+    doc += "\n\n".join(meme_doc(meme) for meme in memes) + "\n"
     with open("docs/memes.md", "w") as f:
         f.write(doc)
 
