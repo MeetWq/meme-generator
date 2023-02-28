@@ -117,7 +117,7 @@ def generate_toc():
 
 
 def generate_doc():
-    doc = "# 表情包列表\n\n以下为内置表情的关键词、所需参数、等信息及表情预览\n\n按照表情的 `key` 排列\n\n\n"
+    doc = "# 表情列表\n\n以下为内置表情的关键词、所需参数、等信息及表情预览\n\n按照表情的 `key` 排列\n\n\n"
     doc += generate_toc() + "\n\n\n"
     doc += "\n\n".join(meme_doc(meme) for meme in memes) + "\n"
     with open("docs/memes.md", "w") as f:
