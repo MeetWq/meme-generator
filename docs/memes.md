@@ -281,7 +281,7 @@
 - 需要文字数目：`0` ~ `1`
 - 预览：
 <div align="left">
-  <img src="images/ask.jpg" width="200" />
+  <img src="images/ask.png" width="200" />
 </div>
 
 ## back_to_work
@@ -643,9 +643,26 @@
 - 关键词：`手枪`
 - 需要图片数目：`1`
 - 需要文字数目：`0`
+- 其他参数：
+    - `position`
+        - 描述：枪的位置，可选值为 `left`(左手)、`right`(右手)、`both`(双手)
+        - 类型：`string`
+        - 默认值：`left`
+        - 可选值：`left`、`right`、`both`
 - 预览：
+> 参数：{"position": "left"}
 <div align="left">
-  <img src="images/gun.jpg" width="200" />
+  <img src="images/gun_instance0.jpg" width="200" />
+</div>
+
+> 参数：{"position": "right"}
+<div align="left">
+  <img src="images/gun_instance1.jpg" width="200" />
+</div>
+
+> 参数：{"position": "both"}
+<div align="left">
+  <img src="images/gun_instance2.jpg" width="200" />
 </div>
 
 ## hammer
