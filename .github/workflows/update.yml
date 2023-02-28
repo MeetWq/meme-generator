@@ -34,10 +34,10 @@ jobs:
           fc-cache -fv
 
       - name: Update resource_list.json
-        run: python resources/update_list.py
+        run: poetry run python resources/update_list.py
 
       - name: Update memes.md
-        run: python docs/update_doc.py
+        run: poetry run python docs/update_doc.py
 
       - name: Commit & Push changes
         uses: actions-js/push@master
