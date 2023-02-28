@@ -1,4 +1,5 @@
 from PIL import Image
+from pydantic import Field
 from pil_utils import BuildImage
 from collections import namedtuple
 from argparse import ArgumentParser
@@ -7,6 +8,8 @@ from typing import List, Dict, Literal
 from meme_generator.utils import make_jpg_or_gif
 from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
+
+help = "对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)"
 
 parser = ArgumentParser(prefix_chars="-/")
 parser.add_argument(
@@ -25,11 +28,14 @@ parser.add_argument(
     type=str,
     choices=["left", "right", "top", "bottom"],
     default="left",
+    help=help,
 )
 
 
 class Model(MemeArgsModel):
-    direction: Literal["left", "right", "top", "bottom"] = "left"
+    direction: Literal["left", "right", "top", "bottom"] = Field(
+        "left", description=help
+    )
 
 
 def symmetric(images: List[BuildImage], texts, args: Model):
@@ -92,6 +98,15 @@ add_meme(
     symmetric,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model),
+    args_type=MemeArgsType(
+        parser,
+        Model,
+        [
+            Model(direction="left"),
+            Model(direction="right"),
+            Model(direction="top"),
+            Model(direction="bottom"),
+        ],
+    ),
     keywords=["对称"],
 )

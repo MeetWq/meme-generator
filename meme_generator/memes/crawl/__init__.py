@@ -1,6 +1,7 @@
 import random
 from typing import List
 from pathlib import Path
+from pydantic import Field
 from pil_utils import BuildImage
 from argparse import ArgumentParser
 
@@ -10,12 +11,14 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 img_dir = Path(__file__).parent / "images"
 
 
+help = "指定“爬”使用的图片编号，范围为 1~92"
+
 parser = ArgumentParser()
-parser.add_argument("-n", "--number", type=int, default=0)
+parser.add_argument("-n", "--number", type=int, default=0, help=help)
 
 
 class Model(MemeArgsModel):
-    number: int = 0
+    number: int = Field(0, description=help)
 
 
 def crawl(images: List[BuildImage], texts: List[str], args: Model):

@@ -1,5 +1,6 @@
 from typing import List
 from pathlib import Path
+from pydantic import Field
 from argparse import ArgumentParser
 from pil_utils import BuildImage, Text2Image
 
@@ -9,12 +10,14 @@ from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
+help = "指定名字"
+
 parser = ArgumentParser()
-parser.add_argument("-n", "--name", type=str, default="")
+parser.add_argument("-n", "--name", type=str, default="", help=help)
 
 
 class Model(MemeArgsModel):
-    name: str = ""
+    name: str = Field("", description=help)
 
 
 def my_friend(images: List[BuildImage], texts: List[str], args: Model):

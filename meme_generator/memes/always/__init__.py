@@ -1,3 +1,4 @@
+from pydantic import Field
 from pil_utils import BuildImage
 from typing import List, Literal
 from argparse import ArgumentParser
@@ -10,19 +11,26 @@ from meme_generator.utils import (
     FrameAlignPolicy,
 )
 
+help = "生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)"
 
 parser = ArgumentParser(prefix_chars="-/")
 parser.add_argument(
-    "--circle", "/套娃", action="store_const", const="circle", dest="mode"
+    "--circle", "/套娃", action="store_const", const="circle", dest="mode", help="套娃模式"
 )
-parser.add_argument("--loop", "/循环", action="store_const", const="loop", dest="mode")
 parser.add_argument(
-    "--mode", type=str, choices=["normal", "circle", "loop"], default="normal"
+    "--loop", "/循环", action="store_const", const="loop", dest="mode", help="循环套娃模式"
+)
+parser.add_argument(
+    "--mode",
+    type=str,
+    choices=["normal", "circle", "loop"],
+    default="normal",
+    help=help,
 )
 
 
 class Model(MemeArgsModel):
-    mode: Literal["normal", "loop", "circle"] = "normal"
+    mode: Literal["normal", "loop", "circle"] = Field("normal", description=help)
 
 
 def always_normal(img: BuildImage):
@@ -102,6 +110,8 @@ add_meme(
     always,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model),
+    args_type=MemeArgsType(
+        parser, Model, [Model(mode="normal"), Model(mode="circle"), Model(mode="loop")]
+    ),
     keywords=["一直"],
 )

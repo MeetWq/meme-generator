@@ -1,5 +1,6 @@
 from typing import List
 from pathlib import Path
+from pydantic import Field
 from pil_utils import BuildImage
 from argparse import ArgumentParser
 
@@ -7,14 +8,16 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 from meme_generator.utils import make_gif_or_combined_gif, Maker, FrameAlignPolicy
 
 
+help = "是否将图片变为圆形"
+
 img_dir = Path(__file__).parent / "images"
 
 parser = ArgumentParser(prefix_chars="-/")
-parser.add_argument("--circle", "/圆", action="store_true")
+parser.add_argument("--circle", "/圆", action="store_true", help=help)
 
 
 class Model(MemeArgsModel):
-    circle: bool = False
+    circle: bool = Field(False, description=help)
 
 
 def kirby_hammer(images: List[BuildImage], texts, args: Model):
@@ -57,6 +60,6 @@ add_meme(
     kirby_hammer,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model),
+    args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
     keywords=["卡比锤", "卡比重锤"],
 )

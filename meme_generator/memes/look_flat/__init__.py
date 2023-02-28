@@ -1,4 +1,5 @@
 from typing import List
+from pydantic import Field
 from pil_utils import BuildImage
 from argparse import ArgumentParser
 
@@ -7,12 +8,14 @@ from meme_generator.exception import TextOverLength
 from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 
+help = "图片“压扁”比例"
+
 parser = ArgumentParser()
-parser.add_argument("-r", "--ratio", type=int, default=2)
+parser.add_argument("-r", "--ratio", type=int, default=2, help=help)
 
 
 class Model(MemeArgsModel):
-    ratio: int = 2
+    ratio: int = Field(2, description=help)
 
 
 def look_flat(images: List[BuildImage], texts: List[str], args: Model):

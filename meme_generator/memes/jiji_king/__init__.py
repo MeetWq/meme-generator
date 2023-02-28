@@ -1,6 +1,7 @@
 import math
 from typing import List
 from pathlib import Path
+from pydantic import Field
 from pil_utils import BuildImage
 from argparse import ArgumentParser
 
@@ -10,13 +11,14 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 img_dir = Path(__file__).parent / "images"
 
+help = "是否将图片变为圆形"
 
 parser = ArgumentParser(prefix_chars="-/")
-parser.add_argument("--circle", "/圆", action="store_true")
+parser.add_argument("--circle", "/圆", action="store_true", help=help)
 
 
 class Model(MemeArgsModel):
-    circle: bool = False
+    circle: bool = Field(False, description=help)
 
 
 def jiji_king(images: List[BuildImage], texts: List[str], args: Model):
@@ -97,6 +99,6 @@ add_meme(
     max_images=11,
     min_texts=0,
     max_texts=11,
-    args_type=MemeArgsType(parser, Model),
+    args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
     keywords=["急急国王"],
 )

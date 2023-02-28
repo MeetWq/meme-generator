@@ -25,7 +25,9 @@ preview_parser.add_argument("key", type=str, help="the key of the meme")
 generate_parser = subparsers.add_parser(
     "generate", aliases=["make"], help="generate meme"
 )
-memes_subparsers = generate_parser.add_subparsers(dest="key")
+memes_subparsers = generate_parser.add_subparsers(
+    dest="key", help="the key of the meme"
+)
 
 run_parser = subparsers.add_parser(
     "run", aliases=["start"], help="run meme_generator server"
@@ -43,8 +45,12 @@ def add_parsers():
             if meme.params_type.args_type
             else ArgumentParser()
         )
-        meme_parser.add_argument("-i", "--images", nargs="+", default=[])
-        meme_parser.add_argument("-t", "--texts", nargs="+", default=[])
+        meme_parser.add_argument(
+            "-i", "--images", nargs="+", default=[], help="input images"
+        )
+        meme_parser.add_argument(
+            "-t", "--texts", nargs="+", default=[], help="input texts"
+        )
         memes_subparsers.add_parser(
             meme.key,
             parents=[meme_parser],

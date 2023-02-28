@@ -1,5 +1,6 @@
 import math
 from typing import List
+from pydantic import Field
 from pil_utils import BuildImage
 from argparse import ArgumentParser
 
@@ -7,12 +8,14 @@ from meme_generator.utils import make_jpg_or_gif
 from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 
+help = "是否将图片变为圆形"
+
 parser = ArgumentParser(prefix_chars="-/")
-parser.add_argument("--circle", "/圆", action="store_true")
+parser.add_argument("--circle", "/圆", action="store_true", help=help)
 
 
 class Model(MemeArgsModel):
-    circle: bool = False
+    circle: bool = Field(False, description=help)
 
 
 def kaleidoscope(images: List[BuildImage], texts, args: Model):
@@ -49,6 +52,6 @@ add_meme(
     kaleidoscope,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model),
+    args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
     keywords=["万花筒", "万花镜"],
 )
