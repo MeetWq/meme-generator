@@ -20,7 +20,7 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 
 ## 表情列表
 
-表情列表、详情、表情预览可以在 [--> 此处 <--](docs/memes.md) 查看
+表情详细信息、表情预览等可以在 [--> 表情列表 <--](docs/memes.md) 查看
 
 
 ## 安装
@@ -191,9 +191,7 @@ port = 2233  # web server 端口
 
 ## 开发
 
-### 加载其他表情
-
-TODO
+如果希望编写、贡献新的表情，可以参考 [--> 新表情编写指北 <--](docs/develop.md)
 
 
 ## 声明
@@ -201,7 +199,12 @@ TODO
 本仓库的表情素材等均来自网络，如有侵权请联系作者删除
 
 
-## TODO
+## 鸣谢
 
-- [x] 生成表情列表及预览
-- [ ] 加载其他表情的示例
+本仓库的表情整合自原 [nonebot-plugin-petpet](https://github.com/noneplugin/nonebot-plugin-petpet) 和 [nonebot-plugin-memes](https://github.com/noneplugin/nonebot-plugin-memes) 仓库
+
+感谢以下开发者作出的贡献：
+
+<a href="https://github.com/noneplugin/nonebot-plugin-petpet/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=noneplugin/nonebot-plugin-petpet&max=1000" />
+</a>
