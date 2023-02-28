@@ -152,6 +152,7 @@ def main():
 
     elif handle in ["generate", "make"]:
         kwargs = vars(args)
+        kwargs.pop("handle")
         key: str = kwargs.pop("key")
         images: List[str] = kwargs.pop("images")
         texts: List[str] = kwargs.pop("texts")

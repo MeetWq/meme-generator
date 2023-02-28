@@ -14,19 +14,16 @@ from meme_generator.utils import (
 help = "生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)"
 
 parser = ArgumentParser(prefix_chars="-/")
-parser.add_argument(
-    "--circle", "/套娃", action="store_const", const="circle", dest="mode", help="套娃模式"
-)
-parser.add_argument(
-    "--loop", "/循环", action="store_const", const="loop", dest="mode", help="循环套娃模式"
-)
-parser.add_argument(
+group = parser.add_mutually_exclusive_group()
+group.add_argument(
     "--mode",
     type=str,
     choices=["normal", "circle", "loop"],
     default="normal",
     help=help,
 )
+group.add_argument("--circle", "/套娃", action="store_const", const="circle", dest="mode")
+group.add_argument("--loop", "/循环", action="store_const", const="loop", dest="mode")
 
 
 class Model(MemeArgsModel):

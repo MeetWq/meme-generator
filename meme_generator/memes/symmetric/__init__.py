@@ -12,23 +12,22 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 help = "对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)"
 
 parser = ArgumentParser(prefix_chars="-/")
-parser.add_argument(
-    "--left", "/左", action="store_const", const="left", dest="direction"
-)
-parser.add_argument(
-    "--right", "/右", action="store_const", const="right", dest="direction"
-)
-parser.add_argument("--top", "/上", action="store_const", const="top", dest="direction")
-parser.add_argument(
-    "--bottom", "/下", action="store_const", const="bottom", dest="direction"
-)
-parser.add_argument(
+group = parser.add_mutually_exclusive_group()
+group.add_argument(
     "-d",
     "--direction",
     type=str,
     choices=["left", "right", "top", "bottom"],
     default="left",
     help=help,
+)
+group.add_argument("--left", "/左", action="store_const", const="left", dest="direction")
+group.add_argument(
+    "--right", "/右", action="store_const", const="right", dest="direction"
+)
+group.add_argument("--top", "/上", action="store_const", const="top", dest="direction")
+group.add_argument(
+    "--bottom", "/下", action="store_const", const="bottom", dest="direction"
 )
 
 
