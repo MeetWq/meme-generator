@@ -10,7 +10,7 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 help = "图片“压扁”比例"
 
-parser = ArgumentParser(add_help=False)
+parser = ArgumentParser()
 parser.add_argument("-r", "--ratio", type=int, default=2, help=help)
 
 

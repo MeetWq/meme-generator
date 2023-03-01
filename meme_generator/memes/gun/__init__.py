@@ -13,7 +13,7 @@ img_dir = Path(__file__).parent / "images"
 
 help = "枪的位置，可选值为 `left`(左手)、`right`(右手)、`both`(双手)"
 
-parser = ArgumentParser(prefix_chars="-/", add_help=False)
+parser = ArgumentParser(prefix_chars="-/")
 group = parser.add_mutually_exclusive_group()
 group.add_argument(
     "-p",

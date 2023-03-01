@@ -12,7 +12,7 @@ help = "是否将图片变为圆形"
 
 img_dir = Path(__file__).parent / "images"
 
-parser = ArgumentParser(prefix_chars="-/", add_help=False)
+parser = ArgumentParser(prefix_chars="-/")
 parser.add_argument("--circle", "/圆", action="store_true", help=help)
 
 

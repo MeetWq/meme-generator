@@ -11,7 +11,7 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 help = "对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)"
 
-parser = ArgumentParser(prefix_chars="-/", add_help=False)
+parser = ArgumentParser(prefix_chars="-/")
 group = parser.add_mutually_exclusive_group()
 group.add_argument(
     "-d",

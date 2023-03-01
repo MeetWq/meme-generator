@@ -13,7 +13,7 @@ from meme_generator.utils import (
 
 help = "生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)"
 
-parser = ArgumentParser(prefix_chars="-/", add_help=False)
+parser = ArgumentParser(prefix_chars="-/")
 group = parser.add_mutually_exclusive_group()
 group.add_argument(
     "--mode",
