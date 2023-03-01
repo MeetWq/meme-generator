@@ -72,6 +72,13 @@ def meme_doc(meme: Meme) -> str:
     else:
         args_info = ""
 
+    if args := meme.params_type.args_type:
+        parser = args.parser
+        parser_info = parser.format_help()
+        parser_info = parser_info.replace("update_doc.py", f"meme generate {meme.key}")
+    else:
+        parser_info = ""
+
     def image_doc(name: str) -> str:
         for path in image_path.iterdir():
             if name == path.stem:
@@ -104,6 +111,7 @@ def meme_doc(meme: Meme) -> str:
         + f"- 需要文字数目：{text_num}\n"
         + (f"- 默认文字：[{default_texts}]\n" if default_texts else "")
         + (f"- 其他参数：{args_info}\n" if args_info else "")
+        + (f"- 其他参数（命令行选项）：\n```shell\n{parser_info}```\n\n" if parser_info else "")
         + "- 预览：\n"
         + f"{preview_image}"
     )

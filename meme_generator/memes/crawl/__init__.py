@@ -13,7 +13,7 @@ img_dir = Path(__file__).parent / "images"
 
 help = "指定“爬”使用的图片编号，范围为 1~92"
 
-parser = ArgumentParser()
+parser = ArgumentParser(add_help=False)
 parser.add_argument("-n", "--number", type=int, default=0, help=help)
 
 

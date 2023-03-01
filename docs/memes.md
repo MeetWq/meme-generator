@@ -206,6 +206,17 @@
         - 类型：`string`
         - 默认值：`normal`
         - 可选值：`normal`、`loop`、`circle`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate always [--mode {normal,circle,loop} | --circle | --loop]
+
+options:
+  --mode {normal,circle,loop}
+                        生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)
+  --circle, /套娃
+  --loop, /循环
+```
+
 - 预览：
 > 参数：{"mode": "normal"}
 <div align="left">
@@ -457,6 +468,15 @@
         - 描述：指定“爬”使用的图片编号，范围为 1~92
         - 类型：`integer`
         - 默认值：`0`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate crawl [-n NUMBER]
+
+options:
+  -n NUMBER, --number NUMBER
+                        指定“爬”使用的图片编号，范围为 1~92
+```
+
 - 预览：
 <div align="left">
   <img src="images/crawl.jpg" width="200" />
@@ -649,6 +669,18 @@
         - 类型：`string`
         - 默认值：`left`
         - 可选值：`left`、`right`、`both`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate gun [-p {left,right,both} | --left | --right | --both]
+
+options:
+  -p {left,right,both}, --position {left,right,both}
+                        枪的位置，可选值为 `left`(左手)、`right`(右手)、`both`(双手)
+  --left, /左手
+  --right, /右手
+  --both, /双手
+```
+
 - 预览：
 > 参数：{"position": "left"}
 <div align="left">
@@ -781,6 +813,14 @@
         - 描述：是否将图片变为圆形
         - 类型：`boolean`
         - 默认值：`False`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate jiji_king [--circle]
+
+options:
+  --circle, /圆  是否将图片变为圆形
+```
+
 - 预览：
 > 参数：{"circle": false}
 <div align="left">
@@ -812,6 +852,14 @@
         - 描述：是否将图片变为圆形
         - 类型：`boolean`
         - 默认值：`False`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate kaleidoscope [--circle]
+
+options:
+  --circle, /圆  是否将图片变为圆形
+```
+
 - 预览：
 > 参数：{"circle": false}
 <div align="left">
@@ -865,6 +913,14 @@
         - 描述：是否将图片变为圆形
         - 类型：`boolean`
         - 默认值：`False`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate kirby_hammer [--circle]
+
+options:
+  --circle, /圆  是否将图片变为圆形
+```
+
 - 预览：
 > 参数：{"circle": false}
 <div align="left">
@@ -968,6 +1024,15 @@
         - 描述：图片“压扁”比例
         - 类型：`integer`
         - 默认值：`2`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate look_flat [-r RATIO]
+
+options:
+  -r RATIO, --ratio RATIO
+                        图片“压扁”比例
+```
+
 - 预览：
 <div align="left">
   <img src="images/look_flat.jpg" width="200" />
@@ -1059,6 +1124,14 @@
         - 描述：指定名字
         - 类型：`string`
         - 默认值：``
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate my_friend [-n NAME]
+
+options:
+  -n NAME, --name NAME  指定名字
+```
+
 - 预览：
 <div align="left">
   <img src="images/my_friend.jpg" width="200" />
@@ -1197,6 +1270,14 @@
         - 描述：是否将图片变为圆形
         - 类型：`boolean`
         - 默认值：`False`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate petpet [--circle]
+
+options:
+  --circle, /圆  是否将图片变为圆形
+```
+
 - 预览：
 > 参数：{"circle": false}
 <div align="left">
@@ -1584,6 +1665,19 @@
         - 类型：`string`
         - 默认值：`left`
         - 可选值：`left`、`right`、`top`、`bottom`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate symmetric [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
+
+options:
+  -d {left,right,top,bottom}, --direction {left,right,top,bottom}
+                        对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)
+  --left, /左
+  --right, /右
+  --top, /上
+  --bottom, /下
+```
+
 - 预览：
 > 参数：{"direction": "left"}
 <div align="left">

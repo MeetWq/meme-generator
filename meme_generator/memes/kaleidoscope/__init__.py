@@ -10,7 +10,7 @@ from meme_generator import add_meme, MemeArgsType, MemeArgsModel
 
 help = "是否将图片变为圆形"
 
-parser = ArgumentParser(prefix_chars="-/")
+parser = ArgumentParser(prefix_chars="-/", add_help=False)
 parser.add_argument("--circle", "/圆", action="store_true", help=help)
 
 

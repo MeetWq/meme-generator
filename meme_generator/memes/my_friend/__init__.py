@@ -12,7 +12,7 @@ img_dir = Path(__file__).parent / "images"
 
 help = "指定名字"
 
-parser = ArgumentParser()
+parser = ArgumentParser(add_help=False)
 parser.add_argument("-n", "--name", type=str, default="", help=help)
 
 
