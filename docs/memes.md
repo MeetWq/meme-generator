@@ -208,9 +208,10 @@
         - 可选值：`normal`、`loop`、`circle`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate always [--mode {normal,circle,loop} | --circle | --loop]
+usage: meme generate always [-h] [--mode {normal,circle,loop} | --circle | --loop]
 
 options:
+  -h, --help            show this help message and exit
   --mode {normal,circle,loop}
                         生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)
   --circle, /套娃
@@ -470,9 +471,10 @@ options:
         - 默认值：`0`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate crawl [-n NUMBER]
+usage: meme generate crawl [-h] [-n NUMBER]
 
 options:
+  -h, --help            show this help message and exit
   -n NUMBER, --number NUMBER
                         指定“爬”使用的图片编号，范围为 1~92
 ```
@@ -671,9 +673,10 @@ options:
         - 可选值：`left`、`right`、`both`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate gun [-p {left,right,both} | --left | --right | --both]
+usage: meme generate gun [-h] [-p {left,right,both} | --left | --right | --both]
 
 options:
+  -h, --help            show this help message and exit
   -p {left,right,both}, --position {left,right,both}
                         枪的位置，可选值为 `left`(左手)、`right`(右手)、`both`(双手)
   --left, /左手
@@ -815,9 +818,10 @@ options:
         - 默认值：`False`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate jiji_king [--circle]
+usage: meme generate jiji_king [-h] [--circle]
 
 options:
+  -h, --help    show this help message and exit
   --circle, /圆  是否将图片变为圆形
 ```
 
@@ -854,9 +858,10 @@ options:
         - 默认值：`False`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate kaleidoscope [--circle]
+usage: meme generate kaleidoscope [-h] [--circle]
 
 options:
+  -h, --help    show this help message and exit
   --circle, /圆  是否将图片变为圆形
 ```
 
@@ -915,9 +920,10 @@ options:
         - 默认值：`False`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate kirby_hammer [--circle]
+usage: meme generate kirby_hammer [-h] [--circle]
 
 options:
+  -h, --help    show this help message and exit
   --circle, /圆  是否将图片变为圆形
 ```
 
@@ -1026,9 +1032,10 @@ options:
         - 默认值：`2`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate look_flat [-r RATIO]
+usage: meme generate look_flat [-h] [-r RATIO]
 
 options:
+  -h, --help            show this help message and exit
   -r RATIO, --ratio RATIO
                         图片“压扁”比例
 ```
@@ -1126,9 +1133,10 @@ options:
         - 默认值：``
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate my_friend [-n NAME]
+usage: meme generate my_friend [-h] [-n NAME]
 
 options:
+  -h, --help            show this help message and exit
   -n NAME, --name NAME  指定名字
 ```
 
@@ -1272,9 +1280,10 @@ options:
         - 默认值：`False`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate petpet [--circle]
+usage: meme generate petpet [-h] [--circle]
 
 options:
+  -h, --help    show this help message and exit
   --circle, /圆  是否将图片变为圆形
 ```
 
@@ -1667,10 +1676,11 @@ options:
         - 可选值：`left`、`right`、`top`、`bottom`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate symmetric
+usage: meme generate symmetric [-h]
                      [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
 
 options:
+  -h, --help            show this help message and exit
   -d {left,right,top,bottom}, --direction {left,right,top,bottom}
                         对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)
   --left, /左
