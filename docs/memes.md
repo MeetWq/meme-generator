@@ -1667,7 +1667,8 @@ options:
         - 可选值：`left`、`right`、`top`、`bottom`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate symmetric [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
+usage: meme generate symmetric
+                     [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
 
 options:
   -d {left,right,top,bottom}, --direction {left,right,top,bottom}
