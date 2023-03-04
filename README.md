@@ -1,5 +1,7 @@
 <div align="center">
 
+~logo征集中，假装有图片~
+
 # meme-generator
 
 _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
