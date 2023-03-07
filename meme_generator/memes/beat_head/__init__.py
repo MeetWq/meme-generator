@@ -10,7 +10,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def paitou(images: List[BuildImage], texts: List[str], args):
+def beat_head(images: List[BuildImage], texts: List[str], args):
     text = "怎么说话的你" if not len(texts) else texts[0]
     self_locs = [(160, 121), (172, 124), (208, 166)]
     self_size = [(76,76),(69,69),(52,52)]
@@ -30,4 +30,4 @@ def paitou(images: List[BuildImage], texts: List[str], args):
 
 
 
-add_meme("paitou", paitou, min_images=1, max_images=1,min_texts=0,max_texts=1, keywords=["拍头"])
+add_meme("beat_head", beat_head, min_images=1, max_images=1,min_texts=0,max_texts=1, keywords=["拍头"])
