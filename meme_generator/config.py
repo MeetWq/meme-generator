@@ -1,10 +1,11 @@
-import toml
-from typing import List
+import json
 from pathlib import Path
+from typing import List
+
+import toml
 from pydantic import BaseModel, Extra
 
 from .dirs import get_config_file
-
 
 config_file_path = get_config_file("config.toml")
 
@@ -47,11 +48,11 @@ class Config(BaseModel, extra=Extra.ignore):
 
     def dump(self):
         with open(config_file_path, "w", encoding="utf8") as f:
-            toml.dump(self.dict(), f)
+            toml.dump(json.loads(self.json()), f)
 
 
 if not config_file_path.exists():
     meme_config = Config()
+    meme_config.dump()
 else:
     meme_config = Config.load()
-meme_config.dump()
