@@ -195,6 +195,8 @@ port = 2233  # web server 端口
 
 如果希望编写、贡献新的表情，可以参考 [--> 新表情编写指北 <--](docs/develop.md)
 
+对于一些不适合放在主仓库的表情，可以提交至 [meme-generator-contrib 额外表情仓库](https://github.com/MeetWq/meme-generator-contrib)
+
 
 ## 声明
 
