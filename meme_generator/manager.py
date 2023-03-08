@@ -1,20 +1,19 @@
-import pkgutil
 import importlib
-from typing import Union
+import importlib.util
+import pkgutil
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional, Union
 
-from .log import logger
 from .config import meme_config
 from .exception import NoSuchMeme
-from .meme import Meme, MemeFunction, MemeArgsType, MemeParamsType
+from .log import logger
+from .meme import Meme, MemeArgsType, MemeFunction, MemeParamsType
 
-
-_memes: Dict[str, Meme] = dict()
+_memes: Dict[str, Meme] = {}
 
 
 def path_to_module_name(path: Path) -> str:
-    rel_path = path.resolve().relative_to(Path(".").resolve())
+    rel_path = path.resolve().relative_to(Path.cwd().resolve())
     if rel_path.stem == "__init__":
         return ".".join(rel_path.parts[:-1])
     else:
@@ -46,10 +45,11 @@ def load_memes(dir_path: Union[str, Path]):
             continue
         if not (module_path := module_spec.origin):
             continue
-        module_path = Path(module_path).resolve()
-        module_name = path_to_module_name(module_path)
+        if not (module_loader := module_spec.loader):
+            continue
         try:
-            importlib.import_module(module_name)
+            module = importlib.util.module_from_spec(module_spec)
+            module_loader.exec_module(module)
         except Exception as e:
             logger.opt(colors=True, exception=e).error(
                 f"Failed to import {module_path}!"
