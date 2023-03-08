@@ -1,6 +1,7 @@
 import math
 import random
 from typing import List
+
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
 

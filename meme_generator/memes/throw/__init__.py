@@ -1,10 +1,10 @@
 import random
-from typing import List
 from pathlib import Path
+from typing import List
+
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
-
 
 img_dir = Path(__file__).parent / "images"
 

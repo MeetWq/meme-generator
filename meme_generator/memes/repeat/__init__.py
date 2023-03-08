@@ -1,13 +1,13 @@
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from typing import List, Tuple
+
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
 
-from meme_generator import add_meme, MemeArgsModel
+from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOverLength
-from meme_generator.utils import save_gif, random_text
-
+from meme_generator.utils import random_text, save_gif
 
 img_dir = Path(__file__).parent / "images"
 

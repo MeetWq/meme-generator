@@ -1,8 +1,9 @@
 from typing import List, Tuple
+
 from PIL.Image import Image as IMG
-from PIL.Image import Transform, Resampling
+from PIL.Image import Resampling, Transform
 from pil_utils import BuildImage, Text2Image
-from pil_utils.gradient import LinearGradient, ColorStop
+from pil_utils.gradient import ColorStop, LinearGradient
 
 from meme_generator import add_meme
 

@@ -1,9 +1,10 @@
 from typing import List
+
 from PIL import ImageFilter
 from pil_utils import BuildImage, Text2Image
-from pil_utils.gradient import LinearGradient, ColorStop
+from pil_utils.gradient import ColorStop, LinearGradient
 
-from meme_generator import add_meme, MemeArgsModel
+from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 
 

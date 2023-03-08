@@ -1,10 +1,10 @@
-from typing import List
 from pathlib import Path
+from typing import List
+
 from pil_utils import BuildImage
 
-from meme_generator import add_meme, MemeArgsModel
+from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOverLength
-
 
 img_dir = Path(__file__).parent / "images"
 

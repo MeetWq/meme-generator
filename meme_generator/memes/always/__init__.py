@@ -1,14 +1,15 @@
-from pydantic import Field
-from pil_utils import BuildImage
-from typing import List, Literal
 from argparse import ArgumentParser
+from typing import List, Literal
 
-from meme_generator import add_meme, MemeArgsType, MemeArgsModel
+from pil_utils import BuildImage
+from pydantic import Field
+
+from meme_generator import MemeArgsModel, MemeArgsType, add_meme
 from meme_generator.utils import (
-    make_jpg_or_gif,
-    make_gif_or_combined_gif,
-    Maker,
     FrameAlignPolicy,
+    Maker,
+    make_gif_or_combined_gif,
+    make_jpg_or_gif,
 )
 
 help = "生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)"

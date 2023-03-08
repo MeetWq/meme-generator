@@ -1,12 +1,12 @@
-from typing import List
-from pathlib import Path
-from pydantic import Field
-from pil_utils import BuildImage
 from argparse import ArgumentParser
+from pathlib import Path
+from typing import List
 
-from meme_generator import add_meme, MemeArgsType, MemeArgsModel
-from meme_generator.utils import make_gif_or_combined_gif, Maker, FrameAlignPolicy
+from pil_utils import BuildImage
+from pydantic import Field
 
+from meme_generator import MemeArgsModel, MemeArgsType, add_meme
+from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 help = "是否将图片变为圆形"
 

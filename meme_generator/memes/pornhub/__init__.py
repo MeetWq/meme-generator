@@ -1,4 +1,5 @@
 from typing import List
+
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme

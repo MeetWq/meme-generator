@@ -1,7 +1,8 @@
 import random
 from typing import List
-from pil_utils import BuildImage
+
 from PIL.Image import Image as IMG
+from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.utils import save_gif

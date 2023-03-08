@@ -1,11 +1,11 @@
-from typing import List
 from pathlib import Path
-from pil_utils import BuildImage
+from typing import List
+
 from PIL.Image import Image as IMG
+from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.utils import save_gif
-
 
 img_dir = Path(__file__).parent / "images"
 
