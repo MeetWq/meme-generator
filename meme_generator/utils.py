@@ -1,30 +1,29 @@
-import math
-import time
-import httpx
-import random
 import asyncio
 import hashlib
 import inspect
+import math
+import random
+import time
 from enum import Enum
+from functools import partial, wraps
 from io import BytesIO
-from pil_utils import BuildImage
-from PIL.Image import Image as IMG
-from functools import wraps, partial
 from typing import (
-    List,
     Any,
-    Protocol,
-    Optional,
     Callable,
-    ParamSpec,
-    TypeVar,
     Coroutine,
+    List,
+    Optional,
+    ParamSpec,
+    Protocol,
+    TypeVar,
 )
 
+import httpx
+from PIL.Image import Image as IMG
+from pil_utils import BuildImage
 
 from .config import meme_config
 from .exception import MemeGeneratorException
-
 
 P = ParamSpec("P")
 R = TypeVar("R")

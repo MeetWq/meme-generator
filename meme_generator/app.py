@@ -1,14 +1,14 @@
+from typing import Any, Dict, List, Optional
+
 import filetype
-from typing import List, Dict, Optional, Any
+from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ValidationError
-from fastapi import FastAPI, UploadFile, HTTPException, Response, status, Form, Depends
 
 from meme_generator.config import meme_config
-from meme_generator.meme import Meme, MemeArgsModel
-from meme_generator.manager import get_meme, get_memes, get_meme_keys
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
-
+from meme_generator.manager import get_meme, get_meme_keys, get_memes
+from meme_generator.meme import Meme, MemeArgsModel
 
 app = FastAPI()
 

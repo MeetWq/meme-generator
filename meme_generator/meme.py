@@ -1,31 +1,32 @@
-from io import BytesIO
-from typing import Union
-from pathlib import Path
-from pil_utils import BuildImage
 from argparse import ArgumentParser
 from dataclasses import dataclass, field
-from pydantic import BaseModel, ValidationError
+from io import BytesIO
+from pathlib import Path
 from typing import (
-    List,
-    Dict,
     Any,
-    cast,
+    Awaitable,
+    Callable,
+    Dict,
+    List,
     Literal,
     Optional,
-    Callable,
     Type,
     TypeVar,
-    Awaitable,
+    Union,
+    cast,
 )
 
-from .utils import run_sync, is_coroutine_callable, random_text, random_image
+from pil_utils import BuildImage
+from pydantic import BaseModel, ValidationError
+
 from .exception import (
-    ImageNumberMismatch,
-    TextNumberMismatch,
     ArgModelMismatch,
+    ImageNumberMismatch,
     OpenImageFailed,
+    TextNumberMismatch,
     TextOrNameNotEnough,
 )
+from .utils import is_coroutine_callable, random_image, random_text, run_sync
 
 
 class UserInfo(BaseModel):

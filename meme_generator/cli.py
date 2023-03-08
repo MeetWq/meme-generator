@@ -1,15 +1,15 @@
-import copy
 import asyncio
-import filetype
-from pathlib import Path
-from typing import List, Dict, Any
+import copy
 from argparse import ArgumentParser
+from pathlib import Path
+from typing import Any, Dict, List
+
+import filetype
 
 from meme_generator.app import run_server
 from meme_generator.download import check_resources
+from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.manager import get_meme, get_memes
-from meme_generator.exception import NoSuchMeme, MemeGeneratorException
-
 
 parser = ArgumentParser("meme")
 subparsers = parser.add_subparsers(dest="handle")
