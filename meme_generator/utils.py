@@ -7,20 +7,12 @@ import time
 from enum import Enum
 from functools import partial, wraps
 from io import BytesIO
-from typing import (
-    Any,
-    Callable,
-    Coroutine,
-    List,
-    Optional,
-    ParamSpec,
-    Protocol,
-    TypeVar,
-)
+from typing import Any, Callable, Coroutine, List, Optional, Protocol, TypeVar
 
 import httpx
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
+from typing_extensions import ParamSpec
 
 from .config import meme_config
 from .exception import MemeGeneratorException
