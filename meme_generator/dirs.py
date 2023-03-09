@@ -27,7 +27,9 @@ SOFTWARE.
 import os
 import sys
 from pathlib import Path
-from typing import Literal, Callable, ParamSpec
+from typing import Callable, Literal
+
+from typing_extensions import ParamSpec
 
 WINDOWS = sys.platform.startswith("win") or (sys.platform == "cli" and os.name == "nt")
 

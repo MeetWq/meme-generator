@@ -24,6 +24,7 @@ uvicorn = ">0.17.0,<1.0.0"
 python-multipart = "^0.0.5"
 filetype = "^1.2.0"
 tqdm = "^4.60.0"
+typing-extensions = ">=4.0.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.1.0"
