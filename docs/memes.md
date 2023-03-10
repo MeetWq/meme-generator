@@ -203,7 +203,7 @@
 - 需要文字数目：`0`
 - 其他参数：
     - `mode`
-        - 描述：生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)
+        - 描述：生成模式
         - 类型：`string`
         - 默认值：`normal`
         - 可选值：`normal`、`loop`、`circle`
@@ -214,7 +214,7 @@ usage: meme generate always [-h] [--mode {normal,circle,loop} | --circle | --loo
 options:
   -h, --help            show this help message and exit
   --mode {normal,circle,loop}
-                        生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)
+                        生成模式
   --circle, /套娃
   --loop, /循环
 ```
@@ -477,7 +477,7 @@ options:
 - 需要文字数目：`0`
 - 其他参数：
     - `number`
-        - 描述：指定“爬”使用的图片编号，范围为 1~92
+        - 描述：图片编号，范围为 1~92
         - 类型：`integer`
         - 默认值：`0`
 - 其他参数（命令行选项）：
@@ -487,7 +487,7 @@ usage: meme generate crawl [-h] [-n NUMBER]
 options:
   -h, --help            show this help message and exit
   -n NUMBER, --number NUMBER
-                        指定“爬”使用的图片编号，范围为 1~92
+                        图片编号，范围为 1~92
 ```
 
 - 预览：
@@ -678,7 +678,7 @@ options:
 - 需要文字数目：`0`
 - 其他参数：
     - `position`
-        - 描述：枪的位置，可选值为 `left`(左手)、`right`(右手)、`both`(双手)
+        - 描述：枪的位置
         - 类型：`string`
         - 默认值：`left`
         - 可选值：`left`、`right`、`both`
@@ -689,7 +689,7 @@ usage: meme generate gun [-h] [-p {left,right,both} | --left | --right | --both]
 options:
   -h, --help            show this help message and exit
   -p {left,right,both}, --position {left,right,both}
-                        枪的位置，可选值为 `left`(左手)、`right`(右手)、`both`(双手)
+                        枪的位置
   --left, /左手
   --right, /右手
   --both, /双手
@@ -1681,7 +1681,7 @@ options:
 - 需要文字数目：`0`
 - 其他参数：
     - `direction`
-        - 描述：对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)
+        - 描述：对称方向
         - 类型：`string`
         - 默认值：`left`
         - 可选值：`left`、`right`、`top`、`bottom`
@@ -1693,7 +1693,7 @@ usage: meme generate symmetric [-h]
 options:
   -h, --help            show this help message and exit
   -d {left,right,top,bottom}, --direction {left,right,top,bottom}
-                        对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)
+                        对称方向
   --left, /左
   --right, /右
   --top, /上
