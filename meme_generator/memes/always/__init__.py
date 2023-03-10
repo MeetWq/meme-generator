@@ -12,7 +12,7 @@ from meme_generator.utils import (
     make_jpg_or_gif,
 )
 
-help = "生成模式，分为 `normal`(常规)、`circle`(套娃)、`loop`(循环套娃)"
+help = "生成模式"
 
 parser = ArgumentParser(prefix_chars="-/")
 group = parser.add_mutually_exclusive_group()

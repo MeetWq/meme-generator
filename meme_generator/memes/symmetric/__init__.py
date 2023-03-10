@@ -9,7 +9,7 @@ from pydantic import Field
 from meme_generator import MemeArgsModel, MemeArgsType, add_meme
 from meme_generator.utils import make_jpg_or_gif
 
-help = "对称方向，可选值为 `left`(左)、`right`(右)、`top`(上)、`bottom`(下)"
+help = "对称方向"
 
 parser = ArgumentParser(prefix_chars="-/")
 group = parser.add_mutually_exclusive_group()
