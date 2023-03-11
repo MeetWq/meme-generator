@@ -12,25 +12,22 @@ from .log import logger
 from .version import __version__
 
 
-async def _download(
-    client: httpx.AsyncClient,
-    url: str,
-    semaphore: asyncio.Semaphore = asyncio.Semaphore(10),
-):
-    async with semaphore:
-        try:
-            resp = await client.get(url, timeout=20, follow_redirects=True)
-            resp.raise_for_status()
-            return resp.content
-        except httpx.HTTPError as e:
-            logger.warning(f"{url} download failed！\n{e}")
-
-
 def _resource_url(path: str) -> str:
     return f"{meme_config.resource.resource_url}/blob/v{__version__}/{path}"
 
 
 async def check_resources():
+    semaphore = asyncio.Semaphore(10)
+
+    async def _download(client: httpx.AsyncClient, url: str):
+        async with semaphore:
+            try:
+                resp = await client.get(url, timeout=20, follow_redirects=True)
+                resp.raise_for_status()
+                return resp.content
+            except httpx.HTTPError as e:
+                logger.warning(f"{url} download failed！\n{e}")
+
     async with httpx.AsyncClient() as client:
         if content := await _download(
             client, _resource_url("resources/resource_list.json")
