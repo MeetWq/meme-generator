@@ -22,7 +22,7 @@ def raise_sign(images, texts: List[str], args):
             allow_wrap=True,
             lines_align="center",
             spacing=10,
-            fontname="FZSEJW",
+            fontname="FZShaoEr-M11S",
             fill="#51201b",
         )
     except ValueError:
