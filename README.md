@@ -49,6 +49,14 @@ meme download
 
 为确保表情包中的文字生成正常，需要自行安装字体
 
+> 字体安装后若文字仍显示不正常，可删掉 `matplotlib` 字体缓存文件重新运行程序
+>
+> 缓存文件位置：
+> - Windows: `C:\Users\<username>\.matplotlib\fontlist-xxx.json`
+> - Linux: `~/.cache/matplotlib/fontlist-xxx.json`
+> - Mac: `~/Library/Caches/matplotlib/fontlist-xxx.json`
+
+
 #### 中文字体 和 emoji字体 安装
 
 根据系统的不同，推荐安装的字体如下：
