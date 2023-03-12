@@ -163,7 +163,7 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 
 默认配置文件位置：
 
-- Windows: `C:\Users\<username>\AppData\Local\meme_generator\config.toml`
+- Windows: `C:\Users\<username>\AppData\Roaming\meme_generator\config.toml`
 - Linux: `~/.config/meme_generator/config.toml`
 - Mac: `~/Library/Application Support/meme_generator/config.toml`
 
