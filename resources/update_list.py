@@ -1,7 +1,6 @@
-import json
 import hashlib
+import json
 from pathlib import Path
-
 
 dir_path = Path(__file__).parent
 memes_path = dir_path.parent / "meme_generator" / "memes"

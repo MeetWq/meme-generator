@@ -30,7 +30,6 @@ class MemeInfoResponse(BaseModel):
 
 
 def register_router(meme: Meme):
-
     if args_type := meme.params_type.args_type:
         args_model = args_type.model
     else:

@@ -18,7 +18,6 @@ def make_gif(
     padding_x: int = 5,
     padding_y: int = 5,
 ):
-
     img = BuildImage.open(img_dir / f"{key}.gif").image
     frames: List[BuildImage] = []
     for i in range(img.n_frames):

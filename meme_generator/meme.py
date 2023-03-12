@@ -78,7 +78,6 @@ class Meme:
         texts: List[str] = [],
         args: Dict[str, Any] = {},
     ) -> BytesIO:
-
         if not (
             self.params_type.min_images <= len(images) <= self.params_type.max_images
         ):

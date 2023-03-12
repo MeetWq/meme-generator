@@ -1,10 +1,11 @@
 import asyncio
-import filetype
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
+
+import filetype
+
 from meme_generator import get_memes
 from meme_generator.meme import Meme
-
 
 memes = sorted(get_memes(), key=lambda meme: meme.key)
 

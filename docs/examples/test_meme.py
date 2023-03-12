@@ -1,4 +1,5 @@
 import asyncio
+
 from meme_generator import get_meme
 
 
