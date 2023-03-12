@@ -114,7 +114,7 @@ def register_routers():
         media_type = str(filetype.guess_mime(content)) or "text/plain"
         return Response(content=content, media_type=media_type)
 
-    for meme in get_memes():
+    for meme in sorted(get_memes(), key=lambda meme: meme.key):
         register_router(meme)
 
 
