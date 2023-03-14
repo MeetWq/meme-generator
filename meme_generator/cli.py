@@ -7,6 +7,7 @@ from typing import Any, Dict, List
 import filetype
 
 from meme_generator.app import run_server
+from meme_generator.config import meme_config
 from meme_generator.download import check_resources
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.manager import get_meme, get_memes
@@ -28,6 +29,9 @@ memes_subparsers = generate_parser.add_subparsers(dest="key", help="表情名")
 run_parser = subparsers.add_parser("run", aliases=["start"], help="启动 web server")
 
 download_parser = subparsers.add_parser("download", help="下载内置表情图片")
+download_parser.add_argument(
+    "--url", type=str, help="指定资源链接", default=meme_config.resource.resource_url
+)
 
 
 def add_parsers():
@@ -182,6 +186,7 @@ def main():
         run_server()
 
     elif handle in ["download"]:
+        meme_config.resource.resource_url = args.url
         loop = asyncio.new_event_loop()
         loop.run_until_complete(check_resources())
 
