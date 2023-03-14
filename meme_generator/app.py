@@ -2,7 +2,6 @@ import copy
 from argparse import ArgumentParser
 from typing import Any, Dict, List, Optional
 
-
 import filetype
 from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile, status
 from fastapi.encoders import jsonable_encoder
