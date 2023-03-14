@@ -32,6 +32,10 @@ black = "^22.1.0"
 [tool.poetry.scripts]
 meme = "meme_generator.cli:main"
 
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
