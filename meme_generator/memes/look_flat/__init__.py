@@ -1,16 +1,15 @@
-from argparse import ArgumentParser
 from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_jpg_or_gif
 
 help = "图片“压扁”比例"
 
-parser = ArgumentParser()
+parser = MemeArgsParser()
 parser.add_argument("-r", "--ratio", type=int, default=2, help=help)
 
 

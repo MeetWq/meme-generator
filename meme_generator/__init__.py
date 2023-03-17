@@ -9,6 +9,7 @@ from meme_generator.manager import load_meme as load_meme
 from meme_generator.manager import load_memes as load_memes
 from meme_generator.meme import Meme as Meme
 from meme_generator.meme import MemeArgsModel as MemeArgsModel
+from meme_generator.meme import MemeArgsParser as MemeArgsParser
 from meme_generator.meme import MemeArgsType as MemeArgsType
 from meme_generator.meme import MemeParamsType as MemeParamsType
 from meme_generator.version import __version__

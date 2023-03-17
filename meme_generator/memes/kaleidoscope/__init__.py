@@ -1,16 +1,15 @@
 import math
-from argparse import ArgumentParser
 from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.utils import make_jpg_or_gif
 
 help = "是否将图片变为圆形"
 
-parser = ArgumentParser(prefix_chars="-/")
+parser = MemeArgsParser(prefix_chars="-/")
 parser.add_argument("--circle", "/圆", action="store_true", help=help)
 
 

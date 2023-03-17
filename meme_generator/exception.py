@@ -2,37 +2,44 @@ from typing import Optional
 
 
 class MemeGeneratorException(Exception):
+    def __init__(self, message: str):
+        self.message = message
+
     def __str__(self) -> str:
         return self.__repr__()
+
+    def __repr__(self) -> str:
+        return f"Error in meme_generator: {self.message!r}"
 
 
 class NoSuchMeme(MemeGeneratorException):
     def __init__(self, meme_key: str):
         self.meme_key = meme_key
-
-    def __repr__(self) -> str:
-        return f'No such meme with key="{self.meme_key}"'
+        message = f'No such meme with key="{self.meme_key}"'
+        super().__init__(message)
 
 
 class TextOverLength(MemeGeneratorException):
     def __init__(self, text: str):
         self.text = text
+        message = f'Text "{self.text}" is too long!'
+        super().__init__(message)
 
-    def __repr__(self) -> str:
-        return f'Text "{self.text}" is too long!'
+
+class OpenImageFailed(MemeGeneratorException):
+    def __init__(self, error_message: str):
+        self.error_message = error_message
+        message = f'Error opening images: "{self.error_message!r}"'
+        super().__init__(message)
 
 
 class ParamsMismatch(MemeGeneratorException):
-    def __init__(self, meme_key: str, message: Optional[str] = None):
+    def __init__(self, meme_key: str, message: str):
         self.meme_key = meme_key
         self.message = message
 
     def __repr__(self) -> str:
-        return (
-            f"ParamsMismatch(key={self.meme_key}"
-            + (f", message={self.message!r}" if self.message else "")
-            + ")"
-        )
+        return f'ParamsMismatch(key="{self.meme_key}", message="{self.message!r}")'
 
 
 class ImageNumberMismatch(ParamsMismatch):
@@ -55,41 +62,35 @@ class TextNumberMismatch(ParamsMismatch):
 
 class TextOrNameNotEnough(ParamsMismatch):
     def __init__(self, meme_key: str, message: Optional[str] = None):
-        self.meme_key = meme_key
-        self.message = message or "The number of texts or user names is not enough"
+        message = message or "The number of texts or user names is not enough"
+        super().__init__(meme_key, message)
 
 
 class ArgMismatch(ParamsMismatch):
     pass
 
 
-class ArgParserExit(ArgMismatch):
-    def __init__(
-        self, meme_key: str, status: int = 0, error_message: Optional[str] = None
-    ):
+class ParserExit(MemeGeneratorException):
+    def __init__(self, status: int = 0, error_message: Optional[str] = None):
         self.status = status
-        self.error_message = error_message
+        self.error_message = error_message or ""
         message = (
             f"Argument parser failed to parse. (status={self.status}"
             + (f", message={self.error_message!r}" if self.error_message else "")
             + ")"
         )
+        super().__init__(message)
+
+
+class ArgParserExit(ArgMismatch):
+    def __init__(self, meme_key: str, error_message: str):
+        self.error_message = error_message
+        message = f"Argument parser failed to parse: {self.error_message!r}"
         super().__init__(meme_key, message)
 
 
 class ArgModelMismatch(ArgMismatch):
-    def __init__(self, meme_key: str, error_message: Optional[str] = None):
+    def __init__(self, meme_key: str, error_message: str):
         self.error_message = error_message
-        message = f"Argument model validation failed." + (
-            f" (message={self.error_message!r})" if self.error_message else ""
-        )
-        super().__init__(meme_key, message)
-
-
-class OpenImageFailed(ParamsMismatch):
-    def __init__(self, meme_key: str, error_message: Optional[str] = None):
-        self.error_message = error_message
-        message = f"Error opening images." + (
-            f" (message={self.error_message!r})" if self.error_message else ""
-        )
+        message = f"Argument model validation failed: {self.error_message!r}"
         super().__init__(meme_key, message)

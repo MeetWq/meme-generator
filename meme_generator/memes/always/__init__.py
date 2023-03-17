@@ -1,10 +1,9 @@
-from argparse import ArgumentParser
 from typing import List, Literal
 
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.utils import (
     FrameAlignPolicy,
     Maker,
@@ -14,7 +13,7 @@ from meme_generator.utils import (
 
 help = "生成模式"
 
-parser = ArgumentParser(prefix_chars="-/")
+parser = MemeArgsParser(prefix_chars="-/")
 group = parser.add_mutually_exclusive_group()
 group.add_argument(
     "--mode",

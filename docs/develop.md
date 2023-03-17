@@ -80,7 +80,7 @@ add_meme(
 ```python
 @dataclass
 class MemeArgsType:
-    parser: ArgumentParser  # 参数解析器，将命令行形式的文本解析为字典形式，方便通过命令行使用
+    parser: MemeArgsParser  # 参数解析器，将命令行形式的文本解析为字典形式，方便通过命令行使用
     model: Type[MemeArgsModel]  # 参数模型，用于验证字典形式的参数，并传入表情制作函数
     instances: List[MemeArgsModel] = field(default_factory=list)  # 可选，参数模型示例，推荐填写，方便生成不同参数下的预览图
 ```
@@ -102,9 +102,9 @@ class Model(MemeArgsModel):
 同时定义如下的参数解析器：
 
 ```python
-from argparse import ArgumentParser
+from meme_generator import MemeArgsParser
 
-parser = ArgumentParser(prefix_chars="-/")
+parser = MemeArgsParser(prefix_chars="-/")
 parser.add_argument("--circle", "/圆", action="store_true", help="是否将图片变为圆形")
 ```
 

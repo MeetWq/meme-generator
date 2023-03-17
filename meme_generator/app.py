@@ -1,5 +1,3 @@
-import copy
-from argparse import ArgumentParser
 from typing import Any, Dict, List, Optional
 
 import filetype
@@ -8,7 +6,7 @@ from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ValidationError
 
 from meme_generator.config import meme_config
-from meme_generator.exception import ArgParserExit, MemeGeneratorException, NoSuchMeme
+from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
 from meme_generator.meme import Meme, MemeArgsModel
 
@@ -141,16 +139,7 @@ def register_routers():
     async def _(key: str, args: List[str] = []):
         try:
             meme = get_meme(key)
-            parser = (
-                copy.deepcopy(meme.params_type.args_type.parser)
-                if meme.params_type.args_type
-                else ArgumentParser()
-            )
-            parser.add_argument("texts", nargs="*", default=[])
-            try:
-                return vars(parser.parse_args(args))
-            except:
-                raise ArgParserExit(meme.key)
+            return meme.parse_args(args)
         except MemeGeneratorException as e:
             raise HTTPException(status_code=500, detail=str(e))
 

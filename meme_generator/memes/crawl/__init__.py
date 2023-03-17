@@ -1,19 +1,18 @@
 import random
-from argparse import ArgumentParser
 from pathlib import Path
 from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 
 img_dir = Path(__file__).parent / "images"
 
 
 help = "图片编号，范围为 1~92"
 
-parser = ArgumentParser()
+parser = MemeArgsParser()
 parser.add_argument("-n", "--number", type=int, default=0, help=help)
 
 
