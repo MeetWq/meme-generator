@@ -1,8 +1,7 @@
 from typing import Any, Dict, List, Optional
 
 import filetype
-from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile, status
-from fastapi.encoders import jsonable_encoder
+from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile
 from pydantic import BaseModel, ValidationError
 
 from meme_generator.config import meme_config
@@ -49,10 +48,7 @@ def register_router(meme: Meme):
         try:
             model = args_model.parse_raw(args)
         except ValidationError as e:
-            raise HTTPException(
-                detail=jsonable_encoder(e.errors()),
-                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            )
+            raise HTTPException(status_code=552, detail=str(e))
         return model
 
     @app.post(f"/memes/{meme.key}/")
@@ -72,7 +68,7 @@ def register_router(meme: Meme):
         try:
             result = await meme(images=imgs, texts=texts, args=args.dict())
         except MemeGeneratorException as e:
-            raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=str(e))
 
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
@@ -89,7 +85,7 @@ def register_routers():
         try:
             meme = get_meme(key)
         except NoSuchMeme as e:
-            raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=str(e))
 
         args_model = (
             meme.params_type.args_type.model
@@ -129,7 +125,7 @@ def register_routers():
             meme = get_meme(key)
             result = await meme.generate_preview()
         except MemeGeneratorException as e:
-            raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=str(e))
 
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
@@ -141,7 +137,7 @@ def register_routers():
             meme = get_meme(key)
             return meme.parse_args(args)
         except MemeGeneratorException as e:
-            raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=str(e))
 
     for meme in sorted(get_memes(), key=lambda meme: meme.key):
         register_router(meme)
