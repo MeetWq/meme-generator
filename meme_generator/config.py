@@ -17,7 +17,9 @@ class MemeConfig(BaseModel):
 
 
 class ResourceConfig(BaseModel):
-    resource_url: str = "https://ghproxy.com/https://github.com/MeetWq/meme-generator"
+    resource_url: str = (
+        "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator"
+    )
 
 
 class GifConfig(BaseModel):
@@ -53,6 +55,5 @@ class Config(BaseModel, extra=Extra.ignore):
 
 if not config_file_path.exists():
     meme_config = Config()
-    meme_config.dump()
 else:
     meme_config = Config.load()

@@ -183,7 +183,7 @@ meme_dirs = []  # 加载其他位置的表情包，填写文件夹路径
 meme_disabled_list = []  # 禁用的表情包列表，填写表情的 `key`
 
 [resource]
-resource_url = "https://ghproxy.com/https://github.com/MeetWq/meme-generator"  # 下载内置表情包图片时的资源链接
+resource_url = "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator"  # 下载内置表情包图片时的资源链接
 
 [gif]
 gif_max_size = 10.0  # 限制生成的 gif 文件大小，单位为 Mb

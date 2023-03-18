@@ -13,7 +13,7 @@ from .version import __version__
 
 
 def _resource_url(path: str) -> str:
-    return f"{meme_config.resource.resource_url}/blob/v{__version__}/{path}"
+    return f"{meme_config.resource.resource_url}/v{__version__}/{path}"
 
 
 async def check_resources():
