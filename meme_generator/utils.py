@@ -348,17 +348,17 @@ def render_meme_list(
     order_direction: Literal["row", "column"] = "column",
     columns: int = 4,
     column_align: Literal["left", "center", "right"] = "left",
-    item_padding: Tuple[int, int] = (15, 2),
+    item_padding: Tuple[int, int] = (15, 6),
     image_padding: Tuple[int, int] = (50, 50),
     bg_color: ColorType = "white",
     fontsize: int = 30,
     fontname: str = "",
     fallback_fonts: List[str] = [],
 ) -> BytesIO:
-    item_images: List[IMG] = []
+    item_images: List[Text2Image] = []
     for i, (meme, properties) in enumerate(meme_list, start=1):
         text = template(meme, i)
-        image = Text2Image.from_text(
+        t2m = Text2Image.from_text(
             text,
             fontsize=fontsize,
             style=properties.style,
@@ -368,9 +368,15 @@ def render_meme_list(
             stroke_fill=properties.stroke_fill,
             fontname=fontname,
             fallback_fonts=fallback_fonts,
-        ).to_image(bg_color=bg_color, padding=item_padding)
-        item_images.append(image)
-
+        )
+        item_images.append(t2m)
+    char_A = (
+        Text2Image.from_text(
+            "A", fontsize=fontsize, fontname=fontname, fallback_fonts=fallback_fonts
+        )
+        .lines[0]
+        .chars[0]
+    )
     num_per_col = math.ceil(len(item_images) / columns)
     column_images: List[BuildImage] = []
     for col in range(columns):
@@ -381,19 +387,19 @@ def render_meme_list(
                 item_images[num * columns + col]
                 for num in range((len(item_images) - col - 1) // columns + 1)
             ]
-        img_w = max((img.width for img in images))
-        img_h = sum((img.height for img in images))
+        img_w = max((t2m.width for t2m in images)) + item_padding[0] * 2
+        img_h = (char_A.ascent + item_padding[1] * 2) * len(images) + char_A.descent
         image = BuildImage.new("RGB", (img_w, img_h), bg_color)
-        y = 0
-        for img in images:
+        y = item_padding[1]
+        for t2m in images:
             if column_align == "left":
                 x = 0
             elif column_align == "center":
-                x = (img_w - img.width) // 2
+                x = (img_w - t2m.width - item_padding[0] * 2) // 2
             else:
-                x = img_w - img.width
-            image.paste(img, (x, y))
-            y += img.height
+                x = img_w - t2m.width - item_padding[0] * 2
+            t2m.draw_on_image(image.image, (x, y))
+            y += char_A.ascent + item_padding[1] * 2
         column_images.append(image)
 
     img_w = sum((img.width for img in column_images)) + image_padding[0] * 2
