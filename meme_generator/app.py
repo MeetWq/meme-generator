@@ -157,8 +157,8 @@ def register_routers():
             if meme.params_type.args_type
             else MemeArgsModel
         )
-        properties: Dict[str, Dict[str, Any]] = args_model.schema().get(
-            "properties", {}
+        properties: Dict[str, Dict[str, Any]] = (
+            args_model.schema().get("properties", {}).copy()
         )
         properties.pop("user_infos")
         return MemeInfoResponse(

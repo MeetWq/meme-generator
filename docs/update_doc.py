@@ -65,7 +65,9 @@ def meme_doc(meme: Meme) -> str:
 
     if args := meme.params_type.args_type:
         model = args.model
-        properties: Dict[str, Dict[str, Any]] = model.schema().get("properties", {})
+        properties: Dict[str, Dict[str, Any]] = (
+            model.schema().get("properties", {}).copy()
+        )
         properties.pop("user_infos")
         args_info = "\n" + "\n".join(
             [arg_info(name, info) for name, info in properties.items()]
