@@ -11,7 +11,7 @@ class MemeGeneratorException(Exception):
         return self.__repr__()
 
     def __repr__(self) -> str:
-        return f"Error in meme_generator: {self.message!r}"
+        return f"Error in meme_generator: {self.message}"
 
 
 class NoSuchMeme(MemeGeneratorException):
@@ -37,7 +37,7 @@ class OpenImageFailed(MemeGeneratorException):
 
     def __init__(self, error_message: str):
         self.error_message = error_message
-        message = f'Error opening images: "{self.error_message!r}"'
+        message = f'Error opening images: "{self.error_message}"'
         super().__init__(message)
 
 
@@ -63,7 +63,7 @@ class ParamsMismatch(MemeGeneratorException):
         self.message = message
 
     def __repr__(self) -> str:
-        return f'ParamsMismatch(key="{self.meme_key}", message="{self.message!r}")'
+        return f'ParamsMismatch(key="{self.meme_key}", message="{self.message}")'
 
 
 class ImageNumberMismatch(ParamsMismatch):
@@ -106,7 +106,7 @@ class ArgParserExit(ArgMismatch):
 
     def __init__(self, meme_key: str, error_message: str):
         self.error_message = error_message
-        message = f"Argument parser failed to parse: {self.error_message!r}"
+        message = f"Argument parser failed to parse: {self.error_message}"
         super().__init__(meme_key, message)
 
 
@@ -115,5 +115,5 @@ class ArgModelMismatch(ArgMismatch):
 
     def __init__(self, meme_key: str, error_message: str):
         self.error_message = error_message
-        message = f"Argument model validation failed: {self.error_message!r}"
+        message = f"Argument model validation failed: {self.error_message}"
         super().__init__(meme_key, message)

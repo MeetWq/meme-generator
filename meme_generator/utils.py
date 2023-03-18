@@ -4,18 +4,34 @@ import inspect
 import math
 import random
 import time
+from dataclasses import dataclass
 from enum import Enum
 from functools import partial, wraps
 from io import BytesIO
-from typing import Any, Callable, Coroutine, List, Optional, Protocol, TypeVar
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    Coroutine,
+    List,
+    Literal,
+    Optional,
+    Protocol,
+    Tuple,
+    TypeVar,
+)
 
 import httpx
 from PIL.Image import Image as IMG
-from pil_utils import BuildImage
+from pil_utils import BuildImage, Text2Image
+from pil_utils.types import ColorType, FontStyle, FontWeight
 from typing_extensions import ParamSpec
 
 from .config import meme_config
 from .exception import MemeGeneratorException
+
+if TYPE_CHECKING:
+    from .meme import Meme
 
 P = ParamSpec("P")
 R = TypeVar("R")
@@ -310,3 +326,81 @@ def random_image() -> BytesIO:
         .draw_text((0, 0, 500, 500), text, max_fontsize=400)
         .save_png()
     )
+
+
+@dataclass
+class TextProperties:
+    fill: ColorType = "black"
+    style: FontStyle = "normal"
+    weight: FontWeight = "normal"
+    stroke_width: int = 0
+    stroke_fill: Optional[ColorType] = None
+
+
+def default_template(meme: "Meme", number: int) -> str:
+    return f"{number}. {'/'.join(meme.keywords)}"
+
+
+def render_meme_list(
+    meme_list: List[Tuple["Meme", TextProperties]],
+    *,
+    template: Callable[["Meme", int], str] = default_template,
+    order_direction: Literal["row", "column"] = "column",
+    columns: int = 4,
+    column_align: Literal["left", "center", "right"] = "left",
+    item_padding: Tuple[int, int] = (15, 2),
+    image_padding: Tuple[int, int] = (50, 50),
+    bg_color: ColorType = "white",
+    fontsize: int = 30,
+    fontname: str = "",
+    fallback_fonts: List[str] = [],
+) -> BytesIO:
+    item_images: List[IMG] = []
+    for i, (meme, properties) in enumerate(meme_list, start=1):
+        text = template(meme, i)
+        image = Text2Image.from_text(
+            text,
+            fontsize=fontsize,
+            style=properties.style,
+            weight=properties.weight,
+            fill=properties.fill,
+            stroke_width=properties.stroke_width,
+            stroke_fill=properties.stroke_fill,
+            fontname=fontname,
+            fallback_fonts=fallback_fonts,
+        ).to_image(bg_color=bg_color, padding=item_padding)
+        item_images.append(image)
+
+    num_per_col = math.ceil(len(item_images) / columns)
+    column_images: List[BuildImage] = []
+    for col in range(columns):
+        if order_direction == "column":
+            images = item_images[col * num_per_col : (col + 1) * num_per_col]
+        else:
+            images = [
+                item_images[num * columns + col]
+                for num in range((len(item_images) - col - 1) // columns + 1)
+            ]
+        img_w = max((img.width for img in images))
+        img_h = sum((img.height for img in images))
+        image = BuildImage.new("RGB", (img_w, img_h), bg_color)
+        y = 0
+        for img in images:
+            if column_align == "left":
+                x = 0
+            elif column_align == "center":
+                x = (img_w - img.width) // 2
+            else:
+                x = img_w - img.width
+            image.paste(img, (x, y))
+            y += img.height
+        column_images.append(image)
+
+    img_w = sum((img.width for img in column_images)) + image_padding[0] * 2
+    img_h = max((img.height for img in column_images)) + image_padding[1] * 2
+    image = BuildImage.new("RGB", (img_w, img_h), bg_color)
+    x, y = image_padding
+    for img in column_images:
+        image.paste(img, (x, y))
+        x += img.width
+    return image.save_jpg()
