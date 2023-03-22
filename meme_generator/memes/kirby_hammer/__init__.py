@@ -30,7 +30,7 @@ def kirby_hammer(images: List[BuildImage], texts, args: Model):
     # fmt: on
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = images[0].convert("RGBA")
+            img = img.convert("RGBA")
             if args.circle:
                 img = img.circle()
             img = img.resize_height(80)

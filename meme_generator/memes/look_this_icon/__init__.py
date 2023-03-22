@@ -26,7 +26,7 @@ def look_this_icon(images: List[BuildImage], texts: List[str], args):
         raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
-        img = images[0].convert("RGBA").resize((515, 515), keep_ratio=True)
+        img = img.convert("RGBA").resize((515, 515), keep_ratio=True)
         return frame.copy().paste(img, (599, 403), below=True)
 
     return make_jpg_or_gif(images[0], make)

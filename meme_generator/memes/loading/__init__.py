@@ -19,7 +19,7 @@ def loading(images: List[BuildImage], texts, args):
     img_big.paste(mask, alpha=True).paste(icon, (200, int(h1 / 2) - 50), alpha=True)
 
     def make(img: BuildImage) -> BuildImage:
-        img_small = img.resize_width(100)
+        img_small = img.convert("RGBA").resize_width(100)
         h2 = max(img_small.height, 80)
         frame = BuildImage.new("RGBA", (500, h1 + h2 + 10), "white")
         frame.paste(img_big, alpha=True).paste(

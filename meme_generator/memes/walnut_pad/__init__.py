@@ -13,9 +13,8 @@ def walnut_pad(images: List[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.resize((540, 360), keep_ratio=True), (368, 65), below=True
-        )
+        img = img.convert("RGBA").resize((540, 360), keep_ratio=True)
+        return frame.copy().paste(img, (368, 65), below=True)
 
     return make_jpg_or_gif(images[0], make)
 

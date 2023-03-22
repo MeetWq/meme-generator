@@ -25,9 +25,8 @@ def learn(images: List[BuildImage], texts: List[str], args):
         raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.resize((1751, 1347), keep_ratio=True), (1440, 0), alpha=True
-        )
+        img = img.convert("RGBA").resize((1751, 1347), keep_ratio=True)
+        return frame.copy().paste(img, (1440, 0), alpha=True)
 
     return make_jpg_or_gif(images[0], make)
 

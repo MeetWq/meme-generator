@@ -9,7 +9,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 def windmill_turn(images: List[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = images[0].convert("RGBA").resize((300, 300), keep_ratio=True)
+            img = img.convert("RGBA").resize((300, 300), keep_ratio=True)
             frame = BuildImage.new("RGBA", (600, 600), "white")
             frame.paste(img, alpha=True)
             frame.paste(img.rotate(90), (0, 300), alpha=True)

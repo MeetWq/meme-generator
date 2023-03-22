@@ -27,7 +27,9 @@ def play_game(images: List[BuildImage], texts: List[str], args):
 
     def make(img: BuildImage) -> BuildImage:
         points = ((0, 5), (227, 0), (216, 150), (0, 165))
-        screen = img.resize((220, 160), keep_ratio=True).perspective(points)
+        screen = (
+            img.convert("RGBA").resize((220, 160), keep_ratio=True).perspective(points)
+        )
         return frame.copy().paste(screen.rotate(9, expand=True), (161, 117), below=True)
 
     return make_jpg_or_gif(images[0], make)

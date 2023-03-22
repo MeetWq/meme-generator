@@ -11,7 +11,6 @@ img_dir = Path(__file__).parent / "images"
 
 
 def anya_suki(images: List[BuildImage], texts: List[str], args):
-    img = images[0]
     text = texts[0] if texts else "阿尼亚喜欢这个"
     frame = BuildImage.open(img_dir / "0.png")
     try:
@@ -27,11 +26,10 @@ def anya_suki(images: List[BuildImage], texts: List[str], args):
         raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.resize((305, 235), keep_ratio=True), (106, 72), below=True
-        )
+        img = img.convert("RGBA").resize((305, 235), keep_ratio=True)
+        return frame.copy().paste(img, (106, 72), below=True)
 
-    return make_jpg_or_gif(img, make)
+    return make_jpg_or_gif(images[0], make)
 
 
 add_meme(

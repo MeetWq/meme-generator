@@ -13,9 +13,8 @@ def think_what(images: List[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.resize((534, 493), keep_ratio=True), (530, 0), below=True
-        )
+        img = img.convert("RGBA").resize((534, 493), keep_ratio=True)
+        return frame.copy().paste(img, (530, 0), below=True)
 
     return make_jpg_or_gif(images[0], make)
 

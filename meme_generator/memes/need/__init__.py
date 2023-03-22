@@ -10,13 +10,11 @@ img_dir = Path(__file__).parent / "images"
 
 
 def need(images: List[BuildImage], texts, args):
-    img = images[0].convert("RGBA").square().resize((115, 115))
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.square().resize((115, 115)), (327, 232), below=True
-        )
+        img = img.convert("RGBA").square().resize((115, 115))
+        return frame.copy().paste(img, (327, 232), below=True)
 
     return make_jpg_or_gif(images[0], make)
 

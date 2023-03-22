@@ -31,7 +31,7 @@ def hit_screen(images: List[BuildImage], texts, args):
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = img.resize((140, 120), keep_ratio=True)
+            img = img.convert("RGBA").resize((140, 120), keep_ratio=True)
             frame = BuildImage.open(img_dir / f"{i}.png")
             if 6 <= i < 22:
                 points, pos = params[i - 6]

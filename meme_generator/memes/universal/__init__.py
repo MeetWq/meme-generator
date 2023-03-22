@@ -8,7 +8,7 @@ from meme_generator.utils import make_jpg_or_gif
 
 def universal(images: List[BuildImage], texts: List[str], args):
     def make(img: BuildImage) -> BuildImage:
-        img = img.resize_width(500)
+        img = img.convert("RGBA").resize_width(500)
         frames: List[BuildImage] = [img]
         for text in texts:
             text_img = BuildImage(

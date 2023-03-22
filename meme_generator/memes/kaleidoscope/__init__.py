@@ -26,7 +26,7 @@ def kaleidoscope(images: List[BuildImage], texts, args: Model):
         radius = lambda n: n * 50 + 100
         cx = cy = radius(circle_num)
 
-        img = images[0].convert("RGBA")
+        img = img.convert("RGBA")
         frame = BuildImage.new("RGBA", (cx * 2, cy * 2), "white")
         for i in range(circle_num):
             r = radius(i)

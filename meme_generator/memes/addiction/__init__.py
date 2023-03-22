@@ -11,7 +11,6 @@ img_dir = Path(__file__).parent / "images"
 
 
 def addiction(images: List[BuildImage], texts: List[str], args):
-    img = images[0]
     frame = BuildImage.open(img_dir / "0.png")
 
     if texts:
@@ -23,9 +22,10 @@ def addiction(images: List[BuildImage], texts: List[str], args):
             raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(img.resize((91, 91), keep_ratio=True), (0, 0))
+        img = img.convert("RGBA").resize((91, 91), keep_ratio=True)
+        return frame.copy().paste(img, alpha=True)
 
-    return make_jpg_or_gif(img, make)
+    return make_jpg_or_gif(images[0], make)
 
 
 add_meme(

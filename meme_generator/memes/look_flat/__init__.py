@@ -36,7 +36,7 @@ def look_flat(images: List[BuildImage], texts: List[str], args: Model):
         raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
-        img = images[0].convert("RGBA").resize_width(img_w)
+        img = img.convert("RGBA").resize_width(img_w)
         img = img.resize((img_w, img.height // ratio))
         img_h = img.height
         frame = BuildImage.new("RGBA", (img_w, img_h + text_h), "white")

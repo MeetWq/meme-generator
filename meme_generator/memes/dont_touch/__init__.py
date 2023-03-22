@@ -13,9 +13,8 @@ def dont_touch(images: List[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.resize((170, 170), keep_ratio=True), (23, 231), alpha=True
-        )
+        img = img.convert("RGBA").resize((170, 170), keep_ratio=True)
+        return frame.copy().paste(img, (23, 231), alpha=True)
 
     return make_jpg_or_gif(images[0], make)
 

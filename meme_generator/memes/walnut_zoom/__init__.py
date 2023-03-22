@@ -22,8 +22,8 @@ def walnut_zoom(images: List[BuildImage], texts, args):
         def make(img: BuildImage) -> BuildImage:
             frame = BuildImage.open(img_dir / f"{i}.png")
             x, y, w, h = locs[seq[i]]
-            img = img.resize((w, h), keep_ratio=True).rotate(4.2, expand=True)
-            frame.paste(img, (x, y), below=True)
+            img = img.convert("RGBA").resize((w, h), keep_ratio=True)
+            frame.paste(img.rotate(4.2, expand=True), (x, y), below=True)
             return frame
 
         return make

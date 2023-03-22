@@ -81,11 +81,11 @@ def symmetric(images: List[BuildImage], texts, args: Model):
     mode = modes[args.direction]
 
     def make(img: BuildImage) -> BuildImage:
-        first = img
-        second = img.transpose(mode.method)
+        first = img.convert("RGBA")
+        second = img.convert("RGBA").transpose(mode.method)
         frame = BuildImage.new("RGBA", mode.frame_size)
-        frame.paste(first.crop(mode.size1), mode.pos1)
-        frame.paste(second.crop(mode.size2), mode.pos2)
+        frame.paste(first.crop(mode.size1), mode.pos1, alpha=True)
+        frame.paste(second.crop(mode.size2), mode.pos2, alpha=True)
         return frame
 
     return make_jpg_or_gif(img, make, keep_transparency=True)

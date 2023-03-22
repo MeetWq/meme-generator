@@ -10,12 +10,11 @@ img_dir = Path(__file__).parent / "images"
 
 
 def confuse(images: List[BuildImage], texts, args):
-    img = images[0]
-    img_w = min(img.width, 500)
+    img_w = min(images[0].width, 500)
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = img.resize_width(img_w)
+            img = img.convert("RGBA").resize_width(img_w)
             frame = BuildImage.open(img_dir / f"{i}.png").resize(
                 img.size, keep_ratio=True
             )
@@ -26,7 +25,7 @@ def confuse(images: List[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        img, maker, 100, 0.02, FrameAlignPolicy.extend_loop, input_based=True
+        images[0], maker, 100, 0.02, FrameAlignPolicy.extend_loop, input_based=True
     )
 
 

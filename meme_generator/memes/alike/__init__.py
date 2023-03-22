@@ -15,9 +15,8 @@ def alike(images: List[BuildImage], texts, args):
     )
 
     def make(img: BuildImage) -> BuildImage:
-        return frame.copy().paste(
-            img.resize((150, 150), keep_ratio=True), (200, 15), alpha=True
-        )
+        img = img.convert("RGBA").resize((150, 150), keep_ratio=True)
+        return frame.copy().paste(img, (200, 15), alpha=True)
 
     return make_jpg_or_gif(images[0], make)
 

@@ -18,7 +18,7 @@ def wave(images: List[BuildImage], texts, args):
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = img.resize_width(img_w)
+            img = img.convert("RGBA").resize_width(img_w)
             img_h = img.height
             frame = img.copy()
             for i in range(img_w):

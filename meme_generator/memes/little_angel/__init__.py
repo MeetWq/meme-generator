@@ -38,7 +38,7 @@ def little_angel(images: List[BuildImage], texts: List[str], args: MemeArgsModel
         raise TextOverLength(name)
 
     def make(img: BuildImage) -> BuildImage:
-        img = img.resize_width(500)
+        img = img.convert("RGBA").resize_width(500)
         return frame.copy().paste(img, (int(300 - img_w / 2), 110), alpha=True)
 
     return make_jpg_or_gif(images[0], make)

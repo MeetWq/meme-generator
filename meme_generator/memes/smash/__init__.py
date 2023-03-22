@@ -14,7 +14,9 @@ def smash(images: List[BuildImage], texts, args):
 
     def make(img: BuildImage) -> BuildImage:
         points = ((1, 237), (826, 1), (832, 508), (160, 732))
-        screen = img.resize((800, 500), keep_ratio=True).perspective(points)
+        screen = (
+            img.convert("RGBA").resize((800, 500), keep_ratio=True).perspective(points)
+        )
         return frame.copy().paste(screen, (-136, -81), below=True)
 
     return make_jpg_or_gif(images[0], make)

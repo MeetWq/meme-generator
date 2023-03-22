@@ -14,11 +14,8 @@ def distracted(images: List[BuildImage], texts, args):
     label = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
-        return (
-            frame.copy()
-            .paste(img.square().resize((500, 500)), below=True)
-            .paste(label, (140, 320), alpha=True)
-        )
+        img = img.convert("RGBA").square().resize((500, 500))
+        return frame.copy().paste(img, below=True).paste(label, (140, 320), alpha=True)
 
     return make_jpg_or_gif(images[0], make)
 

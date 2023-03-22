@@ -32,8 +32,8 @@ class Model(MemeArgsModel):
 
 def always_normal(img: BuildImage):
     def make(img: BuildImage) -> BuildImage:
-        img_big = img.resize_width(500)
-        img_small = img.resize_width(100)
+        img_big = img.convert("RGBA").resize_width(500)
+        img_small = img.convert("RGBA").resize_width(100)
         h1 = img_big.height
         h2 = max(img_small.height, 80)
         frame = BuildImage.new("RGBA", (500, h1 + h2 + 10), "white")
@@ -67,7 +67,7 @@ def always_always(img: BuildImage, loop: bool = False):
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = img.resize_width(500)
+            img = img.convert("RGBA").resize_width(500)
             base_frame = text_frame.copy().paste(img, alpha=True)
             frame = BuildImage.new("RGBA", base_frame.size, "white")
             r = coeff**i
