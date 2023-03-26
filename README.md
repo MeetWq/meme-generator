@@ -166,6 +166,14 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 
 可以调用 api 接口使用，python 调用方式可参考 [docs/examples/test_api.py](https://github.com/MeetWq/meme-generator/tree/main/docs/examples/test_api.py)
 
+### 接入聊天机器人使用
+
+- NoneBot
+  - [noneplugin/nonebot-plugin-memes](https://github.com/noneplugin/nonebot-plugin-memes) Nonebot2 表情包制作插件
+  - [noneplugin/nonebot-plugin-memes-api](https://github.com/noneplugin/nonebot-plugin-memes-api) nonebot-plugin-memes 调用 api 版本
+- Yunzai
+  - [ikechan8370/yunzai-meme](https://github.com/ikechan8370/yunzai-meme) Yunzai机器人的表情包插件
+
 
 ## 配置
 
