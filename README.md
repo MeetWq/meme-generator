@@ -1,6 +1,6 @@
 <div align="center">
 
-~logo征集中，假装有图片~
+<img src="https://s2.loli.net/2023/03/26/4URd1BKj3ToycLl.png" width=200 />
 
 # meme-generator
 
