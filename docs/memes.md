@@ -135,38 +135,39 @@
 128. [slap (一巴掌)](#slap)
 129. [slogan (口号)](#slogan)
 130. [smash (砸)](#smash)
-131. [suck (吸/嗦)](#suck)
-132. [support (精神支柱)](#support)
-133. [symmetric (对称)](#symmetric)
-134. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
-135. [teach (讲课/敲黑板)](#teach)
-136. [think_what (想什么)](#think_what)
-137. [throw (丢/扔)](#throw)
-138. [throw_gif (抛/掷)](#throw_gif)
-139. [thump (捶)](#thump)
-140. [tightly (紧贴/紧紧贴着)](#tightly)
-141. [together (一起)](#together)
-142. [trance (恍惚)](#trance)
-143. [turn (转)](#turn)
-144. [twist (搓)](#twist)
-145. [universal (万能表情/空白表情)](#universal)
-146. [wakeup (xx起来了)](#wakeup)
-147. [wallpaper (墙纸)](#wallpaper)
-148. [walnut_pad (胡桃平板)](#walnut_pad)
-149. [walnut_zoom (胡桃放大)](#walnut_zoom)
-150. [wangjingze (王境泽)](#wangjingze)
-151. [wave (波纹)](#wave)
-152. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-153. [why_at_me (为什么@我)](#why_at_me)
-154. [windmill_turn (风车转)](#windmill_turn)
-155. [wish_fail (许愿失败)](#wish_fail)
-156. [wooden_fish (木鱼)](#wooden_fish)
-157. [worship (膜/膜拜)](#worship)
-158. [wujing (吴京)](#wujing)
-159. [wunian (五年怎么过的)](#wunian)
-160. [yalidaye (压力大爷)](#yalidaye)
-161. [youtube (yt/youtube)](#youtube)
-162. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+131. [step_on (踩)](#step_on)
+132. [suck (吸/嗦)](#suck)
+133. [support (精神支柱)](#support)
+134. [symmetric (对称)](#symmetric)
+135. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
+136. [teach (讲课/敲黑板)](#teach)
+137. [think_what (想什么)](#think_what)
+138. [throw (丢/扔)](#throw)
+139. [throw_gif (抛/掷)](#throw_gif)
+140. [thump (捶)](#thump)
+141. [tightly (紧贴/紧紧贴着)](#tightly)
+142. [together (一起)](#together)
+143. [trance (恍惚)](#trance)
+144. [turn (转)](#turn)
+145. [twist (搓)](#twist)
+146. [universal (万能表情/空白表情)](#universal)
+147. [wakeup (xx起来了)](#wakeup)
+148. [wallpaper (墙纸)](#wallpaper)
+149. [walnut_pad (胡桃平板)](#walnut_pad)
+150. [walnut_zoom (胡桃放大)](#walnut_zoom)
+151. [wangjingze (王境泽)](#wangjingze)
+152. [wave (波纹)](#wave)
+153. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+154. [why_at_me (为什么@我)](#why_at_me)
+155. [windmill_turn (风车转)](#windmill_turn)
+156. [wish_fail (许愿失败)](#wish_fail)
+157. [wooden_fish (木鱼)](#wooden_fish)
+158. [worship (膜/膜拜)](#worship)
+159. [wujing (吴京)](#wujing)
+160. [wunian (五年怎么过的)](#wunian)
+161. [yalidaye (压力大爷)](#yalidaye)
+162. [youtube (yt/youtube)](#youtube)
+163. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -1728,6 +1729,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/smash.jpg" width="200" />
+</div>
+
+## step_on
+
+- 关键词：`踩`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/step_on.gif" width="200" />
 </div>
 
 ## suck
