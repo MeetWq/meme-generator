@@ -20,6 +20,7 @@ def bronya_holdsign(images, texts: List[str], args):
             allow_wrap=True,
             max_fontsize=60,
             min_fontsize=25,
+            lines_align="center",
         )
     except ValueError:
         raise TextOverLength(text)
@@ -32,5 +33,5 @@ add_meme(
     min_texts=1,
     max_texts=1,
     default_texts=["V我50"],
-    keywords=["大鸭鸭举牌"],
+    keywords=["布洛妮娅举牌", "大鸭鸭举牌"],
 )
