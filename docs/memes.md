@@ -21,7 +21,7 @@
 14. [bite (啃)](#bite)
 15. [blood_pressure (高血压)](#blood_pressure)
 16. [bocchi_draft (波奇手稿)](#bocchi_draft)
-17. [bronya_holdsign (大鸭鸭举牌)](#bronya_holdsign)
+17. [bronya_holdsign (布洛妮娅举牌/大鸭鸭举牌)](#bronya_holdsign)
 18. [bubble_tea (奶茶)](#bubble_tea)
 19. [call_110 (遇到困难请拨打)](#call_110)
 20. [capoo_rub (咖波蹭/咖波贴)](#capoo_rub)
@@ -366,7 +366,7 @@ options:
 
 ## bronya_holdsign
 
-- 关键词：`大鸭鸭举牌`
+- 关键词：`布洛妮娅举牌`、`大鸭鸭举牌`
 - 需要图片数目：`0`
 - 需要文字数目：`1`
 - 默认文字：[`V我50`]
