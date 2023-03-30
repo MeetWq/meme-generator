@@ -49,6 +49,8 @@ meme download
 
 为确保表情包中的文字生成正常，需要自行安装字体
 
+> **Note**
+>
 > 字体安装后若文字仍显示不正常，可删掉 `matplotlib` 字体缓存文件重新运行程序
 >
 > 缓存文件位置：
@@ -182,6 +184,14 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 - Windows: `C:\Users\<username>\AppData\Roaming\meme_generator\config.toml`
 - Linux: `~/.config/meme_generator/config.toml`
 - Mac: `~/Library/Application Support/meme_generator/config.toml`
+
+> **Warning**
+>
+> 从 v0.0.6 版本开始，不再生成默认配置文件；修改配置时需在对应的文件位置自行创建配置文件
+>
+> 由于 v0.0.6 版本更改了资源链接的拼接方式，如果装过之前的版本，需要修改配置中的 `resource_url`
+>
+> 建议将配置文件中不需要更改的选项删除，以使用默认配置
 
 默认配置：
 ```toml
