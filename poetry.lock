@@ -608,14 +608,14 @@ files = [
 
 [[package]]
 name = "pil-utils"
-version = "0.1.4"
+version = "0.1.5"
 description = "A simple PIL wrapper and text-to-image tool"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pil_utils-0.1.4-py3-none-any.whl", hash = "sha256:00c6cda736b632c0de9c3968145d8886e1383a905a2e68639a7c9504b98f6301"},
-    {file = "pil_utils-0.1.4.tar.gz", hash = "sha256:a95cce7b0c6fcab5f0dddf40c0cbd2a42db5f1a049e630825ae3b3074bda957b"},
+    {file = "pil_utils-0.1.5-py3-none-any.whl", hash = "sha256:8ed5e6031263f6ace8566fb82f2e8a2a84a04569d01a734a036454db2633cc6f"},
+    {file = "pil_utils-0.1.5.tar.gz", hash = "sha256:33c449a7d6f83039a97245241499c842465454c1f45c28843280f3c85d45f6ed"},
 ]
 
 [package.dependencies]
@@ -624,7 +624,7 @@ fonttools = ">=4.0.0,<5.0.0"
 matplotlib = ">=3.0.0,<4.0.0"
 numpy = ">=1.20.0,<2.0.0"
 opencv-python-headless = ">=4.0.0,<5.0.0"
-Pillow = ">=9.1.0,<10.0.0"
+Pillow = ">=9.2.0,<10.0.0"
 
 [[package]]
 name = "pillow"
