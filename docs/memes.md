@@ -148,29 +148,30 @@
 141. [throw (丢/扔)](#throw)
 142. [throw_gif (抛/掷)](#throw_gif)
 143. [thump (捶)](#thump)
-144. [tightly (紧贴/紧紧贴着)](#tightly)
-145. [together (一起)](#together)
-146. [trance (恍惚)](#trance)
-147. [turn (转)](#turn)
-148. [twist (搓)](#twist)
-149. [universal (万能表情/空白表情)](#universal)
-150. [wakeup (xx起来了)](#wakeup)
-151. [wallpaper (墙纸)](#wallpaper)
-152. [walnut_pad (胡桃平板)](#walnut_pad)
-153. [walnut_zoom (胡桃放大)](#walnut_zoom)
-154. [wangjingze (王境泽)](#wangjingze)
-155. [wave (波纹)](#wave)
-156. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-157. [why_at_me (为什么@我)](#why_at_me)
-158. [windmill_turn (风车转)](#windmill_turn)
-159. [wish_fail (许愿失败)](#wish_fail)
-160. [wooden_fish (木鱼)](#wooden_fish)
-161. [worship (膜/膜拜)](#worship)
-162. [wujing (吴京)](#wujing)
-163. [wunian (五年怎么过的)](#wunian)
-164. [yalidaye (压力大爷)](#yalidaye)
-165. [youtube (yt/youtube)](#youtube)
-166. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+144. [thump_wildly (捶爆)](#thump_wildly)
+145. [tightly (紧贴/紧紧贴着)](#tightly)
+146. [together (一起)](#together)
+147. [trance (恍惚)](#trance)
+148. [turn (转)](#turn)
+149. [twist (搓)](#twist)
+150. [universal (万能表情/空白表情)](#universal)
+151. [wakeup (xx起来了)](#wakeup)
+152. [wallpaper (墙纸)](#wallpaper)
+153. [walnut_pad (胡桃平板)](#walnut_pad)
+154. [walnut_zoom (胡桃放大)](#walnut_zoom)
+155. [wangjingze (王境泽)](#wangjingze)
+156. [wave (波纹)](#wave)
+157. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+158. [why_at_me (为什么@我)](#why_at_me)
+159. [windmill_turn (风车转)](#windmill_turn)
+160. [wish_fail (许愿失败)](#wish_fail)
+161. [wooden_fish (木鱼)](#wooden_fish)
+162. [worship (膜/膜拜)](#worship)
+163. [wujing (吴京)](#wujing)
+164. [wunian (五年怎么过的)](#wunian)
+165. [yalidaye (压力大爷)](#yalidaye)
+166. [youtube (yt/youtube)](#youtube)
+167. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -1902,6 +1903,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/thump.gif" width="200" />
+</div>
+
+## thump_wildly
+
+- 关键词：`捶爆`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/thump_wildly.gif" width="200" />
 </div>
 
 ## tightly
