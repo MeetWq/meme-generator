@@ -21,4 +21,6 @@ def thump_wildly(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("thump_wildly", thump_wildly, min_images=1, max_images=1, keywords=["捶爆"])
+add_meme(
+    "thump_wildly", thump_wildly, min_images=1, max_images=1, keywords=["捶爆", "爆捶"]
+)
