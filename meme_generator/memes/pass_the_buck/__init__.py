@@ -15,7 +15,7 @@ def pass_the_buck(images: List[BuildImage], texts: List[str], args):
     img = images[0].convert("RGBA").square().resize((27, 27))
     frames: List[IMG] = []
     locs = [(2, 26), (10, 24), (15, 27), (17, 29), (10, 20), (2, 29), (3, 31), (1, 30)]
-    for i in range(5):
+    for i in range(8):
         frame = BuildImage.open(img_dir / f"{i}.png")
         if texts:
             text = texts[0]
@@ -27,7 +27,7 @@ def pass_the_buck(images: List[BuildImage], texts: List[str], args):
                 raise TextOverLength(text)
         frame.paste(img, locs[i], alpha=True)
         frames.append(frame.image)
-    return save_gif(frames, 0.2)
+    return save_gif(frames, 0.1)
 
 
 add_meme(
