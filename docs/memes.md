@@ -148,7 +148,7 @@
 141. [throw (丢/扔)](#throw)
 142. [throw_gif (抛/掷)](#throw_gif)
 143. [thump (捶)](#thump)
-144. [thump_wildly (捶爆)](#thump_wildly)
+144. [thump_wildly (捶爆/爆捶)](#thump_wildly)
 145. [tightly (紧贴/紧紧贴着)](#tightly)
 146. [together (一起)](#together)
 147. [trance (恍惚)](#trance)
@@ -1907,7 +1907,7 @@ options:
 
 ## thump_wildly
 
-- 关键词：`捶爆`
+- 关键词：`捶爆`、`爆捶`
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 预览：
