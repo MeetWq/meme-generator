@@ -30,17 +30,20 @@ EXPOSE 2233
 
 VOLUME /data
 
-COPY ./meme_generator /app/meme_generator
-COPY ./resources/fonts/* /usr/share/fonts/meme-fonts/
 COPY --from=tmp /tmp/.venv /app/.venv
-COPY ./docker/config.toml.template /app/config.toml.template
-COPY ./docker/start.sh /app/start.sh
+
+COPY ./resources/fonts/* /usr/share/fonts/meme-fonts/
 RUN apt-get update \
   && apt-get install -y --no-install-recommends locales fontconfig fonts-noto-cjk fonts-noto-color-emoji gettext \
   && locale-gen zh_CN zh_CN.UTF-8 \
   && fc-cache -fv \
   && apt-get purge -y --auto-remove \
-  && rm -rf /var/lib/apt/lists/* \
-  && chmod +x /app/start.sh
+  && rm -rf /var/lib/apt/lists/*
+
+COPY ./meme_generator /app/meme_generator
+
+COPY ./docker/config.toml.template /app/config.toml.template
+COPY ./docker/start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
 CMD ["/app/start.sh"]
