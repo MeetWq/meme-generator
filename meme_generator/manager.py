@@ -70,7 +70,7 @@ def add_meme(
     patterns: List[str] = [],
 ):
     if key in _memes:
-        logger.warning(f'Meme with key "{key}" always exists!')
+        logger.warning(f'Meme with key "{key}" already exists!')
         return
 
     if key in meme_config.meme.meme_disabled_list:
