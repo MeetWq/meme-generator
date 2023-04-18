@@ -10,7 +10,11 @@ img_dir = Path(__file__).parent / "images"
 
 
 def capoo_rip(images: List[BuildImage], texts, args):
-    img = images[0].convert("RGBA").resize((150, 100), keep_ratio=True)
+    img = (
+        images[0]
+        .convert("RGBA")
+        .resize((150, 100), keep_ratio=True, inside=True, bg_color="white")
+    )
     img_left = img.crop((0, 0, 75, 100))
     img_right = img.crop((75, 0, 150, 100))
     params1 = [

@@ -17,8 +17,8 @@ def capoo_draw(images: List[BuildImage], texts, args):
         .resize((175, 120), keep_ratio=True, inside=True, bg_color="white")
     )
     params = (
-        (((27, 0), (200, 16), (171, 134), (0, 108)), (34, 22)),
-        (((27, 0), (199, 15), (173, 129), (0, 108)), (39, 24)),
+        (((27, 0), (207, 12), (179, 142), (0, 117)), (30, 16)),
+        (((28, 0), (207, 13), (180, 137), (0, 117)), (34, 17)),
     )
     raw_frames = [BuildImage.open(img_dir / f"{i}.png") for i in range(6)]
     for i in range(2):
