@@ -49,7 +49,6 @@ def capoo_rip(images: List[BuildImage], texts, args):
         new_frames += raw_frames[0:3]
     new_frames += raw_frames[3:]
     new_frames.append(raw_frames[-1])
-    print(len(new_frames))
 
     frames = [frame.image for frame in new_frames]
     return save_gif(frames, 0.1)
