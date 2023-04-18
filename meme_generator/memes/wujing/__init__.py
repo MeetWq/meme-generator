@@ -51,6 +51,6 @@ add_meme(
     min_texts=2,
     max_texts=2,
     default_texts=["不买华为不是", "人"],
-    keywords=["吴京"],
+    keywords=["吴京xx中国xx"],
     patterns=[r"吴京[\s:：]*(.*?)中国(.*)"],
 )

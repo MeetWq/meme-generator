@@ -76,4 +76,5 @@ add_meme(
     default_texts=["让我康康"],
     args_type=MemeArgsType(parser, Model),
     keywords=["我朋友说"],
+    patterns=[r"我(?:有个)?朋友(?P<name>.*?)说"],
 )

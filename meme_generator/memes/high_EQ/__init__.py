@@ -39,5 +39,5 @@ add_meme(
     max_texts=2,
     default_texts=["高情商", "低情商"],
     keywords=["低情商xx高情商xx"],
-    patterns=[r"低情商[\s:：]*(.*?)\s+高情商[\s:：]*(.*)"],
+    patterns=[r"低情商[\s:：]*(.+?)\s+高情商[\s:：]*(.+)"],
 )

@@ -29,5 +29,5 @@ add_meme(
     max_texts=1,
     default_texts=["好"],
     keywords=["xx起来了"],
-    patterns=[r"(.*?)\s+起来了"],
+    patterns=[r"(.+?)\s+起来了"],
 )
