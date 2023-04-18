@@ -1,22 +1,23 @@
 from pathlib import Path
 from typing import List
 
-from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
 
 def dog_of_vtb(images: List[BuildImage], texts, args):
-    img = images[0].convert("RGBA").resize((150, 100), inside=True, bg_color="white")
-    params = [(97, 32), ((0, 0), (579, 0), (584, 430), (5, 440))]
-
     frame = BuildImage.open(img_dir / "0.png")
-    frame.paste(img.perspective(params[1]), params[0], below=True)
 
-    return frame.save_jpg()
+    def make(img: BuildImage) -> BuildImage:
+        points = ((0, 0), (579, 0), (584, 430), (5, 440))
+        img = img.convert("RGBA").resize((600, 450), keep_ratio=True)
+        return frame.copy().paste(img.perspective(points), (97, 32), below=True)
+
+    return make_jpg_or_gif(images[0], make)
 
 
 add_meme(
