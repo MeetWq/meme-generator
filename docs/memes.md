@@ -46,7 +46,7 @@
 39. [distracted (注意力涣散)](#distracted)
 40. [divorce (离婚协议/离婚申请)](#divorce)
 41. [dog_of_vtb (管人痴)](#dog_of_vtb)
-42. [dont_touch (不要靠近)](#dont_touch)
+42. [dont_go_near (不要靠近)](#dont_go_near)
 43. [douyin (douyin)](#douyin)
 44. [eat (吃)](#eat)
 45. [fanatic (狂爱/狂粉)](#fanatic)
@@ -670,14 +670,14 @@ options:
   <img src="images/dog_of_vtb.jpg" width="200" />
 </div>
 
-## dont_touch
+## dont_go_near
 
 - 关键词：`不要靠近`
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 预览：
 <div align="left">
-  <img src="images/dont_touch.jpg" width="200" />
+  <img src="images/dont_go_near.jpg" width="200" />
 </div>
 
 ## douyin
