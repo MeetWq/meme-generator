@@ -55,6 +55,7 @@ def note_for_leave(images: List[BuildImage], texts: List[str], args: Model):
             max_fontsize=90,
             min_fontsize=40,
             allow_wrap=True,
+            lines_align="center",
             fill="red",
         )
     except ValueError:
