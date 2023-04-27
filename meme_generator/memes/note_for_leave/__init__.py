@@ -8,21 +8,22 @@ from pydantic import Field
 from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.exception import TextOverLength
 
-help = "指定时间"
-
 parser = MemeArgsParser()
-parser.add_argument("--time", type=str, default="", help=help)
+parser.add_argument("--time", type=str, default="", help="指定时间")
+parser.add_argument("-n", "--name", type=str, default="", help="指定名字")
 
 
 class Model(MemeArgsModel):
-    time: str = Field("", description=help)
+    time: str = Field("", description="指定时间")
+    name: str = Field("", description="指定名字")
 
 
 def note_for_leave(images: List[BuildImage], texts: List[str], args: Model):
     time = datetime.now()
     if args.time and (parsed_time := dateparser.parse(args.time)):
         time = parsed_time
-    name = texts[0] if texts else (args.user_infos[-1].name if args.user_infos else "")
+    name = args.name or (args.user_infos[-1].name if args.user_infos else "")
+    text = texts[0] if texts else "想玩"
     img = (
         images[0]
         .convert("RGBA")
@@ -47,7 +48,17 @@ def note_for_leave(images: List[BuildImage], texts: List[str], args: Model):
     )
     frame.draw_line((150, 260, 150 + name_width, 260), fill="black", width=4)
     frame.draw_text((160 + name_width, 200), "因", fontsize=50)
-    frame.draw_text((70, 390), text="想玩", fontsize=90, fill="red")
+    try:
+        frame.draw_text(
+            (40, 300, 285, 700),
+            text=text,
+            max_fontsize=90,
+            min_fontsize=40,
+            allow_wrap=True,
+            fill="red",
+        )
+    except ValueError:
+        raise TextOverLength(text)
     frame.paste(img, (300, 290))
     frame.draw_bbcode_text(
         (40, 700, 760, 800),
@@ -67,6 +78,7 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
+    default_texts=["想玩"],
     args_type=MemeArgsType(parser, Model),
     keywords=["请假条"],
 )
