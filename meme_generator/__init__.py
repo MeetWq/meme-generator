@@ -12,7 +12,7 @@ from meme_generator.meme import MemeArgsModel as MemeArgsModel
 from meme_generator.meme import MemeArgsParser as MemeArgsParser
 from meme_generator.meme import MemeArgsType as MemeArgsType
 from meme_generator.meme import MemeParamsType as MemeParamsType
-from meme_generator.version import __version__
+from meme_generator.version import __version__ as __version__
 
 if config.meme.load_builtin_memes:
     for path in (Path(__file__).parent / "memes").iterdir():

@@ -7,6 +7,7 @@ from pydantic import BaseModel, ValidationError
 
 from meme_generator.config import meme_config
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
+from meme_generator.log import LOGGING_CONFIG
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
 from meme_generator.meme import Meme, MemeArgsModel
 from meme_generator.utils import TextProperties, render_meme_list
@@ -141,7 +142,7 @@ def register_routers():
         media_type = str(filetype.guess_mime(content)) or "text/plain"
         return Response(content=content, media_type=media_type)
 
-    @app.get(f"/memes/keys")
+    @app.get("/memes/keys")
     def _():
         return get_meme_keys()
 
@@ -212,7 +213,12 @@ def run_server():
     import uvicorn
 
     register_routers()
-    uvicorn.run(app, host=meme_config.server.host, port=meme_config.server.port)
+    uvicorn.run(
+        app,
+        host=meme_config.server.host,
+        port=meme_config.server.port,
+        log_config=LOGGING_CONFIG,
+    )
 
 
 if __name__ == "__main__":
