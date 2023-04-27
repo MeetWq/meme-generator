@@ -6,6 +6,7 @@ on:
       - "main"
     paths:
       - "meme_generator/memes/**"
+  workflow_dispatch:
 
 jobs:
   update-and-push:
