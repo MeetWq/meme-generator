@@ -1372,18 +1372,24 @@ options:
 - 关键词：`请假条`
 - 需要图片数目：`1`
 - 需要文字数目：`0` ~ `1`
+- 默认文字：[`想玩`]
 - 其他参数：
     - `time`
         - 描述：指定时间
         - 类型：`string`
         - 默认值：``
+    - `name`
+        - 描述：指定名字
+        - 类型：`string`
+        - 默认值：``
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate note_for_leave [-h] [--time TIME]
+usage: meme generate note_for_leave [-h] [--time TIME] [-n NAME]
 
 options:
-  -h, --help   show this help message and exit
-  --time TIME  指定时间
+  -h, --help            show this help message and exit
+  --time TIME           指定时间
+  -n NAME, --name NAME  指定名字
 ```
 
 - 预览：
