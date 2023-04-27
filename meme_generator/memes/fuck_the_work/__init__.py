@@ -1,9 +1,11 @@
+import datetime
 import re
 from typing import List
-import datetime
+
 from pil_utils import BuildImage
 from pydantic import Field
-from meme_generator import add_meme, MemeArgsModel, MemeArgsParser, MemeArgsType
+
+from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.exception import TextOverLength
 
 help = "指定时间"
