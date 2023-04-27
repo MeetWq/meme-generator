@@ -56,8 +56,8 @@ class Config(BaseModel, extra=Extra.ignore):
 
 logger.opt(colors=True).info(f"Config Path: <y><d>{config_file_path.resolve()}</d></y>")
 if not config_file_path.exists():
-    logger.info("Config file not found, will create a new one with default settings")
+    logger.info("Config file not found, will create a empty file")
     meme_config = Config()
-    meme_config.dump()
+    config_file_path.write_text("", encoding="u8")
 else:
     meme_config = Config.load()
