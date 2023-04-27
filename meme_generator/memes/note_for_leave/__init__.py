@@ -24,7 +24,7 @@ class Model(MemeArgsModel):
     time: str = Field("", description=help)
 
 
-def fuck_the_work(images: List[BuildImage], texts: List[str], args: Model):
+def note_for_leave(images: List[BuildImage], texts: List[str], args: Model):
     time_re = r"\d{4}\.\d{1,2}\.\d{1,2}"
     time = (
         datetime.datetime.now().strftime("%Y.%m.%d")
@@ -83,8 +83,8 @@ def fuck_the_work(images: List[BuildImage], texts: List[str], args: Model):
 
 
 add_meme(
-    "fuck_the_work",
-    fuck_the_work,
+    "note_for_leave",
+    note_for_leave,
     min_images=1,
     max_images=1,
     min_texts=0,
