@@ -88,7 +88,7 @@ def meme_info(key: str) -> str:
         )
         if enum := info.get("enum", []):
             assert isinstance(enum, list)
-            text += f"\n            可选值：" + "、".join([f'"{e}"' for e in enum])
+            text += "\n            可选值：" + "、".join([f'"{e}"' for e in enum])
         return text
 
     if args := meme.params_type.args_type:
@@ -137,7 +137,7 @@ def generate_meme(
 ) -> str:
     try:
         meme = get_meme(key)
-    except NoSuchMeme as e:
+    except NoSuchMeme:
         return f'表情 "{key}" 不存在！'
 
     for image in images:

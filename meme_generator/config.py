@@ -6,6 +6,7 @@ import toml
 from pydantic import BaseModel, Extra
 
 from .dirs import get_config_file
+from .log import logger
 
 config_file_path = get_config_file("config.toml")
 
@@ -53,7 +54,10 @@ class Config(BaseModel, extra=Extra.ignore):
             toml.dump(json.loads(self.json()), f)
 
 
+logger.opt(colors=True).info(f"Config Path: <y><d>{config_file_path.resolve()}</d></y>")
 if not config_file_path.exists():
+    logger.info("Config file not found, will create a empty file")
     meme_config = Config()
+    config_file_path.write_text("", encoding="u8")
 else:
     meme_config = Config.load()
