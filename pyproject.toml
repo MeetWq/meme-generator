@@ -17,13 +17,14 @@ exclude = [
 python = "^3.8"
 httpx = ">=0.20.0,<1.0.0"
 loguru = "^0.6.0"
-pil-utils = "^0.1.0"
+pil-utils = "^0.1.7"
 toml = "^0.10.2"
 fastapi = ">=0.87.0,<1.0.0"
 uvicorn = ">0.17.0,<1.0.0"
 python-multipart = "^0.0.5"
 filetype = "^1.2.0"
 tqdm = "^4.60.0"
+dateparser = "^1.1.0"
 typing-extensions = ">=4.0.0"
 
 [tool.poetry.group.dev.dependencies]
