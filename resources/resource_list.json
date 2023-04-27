@@ -1680,6 +1680,14 @@
         "hash": "eb240a7e56142a9e5233f675430b7481"
     },
     {
+        "path": "dont_touch/images/0.png",
+        "hash": "3ff591ee749dfc208e2c5bf617c47dbe"
+    },
+    {
+        "path": "dont_touch/images/mask.png",
+        "hash": "5b3ffca1b7a588a02d2dc4939cd6d31f"
+    },
+    {
         "path": "eat/images/0.png",
         "hash": "114a3680c42d8818ff645aad63fa5af6"
     },
