@@ -42,8 +42,8 @@ def add_parsers():
             if meme.params_type.args_type
             else ArgumentParser()
         )
-        meme_parser.add_argument("-i", "--images", nargs="+", default=[], help="输入图片路径")
-        meme_parser.add_argument("-t", "--texts", nargs="+", default=[], help="输入文字")
+        meme_parser.add_argument("--images", nargs="+", default=[], help="输入图片路径")
+        meme_parser.add_argument("--texts", nargs="+", default=[], help="输入文字")
         memes_subparsers.add_parser(
             meme.key,
             parents=[meme_parser],

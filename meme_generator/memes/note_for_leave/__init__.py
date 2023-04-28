@@ -9,7 +9,7 @@ from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.exception import TextOverLength
 
 parser = MemeArgsParser()
-parser.add_argument("--time", type=str, default="", help="指定时间")
+parser.add_argument("-t", "--time", type=str, default="", help="指定时间")
 parser.add_argument("-n", "--name", type=str, default="", help="指定名字")
 
 
