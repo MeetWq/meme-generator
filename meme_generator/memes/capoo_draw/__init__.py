@@ -11,11 +11,7 @@ img_dir = Path(__file__).parent / "images"
 
 
 def capoo_draw(images: List[BuildImage], texts, args):
-    img = (
-        images[0]
-        .convert("RGBA")
-        .resize((175, 120), keep_ratio=True, inside=True, bg_color="white")
-    )
+    img = images[0].convert("RGBA").resize((175, 120), keep_ratio=True)
     params = (
         (((27, 0), (207, 12), (179, 142), (0, 117)), (30, 16)),
         (((28, 0), (207, 13), (180, 137), (0, 117)), (34, 17)),
