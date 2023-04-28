@@ -1,12 +1,11 @@
 import json
 from pathlib import Path
-from typing import List
+from typing import List, Union
 
 import toml
 from pydantic import BaseModel, Extra
 
 from .dirs import get_config_file
-from .log import logger
 
 config_file_path = get_config_file("config.toml")
 
@@ -38,12 +37,17 @@ class ServerConfig(BaseModel):
     port: int = 2233
 
 
+class LogConfig(BaseModel):
+    log_level: Union[int, str] = "INFO"
+
+
 class Config(BaseModel, extra=Extra.ignore):
     meme: MemeConfig = MemeConfig()
     resource: ResourceConfig = ResourceConfig()
     gif: GifConfig = GifConfig()
     translate: TranslatorConfig = TranslatorConfig()
     server: ServerConfig = ServerConfig()
+    log: LogConfig = LogConfig()
 
     @classmethod
     def load(cls) -> "Config":
@@ -54,10 +58,8 @@ class Config(BaseModel, extra=Extra.ignore):
             toml.dump(json.loads(self.json()), f)
 
 
-logger.opt(colors=True).info(f"Config Path: <y><d>{config_file_path.resolve()}</d></y>")
 if not config_file_path.exists():
-    logger.info("Config file not found, will create a empty file")
     meme_config = Config()
-    config_file_path.write_text("", encoding="u8")
+    config_file_path.write_text("", encoding="utf8")
 else:
     meme_config = Config.load()

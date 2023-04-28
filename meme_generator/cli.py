@@ -10,6 +10,7 @@ from meme_generator.app import run_server
 from meme_generator.config import meme_config
 from meme_generator.download import check_resources
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
+from meme_generator.log import setup_logger
 from meme_generator.manager import get_meme, get_memes
 
 parser = ArgumentParser("meme")
@@ -158,6 +159,7 @@ def generate_meme(
 
 
 def main():
+    setup_logger()
     add_parsers()
 
     args = parser.parse_args()

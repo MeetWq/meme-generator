@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 import loguru
 
 if TYPE_CHECKING:
-    from loguru import Logger
+    from loguru import Logger, Record
 
 logger: "Logger" = loguru.logger
 
@@ -48,18 +48,38 @@ LOGGING_CONFIG = {
     },
 }
 
-default_format: str = (
-    "<g>{time:MM-DD HH:mm:ss}</g> "
-    "[<lvl>{level}</lvl>] "
-    "<c><u>{name}</u></c> | "
-    # "<c>{function}:{line}</c>| "
-    "{message}"
-)
 
-logger.remove()
-logger_id = logger.add(
-    sys.stdout,
-    level=0,
-    diagnose=False,
-    format=default_format,
-)
+def setup_logger():
+    from .config import config_file_path, meme_config
+
+    def default_filter(record: "Record"):
+        """默认的日志过滤器，根据 `log_level` 配置改变日志等级。"""
+        log_level = meme_config.log.log_level
+        levelno = (
+            logger.level(log_level).no if isinstance(log_level, str) else log_level
+        )
+        return record["level"].no >= levelno
+
+    default_format: str = (
+        "<g>{time:MM-DD HH:mm:ss}</g> "
+        "[<lvl>{level}</lvl>] "
+        "<c><u>{name}</u></c> | "
+        # "<c>{function}:{line}</c>| "
+        "{message}"
+    )
+
+    logger.remove()
+    logger.add(
+        sys.stdout,
+        level=0,
+        diagnose=False,
+        filter=default_filter,
+        format=default_format,
+    )
+
+    logger.opt(colors=True).info(
+        f"Config file path: <y><d>{config_file_path.resolve()}</d></y>"
+    )
+    logger.opt(colors=True).debug(
+        f"Loaded config: <y><d>{str(meme_config.dict())}</d></y>"
+    )

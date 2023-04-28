@@ -7,7 +7,7 @@ from pydantic import BaseModel, ValidationError
 
 from meme_generator.config import meme_config
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
-from meme_generator.log import LOGGING_CONFIG
+from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
 from meme_generator.meme import Meme, MemeArgsModel
 from meme_generator.utils import TextProperties, render_meme_list
@@ -222,4 +222,5 @@ def run_server():
 
 
 if __name__ == "__main__":
+    setup_logger()
     run_server()
