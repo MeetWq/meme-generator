@@ -1395,11 +1395,11 @@ options:
         - 默认值：``
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate note_for_leave [-h] [--time TIME] [-n NAME]
+usage: meme generate note_for_leave [-h] [-t TIME] [-n NAME]
 
 options:
   -h, --help            show this help message and exit
-  --time TIME           指定时间
+  -t TIME, --time TIME  指定时间
   -n NAME, --name NAME  指定名字
 ```
 
