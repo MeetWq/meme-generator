@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import List, Union
+from typing import List, Optional, Union
 
 import toml
 from pydantic import BaseModel, Extra
@@ -17,9 +17,16 @@ class MemeConfig(BaseModel):
 
 
 class ResourceConfig(BaseModel):
-    resource_url: str = (
-        "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator"
-    )
+    resource_url: Optional[str] = None
+    resource_urls: List[str] = [
+        "https://raw.githubusercontent.com/MeetWq/meme-generator/",
+        "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator/",
+        "https://fastly.jsdelivr.net/gh/MeetWq/meme-generator@",
+        "https://raw.fastgit.org/MeetWq/meme-generator/",
+        "https://raw.fgit.ml/MeetWq/meme-generator/",
+        "https://raw.gitmirror.com/MeetWq/meme-generator/",
+        "https://raw.kgithub.com/MeetWq/meme-generator/",
+    ]
 
 
 class GifConfig(BaseModel):
