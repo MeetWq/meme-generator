@@ -56,7 +56,7 @@ meme -h/--help
 - `meme list (ls)` 列出所有已加载的表情
 - `meme info (show) KEY` 查看某个表情的详细信息，如：`meme info petpet`
 - `meme preview KEY` 使用默认（随机）参数生成预览结果，如：`meme preview petpet`
-- `meme generate (make) KEY -t/--text TEXTS -i/--images IMAGES ...` 制作表情，如：`meme generate petpet -i avatar.jpg`
+- `meme generate (make) KEY --text TEXTS --images IMAGES ...` 制作表情，如：`meme generate petpet --images avatar.jpg`
 
     部分表情有额外的参数，可通过 `-h/--help` 查看，如：`meme generate petpet --help`
 - `meme run (start)` 启动 web server，可通过 api 方式调用
