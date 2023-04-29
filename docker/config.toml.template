@@ -14,3 +14,6 @@ baidu_trans_apikey = "$BAIDU_TRANS_APIKEY"
 [server]
 host = "0.0.0.0"
 port = 2233
+
+[log]
+log_level = "$LOG_LEVEL"

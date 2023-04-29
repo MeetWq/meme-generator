@@ -9,7 +9,7 @@ docker run -d \
   --name=meme-generator \
   -p 2233:2233 \
   --restart always \
-  meetwq/meme-generator:main
+  meetwq/meme-generator:latest
 ```
 
 运行后可通过 api 方式调用
@@ -25,6 +25,7 @@ docker run -d \
 | `GIF_MAX_FRAMES` | `100` | 限制生成的 gif 文件帧数 |
 | `BAIDU_TRANS_APPID` | `''` | 百度翻译 appid |
 | `BAIDU_TRANS_APIKEY` | `''` | 百度翻译 apikey |
+| `LOG_LEVEL` | `'INFO'` | 日志等级 |
 
 
 ### 加载额外表情
@@ -50,5 +51,6 @@ docker run -d \
   -e GIF_MAX_FRAMES=100 \
   -e BAIDU_TRANS_APPID=<YOUR_BAIDU_TRANS_APPID> \
   -e BAIDU_TRANS_APIKEY=<YOUR_BAIDU_TRANS_APIKEY> \
+  -e LOG_LEVEL='INFO' \
   meetwq/meme-generator:main
 ```

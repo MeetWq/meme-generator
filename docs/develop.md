@@ -133,23 +133,3 @@ add_meme(
 ```
 
 这里传入了 `circle=False` 和 `circle=True` 两个模型实例，可以在生成文档时生成不同参数时的预览图，效果如 [memes.md](memes.md#petpet) 所示
-
-
-## 加载表情
-
-如果希望加载非本仓库内置的表情，可以在 [配置文件](../README.md#配置) 中填写表情所在的文件夹路径
-
-如以下的文件夹：
-
-```
-/path/to/your/meme_dir
-└── new_meme
-    └── __init__.py
-```
-
-在配置文件中修改 `meme_dirs` 如下：
-
-```toml
-[meme]
-meme_dirs = ["/path/to/your/meme_dir"]
-```

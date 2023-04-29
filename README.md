@@ -20,6 +20,11 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 </div>
 
 
+> **Note**
+>
+> 额外表情仓库：[meme-generator-contrib](https://github.com/MeetWq/meme-generator-contrib)
+
+
 ## 表情列表
 
 表情详细信息、表情预览等可以在 [--> 表情列表 <--](docs/memes.md) 查看
@@ -88,7 +93,7 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 >
 > 由于 v0.0.6 版本更改了资源链接的拼接方式，如果装过之前的版本，需要修改配置中的 `resource_url`
 >
-> 建议将配置文件中不需要更改的选项删除，以使用默认配置
+> **建议将配置文件中不需要更改的选项删除，以使用默认配置**
 
 默认配置：
 ```toml
@@ -98,7 +103,16 @@ meme_dirs = []  # 加载其他位置的表情包，填写文件夹路径
 meme_disabled_list = []  # 禁用的表情包列表，填写表情的 `key`
 
 [resource]
-resource_url = "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator"  # 下载内置表情包图片时的资源链接
+# 下载内置表情包图片时的资源链接，下载时选择最快的站点
+resource_urls = [
+  "https://raw.githubusercontent.com/MeetWq/meme-generator/",
+  "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator/",
+  "https://fastly.jsdelivr.net/gh/MeetWq/meme-generator@",
+  "https://raw.fastgit.org/MeetWq/meme-generator/",
+  "https://raw.fgit.ml/MeetWq/meme-generator/",
+  "https://raw.gitmirror.com/MeetWq/meme-generator/",
+  "https://raw.kgithub.com/MeetWq/meme-generator/",
+]
 
 [gif]
 gif_max_size = 10.0  # 限制生成的 gif 文件大小，单位为 Mb
@@ -111,6 +125,31 @@ baidu_trans_apikey = ""  # 可在 百度翻译开放平台 (http://api.fanyi.bai
 [server]
 host = "127.0.0.1"  # web server 监听地址
 port = 2233  # web server 端口
+
+[log]
+log_level = "INFO"  # 日志等级
+```
+
+
+## 加载其他表情
+
+如果希望加载非本仓库内置的表情，可以在 [配置文件](#配置) 中填写表情所在的文件夹路径
+
+如以下的文件夹：
+
+```
+/path/to/your/meme_dir
+└── meme1
+    └── __init__.py
+└── meme2
+    └── __init__.py
+```
+
+在配置文件中修改 `meme_dirs` 如下：
+
+```toml
+[meme]
+meme_dirs = ["/path/to/your/meme_dir"]
 ```
 
 
@@ -118,7 +157,7 @@ port = 2233  # web server 端口
 
 如果希望编写、贡献新的表情，可以参考 [--> 新表情编写指北 <--](docs/develop.md)
 
-对于一些不适合放在主仓库的表情，可以提交至 [meme-generator-contrib 额外表情仓库](https://github.com/MeetWq/meme-generator-contrib)
+对于一些不适合放在主仓库的表情，可以提交至 [额外表情仓库](https://github.com/MeetWq/meme-generator-contrib)
 
 
 ## 声明

@@ -37,7 +37,8 @@ ENV TZ=Asia/Shanghai \
   GIF_MAX_SIZE=10.0 \
   GIF_MAX_FRAMES=100 \
   BAIDU_TRANS_APPID="" \
-  BAIDU_TRANS_APIKEY=""
+  BAIDU_TRANS_APIKEY="" \
+  LOG_LEVEL="INFO"
 
 COPY ./meme_generator /app/meme_generator
 
