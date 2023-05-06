@@ -169,6 +169,30 @@ def make_jpg_or_gif(
         return save_gif(frames, duration)
 
 
+def make_png_or_gif(
+    img: BuildImage, func: Maker, keep_transparency: bool = False
+) -> BytesIO:
+    """
+    制作静图或者动图
+    :params
+      * ``img``: 输入图片
+      * ``func``: 图片处理函数，输入img，返回处理后的图片
+      * ``keep_transparency``: 传入gif时，是否保留该gif的透明度
+    """
+    image = img.image
+    if not getattr(image, "is_animated", False):
+        return func(img).save_png()
+    else:
+        frames = split_gif(image)
+        duration = get_avg_duration(image) / 1000
+        frames = [func(BuildImage(frame)).image for frame in frames]
+        if keep_transparency:
+            image.seek(0)
+            if image.info.__contains__("transparency"):
+                frames[0].info["transparency"] = image.info["transparency"]
+        return save_gif(frames, duration)
+
+
 class FrameAlignPolicy(Enum):
     """
     要叠加的gif长度大于基准gif时，是否延长基准gif长度以对齐两个gif
