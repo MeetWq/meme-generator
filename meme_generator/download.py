@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 import httpx
-import tqdm
+from rich.progress import Progress
 
 from .config import meme_config
 from .log import logger
@@ -102,11 +102,16 @@ async def check_resources():
                 with file_path.open("wb") as f:
                     f.write(content)
 
-        pbar = tqdm.tqdm(total=len(download_list))
-        tasks = [
-            download_image(file_path, file_name)
-            for file_path, file_name in download_list
-        ]
-        for task in asyncio.as_completed(tasks):
-            await task
-            pbar.update()
+        with Progress(
+            *Progress.get_default_columns(), "[yellow]{task.completed}/{task.total}"
+        ) as progress:
+            progress_task = progress.add_task(
+                "[green]Downloading...", total=len(download_list)
+            )
+            tasks = [
+                download_image(file_path, file_name)
+                for file_path, file_name in download_list
+            ]
+            for task in asyncio.as_completed(tasks):
+                await task
+                progress.update(progress_task, advance=1)
