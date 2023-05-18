@@ -170,15 +170,16 @@
 163. [wave (波纹)](#wave)
 164. [weisuoyuwei (为所欲为)](#weisuoyuwei)
 165. [why_at_me (为什么@我)](#why_at_me)
-166. [windmill_turn (风车转)](#windmill_turn)
-167. [wish_fail (许愿失败)](#wish_fail)
-168. [wooden_fish (木鱼)](#wooden_fish)
-169. [worship (膜/膜拜)](#worship)
-170. [wujing (吴京xx中国xx)](#wujing)
-171. [wunian (五年怎么过的)](#wunian)
-172. [yalidaye (压力大爷)](#yalidaye)
-173. [youtube (yt/youtube)](#youtube)
-174. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+166. [why_have_hands (为什么要有手)](#why_have_hands)
+167. [windmill_turn (风车转)](#windmill_turn)
+168. [wish_fail (许愿失败)](#wish_fail)
+169. [wooden_fish (木鱼)](#wooden_fish)
+170. [worship (膜/膜拜)](#worship)
+171. [wujing (吴京xx中国xx)](#wujing)
+172. [wunian (五年怎么过的)](#wunian)
+173. [yalidaye (压力大爷)](#yalidaye)
+174. [youtube (yt/youtube)](#youtube)
+175. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2157,6 +2158,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/why_at_me.jpg" width="200" />
+</div>
+
+## why_have_hands
+
+- 关键词：`为什么要有手`
+- 需要图片数目：`1`
+- 需要文字数目：`0` ~ `1`
+- 预览：
+<div align="left">
+  <img src="images/why_have_hands.jpg" width="200" />
 </div>
 
 ## windmill_turn
