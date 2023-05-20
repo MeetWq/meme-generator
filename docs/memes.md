@@ -169,17 +169,18 @@
 162. [wangjingze (王境泽)](#wangjingze)
 163. [wave (波纹)](#wave)
 164. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-165. [why_at_me (为什么@我)](#why_at_me)
-166. [why_have_hands (为什么要有手)](#why_have_hands)
-167. [windmill_turn (风车转)](#windmill_turn)
-168. [wish_fail (许愿失败)](#wish_fail)
-169. [wooden_fish (木鱼)](#wooden_fish)
-170. [worship (膜/膜拜)](#worship)
-171. [wujing (吴京xx中国xx)](#wujing)
-172. [wunian (五年怎么过的)](#wunian)
-173. [yalidaye (压力大爷)](#yalidaye)
-174. [youtube (yt/youtube)](#youtube)
-175. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+165. [what_he_wants (最想要的东西)](#what_he_wants)
+166. [why_at_me (为什么@我)](#why_at_me)
+167. [why_have_hands (为什么要有手)](#why_have_hands)
+168. [windmill_turn (风车转)](#windmill_turn)
+169. [wish_fail (许愿失败)](#wish_fail)
+170. [wooden_fish (木鱼)](#wooden_fish)
+171. [worship (膜/膜拜)](#worship)
+172. [wujing (吴京xx中国xx)](#wujing)
+173. [wunian (五年怎么过的)](#wunian)
+174. [yalidaye (压力大爷)](#yalidaye)
+175. [youtube (yt/youtube)](#youtube)
+176. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2148,6 +2149,17 @@ options:
 - 预览：
 <div align="left">
   <img src="images/weisuoyuwei.gif" width="200" />
+</div>
+
+## what_he_wants
+
+- 关键词：`最想要的东西`
+- 需要图片数目：`1`
+- 需要文字数目：`0` ~ `1`
+- 默认文字：[`今年520`]
+- 预览：
+<div align="left">
+  <img src="images/what_he_wants.jpg" width="200" />
 </div>
 
 ## why_at_me
