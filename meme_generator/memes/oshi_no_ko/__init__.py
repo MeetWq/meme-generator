@@ -15,8 +15,8 @@ def OSHI_NO_KO(images: List[BuildImage], texts, args: MemeArgsModel):
         text = texts[0]
     else:
         text = args.user_infos[0].name
-        if len(text)>2:
-            text = text[0:2]
+    if len(text)>2:
+        text = text[0:2]
     
     frame = BuildImage.open(img_dir/'0.png')
     frame.paste(img, (0,0), alpha = True,below = True)
