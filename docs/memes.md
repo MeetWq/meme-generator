@@ -1439,6 +1439,20 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0` ~ `1`
 - 默认文字：[`网友`]
+- 其他参数：
+    - `name`
+        - 描述：指定名字
+        - 类型：`string`
+        - 默认值：``
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate oshi_no_zo [-h] [-n NAME]
+
+options:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  指定名字
+```
+
 - 预览：
 <div align="left">
   <img src="images/oshi_no_zo.jpg" width="200" />
