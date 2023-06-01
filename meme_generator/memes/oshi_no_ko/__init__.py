@@ -12,9 +12,9 @@ img_dir = Path(__file__).parent / "images"
 def OSHI_NO_KO(images: List[BuildImage], texts, args: MemeArgsModel):
     img = images[0]
     if img.width <= img.height:
-        img = img.convert('RGBA').resize_width(691)
+        img = img.convert("RGBA").resize_width(691)
     else:
-         img = img.convert('RGBA').resize_height(691)
+        img = img.convert("RGBA").resize_height(691)
     if texts:
         text = texts[0]
     elif args.user_infos:
