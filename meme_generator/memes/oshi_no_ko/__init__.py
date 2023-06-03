@@ -5,8 +5,8 @@ from pil_utils import BuildImage
 from pydantic import Field
 
 from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
-from meme_generator.utils import make_png_or_gif
 from meme_generator.exception import TextOverLength
+from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
