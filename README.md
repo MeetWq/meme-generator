@@ -77,6 +77,8 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
   - [noneplugin/nonebot-plugin-memes-api](https://github.com/noneplugin/nonebot-plugin-memes-api) nonebot-plugin-memes 调用 api 版本
 - Yunzai
   - [ikechan8370/yunzai-meme](https://github.com/ikechan8370/yunzai-meme) Yunzai机器人的表情包插件
+- Koishi
+  - [lgc2333/koishi-plugin-memes-api](https://github.com/lgc2333/koishi-plugin-memes-api) Koishi 复刻版 表情包制作插件调用 API 版
 
 
 ## 配置
