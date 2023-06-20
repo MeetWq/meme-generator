@@ -21,6 +21,7 @@ def nijika_holdsign(images, texts: List[str], args):
             max_fontsize=60,
             min_fontsize=25,
             lines_align="center",
+            fontname="FZSJ-QINGCRJ",
         )
     except ValueError:
         raise TextOverLength(text)
