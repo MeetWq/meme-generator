@@ -102,87 +102,88 @@
 95. [need (需要/你可能需要)](#need)
 96. [nekoha_holdsign (猫羽雫举牌/猫猫举牌)](#nekoha_holdsign)
 97. [nihaosaoa (你好骚啊)](#nihaosaoa)
-98. [no_response (无响应)](#no_response)
-99. [nokia (诺基亚/有内鬼)](#nokia)
-100. [not_call_me (不喊我)](#not_call_me)
-101. [note_for_leave (请假条)](#note_for_leave)
-102. [oshi_no_zo (我推的网友)](#oshi_no_zo)
-103. [overtime (加班)](#overtime)
-104. [paint (这像画吗)](#paint)
-105. [painter (小画家)](#painter)
-106. [pass_the_buck (推锅/甩锅)](#pass_the_buck)
-107. [pat (拍)](#pat)
-108. [perfect (完美)](#perfect)
-109. [petpet (摸/摸摸/摸头/rua)](#petpet)
-110. [play (顶/玩)](#play)
-111. [play_game (玩游戏)](#play_game)
-112. [police (出警)](#police)
-113. [police1 (警察)](#police1)
-114. [pornhub (ph/pornhub)](#pornhub)
-115. [potato (土豆)](#potato)
-116. [pound (捣)](#pound)
-117. [printing (打印)](#printing)
-118. [prpr (舔/舔屏/prpr)](#prpr)
-119. [psyduck (可达鸭)](#psyduck)
-120. [punch (打拳)](#punch)
-121. [qiegewala (切格瓦拉)](#qiegewala)
-122. [raise_sign (举牌)](#raise_sign)
-123. [read_book (看书)](#read_book)
-124. [repeat (复读)](#repeat)
-125. [rip (撕)](#rip)
-126. [rip_angrily (怒撕)](#rip_angrily)
-127. [rise_dead (诈尸/秽土转生)](#rise_dead)
-128. [roll (滚)](#roll)
-129. [rub (贴/贴贴/蹭/蹭蹭)](#rub)
-130. [run (快跑)](#run)
-131. [safe_sense (安全感)](#safe_sense)
-132. [scratch_head (挠头)](#scratch_head)
-133. [scratchcard (刮刮乐)](#scratchcard)
-134. [scroll (滚屏)](#scroll)
-135. [shishilani (食屎啦你)](#shishilani)
-136. [shock (震惊)](#shock)
-137. [shuifandui (谁反对)](#shuifandui)
-138. [shutup (别说了)](#shutup)
-139. [sit_still (坐得住/坐的住)](#sit_still)
-140. [slap (一巴掌)](#slap)
-141. [slogan (口号)](#slogan)
-142. [smash (砸)](#smash)
-143. [step_on (踩)](#step_on)
-144. [suck (吸/嗦)](#suck)
-145. [support (精神支柱)](#support)
-146. [symmetric (对称)](#symmetric)
-147. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
-148. [teach (讲课/敲黑板)](#teach)
-149. [think_what (想什么)](#think_what)
-150. [throw (丢/扔)](#throw)
-151. [throw_gif (抛/掷)](#throw_gif)
-152. [thump (捶)](#thump)
-153. [thump_wildly (捶爆/爆捶)](#thump_wildly)
-154. [tightly (紧贴/紧紧贴着)](#tightly)
-155. [together (一起)](#together)
-156. [trance (恍惚)](#trance)
-157. [turn (转)](#turn)
-158. [twist (搓)](#twist)
-159. [universal (万能表情/空白表情)](#universal)
-160. [wakeup (xx起来了)](#wakeup)
-161. [wallpaper (墙纸)](#wallpaper)
-162. [walnut_pad (胡桃平板)](#walnut_pad)
-163. [walnut_zoom (胡桃放大)](#walnut_zoom)
-164. [wangjingze (王境泽)](#wangjingze)
-165. [wave (波纹)](#wave)
-166. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-167. [what_he_wants (最想要的东西)](#what_he_wants)
-168. [why_at_me (为什么@我)](#why_at_me)
-169. [why_have_hands (为什么要有手)](#why_have_hands)
-170. [windmill_turn (风车转)](#windmill_turn)
-171. [wish_fail (许愿失败)](#wish_fail)
-172. [wooden_fish (木鱼)](#wooden_fish)
-173. [worship (膜/膜拜)](#worship)
-174. [wujing (吴京xx中国xx)](#wujing)
-175. [wunian (五年怎么过的)](#wunian)
-176. [yalidaye (压力大爷)](#yalidaye)
-177. [youtube (yt/youtube)](#youtube)
-178. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+98. [nijika_holdsign (伊地知虹夏举牌/虹夏举牌)](#nijika_holdsign)
+99. [no_response (无响应)](#no_response)
+100. [nokia (诺基亚/有内鬼)](#nokia)
+101. [not_call_me (不喊我)](#not_call_me)
+102. [note_for_leave (请假条)](#note_for_leave)
+103. [oshi_no_ko (我推的网友)](#oshi_no_ko)
+104. [overtime (加班)](#overtime)
+105. [paint (这像画吗)](#paint)
+106. [painter (小画家)](#painter)
+107. [pass_the_buck (推锅/甩锅)](#pass_the_buck)
+108. [pat (拍)](#pat)
+109. [perfect (完美)](#perfect)
+110. [petpet (摸/摸摸/摸头/rua)](#petpet)
+111. [play (顶/玩)](#play)
+112. [play_game (玩游戏)](#play_game)
+113. [police (出警)](#police)
+114. [police1 (警察)](#police1)
+115. [pornhub (ph/pornhub)](#pornhub)
+116. [potato (土豆)](#potato)
+117. [pound (捣)](#pound)
+118. [printing (打印)](#printing)
+119. [prpr (舔/舔屏/prpr)](#prpr)
+120. [psyduck (可达鸭)](#psyduck)
+121. [punch (打拳)](#punch)
+122. [qiegewala (切格瓦拉)](#qiegewala)
+123. [raise_sign (举牌)](#raise_sign)
+124. [read_book (看书)](#read_book)
+125. [repeat (复读)](#repeat)
+126. [rip (撕)](#rip)
+127. [rip_angrily (怒撕)](#rip_angrily)
+128. [rise_dead (诈尸/秽土转生)](#rise_dead)
+129. [roll (滚)](#roll)
+130. [rub (贴/贴贴/蹭/蹭蹭)](#rub)
+131. [run (快跑)](#run)
+132. [safe_sense (安全感)](#safe_sense)
+133. [scratch_head (挠头)](#scratch_head)
+134. [scratchcard (刮刮乐)](#scratchcard)
+135. [scroll (滚屏)](#scroll)
+136. [shishilani (食屎啦你)](#shishilani)
+137. [shock (震惊)](#shock)
+138. [shuifandui (谁反对)](#shuifandui)
+139. [shutup (别说了)](#shutup)
+140. [sit_still (坐得住/坐的住)](#sit_still)
+141. [slap (一巴掌)](#slap)
+142. [slogan (口号)](#slogan)
+143. [smash (砸)](#smash)
+144. [step_on (踩)](#step_on)
+145. [suck (吸/嗦)](#suck)
+146. [support (精神支柱)](#support)
+147. [symmetric (对称)](#symmetric)
+148. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
+149. [teach (讲课/敲黑板)](#teach)
+150. [think_what (想什么)](#think_what)
+151. [throw (丢/扔)](#throw)
+152. [throw_gif (抛/掷)](#throw_gif)
+153. [thump (捶)](#thump)
+154. [thump_wildly (捶爆/爆捶)](#thump_wildly)
+155. [tightly (紧贴/紧紧贴着)](#tightly)
+156. [together (一起)](#together)
+157. [trance (恍惚)](#trance)
+158. [turn (转)](#turn)
+159. [twist (搓)](#twist)
+160. [universal (万能表情/空白表情)](#universal)
+161. [wakeup (xx起来了)](#wakeup)
+162. [wallpaper (墙纸)](#wallpaper)
+163. [walnut_pad (胡桃平板)](#walnut_pad)
+164. [walnut_zoom (胡桃放大)](#walnut_zoom)
+165. [wangjingze (王境泽)](#wangjingze)
+166. [wave (波纹)](#wave)
+167. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+168. [what_he_wants (最想要的东西)](#what_he_wants)
+169. [why_at_me (为什么@我)](#why_at_me)
+170. [why_have_hands (为什么要有手)](#why_have_hands)
+171. [windmill_turn (风车转)](#windmill_turn)
+172. [wish_fail (许愿失败)](#wish_fail)
+173. [wooden_fish (木鱼)](#wooden_fish)
+174. [worship (膜/膜拜)](#worship)
+175. [wujing (吴京xx中国xx)](#wujing)
+176. [wunian (五年怎么过的)](#wunian)
+177. [yalidaye (压力大爷)](#yalidaye)
+178. [youtube (yt/youtube)](#youtube)
+179. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -1383,6 +1384,17 @@ options:
   <img src="images/nihaosaoa.gif" width="200" />
 </div>
 
+## nijika_holdsign
+
+- 关键词：`伊地知虹夏举牌`、`虹夏举牌`
+- 需要图片数目：`0`
+- 需要文字数目：`1`
+- 默认文字：[`你可少看点二次元吧`]
+- 预览：
+<div align="left">
+  <img src="images/nijika_holdsign.jpg" width="200" />
+</div>
+
 ## no_response
 
 - 关键词：`无响应`
@@ -1445,7 +1457,7 @@ options:
   <img src="images/note_for_leave.jpg" width="200" />
 </div>
 
-## oshi_no_zo
+## oshi_no_ko
 
 - 关键词：`我推的网友`
 - 需要图片数目：`1`
@@ -1458,7 +1470,7 @@ options:
         - 默认值：``
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate oshi_no_zo [-h] [-n NAME]
+usage: meme generate oshi_no_ko [-h] [-n NAME]
 
 options:
   -h, --help            show this help message and exit
@@ -1467,7 +1479,7 @@ options:
 
 - 预览：
 <div align="left">
-  <img src="images/oshi_no_zo.jpg" width="200" />
+  <img src="images/oshi_no_ko.png" width="200" />
 </div>
 
 ## overtime
@@ -1949,8 +1961,7 @@ options:
         - 可选值：`left`、`right`、`top`、`bottom`
 - 其他参数（命令行选项）：
 ```shell
-usage: meme generate symmetric [-h]
-                     [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
+usage: meme generate symmetric [-h] [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
 
 options:
   -h, --help            show this help message and exit

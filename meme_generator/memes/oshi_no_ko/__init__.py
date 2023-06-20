@@ -20,7 +20,7 @@ class Model(MemeArgsModel):
     name: str = Field("", description=help)
 
 
-def OSHI_NO_KO(images: List[BuildImage], texts, args: Model):
+def oshi_no_ko(images: List[BuildImage], texts, args: Model):
     name = args.name or "网友"
 
     frame = BuildImage.open(img_dir / "0.png")
@@ -44,8 +44,8 @@ def OSHI_NO_KO(images: List[BuildImage], texts, args: Model):
 
 
 add_meme(
-    "oshi_no_zo",
-    OSHI_NO_KO,
+    "oshi_no_ko",
+    oshi_no_ko,
     min_images=1,
     max_images=1,
     max_texts=1,

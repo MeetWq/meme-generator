@@ -9,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def Nijika_holdsign(images, texts: List[str], args):
+def nijika_holdsign(images, texts: List[str], args):
     text = texts[0]
     frame = BuildImage.open(img_dir / "0.jpg")
     try:
@@ -28,8 +28,8 @@ def Nijika_holdsign(images, texts: List[str], args):
 
 
 add_meme(
-    "Nijika_holdsign",
-    Nijika_holdsign,
+    "nijika_holdsign",
+    nijika_holdsign,
     min_texts=1,
     max_texts=1,
     default_texts=["你可少看点二次元吧"],
