@@ -2816,8 +2816,20 @@
         "hash": "27500542a606e46aa4c218686fd43077"
     },
     {
-        "path": "oshi_no_ko/images/0.png",
-        "hash": "2b23357cf388fc21568e55a777d937bd"
+        "path": "oshi_no_ko/images/background.png",
+        "hash": "758bbb5a92d74f0869e64039be575a76"
+    },
+    {
+        "path": "oshi_no_ko/images/foreground.png",
+        "hash": "7e0c9250c5294a062ab4e948dbe6261c"
+    },
+    {
+        "path": "oshi_no_ko/images/text1.png",
+        "hash": "3819b528aa7d71a3243d95de6152183e"
+    },
+    {
+        "path": "oshi_no_ko/images/text2.png",
+        "hash": "f6f7d087081b960c553acd1645d3d6a3"
     },
     {
         "path": "overtime/images/0.png",
