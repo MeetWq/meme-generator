@@ -1,44 +1,54 @@
 from pathlib import Path
 from typing import List
 
-from pil_utils import BuildImage
-from pydantic import Field
+from pil_utils import BuildImage, Text2Image
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
-help = "指定名字"
 
-parser = MemeArgsParser()
-parser.add_argument("-n", "--name", type=str, default="", help=help)
+def oshi_no_ko(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+    name = texts[0] if texts else args.user_infos[0].name if args.user_infos else "网友"
 
+    text_frame1 = BuildImage.open(img_dir / "text1.png")
+    text_frame2 = BuildImage.open(img_dir / "text2.png")
 
-class Model(MemeArgsModel):
-    name: str = Field("", description=help)
-
-
-def oshi_no_ko(images: List[BuildImage], texts, args: Model):
-    name = args.name or "网友"
-
-    frame = BuildImage.open(img_dir / "0.png")
-    try:
-        frame.draw_text(
-            (430, 28, 614, 175),
+    bias_y = 5
+    text_frame3 = BuildImage(
+        Text2Image.from_text(
             name,
-            max_fontsize=200,
-            min_fontsize=76,
-            stroke_ratio=0.05,
+            fontname="HiraginoMin",
+            fontsize=150,
+            stroke_width=4,
             stroke_fill="white",
-        )
-    except ValueError:
+        ).to_image()
+    ).resize_height(text_frame1.height + bias_y)
+    if text_frame3.width > 800:
         raise TextOverLength(name)
 
+    text_frame = BuildImage.new(
+        "RGBA",
+        (text_frame1.width + text_frame2.width + text_frame3.width, text_frame2.height),
+    )
+    text_frame.paste(text_frame1, (0, 0), alpha=True).paste(
+        text_frame3, (text_frame1.width, bias_y), alpha=True
+    ).paste(text_frame2, (text_frame1.width + text_frame3.width, 0), alpha=True)
+    text_frame = text_frame.resize_width(683)
+
+    background = BuildImage.open(img_dir / "background.png")
+    foreground = BuildImage.open(img_dir / "foreground.png")
+
     def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((691, 691), keep_ratio=True)
-        return frame.copy().paste(img, (0, 0), alpha=True, below=True)
+        img = img.convert("RGBA").resize((681, 692), keep_ratio=True)
+        return (
+            background.copy()
+            .paste(img, alpha=True)
+            .paste(text_frame, (9, 102 - text_frame.height // 2), alpha=True)
+            .paste(foreground, alpha=True)
+        )
 
     return make_png_or_gif(images[0], make)
 
@@ -48,8 +58,9 @@ add_meme(
     oshi_no_ko,
     min_images=1,
     max_images=1,
+    min_texts=0,
     max_texts=1,
     default_texts=["网友"],
-    args_type=MemeArgsType(parser, Model),
     keywords=["我推的网友"],
+    patterns=[r"我推的(\S+)"],
 )
