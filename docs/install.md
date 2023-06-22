@@ -93,10 +93,11 @@ Noto Color Emoji：https://github.com/googlefonts/noto-emoji
 | [Consolas](https://learn.microsoft.com/zh-cn/typography/font-list/consolas) | [consola.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/consola.ttf) | `charpic` |  |
 | [FZKaTong-M19S](https://www.foundertype.com/index.php/FontInfo/index/id/136) | [FZKATJW.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/FZKATJW.ttf) | `capoo_say` | 方正卡通 |
 | [FZXS14](https://www.foundertype.com/index.php/FontInfo/index/id/208) | [FZXS14.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/FZXS14.ttf) | `nokia` | 方正像素14 |
-| [FZSJ-QINGCRJ](https://www.foundertype.com/index.php/FontInfo/index/id/5178) | [FZSJ-QINGCRJ.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/FZSJ-QINGCRJ.ttf) | `psyduck` | 方正手迹-青春日记 |
+| [FZSJ-QINGCRJ](https://www.foundertype.com/index.php/FontInfo/index/id/5178) | [FZSJ-QINGCRJ.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/FZSJ-QINGCRJ.ttf) | `psyduck`、`nijika_holdsign` | 方正手迹-青春日记 |
 | [FZShaoEr-M11S](https://www.foundertype.com/index.php/FontInfo/index/id/149) | [FZSEJW.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/FZSEJW.ttf) | `raise_sign`、`nekoha_holdsign` | 方正少儿 |
 | [NotoSansSC](https://fonts.google.com/noto/specimen/Noto+Sans+SC) | [NotoSansSC-Regular.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/NotoSansSC-Regular.otf) | `5000choyen` |  |
 | [NotoSerifSC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) | [NotoSerifSC-Regular.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/NotoSerifSC-Regular.otf) | `5000choyen` |  |
+| [HiraginoMin](https://www.fonts.net.cn/font-36201269101.html) | [HiraginoMin-W5-90-RKSJ-H-2.ttc](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/HiraginoMin-W5-90-RKSJ-H-2.ttc) | `oshi_no_ko` | 明朝体 |
 
 
 #### 字体安装方式
