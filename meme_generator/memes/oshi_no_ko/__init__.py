@@ -36,7 +36,7 @@ def oshi_no_ko(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     text_frame.paste(text_frame1, (0, 0), alpha=True).paste(
         text_frame3, (text_frame1.width, bias_y), alpha=True
     ).paste(text_frame2, (text_frame1.width + text_frame3.width, 0), alpha=True)
-    text_frame = text_frame.resize_width(683)
+    text_frame = text_frame.resize_width(663)
 
     background = BuildImage.open(img_dir / "background.png")
     foreground = BuildImage.open(img_dir / "foreground.png")
