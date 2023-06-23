@@ -3,15 +3,15 @@ from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
-from meme_generator import MemeArgsModel, add_meme
+from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
 
-def oshi_no_ko(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
-    name = texts[0] if texts else args.user_infos[0].name if args.user_infos else "网友"
+def oshi_no_ko(images: List[BuildImage], texts: List[str], args):
+    name = texts[0] if texts else "网友"
 
     text_frame1 = BuildImage.open(img_dir / "text1.png")
     text_frame2 = BuildImage.open(img_dir / "text2.png")
