@@ -156,36 +156,37 @@
 149. [symmetric (对称)](#symmetric)
 150. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
 151. [teach (讲课/敲黑板)](#teach)
-152. [think_what (想什么)](#think_what)
-153. [throw (丢/扔)](#throw)
-154. [throw_gif (抛/掷)](#throw_gif)
-155. [thump (捶)](#thump)
-156. [thump_wildly (捶爆/爆捶)](#thump_wildly)
-157. [tightly (紧贴/紧紧贴着)](#tightly)
-158. [together (一起)](#together)
-159. [trance (恍惚)](#trance)
-160. [turn (转)](#turn)
-161. [twist (搓)](#twist)
-162. [universal (万能表情/空白表情)](#universal)
-163. [wakeup (xx起来了)](#wakeup)
-164. [wallpaper (墙纸)](#wallpaper)
-165. [walnut_pad (胡桃平板)](#walnut_pad)
-166. [walnut_zoom (胡桃放大)](#walnut_zoom)
-167. [wangjingze (王境泽)](#wangjingze)
-168. [wave (波纹)](#wave)
-169. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-170. [what_he_wants (最想要的东西)](#what_he_wants)
-171. [why_at_me (为什么@我)](#why_at_me)
-172. [why_have_hands (为什么要有手)](#why_have_hands)
-173. [windmill_turn (风车转)](#windmill_turn)
-174. [wish_fail (许愿失败)](#wish_fail)
-175. [wooden_fish (木鱼)](#wooden_fish)
-176. [worship (膜/膜拜)](#worship)
-177. [wujing (吴京xx中国xx)](#wujing)
-178. [wunian (五年怎么过的)](#wunian)
-179. [yalidaye (压力大爷)](#yalidaye)
-180. [youtube (yt/youtube)](#youtube)
-181. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+152. [tease (拿捏/戏弄)](#tease)
+153. [think_what (想什么)](#think_what)
+154. [throw (丢/扔)](#throw)
+155. [throw_gif (抛/掷)](#throw_gif)
+156. [thump (捶)](#thump)
+157. [thump_wildly (捶爆/爆捶)](#thump_wildly)
+158. [tightly (紧贴/紧紧贴着)](#tightly)
+159. [together (一起)](#together)
+160. [trance (恍惚)](#trance)
+161. [turn (转)](#turn)
+162. [twist (搓)](#twist)
+163. [universal (万能表情/空白表情)](#universal)
+164. [wakeup (xx起来了)](#wakeup)
+165. [wallpaper (墙纸)](#wallpaper)
+166. [walnut_pad (胡桃平板)](#walnut_pad)
+167. [walnut_zoom (胡桃放大)](#walnut_zoom)
+168. [wangjingze (王境泽)](#wangjingze)
+169. [wave (波纹)](#wave)
+170. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+171. [what_he_wants (最想要的东西)](#what_he_wants)
+172. [why_at_me (为什么@我)](#why_at_me)
+173. [why_have_hands (为什么要有手)](#why_have_hands)
+174. [windmill_turn (风车转)](#windmill_turn)
+175. [wish_fail (许愿失败)](#wish_fail)
+176. [wooden_fish (木鱼)](#wooden_fish)
+177. [worship (膜/膜拜)](#worship)
+178. [wujing (吴京xx中国xx)](#wujing)
+179. [wunian (五年怎么过的)](#wunian)
+180. [yalidaye (压力大爷)](#yalidaye)
+181. [youtube (yt/youtube)](#youtube)
+182. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2023,6 +2024,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/teach.jpg" width="200" />
+</div>
+
+## tease
+
+- 关键词：`拿捏`、`戏弄`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/tease.gif" width="200" />
 </div>
 
 ## think_what
