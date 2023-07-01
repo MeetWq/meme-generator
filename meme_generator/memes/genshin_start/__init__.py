@@ -30,7 +30,7 @@ def genshin_start(images: List[BuildImage], texts: List[str], args):
     def make(img: BuildImage) -> BuildImage:
         points = ((0, 116), (585, 0), (584, 319), (43, 385))
         screen = (
-            img.convert("RGBA").resize((600, 400), keep_ratio=True).perspective(points)
+            img.convert("RGBA").resize((600, 330), keep_ratio=True).perspective(points)
         )
         return frame.copy().paste(screen, (412, 121), below=True)
 
