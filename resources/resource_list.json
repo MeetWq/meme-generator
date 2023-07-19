@@ -2892,6 +2892,14 @@
         "hash": "fdf0252e7edea0a3186b908af557d2a7"
     },
     {
+        "path": "maimai_awaken/images/0.png",
+        "hash": "e624223202cfeefff8c6be39f395c9d6"
+    },
+    {
+        "path": "maimai_join/images/0.png",
+        "hash": "0b76b5df240115d862fb08425857363b"
+    },
+    {
         "path": "make_friend/images/0.png",
         "hash": "9b20187a1eb50164c5963fc13146f4ea"
     },
@@ -4308,6 +4316,10 @@
         "hash": "7b43a1b2f5c738b821224919141318dc"
     },
     {
+        "path": "taunt/images/0.png",
+        "hash": "5c7c1026ecca7ec754ecdf622bdbcec9"
+    },
+    {
         "path": "teach/images/0.png",
         "hash": "d035c0cb0ffcc2487cc563d9222fe37e"
     },
@@ -4874,6 +4886,10 @@
     {
         "path": "walnut_zoom/images/9.png",
         "hash": "2b3a75dc7874fc47612a0ebe82ead577"
+    },
+    {
+        "path": "what_I_want_to_do/images/0.png",
+        "hash": "6f6f0b5452555aa8c162745db59587f0"
     },
     {
         "path": "what_he_wants/images/0.png",

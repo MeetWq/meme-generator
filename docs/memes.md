@@ -63,131 +63,136 @@
 56. [genshin_start (原神启动)](#genshin_start)
 57. [good_news (喜报)](#good_news)
 58. [google (google)](#google)
-59. [gun (手枪)](#gun)
-60. [hammer (锤)](#hammer)
-61. [high_EQ (低情商xx高情商xx)](#high_EQ)
-62. [hit_screen (打穿/打穿屏幕)](#hit_screen)
-63. [hold_grudge (记仇)](#hold_grudge)
-64. [hold_tight (抱紧)](#hold_tight)
-65. [hug_leg (抱大腿)](#hug_leg)
-66. [hutao_bite (胡桃啃)](#hutao_bite)
-67. [imprison (坐牢)](#imprison)
-68. [incivilization (不文明)](#incivilization)
-69. [interview (采访)](#interview)
-70. [jiji_king (急急国王)](#jiji_king)
-71. [jiujiu (啾啾)](#jiujiu)
-72. [kaleidoscope (万花筒/万花镜)](#kaleidoscope)
-73. [karyl_point (凯露指)](#karyl_point)
-74. [keep_away (远离)](#keep_away)
-75. [kick_ball (踢球)](#kick_ball)
-76. [kirby_hammer (卡比锤/卡比重锤)](#kirby_hammer)
-77. [kiss (亲/亲亲)](#kiss)
-78. [klee_eat (可莉吃)](#klee_eat)
-79. [knock (敲)](#knock)
-80. [learn (偷学)](#learn)
-81. [lim_x_0 (等价无穷小)](#lim_x_0)
-82. [listen_music (听音乐)](#listen_music)
-83. [little_angel (小天使)](#little_angel)
-84. [loading (加载中)](#loading)
-85. [look_flat (看扁)](#look_flat)
-86. [look_this_icon (看图标)](#look_this_icon)
-87. [love_you (永远爱你)](#love_you)
-88. [luoyonghao_say (罗永浩说)](#luoyonghao_say)
-89. [luxun_say (鲁迅说/鲁迅说过)](#luxun_say)
-90. [make_friend (交个朋友)](#make_friend)
-91. [marriage (结婚申请/结婚登记)](#marriage)
-92. [meteor (流星)](#meteor)
-93. [mihoyo (米哈游)](#mihoyo)
-94. [murmur (低语)](#murmur)
-95. [my_friend (我朋友说)](#my_friend)
-96. [my_wife (我老婆/这是我老婆)](#my_wife)
-97. [name_generator (亚文化取名机/亚名)](#name_generator)
-98. [need (需要/你可能需要)](#need)
-99. [nekoha_holdsign (猫羽雫举牌/猫猫举牌)](#nekoha_holdsign)
-100. [nihaosaoa (你好骚啊)](#nihaosaoa)
-101. [nijika_holdsign (伊地知虹夏举牌/虹夏举牌)](#nijika_holdsign)
-102. [no_response (无响应)](#no_response)
-103. [nokia (诺基亚/有内鬼)](#nokia)
-104. [not_call_me (不喊我)](#not_call_me)
-105. [note_for_leave (请假条)](#note_for_leave)
-106. [oshi_no_ko (我推的网友)](#oshi_no_ko)
-107. [overtime (加班)](#overtime)
-108. [paint (这像画吗)](#paint)
-109. [painter (小画家)](#painter)
-110. [pass_the_buck (推锅/甩锅)](#pass_the_buck)
-111. [pat (拍)](#pat)
-112. [perfect (完美)](#perfect)
-113. [petpet (摸/摸摸/摸头/rua)](#petpet)
-114. [play (顶/玩)](#play)
-115. [play_game (玩游戏)](#play_game)
-116. [police (出警)](#police)
-117. [police1 (警察)](#police1)
-118. [pornhub (ph/pornhub)](#pornhub)
-119. [potato (土豆)](#potato)
-120. [pound (捣)](#pound)
-121. [printing (打印)](#printing)
-122. [prpr (舔/舔屏/prpr)](#prpr)
-123. [psyduck (可达鸭)](#psyduck)
-124. [punch (打拳)](#punch)
-125. [qiegewala (切格瓦拉)](#qiegewala)
-126. [raise_sign (举牌)](#raise_sign)
-127. [read_book (看书)](#read_book)
-128. [repeat (复读)](#repeat)
-129. [rip (撕)](#rip)
-130. [rip_angrily (怒撕)](#rip_angrily)
-131. [rise_dead (诈尸/秽土转生)](#rise_dead)
-132. [roll (滚)](#roll)
-133. [rub (贴/贴贴/蹭/蹭蹭)](#rub)
-134. [run (快跑)](#run)
-135. [safe_sense (安全感)](#safe_sense)
-136. [scratch_head (挠头)](#scratch_head)
-137. [scratchcard (刮刮乐)](#scratchcard)
-138. [scroll (滚屏)](#scroll)
-139. [shishilani (食屎啦你)](#shishilani)
-140. [shock (震惊)](#shock)
-141. [shuifandui (谁反对)](#shuifandui)
-142. [shutup (别说了)](#shutup)
-143. [sit_still (坐得住/坐的住)](#sit_still)
-144. [slap (一巴掌)](#slap)
-145. [slogan (口号)](#slogan)
-146. [smash (砸)](#smash)
-147. [step_on (踩)](#step_on)
-148. [suck (吸/嗦)](#suck)
-149. [support (精神支柱)](#support)
-150. [symmetric (对称)](#symmetric)
-151. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
-152. [teach (讲课/敲黑板)](#teach)
-153. [tease (拿捏/戏弄)](#tease)
-154. [think_what (想什么)](#think_what)
-155. [throw (丢/扔)](#throw)
-156. [throw_gif (抛/掷)](#throw_gif)
-157. [thump (捶)](#thump)
-158. [thump_wildly (捶爆/爆捶)](#thump_wildly)
-159. [tightly (紧贴/紧紧贴着)](#tightly)
-160. [together (一起)](#together)
-161. [trance (恍惚)](#trance)
-162. [turn (转)](#turn)
-163. [twist (搓)](#twist)
-164. [universal (万能表情/空白表情)](#universal)
-165. [wakeup (xx起来了)](#wakeup)
-166. [wallpaper (墙纸)](#wallpaper)
-167. [walnut_pad (胡桃平板)](#walnut_pad)
-168. [walnut_zoom (胡桃放大)](#walnut_zoom)
-169. [wangjingze (王境泽)](#wangjingze)
-170. [wave (波纹)](#wave)
-171. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-172. [what_he_wants (最想要的东西)](#what_he_wants)
-173. [why_at_me (为什么@我)](#why_at_me)
-174. [why_have_hands (为什么要有手)](#why_have_hands)
-175. [windmill_turn (风车转)](#windmill_turn)
-176. [wish_fail (许愿失败)](#wish_fail)
-177. [wooden_fish (木鱼)](#wooden_fish)
-178. [worship (膜/膜拜)](#worship)
-179. [wujing (吴京xx中国xx)](#wujing)
-180. [wunian (五年怎么过的)](#wunian)
-181. [yalidaye (压力大爷)](#yalidaye)
-182. [youtube (yt/youtube)](#youtube)
-183. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+59. [guichu (鬼畜)](#guichu)
+60. [gun (手枪)](#gun)
+61. [hammer (锤)](#hammer)
+62. [high_EQ (低情商xx高情商xx)](#high_EQ)
+63. [hit_screen (打穿/打穿屏幕)](#hit_screen)
+64. [hold_grudge (记仇)](#hold_grudge)
+65. [hold_tight (抱紧)](#hold_tight)
+66. [hug_leg (抱大腿)](#hug_leg)
+67. [hutao_bite (胡桃啃)](#hutao_bite)
+68. [imprison (坐牢)](#imprison)
+69. [incivilization (不文明)](#incivilization)
+70. [interview (采访)](#interview)
+71. [jiji_king (急急国王)](#jiji_king)
+72. [jiujiu (啾啾)](#jiujiu)
+73. [kaleidoscope (万花筒/万花镜)](#kaleidoscope)
+74. [karyl_point (凯露指)](#karyl_point)
+75. [keep_away (远离)](#keep_away)
+76. [kick_ball (踢球)](#kick_ball)
+77. [kirby_hammer (卡比锤/卡比重锤)](#kirby_hammer)
+78. [kiss (亲/亲亲)](#kiss)
+79. [klee_eat (可莉吃)](#klee_eat)
+80. [knock (敲)](#knock)
+81. [learn (偷学)](#learn)
+82. [lim_x_0 (等价无穷小)](#lim_x_0)
+83. [listen_music (听音乐)](#listen_music)
+84. [little_angel (小天使)](#little_angel)
+85. [loading (加载中)](#loading)
+86. [look_flat (看扁)](#look_flat)
+87. [look_this_icon (看图标)](#look_this_icon)
+88. [love_you (永远爱你)](#love_you)
+89. [luoyonghao_say (罗永浩说)](#luoyonghao_say)
+90. [luxun_say (鲁迅说/鲁迅说过)](#luxun_say)
+91. [maimai_awaken (旅行伙伴觉醒)](#maimai_awaken)
+92. [maimai_join (旅行伙伴加入)](#maimai_join)
+93. [make_friend (交个朋友)](#make_friend)
+94. [marriage (结婚申请/结婚登记)](#marriage)
+95. [meteor (流星)](#meteor)
+96. [mihoyo (米哈游)](#mihoyo)
+97. [murmur (低语)](#murmur)
+98. [my_friend (我朋友说)](#my_friend)
+99. [my_wife (我老婆/这是我老婆)](#my_wife)
+100. [name_generator (亚文化取名机/亚名)](#name_generator)
+101. [need (需要/你可能需要)](#need)
+102. [nekoha_holdsign (猫羽雫举牌/猫猫举牌)](#nekoha_holdsign)
+103. [nihaosaoa (你好骚啊)](#nihaosaoa)
+104. [nijika_holdsign (伊地知虹夏举牌/虹夏举牌)](#nijika_holdsign)
+105. [no_response (无响应)](#no_response)
+106. [nokia (诺基亚/有内鬼)](#nokia)
+107. [not_call_me (不喊我)](#not_call_me)
+108. [note_for_leave (请假条)](#note_for_leave)
+109. [oshi_no_ko (我推的网友)](#oshi_no_ko)
+110. [overtime (加班)](#overtime)
+111. [paint (这像画吗)](#paint)
+112. [painter (小画家)](#painter)
+113. [pass_the_buck (推锅/甩锅)](#pass_the_buck)
+114. [pat (拍)](#pat)
+115. [perfect (完美)](#perfect)
+116. [petpet (摸/摸摸/摸头/rua)](#petpet)
+117. [play (顶/玩)](#play)
+118. [play_game (玩游戏)](#play_game)
+119. [police (出警)](#police)
+120. [police1 (警察)](#police1)
+121. [pornhub (ph/pornhub)](#pornhub)
+122. [potato (土豆)](#potato)
+123. [pound (捣)](#pound)
+124. [printing (打印)](#printing)
+125. [prpr (舔/舔屏/prpr)](#prpr)
+126. [psyduck (可达鸭)](#psyduck)
+127. [punch (打拳)](#punch)
+128. [qiegewala (切格瓦拉)](#qiegewala)
+129. [raise_sign (举牌)](#raise_sign)
+130. [read_book (看书)](#read_book)
+131. [repeat (复读)](#repeat)
+132. [rip (撕)](#rip)
+133. [rip_angrily (怒撕)](#rip_angrily)
+134. [rise_dead (诈尸/秽土转生)](#rise_dead)
+135. [roll (滚)](#roll)
+136. [rub (贴/贴贴/蹭/蹭蹭)](#rub)
+137. [run (快跑)](#run)
+138. [safe_sense (安全感)](#safe_sense)
+139. [scratch_head (挠头)](#scratch_head)
+140. [scratchcard (刮刮乐)](#scratchcard)
+141. [scroll (滚屏)](#scroll)
+142. [shishilani (食屎啦你)](#shishilani)
+143. [shock (震惊)](#shock)
+144. [shuifandui (谁反对)](#shuifandui)
+145. [shutup (别说了)](#shutup)
+146. [sit_still (坐得住/坐的住)](#sit_still)
+147. [slap (一巴掌)](#slap)
+148. [slogan (口号)](#slogan)
+149. [smash (砸)](#smash)
+150. [step_on (踩)](#step_on)
+151. [suck (吸/嗦)](#suck)
+152. [support (精神支柱)](#support)
+153. [symmetric (对称)](#symmetric)
+154. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
+155. [taunt (嘲讽)](#taunt)
+156. [teach (讲课/敲黑板)](#teach)
+157. [tease (拿捏/戏弄)](#tease)
+158. [think_what (想什么)](#think_what)
+159. [throw (丢/扔)](#throw)
+160. [throw_gif (抛/掷)](#throw_gif)
+161. [thump (捶)](#thump)
+162. [thump_wildly (捶爆/爆捶)](#thump_wildly)
+163. [tightly (紧贴/紧紧贴着)](#tightly)
+164. [together (一起)](#together)
+165. [trance (恍惚)](#trance)
+166. [turn (转)](#turn)
+167. [twist (搓)](#twist)
+168. [universal (万能表情/空白表情)](#universal)
+169. [wakeup (xx起来了)](#wakeup)
+170. [wallpaper (墙纸)](#wallpaper)
+171. [walnut_pad (胡桃平板)](#walnut_pad)
+172. [walnut_zoom (胡桃放大)](#walnut_zoom)
+173. [wangjingze (王境泽)](#wangjingze)
+174. [wave (波纹)](#wave)
+175. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+176. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+177. [what_he_wants (最想要的东西)](#what_he_wants)
+178. [why_at_me (为什么@我)](#why_at_me)
+179. [why_have_hands (为什么要有手)](#why_have_hands)
+180. [windmill_turn (风车转)](#windmill_turn)
+181. [wish_fail (许愿失败)](#wish_fail)
+182. [wooden_fish (木鱼)](#wooden_fish)
+183. [worship (膜/膜拜)](#worship)
+184. [wujing (吴京xx中国xx)](#wujing)
+185. [wunian (五年怎么过的)](#wunian)
+186. [yalidaye (压力大爷)](#yalidaye)
+187. [youtube (yt/youtube)](#youtube)
+188. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -862,6 +867,53 @@ options:
   <img src="images/google.jpg" width="200" />
 </div>
 
+## guichu
+
+- 关键词：`鬼畜`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 其他参数：
+    - `direction`
+        - 描述：鬼畜对称方向
+        - 类型：`string`
+        - 默认值：`left`
+        - 可选值：`left`、`right`、`top`、`bottom`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate guichu [-h]
+                     [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
+
+options:
+  -h, --help            show this help message and exit
+  -d {left,right,top,bottom}, --direction {left,right,top,bottom}
+                        鬼畜对称方向
+  --left, /左
+  --right, /右
+  --top, /上
+  --bottom, /下
+```
+
+- 预览：
+> 参数：{"direction": "left"}
+<div align="left">
+  <img src="images/guichu_instance0.gif" width="200" />
+</div>
+
+> 参数：{"direction": "right"}
+<div align="left">
+  <img src="images/guichu_instance1.gif" width="200" />
+</div>
+
+> 参数：{"direction": "top"}
+<div align="left">
+  <img src="images/guichu_instance2.gif" width="200" />
+</div>
+
+> 参数：{"direction": "bottom"}
+<div align="left">
+  <img src="images/guichu_instance3.gif" width="200" />
+</div>
+
 ## gun
 
 - 关键词：`手枪`
@@ -1289,6 +1341,26 @@ options:
 - 预览：
 <div align="left">
   <img src="images/luxun_say.jpg" width="200" />
+</div>
+
+## maimai_awaken
+
+- 关键词：`旅行伙伴觉醒`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/maimai_awaken.jpg" width="200" />
+</div>
+
+## maimai_join
+
+- 关键词：`旅行伙伴加入`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/maimai_join.jpg" width="200" />
 </div>
 
 ## make_friend
@@ -2028,6 +2100,16 @@ options:
   <img src="images/tankuku_raisesign.gif" width="200" />
 </div>
 
+## taunt
+
+- 关键词：`嘲讽`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/taunt.jpg" width="200" />
+</div>
+
 ## teach
 
 - 关键词：`讲课`、`敲黑板`
@@ -2232,6 +2314,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/weisuoyuwei.gif" width="200" />
+</div>
+
+## what_I_want_to_do
+
+- 关键词：`我想上的`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/what_I_want_to_do.jpg" width="200" />
 </div>
 
 ## what_he_wants
