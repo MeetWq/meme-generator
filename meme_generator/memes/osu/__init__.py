@@ -21,6 +21,7 @@ def osu(images, texts: List[str], args) -> BytesIO:
             min_fontsize=80,
             weight="bold",
             fill="white",
+            allow_wrap=True,
             lines_align="center",
             fontname="Aller",
         )
