@@ -1,8 +1,8 @@
 from io import BytesIO
+from typing import List
 
 import anyio
 from pil_utils import BuildImage
-from pyparsing import List
 
 from meme_generator import add_meme
 
