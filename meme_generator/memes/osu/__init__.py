@@ -1,29 +1,34 @@
 from io import BytesIO
+from pathlib import Path
 from typing import List
 
-import anyio
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.exception import TextOverLength
 
-BACKGROUND_PATH = anyio.Path(__file__).parent / "images" / "osu.png"
+img_dir = Path(__file__).parent / "images"
 
 
-async def osu(images, texts: List[str], args) -> BytesIO:  # noqa: ARG001
-    return (
-        BuildImage.open(BytesIO(await BACKGROUND_PATH.read_bytes()))
-        .convert("RGBA")
-        .draw_text(
+def osu(images, texts: List[str], args) -> BytesIO:
+    text = texts[0]
+    frame = BuildImage.open(img_dir / "osu.png")
+    try:
+        frame.draw_text(
             (80, 80, 432, 432),
-            texts[0],
+            text,
             max_fontsize=192,
+            min_fontsize=80,
             weight="bold",
             fill="white",
+            allow_wrap=True,
             lines_align="center",
             fontname="Aller",
         )
-        .save_png()
-    )
+    except ValueError:
+        raise TextOverLength(text)
+
+    return frame.save_png()
 
 
 add_meme(
