@@ -114,85 +114,86 @@
 107. [not_call_me (不喊我)](#not_call_me)
 108. [note_for_leave (请假条)](#note_for_leave)
 109. [oshi_no_ko (我推的网友)](#oshi_no_ko)
-110. [overtime (加班)](#overtime)
-111. [paint (这像画吗)](#paint)
-112. [painter (小画家)](#painter)
-113. [pass_the_buck (推锅/甩锅)](#pass_the_buck)
-114. [pat (拍)](#pat)
-115. [perfect (完美)](#perfect)
-116. [petpet (摸/摸摸/摸头/rua)](#petpet)
-117. [play (顶/玩)](#play)
-118. [play_game (玩游戏)](#play_game)
-119. [police (出警)](#police)
-120. [police1 (警察)](#police1)
-121. [pornhub (ph/pornhub)](#pornhub)
-122. [potato (土豆)](#potato)
-123. [pound (捣)](#pound)
-124. [printing (打印)](#printing)
-125. [prpr (舔/舔屏/prpr)](#prpr)
-126. [psyduck (可达鸭)](#psyduck)
-127. [punch (打拳)](#punch)
-128. [qiegewala (切格瓦拉)](#qiegewala)
-129. [raise_sign (举牌)](#raise_sign)
-130. [read_book (看书)](#read_book)
-131. [repeat (复读)](#repeat)
-132. [rip (撕)](#rip)
-133. [rip_angrily (怒撕)](#rip_angrily)
-134. [rise_dead (诈尸/秽土转生)](#rise_dead)
-135. [roll (滚)](#roll)
-136. [rub (贴/贴贴/蹭/蹭蹭)](#rub)
-137. [run (快跑)](#run)
-138. [safe_sense (安全感)](#safe_sense)
-139. [scratch_head (挠头)](#scratch_head)
-140. [scratchcard (刮刮乐)](#scratchcard)
-141. [scroll (滚屏)](#scroll)
-142. [shishilani (食屎啦你)](#shishilani)
-143. [shock (震惊)](#shock)
-144. [shuifandui (谁反对)](#shuifandui)
-145. [shutup (别说了)](#shutup)
-146. [sit_still (坐得住/坐的住)](#sit_still)
-147. [slap (一巴掌)](#slap)
-148. [slogan (口号)](#slogan)
-149. [smash (砸)](#smash)
-150. [step_on (踩)](#step_on)
-151. [suck (吸/嗦)](#suck)
-152. [support (精神支柱)](#support)
-153. [symmetric (对称)](#symmetric)
-154. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
-155. [taunt (嘲讽)](#taunt)
-156. [teach (讲课/敲黑板)](#teach)
-157. [tease (拿捏/戏弄)](#tease)
-158. [think_what (想什么)](#think_what)
-159. [throw (丢/扔)](#throw)
-160. [throw_gif (抛/掷)](#throw_gif)
-161. [thump (捶)](#thump)
-162. [thump_wildly (捶爆/爆捶)](#thump_wildly)
-163. [tightly (紧贴/紧紧贴着)](#tightly)
-164. [together (一起)](#together)
-165. [trance (恍惚)](#trance)
-166. [turn (转)](#turn)
-167. [twist (搓)](#twist)
-168. [universal (万能表情/空白表情)](#universal)
-169. [wakeup (xx起来了)](#wakeup)
-170. [wallpaper (墙纸)](#wallpaper)
-171. [walnut_pad (胡桃平板)](#walnut_pad)
-172. [walnut_zoom (胡桃放大)](#walnut_zoom)
-173. [wangjingze (王境泽)](#wangjingze)
-174. [wave (波纹)](#wave)
-175. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-176. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
-177. [what_he_wants (最想要的东西)](#what_he_wants)
-178. [why_at_me (为什么@我)](#why_at_me)
-179. [why_have_hands (为什么要有手)](#why_have_hands)
-180. [windmill_turn (风车转)](#windmill_turn)
-181. [wish_fail (许愿失败)](#wish_fail)
-182. [wooden_fish (木鱼)](#wooden_fish)
-183. [worship (膜/膜拜)](#worship)
-184. [wujing (吴京xx中国xx)](#wujing)
-185. [wunian (五年怎么过的)](#wunian)
-186. [yalidaye (压力大爷)](#yalidaye)
-187. [youtube (yt/youtube)](#youtube)
-188. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+110. [osu (osu)](#osu)
+111. [overtime (加班)](#overtime)
+112. [paint (这像画吗)](#paint)
+113. [painter (小画家)](#painter)
+114. [pass_the_buck (推锅/甩锅)](#pass_the_buck)
+115. [pat (拍)](#pat)
+116. [perfect (完美)](#perfect)
+117. [petpet (摸/摸摸/摸头/rua)](#petpet)
+118. [play (顶/玩)](#play)
+119. [play_game (玩游戏)](#play_game)
+120. [police (出警)](#police)
+121. [police1 (警察)](#police1)
+122. [pornhub (ph/pornhub)](#pornhub)
+123. [potato (土豆)](#potato)
+124. [pound (捣)](#pound)
+125. [printing (打印)](#printing)
+126. [prpr (舔/舔屏/prpr)](#prpr)
+127. [psyduck (可达鸭)](#psyduck)
+128. [punch (打拳)](#punch)
+129. [qiegewala (切格瓦拉)](#qiegewala)
+130. [raise_sign (举牌)](#raise_sign)
+131. [read_book (看书)](#read_book)
+132. [repeat (复读)](#repeat)
+133. [rip (撕)](#rip)
+134. [rip_angrily (怒撕)](#rip_angrily)
+135. [rise_dead (诈尸/秽土转生)](#rise_dead)
+136. [roll (滚)](#roll)
+137. [rub (贴/贴贴/蹭/蹭蹭)](#rub)
+138. [run (快跑)](#run)
+139. [safe_sense (安全感)](#safe_sense)
+140. [scratch_head (挠头)](#scratch_head)
+141. [scratchcard (刮刮乐)](#scratchcard)
+142. [scroll (滚屏)](#scroll)
+143. [shishilani (食屎啦你)](#shishilani)
+144. [shock (震惊)](#shock)
+145. [shuifandui (谁反对)](#shuifandui)
+146. [shutup (别说了)](#shutup)
+147. [sit_still (坐得住/坐的住)](#sit_still)
+148. [slap (一巴掌)](#slap)
+149. [slogan (口号)](#slogan)
+150. [smash (砸)](#smash)
+151. [step_on (踩)](#step_on)
+152. [suck (吸/嗦)](#suck)
+153. [support (精神支柱)](#support)
+154. [symmetric (对称)](#symmetric)
+155. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
+156. [taunt (嘲讽)](#taunt)
+157. [teach (讲课/敲黑板)](#teach)
+158. [tease (拿捏/戏弄)](#tease)
+159. [think_what (想什么)](#think_what)
+160. [throw (丢/扔)](#throw)
+161. [throw_gif (抛/掷)](#throw_gif)
+162. [thump (捶)](#thump)
+163. [thump_wildly (捶爆/爆捶)](#thump_wildly)
+164. [tightly (紧贴/紧紧贴着)](#tightly)
+165. [together (一起)](#together)
+166. [trance (恍惚)](#trance)
+167. [turn (转)](#turn)
+168. [twist (搓)](#twist)
+169. [universal (万能表情/空白表情)](#universal)
+170. [wakeup (xx起来了)](#wakeup)
+171. [wallpaper (墙纸)](#wallpaper)
+172. [walnut_pad (胡桃平板)](#walnut_pad)
+173. [walnut_zoom (胡桃放大)](#walnut_zoom)
+174. [wangjingze (王境泽)](#wangjingze)
+175. [wave (波纹)](#wave)
+176. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+177. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+178. [what_he_wants (最想要的东西)](#what_he_wants)
+179. [why_at_me (为什么@我)](#why_at_me)
+180. [why_have_hands (为什么要有手)](#why_have_hands)
+181. [windmill_turn (风车转)](#windmill_turn)
+182. [wish_fail (许愿失败)](#wish_fail)
+183. [wooden_fish (木鱼)](#wooden_fish)
+184. [worship (膜/膜拜)](#worship)
+185. [wujing (吴京xx中国xx)](#wujing)
+186. [wunian (五年怎么过的)](#wunian)
+187. [yalidaye (压力大爷)](#yalidaye)
+188. [youtube (yt/youtube)](#youtube)
+189. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -271,17 +272,17 @@ options:
 ```
 
 - 预览：
-> 参数：{"mode": "normal"}
+> 参数：{"mode":"normal"}
 <div align="left">
   <img src="images/always_instance0.jpg" width="200" />
 </div>
 
-> 参数：{"mode": "circle"}
+> 参数：{"mode":"circle"}
 <div align="left">
   <img src="images/always_instance1.jpg" width="200" />
 </div>
 
-> 参数：{"mode": "loop"}
+> 参数：{"mode":"loop"}
 <div align="left">
   <img src="images/always_instance2.gif" width="200" />
 </div>
@@ -445,17 +446,17 @@ options:
 ```
 
 - 预览：
-> 参数：{"position": "right"}
+> 参数：{"position":"right"}
 <div align="left">
   <img src="images/bubble_tea_instance0.jpg" width="200" />
 </div>
 
-> 参数：{"position": "left"}
+> 参数：{"position":"left"}
 <div align="left">
   <img src="images/bubble_tea_instance1.jpg" width="200" />
 </div>
 
-> 参数：{"position": "both"}
+> 参数：{"position":"both"}
 <div align="left">
   <img src="images/bubble_tea_instance2.jpg" width="200" />
 </div>
@@ -894,22 +895,22 @@ options:
 ```
 
 - 预览：
-> 参数：{"direction": "left"}
+> 参数：{"direction":"left"}
 <div align="left">
   <img src="images/guichu_instance0.gif" width="200" />
 </div>
 
-> 参数：{"direction": "right"}
+> 参数：{"direction":"right"}
 <div align="left">
   <img src="images/guichu_instance1.gif" width="200" />
 </div>
 
-> 参数：{"direction": "top"}
+> 参数：{"direction":"top"}
 <div align="left">
   <img src="images/guichu_instance2.gif" width="200" />
 </div>
 
-> 参数：{"direction": "bottom"}
+> 参数：{"direction":"bottom"}
 <div align="left">
   <img src="images/guichu_instance3.gif" width="200" />
 </div>
@@ -939,17 +940,17 @@ options:
 ```
 
 - 预览：
-> 参数：{"position": "left"}
+> 参数：{"position":"left"}
 <div align="left">
   <img src="images/gun_instance0.jpg" width="200" />
 </div>
 
-> 参数：{"position": "right"}
+> 参数：{"position":"right"}
 <div align="left">
   <img src="images/gun_instance1.jpg" width="200" />
 </div>
 
-> 参数：{"position": "both"}
+> 参数：{"position":"both"}
 <div align="left">
   <img src="images/gun_instance2.jpg" width="200" />
 </div>
@@ -1080,12 +1081,12 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle": false}
+> 参数：{"circle":false}
 <div align="left">
   <img src="images/jiji_king_instance0.jpg" width="200" />
 </div>
 
-> 参数：{"circle": true}
+> 参数：{"circle":true}
 <div align="left">
   <img src="images/jiji_king_instance1.jpg" width="200" />
 </div>
@@ -1120,12 +1121,12 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle": false}
+> 参数：{"circle":false}
 <div align="left">
   <img src="images/kaleidoscope_instance0.jpg" width="200" />
 </div>
 
-> 参数：{"circle": true}
+> 参数：{"circle":true}
 <div align="left">
   <img src="images/kaleidoscope_instance1.jpg" width="200" />
 </div>
@@ -1182,12 +1183,12 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle": false}
+> 参数：{"circle":false}
 <div align="left">
   <img src="images/kirby_hammer_instance0.gif" width="200" />
 </div>
 
-> 参数：{"circle": true}
+> 参数：{"circle":true}
 <div align="left">
   <img src="images/kirby_hammer_instance1.gif" width="200" />
 </div>
@@ -1577,6 +1578,17 @@ options:
   <img src="images/oshi_no_ko.png" width="200" />
 </div>
 
+## osu
+
+- 关键词：`osu`
+- 需要图片数目：`0`
+- 需要文字数目：`1`
+- 默认文字：[`hso!`]
+- 预览：
+<div align="left">
+  <img src="images/osu.png" width="200" />
+</div>
+
 ## overtime
 
 - 关键词：`加班`
@@ -1658,12 +1670,12 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle": false}
+> 参数：{"circle":false}
 <div align="left">
   <img src="images/petpet_instance0.gif" width="200" />
 </div>
 
-> 参数：{"circle": true}
+> 参数：{"circle":true}
 <div align="left">
   <img src="images/petpet_instance1.gif" width="200" />
 </div>
@@ -2070,22 +2082,22 @@ options:
 ```
 
 - 预览：
-> 参数：{"direction": "left"}
+> 参数：{"direction":"left"}
 <div align="left">
   <img src="images/symmetric_instance0.jpg" width="200" />
 </div>
 
-> 参数：{"direction": "right"}
+> 参数：{"direction":"right"}
 <div align="left">
   <img src="images/symmetric_instance1.jpg" width="200" />
 </div>
 
-> 参数：{"direction": "top"}
+> 参数：{"direction":"top"}
 <div align="left">
   <img src="images/symmetric_instance2.jpg" width="200" />
 </div>
 
-> 参数：{"direction": "bottom"}
+> 参数：{"direction":"bottom"}
 <div align="left">
   <img src="images/symmetric_instance3.jpg" width="200" />
 </div>
