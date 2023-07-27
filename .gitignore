@@ -4,3 +4,7 @@ dist/
 .idea/
 venv/
 .venv/
+
+result.png
+result.jpg
+result.gif
