@@ -16,8 +16,11 @@ def raise_image(images: List[BuildImage], texts, args) -> BytesIO:  # noqa: ARG0
     bg = BuildImage.open(img_dir / "raise_image.png")
 
     def make_frame(img: BuildImage) -> BuildImage:
-        img = img.resize(inner_size, keep_ratio=True)
-        inner_frame = BuildImage.new("RGBA", inner_size, "white").paste(img, alpha=True)
+        inner_frame = BuildImage.new("RGBA", inner_size, "white")
+        inner_frame = inner_frame.paste(
+            img.resize(inner_size, keep_ratio=True),
+            alpha=True,
+        )
         return bg.copy().paste(inner_frame, paste_pos, alpha=True, below=True)
 
     return make_jpg_or_gif(images[0], make_frame)
