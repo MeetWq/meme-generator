@@ -24,7 +24,7 @@ def raise_image(images: List[BuildImage], texts, args) -> BytesIO:  # noqa: ARG0
         )
         return bg.copy().paste(inner_frame, paste_pos, alpha=True, below=True)
 
-    return make_jpg_or_gif(images[0], make_frame)
+    return make_jpg_or_gif(images[0], make_frame, keep_transparency=True)
 
 
 add_meme(
