@@ -19,7 +19,7 @@ def raise_image(images: List[BuildImage], texts, args) -> BytesIO:  # noqa: ARG0
     def make_frame(img: BuildImage) -> BuildImage:
         inner_frame = BuildImage.new("RGBA", inner_size, "white")
         inner_frame = inner_frame.paste(
-            img.resize(inner_size, keep_ratio=True),
+            img.convert("RGBA").resize(inner_size, keep_ratio=True),
             alpha=True,
         )
         return bg.copy().paste(inner_frame, paste_pos, alpha=True, below=True)
