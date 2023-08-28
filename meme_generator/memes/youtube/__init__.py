@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List
 
-from PIL import Image
+from PIL.Image import Transpose
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
@@ -40,9 +40,13 @@ def youtube(images, texts: List[str], args):
     x1 = frame.width - corner.width - 50
     y1 = frame.height - corner.height - 50
     frame.paste(corner, (x0, y0 - 1), alpha=True).paste(
-        corner.transpose(Image.FLIP_TOP_BOTTOM), (x0, y1 + 1), alpha=True
-    ).paste(corner.transpose(Image.FLIP_LEFT_RIGHT), (x1, y0 - 1), alpha=True).paste(
-        corner.transpose(Image.FLIP_TOP_BOTTOM).transpose(Image.FLIP_LEFT_RIGHT),
+        corner.transpose(Transpose.FLIP_TOP_BOTTOM), (x0, y1 + 1), alpha=True
+    ).paste(
+        corner.transpose(Transpose.FLIP_LEFT_RIGHT), (x1, y0 - 1), alpha=True
+    ).paste(
+        corner.transpose(Transpose.FLIP_TOP_BOTTOM).transpose(
+            Transpose.FLIP_LEFT_RIGHT
+        ),
         (x1, y1 + 1),
         alpha=True,
     ).paste(

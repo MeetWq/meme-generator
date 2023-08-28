@@ -1,6 +1,6 @@
 from typing import List
 
-from PIL import Image
+from PIL.Image import Transpose
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
@@ -12,7 +12,7 @@ def keep_away(images: List[BuildImage], texts: List[str], args):
         if n < 4:
             return img.rotate(n * 90)
         else:
-            return img.transpose(Image.FLIP_LEFT_RIGHT).rotate((n - 4) * 90)
+            return img.transpose(Transpose.FLIP_LEFT_RIGHT).rotate((n - 4) * 90)
 
     def paste(img: BuildImage):
         nonlocal count

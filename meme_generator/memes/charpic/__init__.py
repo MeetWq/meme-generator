@@ -25,10 +25,11 @@ def charpic(images: List[BuildImage], texts, args):
                 line += str_map[int(num * gray / 256)]
             lines.append(line)
         text = "\n".join(lines)
-        w, h = font.getsize_multiline(text)
-        text_img = Image.new("RGB", (w, h), "white")
+        text_img = Image.new("RGB", (2000, 2000), "white")
         draw = ImageDraw.Draw(text_img)
+        _, _, w, h = draw.multiline_textbbox((0, 0), text, font=font)
         draw.multiline_text((0, 0), text, font=font, fill="black")
+        text_img = text_img.crop((0, 0, w, h))
         return BuildImage(text_img)
 
     return make_jpg_or_gif(img, make)

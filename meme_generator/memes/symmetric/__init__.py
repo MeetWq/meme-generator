@@ -1,7 +1,6 @@
-from collections import namedtuple
-from typing import Dict, List, Literal
+from typing import Dict, List, Literal, NamedTuple, Tuple
 
-from PIL import Image
+from PIL.Image import Transpose
 from pil_utils import BuildImage
 from pydantic import Field
 
@@ -40,12 +39,17 @@ def symmetric(images: List[BuildImage], texts, args: Model):
     img = images[0]
     img_w, img_h = img.size
 
-    Mode = namedtuple(
-        "Mode", ["method", "frame_size", "size1", "pos1", "size2", "pos2"]
-    )
+    class Mode(NamedTuple):
+        method: Transpose
+        frame_size: Tuple[int, int]
+        size1: Tuple[int, int, int, int]
+        pos1: Tuple[int, int]
+        size2: Tuple[int, int, int, int]
+        pos2: Tuple[int, int]
+
     modes: Dict[str, Mode] = {
         "left": Mode(
-            Image.FLIP_LEFT_RIGHT,
+            Transpose.FLIP_LEFT_RIGHT,
             (img_w // 2 * 2, img_h),
             (0, 0, img_w // 2, img_h),
             (0, 0),
@@ -53,7 +57,7 @@ def symmetric(images: List[BuildImage], texts, args: Model):
             (img_w // 2, 0),
         ),
         "right": Mode(
-            Image.FLIP_LEFT_RIGHT,
+            Transpose.FLIP_LEFT_RIGHT,
             (img_w // 2 * 2, img_h),
             (img_w // 2, 0, img_w // 2 * 2, img_h),
             (img_w // 2, 0),
@@ -61,7 +65,7 @@ def symmetric(images: List[BuildImage], texts, args: Model):
             (0, 0),
         ),
         "top": Mode(
-            Image.FLIP_TOP_BOTTOM,
+            Transpose.FLIP_TOP_BOTTOM,
             (img_w, img_h // 2 * 2),
             (0, 0, img_w, img_h // 2),
             (0, 0),
@@ -69,7 +73,7 @@ def symmetric(images: List[BuildImage], texts, args: Model):
             (0, img_h // 2),
         ),
         "bottom": Mode(
-            Image.FLIP_TOP_BOTTOM,
+            Transpose.FLIP_TOP_BOTTOM,
             (img_w, img_h // 2 * 2),
             (0, img_h // 2, img_w, img_h // 2 * 2),
             (0, img_h // 2),

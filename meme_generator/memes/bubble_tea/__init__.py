@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List, Literal
 
-from PIL import Image
+from PIL.Image import Transpose
 from pil_utils import BuildImage
 from pydantic import Field
 
@@ -43,7 +43,7 @@ def bubble_tea(images: List[BuildImage], texts, args: Model):
     if right:
         frame.paste(bubble_tea, alpha=True)
     if left:
-        frame.paste(bubble_tea.transpose(Image.FLIP_LEFT_RIGHT), alpha=True)
+        frame.paste(bubble_tea.transpose(Transpose.FLIP_LEFT_RIGHT), alpha=True)
     return frame.save_jpg()
 
 

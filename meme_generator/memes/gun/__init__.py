@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List, Literal
 
-from PIL import Image
+from PIL.Image import Transpose
 from pil_utils import BuildImage
 from pydantic import Field
 
@@ -43,7 +43,7 @@ def gun(images: List[BuildImage], texts, args: Model):
     if left:
         frame.paste(gun, alpha=True)
     if right:
-        frame.paste(gun.transpose(Image.FLIP_LEFT_RIGHT), alpha=True)
+        frame.paste(gun.transpose(Transpose.FLIP_LEFT_RIGHT), alpha=True)
     return frame.save_jpg()
 
 
