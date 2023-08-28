@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "meme-generator"
-version = "0.0.14"
+version = "0.0.15"
 description = "Python package for making fun pictures"
 authors = ["meetwq <meetwq@gmail.com>"]
 license = "MIT"
@@ -17,7 +17,7 @@ exclude = [
 python = "^3.8"
 httpx = ">=0.20.0,<1.0.0"
 loguru = ">=0.6.0,<1.0.0"
-pil-utils = "^0.1.7"
+pil-utils = "^0.1.8"
 toml = "^0.10.2"
 fastapi = ">=0.93.0,<1.0.0"
 uvicorn = ">=0.20.0,<1.0.0"
