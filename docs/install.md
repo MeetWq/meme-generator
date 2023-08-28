@@ -98,6 +98,7 @@ Noto Color Emoji：https://github.com/googlefonts/noto-emoji
 | [NotoSansSC](https://fonts.google.com/noto/specimen/Noto+Sans+SC) | [NotoSansSC-Regular.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/NotoSansSC-Regular.otf) | `5000choyen` |  |
 | [NotoSerifSC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) | [NotoSerifSC-Regular.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/NotoSerifSC-Regular.otf) | `5000choyen` |  |
 | [HiraginoMin](https://www.fonts.net.cn/font-36201269101.html) | [HiraginoMin-W5-90-RKSJ-H-2.ttc](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/HiraginoMin-W5-90-RKSJ-H-2.ttc) | `oshi_no_ko` | 明朝体 |
+| [Aller](https://fonts.adobe.com/fonts/aller) | [Aller_Bd.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/Aller_Bd.ttf) | `osu` |  |
 
 
 #### 字体安装方式
