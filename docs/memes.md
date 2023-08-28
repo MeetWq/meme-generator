@@ -177,26 +177,27 @@
 170. [turn (转)](#turn)
 171. [twist (搓)](#twist)
 172. [universal (万能表情/空白表情)](#universal)
-173. [wakeup (xx起来了)](#wakeup)
-174. [wallpaper (墙纸)](#wallpaper)
-175. [walnut_pad (胡桃平板)](#walnut_pad)
-176. [walnut_zoom (胡桃放大)](#walnut_zoom)
-177. [wangjingze (王境泽)](#wangjingze)
-178. [wave (波纹)](#wave)
-179. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-180. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
-181. [what_he_wants (最想要的东西)](#what_he_wants)
-182. [why_at_me (为什么@我)](#why_at_me)
-183. [why_have_hands (为什么要有手)](#why_have_hands)
-184. [windmill_turn (风车转)](#windmill_turn)
-185. [wish_fail (许愿失败)](#wish_fail)
-186. [wooden_fish (木鱼)](#wooden_fish)
-187. [worship (膜/膜拜)](#worship)
-188. [wujing (吴京xx中国xx)](#wujing)
-189. [wunian (五年怎么过的)](#wunian)
-190. [yalidaye (压力大爷)](#yalidaye)
-191. [youtube (yt/youtube)](#youtube)
-192. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+173. [vibrate (震动)](#vibrate)
+174. [wakeup (xx起来了)](#wakeup)
+175. [wallpaper (墙纸)](#wallpaper)
+176. [walnut_pad (胡桃平板)](#walnut_pad)
+177. [walnut_zoom (胡桃放大)](#walnut_zoom)
+178. [wangjingze (王境泽)](#wangjingze)
+179. [wave (波纹)](#wave)
+180. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+181. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+182. [what_he_wants (最想要的东西)](#what_he_wants)
+183. [why_at_me (为什么@我)](#why_at_me)
+184. [why_have_hands (为什么要有手)](#why_have_hands)
+185. [windmill_turn (风车转)](#windmill_turn)
+186. [wish_fail (许愿失败)](#wish_fail)
+187. [wooden_fish (木鱼)](#wooden_fish)
+188. [worship (膜/膜拜)](#worship)
+189. [wujing (吴京xx中国xx)](#wujing)
+190. [wunian (五年怎么过的)](#wunian)
+191. [yalidaye (压力大爷)](#yalidaye)
+192. [youtube (yt/youtube)](#youtube)
+193. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2306,6 +2307,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/universal.jpg" width="200" />
+</div>
+
+## vibrate
+
+- 关键词：`震动`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/vibrate.gif" width="200" />
 </div>
 
 ## wakeup
