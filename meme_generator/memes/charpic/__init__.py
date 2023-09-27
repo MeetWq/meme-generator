@@ -13,9 +13,9 @@ def charpic(images: List[BuildImage], texts, args):
     str_map = "@@$$&B88QMMGW##EE93SPPDOOU**==()+^,\"--''.  "
     num = len(str_map)
     font = Font.find("Consolas").load_font(15)
-
+    
     def make(img: BuildImage) -> BuildImage:
-        img = img.convert("L").resize_width(150)
+        img = img.convert("RGBA").resize_width(150).convert("L")
         img = img.resize((img.width, img.height // 2))
         lines = []
         for y in range(img.height):
