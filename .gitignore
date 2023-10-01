@@ -4,6 +4,7 @@ dist/
 .idea/
 venv/
 .venv/
+pdm.lock
 
 result.png
 result.jpg

@@ -37,6 +37,9 @@ meme = "meme_generator.cli:main"
 profile = "black"
 skip_gitignore = true
 
+[tool.ruff.isort]
+detect-same-package = true
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
