@@ -15,14 +15,14 @@ def charpic(images: List[BuildImage], texts, args):
     font = Font.find("Consolas").load_font(15)
 
     def make(img: BuildImage) -> BuildImage:
-        img = img.convert("L").resize_width(150)
+        img = img.convert("RGBA").resize_width(150).convert("L")
         img = img.resize((img.width, img.height // 2))
         lines = []
         for y in range(img.height):
             line = ""
             for x in range(img.width):
                 gray = img.image.getpixel((x, y))
-                line += str_map[int(num * gray / 256)]
+                line += str_map[int(num * gray / 256)] if gray != 0 else " "
             lines.append(line)
         text = "\n".join(lines)
         text_img = Image.new("RGB", (2000, 2000), "white")
