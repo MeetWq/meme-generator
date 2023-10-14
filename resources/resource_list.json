@@ -136,6 +136,14 @@
         "hash": "d5dd1ea44908952885ff14a283f99695"
     },
     {
+        "path": "bluearchive/images/cross.png",
+        "hash": "bc36cde34cb165515ed4a80858861ab1"
+    },
+    {
+        "path": "bluearchive/images/halo.png",
+        "hash": "5783e8f50adfae75ec19b8742893325d"
+    },
+    {
         "path": "bocchi_draft/images/0.png",
         "hash": "680aea676a5f3d510ddee5c30201e59e"
     },
@@ -1022,6 +1030,14 @@
     {
         "path": "china_flag/images/0.png",
         "hash": "aa64adae6f7ede5bceafe81a5273cafc"
+    },
+    {
+        "path": "clown/images/circle.png",
+        "hash": "4c29378f4e6f76ba7755808945eead80"
+    },
+    {
+        "path": "clown/images/person.png",
+        "hash": "f5f150ed84fc4425a90daa92458f933a"
     },
     {
         "path": "confuse/images/0.png",
