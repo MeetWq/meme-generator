@@ -99,6 +99,8 @@ Noto Color Emoji：https://github.com/googlefonts/noto-emoji
 | [NotoSerifSC](https://fonts.google.com/noto/specimen/Noto+Serif+SC) | [NotoSerifSC-Regular.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/NotoSerifSC-Regular.otf) | `5000choyen` |  |
 | [HiraginoMin](https://www.fonts.net.cn/font-36201269101.html) | [HiraginoMin-W5-90-RKSJ-H-2.ttc](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/HiraginoMin-W5-90-RKSJ-H-2.ttc) | `oshi_no_ko` | 明朝体 |
 | [Aller](https://fonts.adobe.com/fonts/aller) | [Aller_Bd.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/Aller_Bd.ttf) | `osu` |  |
+| [Ro GSan Serif Std](https://www.morisawa.co.jp/fonts/specimen/1646) | [RoGSanSrfStd-Bd.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/RoGSanSrfStd-Bd.otf) | `bluearchive` |  |
+| [Glow Sans SC](https://github.com/welai/glow-sans) | [GlowSansSC-Normal-Heavy.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/GlowSansSC-Normal-Heavy.otf) | `bluearchive` | 未来荧黑 |
 
 
 #### 字体安装方式
