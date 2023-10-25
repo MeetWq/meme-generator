@@ -1928,7 +1928,7 @@ options:
 
 - 关键词：`看书`
 - 需要图片数目：`1`
-- 需要文字数目：`0`
+- 需要文字数目：`0` ~ `1`
 - 预览：
 <div align="left">
   <img src="images/read_book.jpg" width="200" />
