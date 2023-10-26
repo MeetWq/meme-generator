@@ -14,8 +14,8 @@ def this_chichen(images: List[BuildImage], texts, args):
 
     frame = BuildImage.open(img_dir / "0.png")
     frame.paste(
-        img.perspective(((275, 0), (491, 181), (211, 333), (0, 120))),
-        (85, -5),
+        img.perspective(((507, 0), (940, 351), (383, 625), (0, 256))),
+        (201, 201),
         below=True,
     )
     return frame.save_jpg()
