@@ -13,8 +13,14 @@ def this_chichen(images: List[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((640, 640), keep_ratio=True)
 
     frame = BuildImage.open(img_dir / "0.png")
-    frame.paste(img.perspective(((275, 0), (491, 181), (211, 333), (0, 120))), (85, -5), below=True)
+    frame.paste(
+        img.perspective(((507, 0), (940, 351), (383, 625), (0, 256))),
+        (201, 201),
+        below=True,
+    )
     return frame.save_jpg()
 
 
-add_meme("this_chichen", this_chichen, min_images=1, max_images=1, keywords=["这是鸡", "🐔"])
+add_meme(
+    "this_chichen", this_chichen, min_images=1, max_images=1, keywords=["这是鸡", "🐔"]
+)
