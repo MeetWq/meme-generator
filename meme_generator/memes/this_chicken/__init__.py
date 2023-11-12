@@ -16,10 +16,10 @@ def this_chichen(images: List[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
     try:
         frame.draw_text(
-            (439, 956, 1001, 1038),
+            (0, 900, 1440, 1080),
             text,
-            max_fontsize=60,
-            min_fontsize=30,
+            max_fontsize=80,
+            min_fontsize=40,
             fill="white",
             stroke_ratio=1 / 15,
             stroke_fill="black",
