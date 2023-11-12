@@ -170,37 +170,38 @@
 163. [teach (讲课/敲黑板)](#teach)
 164. [tease (拿捏/戏弄)](#tease)
 165. [think_what (想什么)](#think_what)
-166. [throw (丢/扔)](#throw)
-167. [throw_gif (抛/掷)](#throw_gif)
-168. [thump (捶)](#thump)
-169. [thump_wildly (捶爆/爆捶)](#thump_wildly)
-170. [tightly (紧贴/紧紧贴着)](#tightly)
-171. [together (一起)](#together)
-172. [trance (恍惚)](#trance)
-173. [turn (转)](#turn)
-174. [twist (搓)](#twist)
-175. [universal (万能表情/空白表情)](#universal)
-176. [vibrate (震动)](#vibrate)
-177. [wakeup (xx起来了)](#wakeup)
-178. [wallpaper (墙纸)](#wallpaper)
-179. [walnut_pad (胡桃平板)](#walnut_pad)
-180. [walnut_zoom (胡桃放大)](#walnut_zoom)
-181. [wangjingze (王境泽)](#wangjingze)
-182. [wave (波纹)](#wave)
-183. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-184. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
-185. [what_he_wants (最想要的东西)](#what_he_wants)
-186. [why_at_me (为什么@我)](#why_at_me)
-187. [why_have_hands (为什么要有手)](#why_have_hands)
-188. [windmill_turn (风车转)](#windmill_turn)
-189. [wish_fail (许愿失败)](#wish_fail)
-190. [wooden_fish (木鱼)](#wooden_fish)
-191. [worship (膜/膜拜)](#worship)
-192. [wujing (吴京xx中国xx)](#wujing)
-193. [wunian (五年怎么过的)](#wunian)
-194. [yalidaye (压力大爷)](#yalidaye)
-195. [youtube (yt/youtube)](#youtube)
-196. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+166. [this_chichen (这是鸡/🐔)](#this_chichen)
+167. [throw (丢/扔)](#throw)
+168. [throw_gif (抛/掷)](#throw_gif)
+169. [thump (捶)](#thump)
+170. [thump_wildly (捶爆/爆捶)](#thump_wildly)
+171. [tightly (紧贴/紧紧贴着)](#tightly)
+172. [together (一起)](#together)
+173. [trance (恍惚)](#trance)
+174. [turn (转)](#turn)
+175. [twist (搓)](#twist)
+176. [universal (万能表情/空白表情)](#universal)
+177. [vibrate (震动)](#vibrate)
+178. [wakeup (xx起来了)](#wakeup)
+179. [wallpaper (墙纸)](#wallpaper)
+180. [walnut_pad (胡桃平板)](#walnut_pad)
+181. [walnut_zoom (胡桃放大)](#walnut_zoom)
+182. [wangjingze (王境泽)](#wangjingze)
+183. [wave (波纹)](#wave)
+184. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+185. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+186. [what_he_wants (最想要的东西)](#what_he_wants)
+187. [why_at_me (为什么@我)](#why_at_me)
+188. [why_have_hands (为什么要有手)](#why_have_hands)
+189. [windmill_turn (风车转)](#windmill_turn)
+190. [wish_fail (许愿失败)](#wish_fail)
+191. [wooden_fish (木鱼)](#wooden_fish)
+192. [worship (膜/膜拜)](#worship)
+193. [wujing (吴京xx中国xx)](#wujing)
+194. [wunian (五年怎么过的)](#wunian)
+195. [yalidaye (压力大爷)](#yalidaye)
+196. [youtube (yt/youtube)](#youtube)
+197. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2260,6 +2261,17 @@ options:
 - 预览：
 <div align="left">
   <img src="images/think_what.jpg" width="200" />
+</div>
+
+## this_chichen
+
+- 关键词：`这是鸡`、`🐔`
+- 需要图片数目：`1`
+- 需要文字数目：`0` ~ `1`
+- 默认文字：[`这`, `是`, `十`, `二`, `生`, `肖`, `中`, `的`, `鸡`]
+- 预览：
+<div align="left">
+  <img src="images/this_chichen.jpg" width="200" />
 </div>
 
 ## throw
