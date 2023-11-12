@@ -21,6 +21,8 @@ def this_chichen(images: List[BuildImage], texts, args):
             max_fontsize=60,
             min_fontsize=30,
             fill="white",
+            stroke_ratio=1 / 15,
+            stroke_fill="black",
         )
     except ValueError:
         raise TextOverLength(text)
