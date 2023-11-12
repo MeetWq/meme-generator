@@ -177,31 +177,32 @@
 170. [thump_wildly (捶爆/爆捶)](#thump_wildly)
 171. [tightly (紧贴/紧紧贴着)](#tightly)
 172. [together (一起)](#together)
-173. [trance (恍惚)](#trance)
-174. [turn (转)](#turn)
-175. [twist (搓)](#twist)
-176. [universal (万能表情/空白表情)](#universal)
-177. [vibrate (震动)](#vibrate)
-178. [wakeup (xx起来了)](#wakeup)
-179. [wallpaper (墙纸)](#wallpaper)
-180. [walnut_pad (胡桃平板)](#walnut_pad)
-181. [walnut_zoom (胡桃放大)](#walnut_zoom)
-182. [wangjingze (王境泽)](#wangjingze)
-183. [wave (波纹)](#wave)
-184. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-185. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
-186. [what_he_wants (最想要的东西)](#what_he_wants)
-187. [why_at_me (为什么@我)](#why_at_me)
-188. [why_have_hands (为什么要有手)](#why_have_hands)
-189. [windmill_turn (风车转)](#windmill_turn)
-190. [wish_fail (许愿失败)](#wish_fail)
-191. [wooden_fish (木鱼)](#wooden_fish)
-192. [worship (膜/膜拜)](#worship)
-193. [wujing (吴京xx中国xx)](#wujing)
-194. [wunian (五年怎么过的)](#wunian)
-195. [yalidaye (压力大爷)](#yalidaye)
-196. [youtube (yt/youtube)](#youtube)
-197. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+173. [tomb_yeah (坟前比耶)](#tomb_yeah)
+174. [trance (恍惚)](#trance)
+175. [turn (转)](#turn)
+176. [twist (搓)](#twist)
+177. [universal (万能表情/空白表情)](#universal)
+178. [vibrate (震动)](#vibrate)
+179. [wakeup (xx起来了)](#wakeup)
+180. [wallpaper (墙纸)](#wallpaper)
+181. [walnut_pad (胡桃平板)](#walnut_pad)
+182. [walnut_zoom (胡桃放大)](#walnut_zoom)
+183. [wangjingze (王境泽)](#wangjingze)
+184. [wave (波纹)](#wave)
+185. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+186. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+187. [what_he_wants (最想要的东西)](#what_he_wants)
+188. [why_at_me (为什么@我)](#why_at_me)
+189. [why_have_hands (为什么要有手)](#why_have_hands)
+190. [windmill_turn (风车转)](#windmill_turn)
+191. [wish_fail (许愿失败)](#wish_fail)
+192. [wooden_fish (木鱼)](#wooden_fish)
+193. [worship (膜/膜拜)](#worship)
+194. [wujing (吴京xx中国xx)](#wujing)
+195. [wunian (五年怎么过的)](#wunian)
+196. [yalidaye (压力大爷)](#yalidaye)
+197. [youtube (yt/youtube)](#youtube)
+198. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2332,6 +2333,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/together.jpg" width="200" />
+</div>
+
+## tomb_yeah
+
+- 关键词：`坟前比耶`
+- 需要图片数目：`1` ~ `2`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/tomb_yeah.jpg" width="200" />
 </div>
 
 ## trance
