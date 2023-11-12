@@ -38,6 +38,6 @@ add_meme(
     min_images=1,
     max_images=1,
     max_texts=1,
-    default_texts="这是十二生肖中的鸡",
+    default_texts=["这是十二生肖中的鸡"],
     keywords=["这是鸡", "🐔"],
 )
