@@ -17,7 +17,7 @@ def nie(images: List[BuildImage], texts, args):
         screen = (
             img.convert("RGBA").resize((308, 151), keep_ratio=True).perspective(points)
         )
-        return frame.paste(img.resize((160,160)),(150,0),below=True)
+        return frame.paste(img.resize((160, 160)), (150, 0), below=True)
 
     return make_jpg_or_gif(images[0], make)
 
