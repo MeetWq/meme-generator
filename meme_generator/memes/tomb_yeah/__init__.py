@@ -22,4 +22,4 @@ def tomb_yeah(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("tomb_yeah", tomb_yeah, min_images=1, max_images=2, keywords=["坟前比耶"])
+add_meme("tomb_yeah", tomb_yeah, min_images=1, max_images=2, keywords=["上坟","坟前比耶"])
