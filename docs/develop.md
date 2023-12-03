@@ -72,7 +72,6 @@ add_meme(
 
 也可以一个文件中注册多个表情，如：[gif_subtitle](../meme_generator/memes/gif_subtitle/__init__.py)
 
-
 ## 参数定义
 
 部分表情需要额外的参数。表情参数的类型定义如下：

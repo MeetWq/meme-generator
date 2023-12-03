@@ -9,7 +9,7 @@ memes_path = dir_path.parent / "meme_generator" / "memes"
 def update():
     resource_list = []
     for file in memes_path.rglob("*"):
-        if not file.is_file() or not file.suffix in [".jpg", ".png", ".gif"]:
+        if not file.is_file() or file.suffix not in [".jpg", ".png", ".gif"]:
             continue
         resource_list.append(
             {

@@ -4,7 +4,6 @@
 
 按照表情的 `key` 排列
 
-
 1. [5000choyen (5000兆)](#5000choyen)
 2. [acg_entrance (二次元入口)](#acg_entrance)
 3. [add_chaos (添乱/给社会添乱)](#add_chaos)
@@ -207,7 +206,6 @@
 200. [youtube (yt/youtube)](#youtube)
 201. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
-
 ## 5000choyen
 
 - 关键词：`5000兆`
@@ -266,12 +264,13 @@
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `mode`
-        - 描述：生成模式
-        - 类型：`string`
-        - 默认值：`normal`
-        - 可选值：`normal`、`loop`、`circle`
+  - `mode`
+    - 描述：生成模式
+    - 类型：`string`
+    - 默认值：`normal`
+    - 可选值：`normal`、`loop`、`circle`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate always [-h] [--mode {normal,circle,loop} | --circle | --loop]
 
@@ -284,17 +283,19 @@ options:
 ```
 
 - 预览：
-> 参数：{"mode":"normal"}
-<div align="left">
-  <img src="images/always_instance0.jpg" width="200" />
-</div>
+  > 参数：{"mode":"normal"}
+  <div align="left">
+    <img src="images/always_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"mode":"circle"}
+
 <div align="left">
   <img src="images/always_instance1.jpg" width="200" />
 </div>
 
 > 参数：{"mode":"loop"}
+
 <div align="left">
   <img src="images/always_instance2.gif" width="200" />
 </div>
@@ -450,12 +451,13 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `position`
-        - 描述：奶茶的位置
-        - 类型：`string`
-        - 默认值：`right`
-        - 可选值：`right`、`left`、`both`
+  - `position`
+    - 描述：奶茶的位置
+    - 类型：`string`
+    - 默认值：`right`
+    - 可选值：`right`、`left`、`both`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate bubble_tea [-h] [-p {right,left,both} | --right | --left | --both]
 
@@ -469,17 +471,19 @@ options:
 ```
 
 - 预览：
-> 参数：{"position":"right"}
-<div align="left">
-  <img src="images/bubble_tea_instance0.jpg" width="200" />
-</div>
+  > 参数：{"position":"right"}
+  <div align="left">
+    <img src="images/bubble_tea_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"position":"left"}
+
 <div align="left">
   <img src="images/bubble_tea_instance1.jpg" width="200" />
 </div>
 
 > 参数：{"position":"both"}
+
 <div align="left">
   <img src="images/bubble_tea_instance2.jpg" width="200" />
 </div>
@@ -572,11 +576,12 @@ options:
 - 需要文字数目：`3` ~ `4`
 - 默认文字：[`小王`, `优秀学生`, `一年一班`]
 - 其他参数：
-    - `time`
-        - 描述：指定时间
-        - 类型：`string`
-        - 默认值：``
+  - `time`
+    - 描述：指定时间
+    - 类型：`string`
+    - 默认值：``
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate certificate [-h] [-t TIME]
 
@@ -637,11 +642,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `person`
-        - 描述：是否使用爷爷头轮廓
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `person`
+    - 描述：是否使用爷爷头轮廓
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate clown [-h] [--person]
 
@@ -651,12 +657,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"person":false}
-<div align="left">
-  <img src="images/clown_instance0.png" width="200" />
-</div>
+  > 参数：{"person":false}
+  <div align="left">
+    <img src="images/clown_instance0.png" width="200" />
+  </div>
 
 > 参数：{"person":true}
+
 <div align="left">
   <img src="images/clown_instance1.png" width="200" />
 </div>
@@ -697,11 +704,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `number`
-        - 描述：图片编号，范围为 1~92
-        - 类型：`integer`
-        - 默认值：`0`
+  - `number`
+    - 描述：图片编号，范围为 1~92
+    - 类型：`integer`
+    - 默认值：`0`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate crawl [-h] [-n NUMBER]
 
@@ -793,11 +801,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `circle`
-        - 描述：是否将图片变为圆形
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `circle`
+    - 描述：是否将图片变为圆形
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate dog_dislike [-h] [--circle]
 
@@ -807,12 +816,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle":false}
-<div align="left">
-  <img src="images/dog_dislike_instance0.gif" width="200" />
-</div>
+  > 参数：{"circle":false}
+  <div align="left">
+    <img src="images/dog_dislike_instance0.gif" width="200" />
+  </div>
 
 > 参数：{"circle":true}
+
 <div align="left">
   <img src="images/dog_dislike_instance1.gif" width="200" />
 </div>
@@ -992,12 +1002,13 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `direction`
-        - 描述：鬼畜对称方向
-        - 类型：`string`
-        - 默认值：`left`
-        - 可选值：`left`、`right`、`top`、`bottom`
+  - `direction`
+    - 描述：鬼畜对称方向
+    - 类型：`string`
+    - 默认值：`left`
+    - 可选值：`left`、`right`、`top`、`bottom`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate guichu [-h]
                      [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
@@ -1013,22 +1024,25 @@ options:
 ```
 
 - 预览：
-> 参数：{"direction":"left"}
-<div align="left">
-  <img src="images/guichu_instance0.gif" width="200" />
-</div>
+  > 参数：{"direction":"left"}
+  <div align="left">
+    <img src="images/guichu_instance0.gif" width="200" />
+  </div>
 
 > 参数：{"direction":"right"}
+
 <div align="left">
   <img src="images/guichu_instance1.gif" width="200" />
 </div>
 
 > 参数：{"direction":"top"}
+
 <div align="left">
   <img src="images/guichu_instance2.gif" width="200" />
 </div>
 
 > 参数：{"direction":"bottom"}
+
 <div align="left">
   <img src="images/guichu_instance3.gif" width="200" />
 </div>
@@ -1039,12 +1053,13 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `position`
-        - 描述：枪的位置
-        - 类型：`string`
-        - 默认值：`left`
-        - 可选值：`left`、`right`、`both`
+  - `position`
+    - 描述：枪的位置
+    - 类型：`string`
+    - 默认值：`left`
+    - 可选值：`left`、`right`、`both`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate gun [-h] [-p {left,right,both} | --left | --right | --both]
 
@@ -1058,17 +1073,19 @@ options:
 ```
 
 - 预览：
-> 参数：{"position":"left"}
-<div align="left">
-  <img src="images/gun_instance0.jpg" width="200" />
-</div>
+  > 参数：{"position":"left"}
+  <div align="left">
+    <img src="images/gun_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"position":"right"}
+
 <div align="left">
   <img src="images/gun_instance1.jpg" width="200" />
 </div>
 
 > 参数：{"position":"both"}
+
 <div align="left">
   <img src="images/gun_instance2.jpg" width="200" />
 </div>
@@ -1185,11 +1202,12 @@ options:
 - 需要图片数目：`1` ~ `11`
 - 需要文字数目：`0` ~ `11`
 - 其他参数：
-    - `circle`
-        - 描述：是否将图片变为圆形
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `circle`
+    - 描述：是否将图片变为圆形
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate jiji_king [-h] [--circle]
 
@@ -1199,12 +1217,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle":false}
-<div align="left">
-  <img src="images/jiji_king_instance0.jpg" width="200" />
-</div>
+  > 参数：{"circle":false}
+  <div align="left">
+    <img src="images/jiji_king_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"circle":true}
+
 <div align="left">
   <img src="images/jiji_king_instance1.jpg" width="200" />
 </div>
@@ -1225,11 +1244,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `circle`
-        - 描述：是否将图片变为圆形
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `circle`
+    - 描述：是否将图片变为圆形
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate kaleidoscope [-h] [--circle]
 
@@ -1239,12 +1259,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle":false}
-<div align="left">
-  <img src="images/kaleidoscope_instance0.jpg" width="200" />
-</div>
+  > 参数：{"circle":false}
+  <div align="left">
+    <img src="images/kaleidoscope_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"circle":true}
+
 <div align="left">
   <img src="images/kaleidoscope_instance1.jpg" width="200" />
 </div>
@@ -1264,8 +1285,8 @@ options:
 - 关键词：`远离`
 - 需要图片数目：`1` ~ `8`
 - 需要文字数目：`0` ~ `1`
-- 默认文字：[`如何提高社交质量 : 
-远离以下头像的人`]
+- 默认文字：[`如何提高社交质量 :
+  远离以下头像的人`]
 - 预览：
 <div align="left">
   <img src="images/keep_away.jpg" width="200" />
@@ -1287,11 +1308,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `circle`
-        - 描述：是否将图片变为圆形
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `circle`
+    - 描述：是否将图片变为圆形
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate kirby_hammer [-h] [--circle]
 
@@ -1301,12 +1323,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle":false}
-<div align="left">
-  <img src="images/kirby_hammer_instance0.gif" width="200" />
-</div>
+  > 参数：{"circle":false}
+  <div align="left">
+    <img src="images/kirby_hammer_instance0.gif" width="200" />
+  </div>
 
 > 参数：{"circle":true}
+
 <div align="left">
   <img src="images/kirby_hammer_instance1.gif" width="200" />
 </div>
@@ -1399,11 +1422,12 @@ options:
 - 需要文字数目：`0` ~ `1`
 - 默认文字：[`可恶...被人看扁了`]
 - 其他参数：
-    - `ratio`
-        - 描述：图片“压扁”比例
-        - 类型：`integer`
-        - 默认值：`2`
+  - `ratio`
+    - 描述：图片“压扁”比例
+    - 类型：`integer`
+    - 默认值：`2`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate look_flat [-h] [-r RATIO]
 
@@ -1424,7 +1448,7 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0` ~ `1`
 - 默认文字：[`朋友
-先看看这个图标再说话`]
+  先看看这个图标再说话`]
 - 预览：
 <div align="left">
   <img src="images/look_this_icon.jpg" width="200" />
@@ -1540,11 +1564,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `black`
-        - 描述：是否将图片变为黑白
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `black`
+    - 描述：是否将图片变为黑白
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate mourning [-h] [--black]
 
@@ -1554,12 +1579,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"black":false}
-<div align="left">
-  <img src="images/mourning_instance0.jpg" width="200" />
-</div>
+  > 参数：{"black":false}
+  <div align="left">
+    <img src="images/mourning_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"black":true}
+
 <div align="left">
   <img src="images/mourning_instance1.jpg" width="200" />
 </div>
@@ -1582,11 +1608,12 @@ options:
 - 需要文字数目：`1` ~ `10`
 - 默认文字：[`让我康康`]
 - 其他参数：
-    - `name`
-        - 描述：指定名字
-        - 类型：`string`
-        - 默认值：``
+  - `name`
+    - 描述：指定名字
+    - 类型：`string`
+    - 默认值：``
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate my_friend [-h] [-n NAME]
 
@@ -1702,15 +1729,16 @@ options:
 - 需要文字数目：`0` ~ `1`
 - 默认文字：[`想玩`]
 - 其他参数：
-    - `time`
-        - 描述：指定时间
-        - 类型：`string`
-        - 默认值：``
-    - `name`
-        - 描述：指定名字
-        - 类型：`string`
-        - 默认值：``
+  - `time`
+    - 描述：指定时间
+    - 类型：`string`
+    - 默认值：``
+  - `name`
+    - 描述：指定名字
+    - 类型：`string`
+    - 默认值：``
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate note_for_leave [-h] [-t TIME] [-n NAME]
 
@@ -1815,11 +1843,12 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `circle`
-        - 描述：是否将图片变为圆形
-        - 类型：`boolean`
-        - 默认值：`False`
+  - `circle`
+    - 描述：是否将图片变为圆形
+    - 类型：`boolean`
+    - 默认值：`False`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate petpet [-h] [--circle]
 
@@ -1829,12 +1858,13 @@ options:
 ```
 
 - 预览：
-> 参数：{"circle":false}
-<div align="left">
-  <img src="images/petpet_instance0.gif" width="200" />
-</div>
+  > 参数：{"circle":false}
+  <div align="left">
+    <img src="images/petpet_instance0.gif" width="200" />
+  </div>
 
 > 参数：{"circle":true}
+
 <div align="left">
   <img src="images/petpet_instance1.gif" width="200" />
 </div>
@@ -2082,7 +2112,7 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0` ~ `1`
 - 默认文字：[`你给我的安全感
-远不及它的万分之一`]
+  远不及它的万分之一`]
 - 预览：
 <div align="left">
   <img src="images/safe_sense.jpg" width="200" />
@@ -2240,12 +2270,13 @@ options:
 - 需要图片数目：`1`
 - 需要文字数目：`0`
 - 其他参数：
-    - `direction`
-        - 描述：对称方向
-        - 类型：`string`
-        - 默认值：`left`
-        - 可选值：`left`、`right`、`top`、`bottom`
+  - `direction`
+    - 描述：对称方向
+    - 类型：`string`
+    - 默认值：`left`
+    - 可选值：`left`、`right`、`top`、`bottom`
 - 其他参数（命令行选项）：
+
 ```shell
 usage: meme generate symmetric [-h]
                      [-d {left,right,top,bottom} | --left | --right | --top | --bottom]
@@ -2261,22 +2292,25 @@ options:
 ```
 
 - 预览：
-> 参数：{"direction":"left"}
-<div align="left">
-  <img src="images/symmetric_instance0.jpg" width="200" />
-</div>
+  > 参数：{"direction":"left"}
+  <div align="left">
+    <img src="images/symmetric_instance0.jpg" width="200" />
+  </div>
 
 > 参数：{"direction":"right"}
+
 <div align="left">
   <img src="images/symmetric_instance1.jpg" width="200" />
 </div>
 
 > 参数：{"direction":"top"}
+
 <div align="left">
   <img src="images/symmetric_instance2.jpg" width="200" />
 </div>
 
 > 参数：{"direction":"bottom"}
+
 <div align="left">
   <img src="images/symmetric_instance3.jpg" width="200" />
 </div>

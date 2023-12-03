@@ -23,7 +23,10 @@ def kaleidoscope(images: List[BuildImage], texts, args: Model):
         img_per_circle = 4
         init_angle = 0
         angle_step = 360 / img_per_circle
-        radius = lambda n: n * 50 + 100
+
+        def radius(n):
+            return n * 50 + 100
+
         cx = cy = radius(circle_num)
 
         img = img.convert("RGBA")
