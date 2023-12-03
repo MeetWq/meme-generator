@@ -56,8 +56,8 @@ def my_friend(images: List[BuildImage], texts: List[str], args: Model):
         return dialog
 
     dialogs = [make_dialog(text) for text in texts]
-    frame_w = max((dialog.width for dialog in dialogs))
-    frame_h = sum((dialog.height for dialog in dialogs))
+    frame_w = max(dialog.width for dialog in dialogs)
+    frame_h = sum(dialog.height for dialog in dialogs)
     frame = BuildImage.new("RGBA", (frame_w, frame_h), "#eaedf4")
     current_h = 0
     for dialog in dialogs:

@@ -34,8 +34,8 @@ def read_book(images: List[BuildImage], texts: List[str], args):
         else:
             piece = piece.resize_canvas((piece.width, piece.height - 40), "south")
         pieces.append(piece)
-    w = max((piece.width for piece in pieces))
-    h = sum((piece.height for piece in pieces))
+    w = max(piece.width for piece in pieces)
+    h = sum(piece.height for piece in pieces)
     if w > 265 or h > 3000:
         raise TextOverLength(text)
 

@@ -61,9 +61,7 @@ def certificate(images, texts: List[str], args: Model):
     try:
         frame.draw_text(
             (450, 850, 2270, 1080),
-            texts[3]
-            if len(texts) >= 4
-            else "　　在本学年第一学期中表现优秀，被我校决定评为",
+            texts[3] if len(texts) >= 4 else "　　在本学年第一学期中表现优秀，被我校决定评为",
             allow_wrap=True,
             max_fontsize=80,
             min_fontsize=40,
@@ -75,19 +73,19 @@ def certificate(images, texts: List[str], args: Model):
 
     frame.draw_text(
         (1565, 1527),
-        "{:04d}".format(time.year),
+        f"{time.year:04d}",
         allow_wrap=False,
         fontsize=60,
     )
     frame.draw_text(
         (1752, 1527),
-        "{:02d}".format(time.month),
+        f"{time.month:02d}",
         allow_wrap=False,
         fontsize=60,
     )
     frame.draw_text(
         (1865, 1527),
-        "{:02d}".format(time.day),
+        f"{time.day:02d}",
         allow_wrap=False,
         fontsize=60,
     )

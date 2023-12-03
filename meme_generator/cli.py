@@ -166,15 +166,15 @@ def main():
     handle = str(args.handle)
 
     if handle in ["list", "ls"]:
-        print(list_memes())
+        print(list_memes())  # noqa: T201
 
     elif handle in ["info", "show"]:
         key = str(args.key)
-        print(meme_info(key))
+        print(meme_info(key))  # noqa: T201
 
     elif handle in ["preview"]:
         key = str(args.key)
-        print(generate_meme_preview(key))
+        print(generate_meme_preview(key))  # noqa: T201
 
     elif handle in ["generate", "make"]:
         kwargs = vars(args)
@@ -182,7 +182,7 @@ def main():
         key: str = kwargs.pop("key")
         images: List[str] = kwargs.pop("images")
         texts: List[str] = kwargs.pop("texts")
-        print(generate_meme(key, images, texts, kwargs))
+        print(generate_meme(key, images, texts, kwargs))  # noqa: T201
 
     elif handle in ["run", "start"]:
         run_server()
@@ -193,7 +193,7 @@ def main():
         loop.run_until_complete(check_resources())
 
     else:
-        print(parser.format_help())
+        print(parser.format_help())  # noqa: T201
 
 
 if __name__ == "__main__":

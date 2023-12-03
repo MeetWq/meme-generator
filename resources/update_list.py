@@ -9,7 +9,7 @@ memes_path = dir_path.parent / "meme_generator" / "memes"
 def update():
     resource_list = []
     for file in memes_path.rglob("*"):
-        if not file.is_file() or not file.suffix in [".jpg", ".png", ".gif"]:
+        if not file.is_file() or file.suffix not in [".jpg", ".png", ".gif"]:
             continue
         resource_list.append(
             {
@@ -19,7 +19,7 @@ def update():
         )
     resource_list.sort(key=lambda i: i["path"])
     with open(dir_path / "resource_list.json", "w", encoding="utf-8") as f:
-        json.dump(resource_list, f, ensure_ascii=False, indent=4)
+        json.dump(resource_list, f, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":

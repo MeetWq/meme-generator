@@ -11,7 +11,7 @@ img_dir = Path(__file__).parent / "images"
 
 def safe_sense(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     img = images[0].convert("RGBA").resize((215, 343), keep_ratio=True)
-    frame = BuildImage.open(img_dir / f"0.png")
+    frame = BuildImage.open(img_dir / "0.png")
     frame.paste(img, (215, 135))
 
     ta = "它"

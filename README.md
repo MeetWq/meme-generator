@@ -19,16 +19,13 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 
 </div>
 
-
 > **Note**
 >
 > 额外表情仓库：[meme-generator-contrib](https://github.com/MeetWq/meme-generator-contrib)
 
-
 ## 表情列表
 
 表情详细信息、表情预览等可以在 [--> 表情列表 <--](docs/memes.md) 查看
-
 
 ## 安装
 
@@ -40,25 +37,25 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 
 Docker 部署方式可以在 [--> Docker部署 <--](docs/docker.md) 查看
 
-
 ## 使用
 
 ### 通过 python 程序调用
 
 参考 [docs/examples/test_meme.py](https://github.com/MeetWq/meme-generator/tree/main/docs/examples/test_meme.py)
 
-
 ### 通过命令行使用
 
 ```bash
 meme -h/--help
 ```
+
 - `meme list (ls)` 列出所有已加载的表情
 - `meme info (show) KEY` 查看某个表情的详细信息，如：`meme info petpet`
 - `meme preview KEY` 使用默认（随机）参数生成预览结果，如：`meme preview petpet`
 - `meme generate (make) KEY --text TEXTS --images IMAGES ...` 制作表情，如：`meme generate petpet --images avatar.jpg`
 
-    部分表情有额外的参数，可通过 `-h/--help` 查看，如：`meme generate petpet --help`
+  部分表情有额外的参数，可通过 `-h/--help` 查看，如：`meme generate petpet --help`
+
 - `meme run (start)` 启动 web server，可通过 api 方式调用
 - `meme download` 下载内置的表情包所需的图片
 
@@ -80,7 +77,6 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 - Koishi
   - [lgc2333/koishi-plugin-memes-api](https://github.com/lgc2333/koishi-plugin-memes-api) Koishi 复刻版 表情包制作插件调用 API 版
 
-
 ## 配置
 
 默认配置文件位置：
@@ -98,6 +94,7 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 > **建议将配置文件中不需要更改的选项删除，以使用默认配置**
 
 默认配置：
+
 ```toml
 [meme]
 load_builtin_memes = true  # 是否加载内置表情包
@@ -132,7 +129,6 @@ port = 2233  # web server 端口
 log_level = "INFO"  # 日志等级
 ```
 
-
 ## 加载其他表情
 
 如果希望加载非本仓库内置的表情，可以在 [配置文件](#配置) 中填写表情所在的文件夹路径
@@ -154,18 +150,15 @@ log_level = "INFO"  # 日志等级
 meme_dirs = ["/path/to/your/meme_dir"]
 ```
 
-
 ## 开发
 
 如果希望编写、贡献新的表情，可以参考 [--> 新表情编写指北 <--](docs/develop.md)
 
 对于一些不适合放在主仓库的表情，可以提交至 [额外表情仓库](https://github.com/MeetWq/meme-generator-contrib)
 
-
 ## 声明
 
 本仓库的表情素材等均来自网络，如有侵权请联系作者删除
-
 
 ## 鸣谢
 
@@ -176,7 +169,6 @@ meme_dirs = ["/path/to/your/meme_dir"]
 <a href="https://github.com/noneplugin/nonebot-plugin-petpet/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=noneplugin/nonebot-plugin-petpet&max=1000" />
 </a>
-
 
 部分表情素材或代码参考了以下项目，感谢这些项目的开发者们
 

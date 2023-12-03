@@ -34,7 +34,7 @@ class Model(MemeArgsModel):
     person: bool = Field(False, description=HELP_PERSON)
 
 
-def clown(images: List[BuildImage], texts, args: Model):  # noqa: ARG001
+def clown(images: List[BuildImage], texts, args: Model):
     info = PERSON_INFO if args.person else CIRCLE_INFO
     avatar = images[0].convert("RGBA").resize(info.avatar_size, keep_ratio=True)
     frame = BuildImage.open(info.frame_path).convert("RGBA")

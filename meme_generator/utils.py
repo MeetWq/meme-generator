@@ -411,7 +411,7 @@ def render_meme_list(
                 item_images[num * columns + col]
                 for num in range((len(item_images) - col - 1) // columns + 1)
             ]
-        img_w = max((t2m.width for t2m in images)) + item_padding[0] * 2
+        img_w = max(t2m.width for t2m in images) + item_padding[0] * 2
         img_h = (char_A.ascent + item_padding[1] * 2) * len(images) + char_A.descent
         image = BuildImage.new("RGB", (img_w, img_h), bg_color)
         y = item_padding[1]
@@ -426,8 +426,8 @@ def render_meme_list(
             y += char_A.ascent + item_padding[1] * 2
         column_images.append(image)
 
-    img_w = sum((img.width for img in column_images)) + image_padding[0] * 2
-    img_h = max((img.height for img in column_images)) + image_padding[1] * 2
+    img_w = sum(img.width for img in column_images) + image_padding[0] * 2
+    img_h = max(img.height for img in column_images) + image_padding[1] * 2
     image = BuildImage.new("RGB", (img_w, img_h), bg_color)
     x, y = image_padding
     for img in column_images:

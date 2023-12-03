@@ -14,7 +14,9 @@ def wave(images: List[BuildImage], texts, args):
     amp = img_w / 60
     frame_num = 8
     phase = 0
-    sin = lambda x: amp * math.sin(2 * math.pi / period * (x + phase)) / 2
+
+    def sin(x):
+        return amp * math.sin(2 * math.pi / period * (x + phase)) / 2
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:

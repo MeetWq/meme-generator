@@ -18,7 +18,7 @@ def fill_head(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
         frame.draw_text(
             (20, 458, frame.width - 20, 550), text, max_fontsize=65, min_fontsize=30
         )
-    except:
+    except ValueError:
         raise TextOverLength(name)
 
     def make(img: BuildImage) -> BuildImage:
