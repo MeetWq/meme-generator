@@ -37,6 +37,10 @@ meme = "meme_generator.cli:main"
 profile = "black"
 skip_gitignore = true
 
+[tool.ruff]
+select = ["E", "W", "F", "UP", "C", "T", "PYI", "Q"]
+ignore = ["E402", "E501", "E711", "C901", "UP037"]
+
 [tool.ruff.isort]
 detect-same-package = true
 
