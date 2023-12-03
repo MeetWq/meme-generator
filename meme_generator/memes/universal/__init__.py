@@ -19,7 +19,7 @@ def universal(images: List[BuildImage], texts: List[str], args):
             frames.append(text_img.resize_canvas((500, text_img.height)))
 
         frame = BuildImage.new(
-            "RGBA", (500, sum((f.height for f in frames)) + 10), "white"
+            "RGBA", (500, sum(f.height for f in frames) + 10), "white"
         )
         current_h = 0
         for f in frames:

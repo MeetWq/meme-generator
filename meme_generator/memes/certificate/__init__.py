@@ -73,19 +73,19 @@ def certificate(images, texts: List[str], args: Model):
 
     frame.draw_text(
         (1565, 1527),
-        "{:04d}".format(time.year),
+        f"{time.year:04d}",
         allow_wrap=False,
         fontsize=60,
     )
     frame.draw_text(
         (1752, 1527),
-        "{:02d}".format(time.month),
+        f"{time.month:02d}",
         allow_wrap=False,
         fontsize=60,
     )
     frame.draw_text(
         (1865, 1527),
-        "{:02d}".format(time.day),
+        f"{time.day:02d}",
         allow_wrap=False,
         fontsize=60,
     )
