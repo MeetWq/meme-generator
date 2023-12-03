@@ -24,7 +24,7 @@ def genshin_start(images: List[BuildImage], texts: List[str], args):
                 stroke_fill="black",
                 stroke_ratio=0.05,
             )
-        except:
+        except ValueError:
             raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:

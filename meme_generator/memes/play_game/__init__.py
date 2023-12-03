@@ -22,7 +22,7 @@ def play_game(images: List[BuildImage], texts: List[str], args):
             stroke_fill="white",
             stroke_ratio=0.06,
         )
-    except:
+    except ValueError:
         raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
