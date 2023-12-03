@@ -58,6 +58,20 @@ def certificate(images, texts: List[str], args: Model):
         )
     except ValueError:
         raise TextOverLength(texts[2])
+    try:
+        frame.draw_text(
+            (450, 850, 2270, 1080),
+            texts[3]
+            if len(texts) >= 4
+            else "　　在本学年第一学期中表现优秀，被我校决定评为",
+            allow_wrap=True,
+            max_fontsize=80,
+            min_fontsize=40,
+            halign="left",
+            valign="top",
+        )
+    except ValueError:
+        raise TextOverLength(texts[3])
 
     frame.draw_text(
         (1565, 1527),
@@ -85,8 +99,12 @@ add_meme(
     "certificate",
     certificate,
     min_texts=3,
-    max_texts=3,
-    default_texts=["小王", "优秀学生", "一年一班"],
+    max_texts=4,
+    default_texts=[
+        "小王",
+        "优秀学生",
+        "一年一班",
+    ],
     args_type=MemeArgsType(parser, Model),
     keywords=["奖状", "证书"],
 )
