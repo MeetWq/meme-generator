@@ -30,3 +30,8 @@ repos:
       - id: prettier
         types_or: [javascript, jsx, ts, tsx, markdown, yaml, json]
         stages: [commit]
+        exclude: |
+          (?x)^(
+              resources/resource_list.json|
+              docs/memes.md
+          )$
