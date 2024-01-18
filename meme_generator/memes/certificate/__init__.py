@@ -72,22 +72,25 @@ def certificate(images, texts: List[str], args: Model):
         raise TextOverLength(texts[3])
 
     frame.draw_text(
-        (1565, 1527),
+        (1565, 1525, 1700, 1600),
         f"{time.year:04d}",
         allow_wrap=False,
-        fontsize=60,
+        max_fontsize=60,
+        min_fontsize=40,
     )
     frame.draw_text(
-        (1752, 1527),
+        (1752, 1525, 1816, 1600),
         f"{time.month:02d}",
         allow_wrap=False,
-        fontsize=60,
+        max_fontsize=60,
+        min_fontsize=40,
     )
     frame.draw_text(
-        (1865, 1527),
+        (1865, 1525, 1930, 1600),
         f"{time.day:02d}",
         allow_wrap=False,
-        fontsize=60,
+        max_fontsize=60,
+        min_fontsize=40,
     )
 
     return frame.save_png()
@@ -98,11 +101,7 @@ add_meme(
     certificate,
     min_texts=3,
     max_texts=4,
-    default_texts=[
-        "小王",
-        "优秀学生",
-        "一年一班",
-    ],
+    default_texts=["小王", "优秀学生", "一年一班"],
     args_type=MemeArgsType(parser, Model),
     keywords=["奖状", "证书"],
 )
