@@ -192,21 +192,22 @@
 185. [walnut_pad (胡桃平板)](#walnut_pad)
 186. [walnut_zoom (胡桃放大)](#walnut_zoom)
 187. [wangjingze (王境泽)](#wangjingze)
-188. [wave (波纹)](#wave)
-189. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-190. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
-191. [what_he_wants (最想要的东西)](#what_he_wants)
-192. [why_at_me (为什么@我)](#why_at_me)
-193. [why_have_hands (为什么要有手)](#why_have_hands)
-194. [windmill_turn (风车转)](#windmill_turn)
-195. [wish_fail (许愿失败)](#wish_fail)
-196. [wooden_fish (木鱼)](#wooden_fish)
-197. [worship (膜/膜拜)](#worship)
-198. [wujing (吴京xx中国xx)](#wujing)
-199. [wunian (五年怎么过的)](#wunian)
-200. [yalidaye (压力大爷)](#yalidaye)
-201. [youtube (yt/youtube)](#youtube)
-202. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+188. [washer (洗衣机)](#washer)
+189. [wave (波纹)](#wave)
+190. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+191. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+192. [what_he_wants (最想要的东西)](#what_he_wants)
+193. [why_at_me (为什么@我)](#why_at_me)
+194. [why_have_hands (为什么要有手)](#why_have_hands)
+195. [windmill_turn (风车转)](#windmill_turn)
+196. [wish_fail (许愿失败)](#wish_fail)
+197. [wooden_fish (木鱼)](#wooden_fish)
+198. [worship (膜/膜拜)](#worship)
+199. [wujing (吴京xx中国xx)](#wujing)
+200. [wunian (五年怎么过的)](#wunian)
+201. [yalidaye (压力大爷)](#yalidaye)
+202. [youtube (yt/youtube)](#youtube)
+203. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2526,6 +2527,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/wangjingze.gif" width="200" />
+</div>
+
+## washer
+
+- 关键词：`洗衣机`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/washer.gif" width="200" />
 </div>
 
 ## wave
