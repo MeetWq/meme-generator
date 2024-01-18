@@ -174,7 +174,7 @@
 167. [tease (拿捏/戏弄)](#tease)
 168. [telescope (望远镜)](#telescope)
 169. [think_what (想什么)](#think_what)
-170. [this_chichen (这是鸡/🐔)](#this_chichen)
+170. [this_chicken (这是鸡/🐔)](#this_chicken)
 171. [throw (丢/扔)](#throw)
 172. [throw_gif (抛/掷)](#throw_gif)
 173. [thump (捶)](#thump)
@@ -2343,7 +2343,7 @@ options:
   <img src="images/think_what.jpg" width="200" />
 </div>
 
-## this_chichen
+## this_chicken
 
 - 关键词：`这是鸡`、`🐔`
 - 需要图片数目：`1`
@@ -2351,7 +2351,7 @@ options:
 - 默认文字：[`这是十二生肖中的鸡`]
 - 预览：
 <div align="left">
-  <img src="images/this_chichen.jpg" width="200" />
+  <img src="images/this_chicken.jpg" width="200" />
 </div>
 
 ## throw
