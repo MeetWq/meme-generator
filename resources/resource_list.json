@@ -4600,6 +4600,282 @@
     "hash": "841db44a3ea19ca016ba21a0f4d71564"
   },
   {
+    "path": "telescope/images/0.png",
+    "hash": "c41e9d05c444d778ac6c86db0d85f937"
+  },
+  {
+    "path": "telescope/images/1.png",
+    "hash": "d5e42e7fe9212ec737ddb6e73613ab21"
+  },
+  {
+    "path": "telescope/images/10.png",
+    "hash": "5bb50ce60aba42514a271503320b203f"
+  },
+  {
+    "path": "telescope/images/11.png",
+    "hash": "3fdc0118fa8a71150675b7e70e3d7dd6"
+  },
+  {
+    "path": "telescope/images/12.png",
+    "hash": "67a5fdb48731d80b958ba805b100dd74"
+  },
+  {
+    "path": "telescope/images/13.png",
+    "hash": "446b870ace6e7c9e78792e8bc5c608a8"
+  },
+  {
+    "path": "telescope/images/14.png",
+    "hash": "9ca7f58e9b07574d53528a10c8b5fc93"
+  },
+  {
+    "path": "telescope/images/15.png",
+    "hash": "cce35b572e61fc70e6e265f40dd526be"
+  },
+  {
+    "path": "telescope/images/16.png",
+    "hash": "3657a2c04641dc129b350836fe41e4aa"
+  },
+  {
+    "path": "telescope/images/17.png",
+    "hash": "3f8da97862268ca384307636a996d556"
+  },
+  {
+    "path": "telescope/images/18.png",
+    "hash": "0ea9033660f0fbb60c6a06ae108726a8"
+  },
+  {
+    "path": "telescope/images/19.png",
+    "hash": "d500027a9ba87976598aeb234d24891f"
+  },
+  {
+    "path": "telescope/images/2.png",
+    "hash": "8df0021b4326694de69062b51cb517ab"
+  },
+  {
+    "path": "telescope/images/20.png",
+    "hash": "06e08ecea85d6b86dba79bf2b91d16b5"
+  },
+  {
+    "path": "telescope/images/21.png",
+    "hash": "dcd0d48e26975676fccf6c863524a23f"
+  },
+  {
+    "path": "telescope/images/22.png",
+    "hash": "0c24d750e8eab9e24e597bb4b0d907e4"
+  },
+  {
+    "path": "telescope/images/23.png",
+    "hash": "c93bacb6b5e79b1f1da8580944e57fbe"
+  },
+  {
+    "path": "telescope/images/24.png",
+    "hash": "2d8650c6e75f74a8db0103d8635de8d8"
+  },
+  {
+    "path": "telescope/images/25.png",
+    "hash": "57ef55cebaa899f9695e26359df58089"
+  },
+  {
+    "path": "telescope/images/26.png",
+    "hash": "aa5ffbbfe4360fd8c14726d13d7d692a"
+  },
+  {
+    "path": "telescope/images/27.png",
+    "hash": "71ca4f6a38a46bb00bd81a1e755045b7"
+  },
+  {
+    "path": "telescope/images/28.png",
+    "hash": "dece33149e54e3e94f5abfada94bc1f2"
+  },
+  {
+    "path": "telescope/images/29.png",
+    "hash": "c2e917d6e003142516f6068e6f9cb49e"
+  },
+  {
+    "path": "telescope/images/3.png",
+    "hash": "5cd191af1597680d28d675b1b4eb4378"
+  },
+  {
+    "path": "telescope/images/30.png",
+    "hash": "6b4ea969d8c41440f94a675fcd85a4c1"
+  },
+  {
+    "path": "telescope/images/31.png",
+    "hash": "17522a458bc5ddd75d79414568f171b0"
+  },
+  {
+    "path": "telescope/images/32.png",
+    "hash": "c8343923db91cd85967fa0a0d4335247"
+  },
+  {
+    "path": "telescope/images/33.png",
+    "hash": "a5e343f8d7e91e05c74b1327ee4f2b0c"
+  },
+  {
+    "path": "telescope/images/34.png",
+    "hash": "3853c070a1af62d58de4083d6f04e7ca"
+  },
+  {
+    "path": "telescope/images/35.png",
+    "hash": "535422a6063c069864421df59ddfb15e"
+  },
+  {
+    "path": "telescope/images/36.png",
+    "hash": "9846f13d97b218f549b07807a7277968"
+  },
+  {
+    "path": "telescope/images/37.png",
+    "hash": "60bc61a0b77914557b4f7d3284f2f95d"
+  },
+  {
+    "path": "telescope/images/38.png",
+    "hash": "db53ced6558f9ba28bd181bf7f6f50b0"
+  },
+  {
+    "path": "telescope/images/39.png",
+    "hash": "766a622239beeb73c7669552c73f49e3"
+  },
+  {
+    "path": "telescope/images/4.png",
+    "hash": "663b56a5a899d4943360be75a9d53856"
+  },
+  {
+    "path": "telescope/images/40.png",
+    "hash": "28fe99b118c43a866ffdd55e7cf238d0"
+  },
+  {
+    "path": "telescope/images/41.png",
+    "hash": "bb3af2fb3610230f2cd3e3bbd311e6e2"
+  },
+  {
+    "path": "telescope/images/42.png",
+    "hash": "35d25cc4cb886c788775538b0e72e70c"
+  },
+  {
+    "path": "telescope/images/43.png",
+    "hash": "bbb676417efac800988dc52280ce97d3"
+  },
+  {
+    "path": "telescope/images/44.png",
+    "hash": "84af1d5cd1ce5322f20c3db22f343e64"
+  },
+  {
+    "path": "telescope/images/45.png",
+    "hash": "738a8c19b8e26957e9900f6bca6b8642"
+  },
+  {
+    "path": "telescope/images/46.png",
+    "hash": "7f938fe9839f320f6803e010382ca970"
+  },
+  {
+    "path": "telescope/images/47.png",
+    "hash": "ef2522dbbbbb6ead80b385d2291a5e7e"
+  },
+  {
+    "path": "telescope/images/48.png",
+    "hash": "546585028688db040304f06aa46ba667"
+  },
+  {
+    "path": "telescope/images/49.png",
+    "hash": "1922d2e593643751701a99580bad4562"
+  },
+  {
+    "path": "telescope/images/5.png",
+    "hash": "ba77bcfd62b0a2638c02a230fee2a009"
+  },
+  {
+    "path": "telescope/images/50.png",
+    "hash": "2992e0ac616466e3d718836336a65e2a"
+  },
+  {
+    "path": "telescope/images/51.png",
+    "hash": "493805462c4ddd56d2c6306385a65fb4"
+  },
+  {
+    "path": "telescope/images/52.png",
+    "hash": "359f24e690906ff6760ddf1bd3d3d0b1"
+  },
+  {
+    "path": "telescope/images/53.png",
+    "hash": "607838cf2a597b475cd6a29c75ab7eba"
+  },
+  {
+    "path": "telescope/images/54.png",
+    "hash": "63e469d400a4913d85adba44155f65a0"
+  },
+  {
+    "path": "telescope/images/55.png",
+    "hash": "bb97c3206dbad69e82ba1acdb5139f0e"
+  },
+  {
+    "path": "telescope/images/56.png",
+    "hash": "f2cf92bcae512b48eea03b04af141c9f"
+  },
+  {
+    "path": "telescope/images/57.png",
+    "hash": "792144594600379d326b64b92aa380a2"
+  },
+  {
+    "path": "telescope/images/58.png",
+    "hash": "9790ae7260c2e8fbbd8a899e6f012a26"
+  },
+  {
+    "path": "telescope/images/59.png",
+    "hash": "f5cf648e96fa8876a1c0242b447abc69"
+  },
+  {
+    "path": "telescope/images/6.png",
+    "hash": "d886c9af9f875db9db93c835d69a5738"
+  },
+  {
+    "path": "telescope/images/60.png",
+    "hash": "7fe21f8f3339667a99436b04da11eb7e"
+  },
+  {
+    "path": "telescope/images/61.png",
+    "hash": "75a5a387ff70ad55d3b8de40fc7bb12d"
+  },
+  {
+    "path": "telescope/images/62.png",
+    "hash": "b85dd020220b0ea23299be533b3264c6"
+  },
+  {
+    "path": "telescope/images/63.png",
+    "hash": "b04839373a4f2ab6b975718b443983af"
+  },
+  {
+    "path": "telescope/images/64.png",
+    "hash": "ffc1fd5129af31e5ecec98326a735a23"
+  },
+  {
+    "path": "telescope/images/65.png",
+    "hash": "feacc00332b05c643541d1adf7f425c6"
+  },
+  {
+    "path": "telescope/images/66.png",
+    "hash": "510c6bf8bb18ed960dd093c61188f18b"
+  },
+  {
+    "path": "telescope/images/67.png",
+    "hash": "4d3f87379a919d9ada48811a413ae1b1"
+  },
+  {
+    "path": "telescope/images/68.png",
+    "hash": "df2f6728bb098b5911c1fdde2b3868ea"
+  },
+  {
+    "path": "telescope/images/7.png",
+    "hash": "b4faee5ebd2c1a0060e8a33c5b8a0173"
+  },
+  {
+    "path": "telescope/images/8.png",
+    "hash": "2fbea6ed0a789d20487180ad4a76532d"
+  },
+  {
+    "path": "telescope/images/9.png",
+    "hash": "31443a497fbb036767f0c367f65f960d"
+  },
+  {
     "path": "think_what/images/0.png",
     "hash": "550c3e7829033511873a12d0a8e25447"
   },
