@@ -9,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def this_chichen(images: List[BuildImage], texts, args):
+def this_chicken(images: List[BuildImage], texts, args):
     text = texts[0] if texts else "这是十二生肖中的鸡"
     img = images[0].convert("RGBA").resize((640, 640), keep_ratio=True)
 
@@ -35,8 +35,8 @@ def this_chichen(images: List[BuildImage], texts, args):
 
 
 add_meme(
-    "this_chichen",
-    this_chichen,
+    "this_chicken",
+    this_chicken,
     min_images=1,
     max_images=1,
     max_texts=1,
