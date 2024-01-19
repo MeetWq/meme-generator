@@ -9,7 +9,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 img_dir = Path(__file__).parent / "images"
 
 
-def watch_tv(images: List[BuildImage], texts, args):
+def tom_tease(images: List[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
             img = img.convert("RGBA").resize((400, 350), keep_ratio=True)
@@ -26,4 +26,10 @@ def watch_tv(images: List[BuildImage], texts, args):
     )
 
 
-add_meme("watch_tv", watch_tv, min_images=1, max_images=1, keywords=["汤姆嘲笑", "嘲笑"])
+add_meme(
+    "tom_tease",
+    tom_tease,
+    min_images=1,
+    max_images=1,
+    keywords=["汤姆嘲笑"],
+)
