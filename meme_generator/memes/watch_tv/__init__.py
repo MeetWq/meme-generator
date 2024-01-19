@@ -10,30 +10,13 @@ img_dir = Path(__file__).parent / "images"
 
 
 def watch_tv(images: List[BuildImage], texts, args):
-    params = (
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-        (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-    )
-
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            frame = BuildImage.new("RGBA", (720, 405), "white")
-            img = images[0].convert("RGBA").resize((291, 355), keep_ratio=True)
+            img = img.convert("RGBA").resize((400, 350), keep_ratio=True)
+            img = img.perspective(((0, 100), (290, 0), (290, 370), (0, 335)))
             bg = BuildImage.open(img_dir / f"{i}.png")
-            frame.paste(bg, (0, 0))
-            points, pos = params[i]
-            frame.paste(img.perspective(points), pos, below=True)
-
+            frame = BuildImage.new("RGBA", bg.size, "white")
+            frame.paste(bg).paste(img, (258, -12), below=True)
             return frame
 
         return make
