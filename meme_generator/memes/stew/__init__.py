@@ -3,10 +3,10 @@ from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
+
 from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
-from meme_generator import add_meme
-from meme_generator.utils import make_jpg_or_gif
 from meme_generator.exception import TextOverLength
+from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
@@ -18,6 +18,7 @@ parser.add_argument("-n", "--name", type=str, default="", help=help)
 
 class Model(MemeArgsModel):
     name: str = Field("", description=help)
+
 
 def stew(images: List[BuildImage], texts, args):
     name = args.name or (args.user_infos[-1].name if args.user_infos else "") or "群友"
@@ -45,4 +46,11 @@ def stew(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("stew", stew, min_images=1, max_images=1, args_type=MemeArgsType(parser, Model), keywords=["炖"])
+add_meme(
+    "stew",
+    stew,
+    min_images=1,
+    max_images=1,
+    args_type=MemeArgsType(parser, Model),
+    keywords=["炖"],
+)

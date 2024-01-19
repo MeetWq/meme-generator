@@ -23,7 +23,6 @@ def watch_tv(images: List[BuildImage], texts, args):
         (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
         (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
         (((0, 75), (290, -15), (290, 355), (0, 330)), (347, 3)),
-
     )
 
     def maker(i: int) -> Maker:
@@ -38,7 +37,6 @@ def watch_tv(images: List[BuildImage], texts, args):
             return frame
 
         return make
-
 
     return make_gif_or_combined_gif(
         images[0], maker, 11, 0.2, FrameAlignPolicy.extend_first
