@@ -19,7 +19,6 @@ def stew(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
         frame.draw_text(
             (2, frame.height - 30, frame.width - 2, frame.height),
             text,
-            allow_wrap=True,
             max_fontsize=30,
             min_fontsize=6,
             lines_align="center",
