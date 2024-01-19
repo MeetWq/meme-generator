@@ -2,28 +2,16 @@ from pathlib import Path
 from typing import List
 
 from pil_utils import BuildImage
-from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
-help = "指定名字"
 
-parser = MemeArgsParser()
-parser.add_argument("-n", "--name", type=str, default="", help=help)
-
-
-class Model(MemeArgsModel):
-    name: str = Field("", description=help)
-
-
-def stew(images: List[BuildImage], texts, args):
-    name = args.name or (args.user_infos[-1].name if args.user_infos else "") or "群友"
-    if len(name) > 30:
-        name = name[:30]
+def stew(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+    name = texts[0] if texts else args.user_infos[0].name if args.user_infos else "群友"
     text = f"生活不易,炖{name}出气"
 
     frame = BuildImage.open(img_dir / "0.png")
@@ -32,12 +20,12 @@ def stew(images: List[BuildImage], texts, args):
             (2, frame.height - 30, frame.width - 2, frame.height),
             text,
             allow_wrap=True,
-            max_fontsize=50,
+            max_fontsize=30,
             min_fontsize=6,
             lines_align="center",
         )
     except ValueError:
-        raise TextOverLength(text)
+        raise TextOverLength(name)
 
     def make(img: BuildImage) -> BuildImage:
         img = img.convert("RGBA").resize((181, 154), keep_ratio=True)
@@ -51,6 +39,7 @@ add_meme(
     stew,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model),
+    min_texts=0,
+    max_texts=1,
     keywords=["炖"],
 )
