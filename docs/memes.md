@@ -167,49 +167,51 @@
 160. [slogan (口号)](#slogan)
 161. [smash (砸)](#smash)
 162. [step_on (踩)](#step_on)
-163. [suck (吸/嗦)](#suck)
-164. [support (精神支柱)](#support)
-165. [symmetric (对称)](#symmetric)
-166. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
-167. [taunt (嘲讽)](#taunt)
-168. [teach (讲课/敲黑板)](#teach)
-169. [tease (拿捏/戏弄)](#tease)
-170. [telescope (望远镜)](#telescope)
-171. [think_what (想什么)](#think_what)
-172. [this_chicken (这是鸡/🐔)](#this_chicken)
-173. [throw (丢/扔)](#throw)
-174. [throw_gif (抛/掷)](#throw_gif)
-175. [thump (捶)](#thump)
-176. [thump_wildly (捶爆/爆捶)](#thump_wildly)
-177. [tightly (紧贴/紧紧贴着)](#tightly)
-178. [together (一起)](#together)
-179. [tomb_yeah (上坟/坟前比耶)](#tomb_yeah)
-180. [trance (恍惚)](#trance)
-181. [turn (转)](#turn)
-182. [twist (搓)](#twist)
-183. [universal (万能表情/空白表情)](#universal)
-184. [vibrate (震动)](#vibrate)
-185. [wakeup (xx起来了)](#wakeup)
-186. [wallpaper (墙纸)](#wallpaper)
-187. [walnut_pad (胡桃平板)](#walnut_pad)
-188. [walnut_zoom (胡桃放大)](#walnut_zoom)
-189. [wangjingze (王境泽)](#wangjingze)
-190. [washer (洗衣机)](#washer)
-191. [wave (波纹)](#wave)
-192. [weisuoyuwei (为所欲为)](#weisuoyuwei)
-193. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
-194. [what_he_wants (最想要的东西)](#what_he_wants)
-195. [why_at_me (为什么@我)](#why_at_me)
-196. [why_have_hands (为什么要有手)](#why_have_hands)
-197. [windmill_turn (风车转)](#windmill_turn)
-198. [wish_fail (许愿失败)](#wish_fail)
-199. [wooden_fish (木鱼)](#wooden_fish)
-200. [worship (膜/膜拜)](#worship)
-201. [wujing (吴京xx中国xx)](#wujing)
-202. [wunian (五年怎么过的)](#wunian)
-203. [yalidaye (压力大爷)](#yalidaye)
-204. [youtube (yt/youtube)](#youtube)
-205. [zengxiaoxian (曾小贤)](#zengxiaoxian)
+163. [stew (炖)](#stew)
+164. [suck (吸/嗦)](#suck)
+165. [support (精神支柱)](#support)
+166. [symmetric (对称)](#symmetric)
+167. [tankuku_raisesign (唐可可举牌)](#tankuku_raisesign)
+168. [taunt (嘲讽)](#taunt)
+169. [teach (讲课/敲黑板)](#teach)
+170. [tease (拿捏/戏弄)](#tease)
+171. [telescope (望远镜)](#telescope)
+172. [think_what (想什么)](#think_what)
+173. [this_chicken (这是鸡/🐔)](#this_chicken)
+174. [throw (丢/扔)](#throw)
+175. [throw_gif (抛/掷)](#throw_gif)
+176. [thump (捶)](#thump)
+177. [thump_wildly (捶爆/爆捶)](#thump_wildly)
+178. [tightly (紧贴/紧紧贴着)](#tightly)
+179. [together (一起)](#together)
+180. [tom_tease (汤姆嘲笑)](#tom_tease)
+181. [tomb_yeah (上坟/坟前比耶)](#tomb_yeah)
+182. [trance (恍惚)](#trance)
+183. [turn (转)](#turn)
+184. [twist (搓)](#twist)
+185. [universal (万能表情/空白表情)](#universal)
+186. [vibrate (震动)](#vibrate)
+187. [wakeup (xx起来了)](#wakeup)
+188. [wallpaper (墙纸)](#wallpaper)
+189. [walnut_pad (胡桃平板)](#walnut_pad)
+190. [walnut_zoom (胡桃放大)](#walnut_zoom)
+191. [wangjingze (王境泽)](#wangjingze)
+192. [washer (洗衣机)](#washer)
+193. [wave (波纹)](#wave)
+194. [weisuoyuwei (为所欲为)](#weisuoyuwei)
+195. [what_I_want_to_do (我想上的)](#what_I_want_to_do)
+196. [what_he_wants (最想要的东西)](#what_he_wants)
+197. [why_at_me (为什么@我)](#why_at_me)
+198. [why_have_hands (为什么要有手)](#why_have_hands)
+199. [windmill_turn (风车转)](#windmill_turn)
+200. [wish_fail (许愿失败)](#wish_fail)
+201. [wooden_fish (木鱼)](#wooden_fish)
+202. [worship (膜/膜拜)](#worship)
+203. [wujing (吴京xx中国xx)](#wujing)
+204. [wunian (五年怎么过的)](#wunian)
+205. [yalidaye (压力大爷)](#yalidaye)
+206. [youtube (yt/youtube)](#youtube)
+207. [zengxiaoxian (曾小贤)](#zengxiaoxian)
 
 
 ## 5000choyen
@@ -2238,6 +2240,16 @@ options:
   <img src="images/step_on.gif" width="200" />
 </div>
 
+## stew
+
+- 关键词：`炖`
+- 需要图片数目：`1`
+- 需要文字数目：`0` ~ `1`
+- 预览：
+<div align="left">
+  <img src="images/stew.jpg" width="200" />
+</div>
+
 ## suck
 
 - 关键词：`吸`、`嗦`
@@ -2435,6 +2447,16 @@ options:
 - 预览：
 <div align="left">
   <img src="images/together.jpg" width="200" />
+</div>
+
+## tom_tease
+
+- 关键词：`汤姆嘲笑`
+- 需要图片数目：`1`
+- 需要文字数目：`0`
+- 预览：
+<div align="left">
+  <img src="images/tom_tease.gif" width="200" />
 </div>
 
 ## tomb_yeah
