@@ -11,10 +11,10 @@ img_dir = Path(__file__).parent / "images"
 
 def lost_dog(images: List[BuildImage], texts, args):
     k = 2
-    w_ = 459 * k
-    w = 380 * k
-    h = 350 * k
-    r = 339 * k
+    w_ = 663 * k
+    w = 540 * k
+    h = 540 * k
+    r = 466 * k
     img = images[0].convert("RGBA").resize((w_, h), keep_ratio=True)
     img_new = BuildImage.new("RGBA", (w, h))
     for x in range(w):
@@ -26,7 +26,7 @@ def lost_dog(images: List[BuildImage], texts, args):
                 img_new.image.putpixel((x, y), img.image.getpixel((x_, y_)))
     img_new = img_new.resize((w // k, h // k))
     frame = BuildImage.open(img_dir / "0.png")
-    frame.paste(img_new, (190, 110), below=True)
+    frame.paste(img_new, (295, 165), below=True)
     return frame.save_jpg()
 
 
