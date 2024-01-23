@@ -942,10 +942,31 @@ options:
 
 - 关键词：`芙莉莲拿`
 - 需要图片数目：`1`
-- 需要文字数目：`0`
+- 需要文字数目：`0` ~ `1`
+- 默认文字：[`所谓的男人啊，只要送他们这种东西就会很开心`]
+- 其他参数：
+    - `default`
+        - 描述：是否使用默认文字
+        - 类型：`boolean`
+        - 默认值：`False`
+- 其他参数（命令行选项）：
+```shell
+usage: meme generate frieren_take [-h] [-d]
+
+options:
+  -h, --help          show this help message and exit
+  -d, --default, /默认  是否使用默认文字
+```
+
 - 预览：
+> 参数：{"default":false}
 <div align="left">
-  <img src="images/frieren_take.jpg" width="200" />
+  <img src="images/frieren_take_instance0.jpg" width="200" />
+</div>
+
+> 参数：{"default":true}
+<div align="left">
+  <img src="images/frieren_take_instance1.jpg" width="200" />
 </div>
 
 ## funny_mirror
