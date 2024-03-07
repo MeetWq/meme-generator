@@ -101,13 +101,11 @@ def save_gif(frames: List[IMG], duration: float) -> BytesIO:
 
 
 class Maker(Protocol):
-    def __call__(self, img: BuildImage) -> BuildImage:
-        ...
+    def __call__(self, img: BuildImage) -> BuildImage: ...
 
 
 class GifMaker(Protocol):
-    def __call__(self, i: int) -> Maker:
-        ...
+    def __call__(self, i: int) -> Maker: ...
 
 
 def get_avg_duration(image: IMG) -> float:
@@ -340,7 +338,9 @@ async def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> 
 
 
 def random_text() -> str:
-    return random.choice(["刘一", "陈二", "张三", "李四", "王五", "赵六", "孙七", "周八", "吴九", "郑十"])
+    return random.choice(
+        ["刘一", "陈二", "张三", "李四", "王五", "赵六", "孙七", "周八", "吴九", "郑十"]
+    )
 
 
 def random_image() -> BytesIO:

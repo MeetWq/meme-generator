@@ -4,6 +4,7 @@ dist/
 .idea/
 venv/
 .venv/
+node_modules/
 pdm.lock
 
 result.png

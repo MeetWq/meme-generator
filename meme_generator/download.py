@@ -39,7 +39,7 @@ async def get_fastest_mirror() -> List[str]:
             return_exceptions=True,
         )
     results = sorted(
-        (result for result in results if not isinstance(result, Exception)),
+        (result for result in results if not isinstance(result, BaseException)),
         key=lambda r: r["elapsed_time"],
     )
     return [result["base_url"] for result in results]

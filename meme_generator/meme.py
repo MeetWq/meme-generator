@@ -133,7 +133,7 @@ class Meme:
             for image in images:
                 if isinstance(image, bytes):
                     image = BytesIO(image)
-                imgs.append(BuildImage.open(image))
+                imgs.append(BuildImage.open(image))  # type: ignore
         except Exception as e:
             raise OpenImageFailed(str(e))
 

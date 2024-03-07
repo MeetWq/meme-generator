@@ -17,30 +17,35 @@ exclude = [
 python = "^3.8"
 httpx = ">=0.20.0,<1.0.0"
 loguru = ">=0.6.0,<1.0.0"
-pil-utils = "^0.1.8"
+pil-utils = "^0.1.9"
 toml = "^0.10.2"
 fastapi = ">=0.93.0,<1.0.0"
 uvicorn = ">=0.20.0,<1.0.0"
-python-multipart = "^0.0.6"
+python-multipart = ">=0.0.9,<0.1.0"
 filetype = "^1.2.0"
 rich = "^13.0.0"
-dateparser = "^1.1.0"
-typing-extensions = ">=4.0.0,<5.0.0"
+dateparser = "^1.2.0"
+typing-extensions = ">=4.4.0,<5.0.0"
 
 [tool.poetry.group.dev.dependencies]
 
 [tool.poetry.scripts]
 meme = "meme_generator.cli:main"
 
-[tool.isort]
-profile = "black"
-skip_gitignore = true
+[tool.pyright]
+pythonVersion = "3.8"
+pythonPlatform = "All"
+typeCheckingMode = "basic"
 
 [tool.ruff]
-select = ["E", "W", "F", "UP", "C", "T", "PYI", "Q"]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "UP", "C", "T", "PYI", "PT", "Q"]
 ignore = ["E402", "E501", "E711", "C901", "UP037"]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 detect-same-package = true
 
 [build-system]
