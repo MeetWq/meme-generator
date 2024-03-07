@@ -459,13 +459,13 @@ files = [
 
 [[package]]
 name = "importlib-resources"
-version = "6.1.2"
+version = "6.1.3"
 description = "Read resources from Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "importlib_resources-6.1.2-py3-none-any.whl", hash = "sha256:9a0a862501dc38b68adebc82970140c9e4209fc99601782925178f8386339938"},
-    {file = "importlib_resources-6.1.2.tar.gz", hash = "sha256:308abf8474e2dba5f867d279237cd4076482c3de7104a40b41426370e891549b"},
+    {file = "importlib_resources-6.1.3-py3-none-any.whl", hash = "sha256:4c0269e3580fe2634d364b39b38b961540a7738c02cb984e98add8b4221d793d"},
+    {file = "importlib_resources-6.1.3.tar.gz", hash = "sha256:56fb4525197b78544a3354ea27793952ab93f935bb4bf746b846bb1015020f2b"},
 ]
 
 [package.dependencies]
@@ -473,7 +473,7 @@ zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-lint"]
-testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1)", "zipp (>=3.17)"]
+testing = ["jaraco.collections", "pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1)", "zipp (>=3.17)"]
 
 [[package]]
 name = "kiwisolver"
@@ -804,12 +804,13 @@ files = [
 
 [[package]]
 name = "pil-utils"
-version = "0.1.9"
+version = "0.1.10"
 description = "A simple PIL wrapper and text-to-image tool"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pil_utils-0.1.9-py3-none-any.whl", hash = "sha256:1f4bf6eed033c0d14d9fbb492c8e068dfc76cb66064005f8f0a3b50115ded651"},
+    {file = "pil_utils-0.1.10-py3-none-any.whl", hash = "sha256:ff9459d7b4336e9b07a5e11e06b12a6e477ae68eae0124ac5710b28ae5d4d6d8"},
+    {file = "pil_utils-0.1.10.tar.gz", hash = "sha256:4e6d08cc39cba3f65eb17847662d2c1e68e2ac12503e4a73e57d980b2dc77cda"},
 ]
 
 [package.dependencies]
@@ -1346,4 +1347,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "9cc1e2ef2983e89505c0c448c714d0fcb4d3b14dd6c5a68930b7c4d5a8271517"
+content-hash = "6229a8b32708ca4f1da178b358cfdedd0f146bf4882282451a5814e4bc6ce958"

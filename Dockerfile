@@ -21,7 +21,7 @@ COPY --from=tmp /tmp/.venv /app/.venv
 
 COPY ./resources/fonts/* /usr/share/fonts/meme-fonts/
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends locales fontconfig fonts-noto-cjk fonts-noto-color-emoji gettext \
+  && apt-get install -y --no-install-recommends locales fontconfig fonts-noto-color-emoji gettext \
   && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
   && fc-cache -fv \
   && apt-get purge -y --auto-remove \
