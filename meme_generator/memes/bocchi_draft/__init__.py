@@ -39,4 +39,6 @@ def bocchi_draft(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.08)
 
 
-add_meme("bocchi_draft", bocchi_draft, min_images=1, max_images=1, keywords=["波奇手稿"])
+add_meme(
+    "bocchi_draft", bocchi_draft, min_images=1, max_images=1, keywords=["波奇手稿"]
+)

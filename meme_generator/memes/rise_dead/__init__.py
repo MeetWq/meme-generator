@@ -33,4 +33,6 @@ def rise_dead(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.15)
 
 
-add_meme("rise_dead", rise_dead, min_images=1, max_images=1, keywords=["诈尸", "秽土转生"])
+add_meme(
+    "rise_dead", rise_dead, min_images=1, max_images=1, keywords=["诈尸", "秽土转生"]
+)

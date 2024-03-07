@@ -61,7 +61,9 @@ def certificate(images, texts: List[str], args: Model):
     try:
         frame.draw_text(
             (450, 850, 2270, 1080),
-            texts[3] if len(texts) >= 4 else "　　在本学年第一学期中表现优秀，被我校决定评为",
+            texts[3]
+            if len(texts) >= 4
+            else "　　在本学年第一学期中表现优秀，被我校决定评为",
             allow_wrap=True,
             max_fontsize=80,
             min_fontsize=40,

@@ -20,5 +20,9 @@ def maimai_awaken(images: List[BuildImage], texts, args):
 
 
 add_meme(
-    "maimai_awaken", maimai_awaken, min_images=1, max_images=1, keywords=["旅行伙伴觉醒"]
+    "maimai_awaken",
+    maimai_awaken,
+    min_images=1,
+    max_images=1,
+    keywords=["旅行伙伴觉醒"],
 )

@@ -28,4 +28,6 @@ def run(images, texts: List[str], args):
     return frame.save_jpg()
 
 
-add_meme("run", run, min_texts=1, max_texts=1, default_texts=["快跑"], keywords=["快跑"])
+add_meme(
+    "run", run, min_texts=1, max_texts=1, default_texts=["快跑"], keywords=["快跑"]
+)

@@ -56,5 +56,9 @@ def chase_train(images: List[BuildImage], texts, args):
 
 
 add_meme(
-    "chase_train", chase_train, min_images=1, max_images=1, keywords=["追列车", "追火车"]
+    "chase_train",
+    chase_train,
+    min_images=1,
+    max_images=1,
+    keywords=["追列车", "追火车"],
 )

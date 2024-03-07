@@ -22,7 +22,9 @@ group.add_argument(
     default="normal",
     help=help,
 )
-group.add_argument("--circle", "/套娃", action="store_const", const="circle", dest="mode")
+group.add_argument(
+    "--circle", "/套娃", action="store_const", const="circle", dest="mode"
+)
 group.add_argument("--loop", "/循环", action="store_const", const="loop", dest="mode")
 
 

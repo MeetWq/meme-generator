@@ -20,7 +20,9 @@ group.add_argument(
     default="left",
     help=help,
 )
-group.add_argument("--left", "/左", action="store_const", const="left", dest="direction")
+group.add_argument(
+    "--left", "/左", action="store_const", const="left", dest="direction"
+)
 group.add_argument(
     "--right", "/右", action="store_const", const="right", dest="direction"
 )

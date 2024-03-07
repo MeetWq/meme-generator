@@ -50,5 +50,10 @@ def scroll(images, texts: List[str], args):
 
 
 add_meme(
-    "scroll", scroll, min_texts=1, max_texts=1, default_texts=["你们说话啊"], keywords=["滚屏"]
+    "scroll",
+    scroll,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["你们说话啊"],
+    keywords=["滚屏"],
 )

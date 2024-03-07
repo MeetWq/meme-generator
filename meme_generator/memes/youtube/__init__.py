@@ -49,9 +49,7 @@ def youtube(images, texts: List[str], args):
         ),
         (x1, y1 + 1),
         alpha=True,
-    ).paste(
-        right_img, (x0, y0), alpha=True
-    )
+    ).paste(right_img, (x0, y0), alpha=True)
     return frame.save_jpg()
 
 

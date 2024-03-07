@@ -15,4 +15,6 @@ def decent_kiss(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("decent_kiss", decent_kiss, min_images=1, max_images=1, keywords=["像样的亲亲"])
+add_meme(
+    "decent_kiss", decent_kiss, min_images=1, max_images=1, keywords=["像样的亲亲"]
+)

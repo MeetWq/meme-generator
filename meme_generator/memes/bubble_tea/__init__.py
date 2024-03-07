@@ -26,8 +26,12 @@ group.add_argument(
 group.add_argument(
     "--right", "/右手", action="store_const", const="right", dest="position"
 )
-group.add_argument("--left", "/左手", action="store_const", const="left", dest="position")
-group.add_argument("--both", "/双手", action="store_const", const="both", dest="position")
+group.add_argument(
+    "--left", "/左手", action="store_const", const="left", dest="position"
+)
+group.add_argument(
+    "--both", "/双手", action="store_const", const="both", dest="position"
+)
 
 
 class Model(MemeArgsModel):

@@ -27,4 +27,6 @@ def capoo_rub(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("capoo_rub", capoo_rub, min_images=1, max_images=1, keywords=["咖波蹭", "咖波贴"])
+add_meme(
+    "capoo_rub", capoo_rub, min_images=1, max_images=1, keywords=["咖波蹭", "咖波贴"]
+)

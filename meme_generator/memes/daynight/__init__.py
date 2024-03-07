@@ -17,4 +17,6 @@ def daynight(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("daynight", daynight, min_images=2, max_images=2, keywords=["白天黑夜", "白天晚上"])
+add_meme(
+    "daynight", daynight, min_images=2, max_images=2, keywords=["白天黑夜", "白天晚上"]
+)

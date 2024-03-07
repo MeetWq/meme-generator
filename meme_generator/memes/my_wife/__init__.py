@@ -50,4 +50,6 @@ def my_wife(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("my_wife", my_wife, min_images=1, max_images=1, keywords=["我老婆", "这是我老婆"])
+add_meme(
+    "my_wife", my_wife, min_images=1, max_images=1, keywords=["我老婆", "这是我老婆"]
+)

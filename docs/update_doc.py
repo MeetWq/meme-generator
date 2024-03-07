@@ -114,7 +114,11 @@ def meme_doc(meme: Meme) -> str:
         + f"- 需要文字数目：{text_num}\n"
         + (f"- 默认文字：[{default_texts}]\n" if default_texts else "")
         + (f"- 其他参数：{args_info}\n" if args_info else "")
-        + (f"- 其他参数（命令行选项）：\n```shell\n{parser_info}```\n\n" if parser_info else "")
+        + (
+            f"- 其他参数（命令行选项）：\n```shell\n{parser_info}```\n\n"
+            if parser_info
+            else ""
+        )
         + "- 预览：\n"
         + f"{preview_image}"
     )

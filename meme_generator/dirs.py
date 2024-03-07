@@ -23,7 +23,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
 import os
 import sys
 from pathlib import Path
@@ -119,7 +118,7 @@ def user_config_dir(appname: str, roaming: bool = True) -> Path:
 
 # -- Windows support functions --
 def _get_win_folder_from_registry(
-    csidl_name: Literal["CSIDL_APPDATA", "CSIDL_COMMON_APPDATA", "CSIDL_LOCAL_APPDATA"]
+    csidl_name: Literal["CSIDL_APPDATA", "CSIDL_COMMON_APPDATA", "CSIDL_LOCAL_APPDATA"],
 ) -> Path:
     """
     This is a fallback technique at best. I'm not sure if using the
@@ -143,7 +142,7 @@ def _get_win_folder_from_registry(
 
 
 def _get_win_folder_with_ctypes(
-    csidl_name: Literal["CSIDL_APPDATA", "CSIDL_COMMON_APPDATA", "CSIDL_LOCAL_APPDATA"]
+    csidl_name: Literal["CSIDL_APPDATA", "CSIDL_COMMON_APPDATA", "CSIDL_LOCAL_APPDATA"],
 ) -> Path:
     csidl_const = {
         "CSIDL_APPDATA": 26,

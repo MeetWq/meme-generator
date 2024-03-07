@@ -27,5 +27,10 @@ def meteor(images, texts: List[str], args):
 
 
 add_meme(
-    "meteor", meteor, min_texts=1, max_texts=1, default_texts=["我要对象"], keywords=["流星"]
+    "meteor",
+    meteor,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["我要对象"],
+    keywords=["流星"],
 )

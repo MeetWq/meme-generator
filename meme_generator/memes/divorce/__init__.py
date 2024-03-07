@@ -15,4 +15,6 @@ def divorce(images: List[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("divorce", divorce, min_images=1, max_images=1, keywords=["离婚协议", "离婚申请"])
+add_meme(
+    "divorce", divorce, min_images=1, max_images=1, keywords=["离婚协议", "离婚申请"]
+)
