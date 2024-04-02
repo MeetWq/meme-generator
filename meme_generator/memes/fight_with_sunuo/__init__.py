@@ -19,4 +19,10 @@ def fight_with_sunuo(images: List[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("fight_with_sunuo", fight_with_sunuo, min_images=1, max_images=1, keywords=["我打宿傩", "我打宿傩吗"])
+add_meme(
+    "fight_with_sunuo",
+    fight_with_sunuo,
+    min_images=1,
+    max_images=1,
+    keywords=["我打宿傩", "我打宿傩吗"],
+)
