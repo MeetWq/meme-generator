@@ -47,7 +47,6 @@ def fight_with_sunuo(images: List[BuildImage], texts, args: Model):
     def make(img: BuildImage) -> BuildImage:
         img = (
             img.convert("RGBA")
-            .square()
             .resize((565, 1630), keep_ratio=True, direction=modes[args.direction])
         )
         return frame.copy().paste(img, (0, 245), below=True)
