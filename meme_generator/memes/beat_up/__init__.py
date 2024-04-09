@@ -10,22 +10,11 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def zou(images: List[BuildImage], texts, args):
+def beat_up(images: List[BuildImage], texts, args):
     self_head = images[0].convert("RGBA").circle().resize((55, 55))
     user_head = images[1].convert("RGBA").circle().resize((45, 45))
-    # fmt: off
-    self_locs = [
-        (100, 43),
-        (110, 46),
-        (101, 40)
-
-    ]
-    user_locs = [
-        (99, 136),
-        (99, 136),
-        (89, 140)
-    ]
-    # fmt: on
+    self_locs = [(100, 43), (110, 46), (101, 40)]
+    user_locs = [(99, 136), (99, 136), (89, 140)]
     frames: List[IMG] = []
     for i in range(3):
         frame = BuildImage.open(img_dir / f"{i}.png")
@@ -36,4 +25,4 @@ def zou(images: List[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("zou", zou, min_images=2, max_images=2, keywords=["揍", "zou"])
+add_meme("beat_up", beat_up, min_images=2, max_images=2, keywords=["揍"])
