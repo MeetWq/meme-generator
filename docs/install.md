@@ -30,7 +30,7 @@ git clone https://github.com/MeetWq/meme-generator
 
 为确保表情包中的文字生成正常，需要自行安装字体
 
-> **Note**
+> [!NOTE]
 >
 > 字体安装后若文字仍显示不正常，可删掉 `matplotlib` 字体缓存文件重新运行程序
 >

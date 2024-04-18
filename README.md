@@ -19,7 +19,7 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 
 </div>
 
-> **Note**
+> [!NOTE]
 >
 > 额外表情仓库：[meme-generator-contrib](https://github.com/MeetWq/meme-generator-contrib)
 
@@ -85,7 +85,7 @@ web 框架用的是 FastApi , 可查看自动生成的交互式 API 文档（访
 - Linux: `~/.config/meme_generator/config.toml`
 - Mac: `~/Library/Application Support/meme_generator/config.toml`
 
-> **Warning**
+> [!WARNING]
 >
 > 从 v0.0.6 版本开始，不再生成默认配置文件；修改配置时需在对应的文件位置自行创建配置文件
 >
