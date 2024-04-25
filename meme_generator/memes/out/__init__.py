@@ -13,7 +13,6 @@ def need(images: List[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "out.png")
 
     def make(img: BuildImage) -> BuildImage:
-        mask_color = (78, 114, 123)
         img = img.convert("RGBA")
         out = frame.copy().resize_width(int(img.width * 0.5), keep_ratio=True)
         return img.paste(out, (min(img.width - out.width - 20, int(img.width * 0.4)), min(img.height - out.height - 20, int(img.height * 0.7))), alpha=True)
