@@ -15,7 +15,14 @@ def need(images: List[BuildImage], texts, args):
     def make(img: BuildImage) -> BuildImage:
         img = img.convert("RGBA")
         out = frame.copy().resize_width(int(img.width * 0.5), keep_ratio=True)
-        return img.paste(out, (min(img.width - out.width - 10, int(img.width * 0.4)), min(img.height - out.height - 10, int(img.height * 0.7))), alpha=True)
+        return img.paste(
+            out,
+            (
+                min(img.width - out.width - 10, int(img.width * 0.4)),
+                min(img.height - out.height - 10, int(img.height * 0.7)),
+            ),
+            alpha=True,
+        )
 
     return make_jpg_or_gif(images[0], make, keep_transparency=True)
 
