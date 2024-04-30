@@ -24,7 +24,7 @@ async def get_fastest_mirror() -> List[str]:
     async def head_mirror(client: httpx.AsyncClient, base_url: str):
         begin_time = time.time()
         response = await client.head(
-            _resource_url(base_url, "resources/fonts/NotoSansSC-Regular.otf"), timeout=5
+            _resource_url(base_url, "resources/fonts/NotoSansSC-Regular.ttf"), timeout=5
         )
         response.raise_for_status()
         elapsed_time = (time.time() - begin_time) * 1000
