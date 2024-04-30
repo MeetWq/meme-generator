@@ -23,7 +23,7 @@ def why_have_hands(images: List[BuildImage], texts: List[str], args: MemeArgsMod
     )
     frame.paste(img.resize((250, 170), keep_ratio=True), (275, 1100), below=True)
     frame.paste(
-        img.resize((300, 400), keep_ratio=True, inside=True, direction="northwest"),
+        img.resize((300, 400), keep_ratio=True, inside=True, direction="west"),
         (1100, 1060),
         alpha=True,
     )
