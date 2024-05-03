@@ -97,6 +97,7 @@ Noto Color Emoji：https://github.com/googlefonts/noto-emoji
 | [Aller](https://fonts.adobe.com/fonts/aller)                                 | [Aller_Bd.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/Aller_Bd.ttf)                                     | `osu`                           |                   |
 | [Ro GSan Serif Std](https://www.morisawa.co.jp/fonts/specimen/1646)          | [RoGSanSrfStd-Bd.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/RoGSanSrfStd-Bd.otf)                       | `bluearchive`                   |                   |
 | [Glow Sans SC](https://github.com/welai/glow-sans)                           | [GlowSansSC-Normal-Heavy.otf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/GlowSansSC-Normal-Heavy.otf)       | `bluearchive`                   | 未来荧黑          |
+| [PangMenZhengDao-Cu](https://www.fonts.net.cn/font-37007105996.html)         | [庞门正道粗书体.ttf](https://github.com/MeetWq/meme-generator/blob/main/resources/fonts/庞门正道粗书体.ttf)                         | `ace_attorney_dialog`           |                   |
 
 #### 字体安装方式
 
