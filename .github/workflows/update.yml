@@ -1,4 +1,4 @@
-name: Update resource_list.json & memes.md
+name: Update resource_list.json
 
 on:
   push:
@@ -19,26 +19,8 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Setup Poetry
-        uses: Gr1N/setup-poetry@v8
-
-      - name: Install dependencies
-        run: poetry install
-
-      - name: Install fonts
-        run: |
-          sudo apt install fonts-noto-cjk fonts-noto-color-emoji
-          sudo locale-gen zh_CN zh_CN.UTF-8
-          sudo update-locale LC_ALL=zh_CN.UTF-8 LANG=zh_CN.UTF-8
-          sudo mkdir /usr/share/fonts/myfonts
-          sudo cp resources/fonts/* /usr/share/fonts/myfonts/
-          fc-cache -fv
-
       - name: Update resource_list.json
-        run: poetry run python resources/update_list.py
-
-      - name: Update memes.md
-        run: poetry run python docs/update_doc.py
+        run: python resources/update_list.py
 
       - name: Commit & Push changes
         uses: actions-js/push@master
