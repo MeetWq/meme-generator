@@ -1,4 +1,4 @@
-name: Update resource_list.json
+name: Update resource_list.json & Wiki
 
 on:
   push:
@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-and-push:
+  update-resource-list:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup python
         uses: actions/setup-python@v3
@@ -26,4 +26,48 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "Update resource_list.json"
           branch: "main"
+
+  update-wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout wiki repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{github.repository}}.wiki
+          path: wiki
+
+      - name: Setup python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: Setup Poetry
+        uses: Gr1N/setup-poetry@v8
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Install fonts
+        run: |
+          sudo apt install fonts-noto-cjk fonts-noto-color-emoji
+          sudo locale-gen zh_CN zh_CN.UTF-8
+          sudo update-locale LC_ALL=zh_CN.UTF-8 LANG=zh_CN.UTF-8
+          sudo mkdir /usr/share/fonts/myfonts
+          sudo cp resources/fonts/* /usr/share/fonts/myfonts/
+          fc-cache -fv
+
+      - name: Update memes.md
+        run: poetry run python wiki/update_meme_list.py
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          directory: "wiki"
+          repository: ${{github.repository}}.wiki
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "update meme list"
+          branch: "master"
