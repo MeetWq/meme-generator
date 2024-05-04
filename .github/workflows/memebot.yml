@@ -1,0 +1,21 @@
+name: MemeBot
+
+on:
+  issue_comment:
+    types: [created]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  meme-bot:
+    runs-on: ubuntu-latest
+    name: Run MemeBot
+    steps:
+      - name: MemeBot
+        uses: docker://ghcr.io/meetwq/github-meme-bot:main
+        env:
+          APP_ID: ${{ secrets.MEME_APP_ID }}
+          PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
+          SMMS_SECRET_TOKEN: ${{ secrets.SMMS_SECRET_TOKEN }}
