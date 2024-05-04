@@ -46,5 +46,6 @@ COPY ./meme_generator /app/meme_generator
 COPY ./docker/config.toml.template /app/config.toml.template
 COPY ./docker/start.sh /app/start.sh
 RUN chmod +x /app/start.sh
+RUN python -m meme_generator.cli
 
 CMD ["/app/start.sh"]
