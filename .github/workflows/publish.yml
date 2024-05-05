@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Publish python package
-        uses: JRubics/poetry-publish@v1.16
+        uses: JRubics/poetry-publish@v2.0
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
