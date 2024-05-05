@@ -40,11 +40,26 @@ jobs:
           repository: ${{ github.repository }}.wiki
           path: wiki
 
-      - name: Setup Environment
-        uses: ./.github/actions/setup-env
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Setup Poetry
+        uses: Gr1N/setup-poetry@v9
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Install fonts
+        run: |
+          sudo apt install fonts-noto-color-emoji
+          sudo mkdir /usr/share/fonts/myfonts
+          sudo cp resources/fonts/* /usr/share/fonts/myfonts/
+          fc-cache -fv
 
       - name: Update memes.md
-        run: python wiki/update_meme_list.py
+        run: poetry run python wiki/update_meme_list.py
 
       - name: Commit & Push changes
         uses: actions-js/push@master
