@@ -11,7 +11,7 @@ concurrency:
 jobs:
   issue_commented:
     name: Issue comment
-    if: ${{ !github.event.issue.pull_request }} && startsWith(github.event.comment.body, '/')
+    if: ${{ !github.event.issue.pull_request && startsWith(github.event.comment.body, '/') }}
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/meetwq/github-meme-bot:main
@@ -24,7 +24,7 @@ jobs:
 
   pr_commented:
     name: PR comment
-    if: ${{ github.event.issue.pull_request }} && startsWith(github.event.comment.body, '/')
+    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/') }}
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/meetwq/github-meme-bot:pr-${{ github.event.issue.number }}
