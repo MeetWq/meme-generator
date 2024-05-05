@@ -4,4 +4,4 @@ mkdir -p ~/.config/meme_generator
 
 envsubst < /app/config.toml.template > ~/.config/meme_generator/config.toml
 
-exec python bot.py
+exec python /app/bot.py
