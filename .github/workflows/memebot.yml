@@ -9,24 +9,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  meme-bot:
-    if: startsWith(github.event.comment.body, '/')
+  issue_commented:
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }} && startsWith(github.event.comment.body, '/')
     runs-on: ubuntu-latest
-    name: Run MemeBot
+    container:
+      image: ghcr.io/meetwq/github-meme-bot:main
+      env:
+        APP_ID: ${{ secrets.MEME_APP_ID }}
+        PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
+        SMMS_SECRET_TOKEN: ${{ secrets.SMMS_SECRET_TOKEN }}
     steps:
-      - name: Generate Tags
-        uses: docker/metadata-action@v4
-        id: metadata
-        with:
-          images: ghcr.io/meetwq/github-meme-bot
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
+      - run: /app/start_memebot.sh
 
-      - name: MemeBot
-        uses: docker://${{ steps.metadata.outputs.tags[0] }}
-        env:
-          APP_ID: ${{ secrets.MEME_APP_ID }}
-          PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
-          SMMS_SECRET_TOKEN: ${{ secrets.SMMS_SECRET_TOKEN }}
+  pr_commented:
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }} && startsWith(github.event.comment.body, '/')
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/meetwq/github-meme-bot:pr-${{ github.event.issue.number }}
+      env:
+        APP_ID: ${{ secrets.MEME_APP_ID }}
+        PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
+        SMMS_SECRET_TOKEN: ${{ secrets.SMMS_SECRET_TOKEN }}
+    steps:
+      - run: /app/start_memebot.sh
