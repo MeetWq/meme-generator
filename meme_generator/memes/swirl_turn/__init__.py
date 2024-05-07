@@ -35,5 +35,5 @@ add_meme(
     swirl_turn,
     min_images=1,
     max_images=1,
-    keywords=["回旋转", "漩涡转"],
+    keywords=["回旋转", "旋风转"],
 )
