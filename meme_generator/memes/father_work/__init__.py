@@ -11,16 +11,17 @@ img_dir = Path(__file__).parent / "images"
 
 
 def father_work(images: List[BuildImage], texts: List[str], args):
-    frame = BuildImage.open(img_dir / "0.png").resize_width(500).convert("RGBA")
+    frame = BuildImage.open(img_dir / "0.png")
     text = texts[0] if texts else "此处添加文字"
     try:
         frame.draw_text(
             (195, frame.height - 110, frame.width - 10, frame.height - 20),
             text,
-            fontsize=20,
             min_fontsize=10,
             max_fontsize=50,
             fill="black",
+            allow_wrap=True,
+            lines_align="center",
         )
     except ValueError:
         raise TextOverLength(text)
