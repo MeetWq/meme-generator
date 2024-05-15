@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def sit_still(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def sit_still(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     name = texts[0] if texts else args.user_infos[0].name if args.user_infos else ""
     frame = BuildImage.open(img_dir / "0.png")
     if name:

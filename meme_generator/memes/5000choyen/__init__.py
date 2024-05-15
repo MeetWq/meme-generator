@@ -1,5 +1,3 @@
-from typing import List, Tuple
-
 from PIL.Image import Image as IMG
 from PIL.Image import Resampling, Transform
 from pil_utils import BuildImage, Text2Image
@@ -8,13 +6,13 @@ from pil_utils.gradient import ColorStop, LinearGradient
 from meme_generator import add_meme
 
 
-def fivethousand_choyen(images, texts: List[str], args):
+def fivethousand_choyen(images, texts: list[str], args):
     fontsize = 200
     fontname = "Noto Sans SC"
     text = texts[0]
     pos_x = 40
     pos_y = 220
-    imgs: List[Tuple[IMG, Tuple[int, int]]] = []
+    imgs: list[tuple[IMG, tuple[int, int]]] = []
 
     def transform(img: IMG) -> IMG:
         skew = 0.45
@@ -26,7 +24,7 @@ def fivethousand_choyen(images, texts: List[str], args):
             Resampling.BILINEAR,
         )
 
-    def shift(t2m: Text2Image) -> Tuple[int, int]:
+    def shift(t2m: Text2Image) -> tuple[int, int]:
         return (
             pos_x
             - t2m.lines[0].chars[0].stroke_width
@@ -34,7 +32,7 @@ def fivethousand_choyen(images, texts: List[str], args):
             pos_y - t2m.lines[0].ascent,
         )
 
-    def add_color_text(stroke_width: int, fill: str, pos: Tuple[int, int]):
+    def add_color_text(stroke_width: int, fill: str, pos: tuple[int, int]):
         t2m = Text2Image.from_text(
             text, fontsize, fontname=fontname, stroke_width=stroke_width, fill=fill
         )
@@ -43,9 +41,9 @@ def fivethousand_choyen(images, texts: List[str], args):
 
     def add_gradient_text(
         stroke_width: int,
-        dir: Tuple[int, int, int, int],
-        color_stops: List[Tuple[float, Tuple[int, int, int]]],
-        pos: Tuple[int, int],
+        dir: tuple[int, int, int, int],
+        color_stops: list[tuple[float, tuple[int, int, int]]],
+        pos: tuple[int, int],
     ):
         t2m = Text2Image.from_text(
             text, fontsize, fontname=fontname, stroke_width=stroke_width, fill="white"

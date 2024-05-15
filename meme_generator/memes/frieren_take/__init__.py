@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -21,7 +20,7 @@ class Model(MemeArgsModel):
     default: bool = Field(False, description=help)
 
 
-def frieren_take(images: List[BuildImage], texts: List[str], args: Model):
+def frieren_take(images: list[BuildImage], texts: list[str], args: Model):
     frame = BuildImage.open(img_dir / "0.png")
     text = default_text if args.default else texts[0] if texts else None
     if text:

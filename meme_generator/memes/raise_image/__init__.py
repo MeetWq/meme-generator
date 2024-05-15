@@ -1,6 +1,5 @@
 from io import BytesIO
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def raise_image(images: List[BuildImage], texts, args) -> BytesIO:
+def raise_image(images: list[BuildImage], texts, args) -> BytesIO:
     inner_size = (599, 386)
     paste_pos = (134, 91)
 

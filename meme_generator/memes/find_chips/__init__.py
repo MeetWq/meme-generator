@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List, Tuple
 
 from pil_utils import BuildImage
 
@@ -9,10 +8,10 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def find_chips(images, texts: List[str], args):
+def find_chips(images, texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.jpg")
 
-    def draw(pos: Tuple[float, float, float, float], text: str):
+    def draw(pos: tuple[float, float, float, float], text: str):
         try:
             frame.draw_text(
                 pos, text, max_fontsize=30, min_fontsize=12, allow_wrap=True

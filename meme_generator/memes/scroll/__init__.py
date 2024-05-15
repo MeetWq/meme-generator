@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
@@ -11,7 +10,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def scroll(images, texts: List[str], args):
+def scroll(images, texts: list[str], args):
     text = texts[0]
     text2image = Text2Image.from_text(text, 40).wrap(600)
     if len(text2image.lines) > 5:
@@ -38,7 +37,7 @@ def scroll(images, texts: List[str], args):
     for i in range(4):
         dialog.paste(box, (0, box_h * i))
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     num = 30
     dy = int(dialog.height / num)
     for i in range(num):

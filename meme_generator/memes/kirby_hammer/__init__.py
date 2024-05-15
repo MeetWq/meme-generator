@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -19,7 +18,7 @@ class Model(MemeArgsModel):
     circle: bool = Field(False, description=help)
 
 
-def kirby_hammer(images: List[BuildImage], texts, args: Model):
+def kirby_hammer(images: list[BuildImage], texts, args: Model):
     # fmt: off
     positions = [
         (318, 163), (319, 173), (320, 183), (317, 193), (312, 199),

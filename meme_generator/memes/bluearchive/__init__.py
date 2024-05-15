@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from PIL.Image import Resampling, Transform
@@ -12,7 +11,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def bluearchive(images, texts: List[str], args):
+def bluearchive(images, texts: list[str], args):
     fontsize = 168
     fontname = "Ro GSan Serif Std"
     fallback_fonts = ["Glow Sans SC"] + DEFAULT_FALLBACK_FONTS

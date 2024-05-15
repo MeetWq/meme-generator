@@ -1,5 +1,4 @@
 import math
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -7,7 +6,7 @@ from meme_generator import add_meme
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 
-def swirl_turn(images: List[BuildImage], texts, args):
+def swirl_turn(images: list[BuildImage], texts, args):
     frame_num = 40
 
     def maker(i: int) -> Maker:

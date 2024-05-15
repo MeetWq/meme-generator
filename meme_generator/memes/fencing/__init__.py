@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def fencing(images: List[BuildImage], texts, args):
+def fencing(images: list[BuildImage], texts, args):
     self_head = images[0].convert("RGBA").circle().resize((27, 27))
     user_head = images[1].convert("RGBA").circle().resize((27, 27))
     # fmt: off
@@ -25,7 +24,7 @@ def fencing(images: List[BuildImage], texts, args):
         (30, 9), (17, 6), (12, 8), (11, 7), (8, 6), (-2, 10), (4, 9)
     ]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(19):
         frame = BuildImage.open(img_dir / f"{i}.png")
         frame.paste(user_head, user_locs[i], alpha=True)

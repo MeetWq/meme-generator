@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -8,7 +7,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def rip(images: List[BuildImage], texts, args):
+def rip(images: list[BuildImage], texts, args):
     if len(images) >= 2:
         frame = BuildImage.open(img_dir / "1.png")
         self_img = images[0]

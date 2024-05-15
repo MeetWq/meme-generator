@@ -1,6 +1,5 @@
 import math
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def lost_dog(images: List[BuildImage], texts, args):
+def lost_dog(images: list[BuildImage], texts, args):
     k = 2
     w_ = 663 * k
     w = 540 * k

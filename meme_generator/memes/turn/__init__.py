@@ -1,5 +1,4 @@
 import random
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -8,9 +7,9 @@ from meme_generator import add_meme
 from meme_generator.utils import save_gif
 
 
-def turn(images: List[BuildImage], texts, args):
+def turn(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").circle()
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(0, 360, 10):
         frame = BuildImage.new("RGBA", (250, 250), "white")
         frame.paste(img.rotate(i).resize((250, 250)), alpha=True)

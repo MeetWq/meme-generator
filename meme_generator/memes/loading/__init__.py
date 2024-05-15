@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL import ImageFilter
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def loading(images: List[BuildImage], texts, args):
+def loading(images: list[BuildImage], texts, args):
     img_big = images[0].convert("RGBA").resize_width(500)
     img_big = img_big.filter(ImageFilter.GaussianBlur(radius=3))
     h1 = img_big.height

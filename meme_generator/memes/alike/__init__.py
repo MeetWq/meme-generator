@@ -1,12 +1,10 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.utils import make_jpg_or_gif
 
 
-def alike(images: List[BuildImage], texts, args):
+def alike(images: list[BuildImage], texts, args):
     frame = BuildImage.new("RGBA", (470, 180), "white")
     frame.draw_text(
         (10, 10, 185, 140), "你怎么跟", max_fontsize=40, min_fontsize=30, halign="right"

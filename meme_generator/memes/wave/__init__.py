@@ -1,5 +1,4 @@
 import math
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -7,7 +6,7 @@ from meme_generator import add_meme
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 
-def wave(images: List[BuildImage], texts, args):
+def wave(images: list[BuildImage], texts, args):
     img = images[0]
     img_w = min(max(img.width, 360), 720)
     period = img_w / 6

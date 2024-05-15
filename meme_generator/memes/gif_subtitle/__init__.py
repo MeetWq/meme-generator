@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List, Tuple
 
 from pil_utils import BuildImage
 
@@ -12,15 +11,16 @@ img_dir = Path(__file__).parent / "images"
 
 def make_gif(
     key: str,
-    texts: List[str],
-    pieces: Tuple[Tuple[int, int], ...],
+    texts: list[str],
+    pieces: tuple[tuple[int, int], ...],
     fontsize: int = 20,
     padding_x: int = 5,
     padding_y: int = 5,
 ):
     img = BuildImage.open(img_dir / f"{key}.gif").image
-    frames: List[BuildImage] = []
-    for i in range(img.n_frames):
+    frames: list[BuildImage] = []
+    n_frames = getattr(img, "n_frames", 1)
+    for i in range(n_frames):
         img.seek(i)
         frames.append(BuildImage(img.convert("RGB")))
 
@@ -46,12 +46,12 @@ def make_gif(
 
 def add_gif_meme(
     key: str,
-    keywords: List[str],
-    pieces: Tuple[Tuple[int, int], ...],
-    examples: Tuple[str, ...],
+    keywords: list[str],
+    pieces: tuple[tuple[int, int], ...],
+    examples: tuple[str, ...],
     **kwargs,
 ):
-    def gif_func(images, texts: List[str], args):
+    def gif_func(images, texts: list[str], args):
         return make_gif(key, texts, pieces, **kwargs)
 
     text_num = len(pieces)

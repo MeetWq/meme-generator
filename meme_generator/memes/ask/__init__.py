@@ -1,5 +1,3 @@
-from typing import List
-
 from PIL import ImageFilter
 from pil_utils import BuildImage, Text2Image
 from pil_utils.gradient import ColorStop, LinearGradient
@@ -8,7 +6,7 @@ from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 
 
-def ask(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def ask(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     if not texts and not args.user_infos:
         raise TextOrNameNotEnough("ask")
 

@@ -2,7 +2,7 @@ import asyncio
 import copy
 from argparse import ArgumentParser
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import filetype
 
@@ -80,7 +80,7 @@ def meme_info(key: str) -> str:
 
     default_texts = ", ".join([f'"{text}"' for text in meme.params_type.default_texts])
 
-    def arg_info(name: str, info: Dict[str, Any]) -> str:
+    def arg_info(name: str, info: dict[str, Any]) -> str:
         text = (
             f'        "{name}"\n'
             f"            描述：{info.get('description', '')}\n"
@@ -94,7 +94,7 @@ def meme_info(key: str) -> str:
 
     if args := meme.params_type.args_type:
         model = args.model
-        properties: Dict[str, Dict[str, Any]] = model.schema().get("properties", {})
+        properties: dict[str, dict[str, Any]] = model.schema().get("properties", {})
         properties.pop("user_infos")
         args_info = "\n" + "\n".join(
             [arg_info(name, info) for name, info in properties.items()]
@@ -134,7 +134,7 @@ def generate_meme_preview(key: str) -> str:
 
 
 def generate_meme(
-    key: str, images: List[str], texts: List[str], args: Dict[str, Any]
+    key: str, images: list[str], texts: list[str], args: dict[str, Any]
 ) -> str:
     try:
         meme = get_meme(key)
@@ -180,8 +180,8 @@ def main():
         kwargs = vars(args)
         kwargs.pop("handle")
         key: str = kwargs.pop("key")
-        images: List[str] = kwargs.pop("images")
-        texts: List[str] = kwargs.pop("texts")
+        images: list[str] = kwargs.pop("images")
+        texts: list[str] = kwargs.pop("texts")
         print(generate_meme(key, images, texts, kwargs))  # noqa: T201
 
     elif handle in ["run", "start"]:

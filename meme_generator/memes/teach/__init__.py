@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def teach(images: List[BuildImage], texts: List[str], args):
+def teach(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png").resize_width(960).convert("RGBA")
     text = texts[0] if texts else "我老婆"
     try:

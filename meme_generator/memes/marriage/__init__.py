@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -8,7 +7,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def marriage(images: List[BuildImage], texts, args):
+def marriage(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize_height(1080)
     img_w, img_h = img.size
     if img_w > 1500:

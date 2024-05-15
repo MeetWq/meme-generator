@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,12 +9,12 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def thump(images: List[BuildImage], texts, args):
+def thump(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square()
     # fmt: off
     locs = [(65, 128, 77, 72), (67, 128, 73, 72), (54, 139, 94, 61), (57, 135, 86, 65)]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(4):
         frame = BuildImage.open(img_dir / f"{i}.png")
         x, y, w, h = locs[i]

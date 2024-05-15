@@ -1,6 +1,5 @@
 import math
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
@@ -10,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def ace_attorney_dialog(images, texts: List[str], args):
+def ace_attorney_dialog(images, texts: list[str], args):
     def shadow_text(text: str, fontsize: int) -> BuildImage:
         fontname = "PangMenZhengDao-Cu"
         inner = Text2Image.from_text(
@@ -40,7 +39,7 @@ def ace_attorney_dialog(images, texts: List[str], args):
         return img
 
     text = texts[0]
-    text_imgs: List[BuildImage] = []
+    text_imgs: list[BuildImage] = []
     for char in text:
         text_imgs.append(shadow_text(char, 650))
 
@@ -48,7 +47,7 @@ def ace_attorney_dialog(images, texts: List[str], args):
     if total_width > 4000:
         raise TextOverLength(text)
 
-    def combine_text(text_imgs: List[BuildImage]) -> BuildImage:
+    def combine_text(text_imgs: list[BuildImage]) -> BuildImage:
         ratio = 0.4
         text_w = sum(img.width for img in text_imgs) - sum(
             round(img.width * ratio) for img in text_imgs[1:]

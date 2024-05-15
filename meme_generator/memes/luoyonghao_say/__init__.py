@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL import ImageFilter
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def luoyonghao_say(images, texts: List[str], args):
+def luoyonghao_say(images, texts: list[str], args):
     text = texts[0]
     frame = BuildImage.open(img_dir / "0.jpg")
     text_frame = BuildImage.new("RGBA", (365, 120))
@@ -27,7 +26,7 @@ def luoyonghao_say(images, texts: List[str], args):
         raise TextOverLength(text)
     text_frame = text_frame.perspective(
         ((52, 10), (391, 0), (364, 110), (0, 120))
-    ).filter(ImageFilter.GaussianBlur(radius=0.8))
+    ).filter(ImageFilter.GaussianBlur(radius=0.8))  # type: ignore
     frame.paste(text_frame, (48, 246), alpha=True)
     return frame.save_jpg()
 

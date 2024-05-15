@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def play_game(images: List[BuildImage], texts: List[str], args):
+def play_game(images: list[BuildImage], texts: list[str], args):
     text = texts[0] if texts else "来玩休闲游戏啊"
     frame = BuildImage.open(img_dir / "0.png")
     try:

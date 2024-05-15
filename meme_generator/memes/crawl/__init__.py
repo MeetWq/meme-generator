@@ -1,6 +1,5 @@
 import random
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -20,7 +19,7 @@ class Model(MemeArgsModel):
     number: int = Field(0, description=help)
 
 
-def crawl(images: List[BuildImage], texts: List[str], args: Model):
+def crawl(images: list[BuildImage], texts: list[str], args: Model):
     total_num = 92
     if 1 <= args.number <= total_num:
         num = args.number

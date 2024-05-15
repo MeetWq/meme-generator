@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Transpose
 from pil_utils import BuildImage, Text2Image
@@ -9,7 +8,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def youtube(images, texts: List[str], args):
+def youtube(images, texts: list[str], args):
     left_img = Text2Image.from_text(texts[0], fontsize=200, fill="black").to_image(
         bg_color="white", padding=(30, 20)
     )

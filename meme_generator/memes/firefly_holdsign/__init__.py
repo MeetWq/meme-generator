@@ -1,6 +1,5 @@
 import random
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -21,7 +20,7 @@ class Model(MemeArgsModel):
     number: int = Field(0, description=help)
 
 
-def firefly_holdsign(images, texts: List[str], args: Model):
+def firefly_holdsign(images, texts: list[str], args: Model):
     text = texts[0]
     total_num = 21
     if 1 <= args.number <= total_num:

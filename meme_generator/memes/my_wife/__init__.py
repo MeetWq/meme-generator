@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -8,7 +7,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def my_wife(images: List[BuildImage], texts, args):
+def my_wife(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize_width(400)
     img_w, img_h = img.size
     frame = BuildImage.new("RGBA", (650, img_h + 500), "white")

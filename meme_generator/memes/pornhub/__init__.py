@@ -1,11 +1,9 @@
-from typing import List
-
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
 
 
-def pornhub(images, texts: List[str], args):
+def pornhub(images, texts: list[str], args):
     left_img = Text2Image.from_text(texts[0], fontsize=200, fill="white").to_image(
         bg_color="black", padding=(20, 10)
     )

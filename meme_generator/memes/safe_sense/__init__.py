@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def safe_sense(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def safe_sense(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     img = images[0].convert("RGBA").resize((215, 343), keep_ratio=True)
     frame = BuildImage.open(img_dir / "0.png")
     frame.paste(img, (215, 135))

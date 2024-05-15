@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def thump_wildly(images: List[BuildImage], texts, args):
+def thump_wildly(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((122, 122), keep_ratio=True)
     raw_frames = [BuildImage.open(img_dir / f"{i}.png") for i in range(31)]
     for i in range(14):

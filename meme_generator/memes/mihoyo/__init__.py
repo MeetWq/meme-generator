@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import make_png_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def mihoyo(images: List[BuildImage], texts, args):
+def mihoyo(images: list[BuildImage], texts, args):
     mask = BuildImage.new("RGBA", (500, 60), (53, 49, 65, 230))
     logo = BuildImage.open(img_dir / "logo.png").resize_height(50)
 

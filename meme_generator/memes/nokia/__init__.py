@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
@@ -8,7 +7,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def nokia(images, texts: List[str], args):
+def nokia(images, texts: list[str], args):
     text = texts[0][:900]
     text_img = (
         Text2Image.from_text(text, 70, fontname="FZXS14", fill="black", spacing=30)

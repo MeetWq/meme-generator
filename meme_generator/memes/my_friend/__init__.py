@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 from pydantic import Field
@@ -19,7 +18,7 @@ class Model(MemeArgsModel):
     name: str = Field("", description=help)
 
 
-def my_friend(images: List[BuildImage], texts: List[str], args: Model):
+def my_friend(images: list[BuildImage], texts: list[str], args: Model):
     name = args.name or (args.user_infos[-1].name if args.user_infos else "") or "朋友"
     img = images[0].convert("RGBA").circle().resize((100, 100))
 

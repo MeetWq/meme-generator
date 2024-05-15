@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def what_he_wants(images: List[BuildImage], texts: List[str], args):
+def what_he_wants(images: list[BuildImage], texts: list[str], args):
     date = texts[0] if texts else "今年520"
     text = f"{date}我会给你每个男人都最想要的东西···"
     frame = BuildImage.open(img_dir / "0.png")

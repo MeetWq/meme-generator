@@ -1,4 +1,4 @@
-from typing import Dict, List, Literal, NamedTuple, Tuple
+from typing import Literal, NamedTuple
 
 from PIL.Image import Transpose
 from pil_utils import BuildImage
@@ -37,19 +37,19 @@ class Model(MemeArgsModel):
     )
 
 
-def symmetric(images: List[BuildImage], texts, args: Model):
+def symmetric(images: list[BuildImage], texts, args: Model):
     img = images[0]
     img_w, img_h = img.size
 
     class Mode(NamedTuple):
         method: Transpose
-        frame_size: Tuple[int, int]
-        size1: Tuple[int, int, int, int]
-        pos1: Tuple[int, int]
-        size2: Tuple[int, int, int, int]
-        pos2: Tuple[int, int]
+        frame_size: tuple[int, int]
+        size1: tuple[int, int, int, int]
+        pos1: tuple[int, int]
+        size2: tuple[int, int, int, int]
+        pos2: tuple[int, int]
 
-    modes: Dict[str, Mode] = {
+    modes: dict[str, Mode] = {
         "left": Mode(
             Transpose.FLIP_LEFT_RIGHT,
             (img_w // 2 * 2, img_h),

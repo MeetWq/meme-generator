@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Tuple
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -15,9 +14,9 @@ PERSON_PATH = IMG_DIR / "person.png"
 @dataclass
 class PicInfo:
     frame_path: Path
-    avatar_size: Tuple[int, int]
+    avatar_size: tuple[int, int]
     avatar_rotate: int
-    avatar_left_center: Tuple[int, int]  # top right 直接算镜像
+    avatar_left_center: tuple[int, int]  # top right 直接算镜像
 
 
 CIRCLE_INFO = PicInfo(CIRCLE_PATH, (554, 442), 26, (153, 341))
@@ -34,7 +33,7 @@ class Model(MemeArgsModel):
     person: bool = Field(False, description=HELP_PERSON)
 
 
-def clown(images: List[BuildImage], texts, args: Model):
+def clown(images: list[BuildImage], texts, args: Model):
     info = PERSON_INFO if args.person else CIRCLE_INFO
     avatar = images[0].convert("RGBA").resize(info.avatar_size, keep_ratio=True)
     frame = BuildImage.open(info.frame_path).convert("RGBA")

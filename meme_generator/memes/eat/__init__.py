@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def eat(images: List[BuildImage], texts, args):
+def eat(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((34, 34))
     frames = []
     for i in range(3):

@@ -1,5 +1,3 @@
-from typing import List
-
 import numpy as np
 from pil_utils import BuildImage
 
@@ -7,7 +5,7 @@ from meme_generator import add_meme
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 
-def rotate_3d(images: List[BuildImage], texts, args):
+def rotate_3d(images: list[BuildImage], texts, args):
     tmp_img = images[0].convert("RGBA")
     fov = 45 * np.pi / 180
     z = np.sqrt(tmp_img.width**2 + tmp_img.height**2) / 2 / np.tan(fov / 2)

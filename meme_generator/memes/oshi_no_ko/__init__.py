@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_png_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def oshi_no_ko(images: List[BuildImage], texts: List[str], args):
+def oshi_no_ko(images: list[BuildImage], texts: list[str], args):
     name = texts[0] if texts else "网友"
 
     text_frame1 = BuildImage.open(img_dir / "text1.png")

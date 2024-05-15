@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def hug_leg(images: List[BuildImage], texts, args):
+def hug_leg(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square()
     locs = [
         (50, 73, 68, 92),
@@ -20,7 +19,7 @@ def hug_leg(images: List[BuildImage], texts, args):
         (55, 44, 65, 106),
         (66, 85, 60, 98),
     ]
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(6):
         frame = BuildImage.open(img_dir / f"{i}.png")
         x, y, w, h = locs[i]

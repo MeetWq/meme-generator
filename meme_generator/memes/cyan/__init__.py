@@ -1,11 +1,9 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 
 
-def cyan(images: List[BuildImage], texts, args):
+def cyan(images: list[BuildImage], texts, args):
     color = (78, 114, 184)
     frame = images[0].convert("RGB").square().resize((500, 500)).color_mask(color)
     frame.draw_text(

@@ -4,6 +4,7 @@ import inspect
 import math
 import random
 import time
+from collections.abc import Coroutine
 from dataclasses import dataclass
 from enum import Enum
 from functools import partial, wraps
@@ -12,12 +13,9 @@ from typing import (
     TYPE_CHECKING,
     Any,
     Callable,
-    Coroutine,
-    List,
     Literal,
     Optional,
     Protocol,
-    Tuple,
     TypeVar,
 )
 
@@ -63,7 +61,7 @@ def is_coroutine_callable(call: Callable[..., Any]) -> bool:
     return inspect.iscoroutinefunction(func_)
 
 
-def save_gif(frames: List[IMG], duration: float) -> BytesIO:
+def save_gif(frames: list[IMG], duration: float) -> BytesIO:
     output = BytesIO()
     frames[0].save(
         output,
@@ -112,17 +110,19 @@ def get_avg_duration(image: IMG) -> float:
     if not getattr(image, "is_animated", False):
         return 0
     total_duration = 0
-    for i in range(image.n_frames):
+    n_frames = getattr(image, "n_frames", 1)
+    for i in range(n_frames):
         image.seek(i)
         total_duration += image.info["duration"]
-    return total_duration / image.n_frames
+    return total_duration / n_frames
 
 
-def split_gif(image: IMG) -> List[IMG]:
-    frames: List[IMG] = []
+def split_gif(image: IMG) -> list[IMG]:
+    frames: list[IMG] = []
 
     update_mode = "full"
-    for i in range(image.n_frames):
+    n_frames = getattr(image, "n_frames", 1)
+    for i in range(n_frames):
         image.seek(i)
         if image.tile:  # type: ignore
             update_region = image.tile[0][1][2:]  # type: ignore
@@ -131,7 +131,7 @@ def split_gif(image: IMG) -> List[IMG]:
                 break
 
     last_frame: Optional[IMG] = None
-    for i in range(image.n_frames):
+    for i in range(n_frames):
         image.seek(i)
         frame = image.copy()
         if update_mode == "partial" and last_frame:
@@ -230,7 +230,7 @@ def make_gif_or_combined_gif(
     if not getattr(image, "is_animated", False):
         return save_gif([maker(i)(img).image for i in range(frame_num)], duration)
 
-    frame_num_in = image.n_frames
+    frame_num_in = getattr(image, "n_frames", 1)
     duration_in = get_avg_duration(image) / 1000
     total_duration_in = frame_num_in * duration_in
     total_duration = frame_num * duration
@@ -250,7 +250,7 @@ def make_gif_or_combined_gif(
         total_duration_base = total_duration
         total_duration_fit = total_duration_in
 
-    frame_idxs: List[int] = list(range(frame_num_base))
+    frame_idxs: list[int] = list(range(frame_num_base))
     diff_duration = total_duration_fit - total_duration_base
     diff_num = int(diff_duration / duration_base)
 
@@ -276,7 +276,7 @@ def make_gif_or_combined_gif(
                 ):
                     break
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     frame_idx_fit = 0
     time_start = 0
     for i, idx in enumerate(frame_idxs):
@@ -366,20 +366,20 @@ def default_template(meme: "Meme", number: int) -> str:
 
 
 def render_meme_list(
-    meme_list: List[Tuple["Meme", TextProperties]],
+    meme_list: list[tuple["Meme", TextProperties]],
     *,
     template: Callable[["Meme", int], str] = default_template,
     order_direction: Literal["row", "column"] = "column",
     columns: int = 4,
     column_align: Literal["left", "center", "right"] = "left",
-    item_padding: Tuple[int, int] = (15, 6),
-    image_padding: Tuple[int, int] = (50, 50),
+    item_padding: tuple[int, int] = (15, 6),
+    image_padding: tuple[int, int] = (50, 50),
     bg_color: ColorType = "white",
     fontsize: int = 30,
     fontname: str = "",
-    fallback_fonts: List[str] = [],
+    fallback_fonts: list[str] = [],
 ) -> BytesIO:
-    item_images: List[Text2Image] = []
+    item_images: list[Text2Image] = []
     for i, (meme, properties) in enumerate(meme_list, start=1):
         text = template(meme, i)
         t2m = Text2Image.from_text(
@@ -402,7 +402,7 @@ def render_meme_list(
         .chars[0]
     )
     num_per_col = math.ceil(len(item_images) / columns)
-    column_images: List[BuildImage] = []
+    column_images: list[BuildImage] = []
     for col in range(columns):
         if order_direction == "column":
             images = item_images[col * num_per_col : (col + 1) * num_per_col]

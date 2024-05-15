@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def scratch_head(images: List[BuildImage], texts, args):
+def scratch_head(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((68, 68))
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     locs = [
         (53, 46, 4, 5),
         (50, 45, 7, 6),

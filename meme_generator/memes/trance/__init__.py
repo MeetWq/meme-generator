@@ -1,11 +1,9 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 
 
-def trance(images: List[BuildImage], texts, args):
+def trance(images: list[BuildImage], texts, args):
     img = images[0]
     width, height = img.size
     height1 = int(1.1 * height)

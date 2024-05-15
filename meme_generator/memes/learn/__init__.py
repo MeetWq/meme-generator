@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def learn(images: List[BuildImage], texts: List[str], args):
+def learn(images: list[BuildImage], texts: list[str], args):
     text = texts[0] if texts else "偷学群友数理基础"
     frame = BuildImage.open(img_dir / "0.png")
     try:

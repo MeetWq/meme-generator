@@ -1,6 +1,5 @@
 import math
 import random
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
@@ -9,7 +8,7 @@ from meme_generator import add_meme
 from meme_generator.utils import save_gif
 
 
-def douyin(images, texts: List[str], args):
+def douyin(images, texts: list[str], args):
     text = texts[0]
     text = " ".join(text.splitlines())
     fontsize = 200
@@ -33,7 +32,7 @@ def douyin(images, texts: List[str], args):
     frame_num = 10
     devide_num = 6
     seed = 20 * 0.05
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for _ in range(frame_num):
         new_frame = frame.copy()
         h_seeds = [

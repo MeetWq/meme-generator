@@ -1,6 +1,5 @@
 import random
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
@@ -10,7 +9,7 @@ from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def always_like(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def always_like(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     names = [info.name for info in args.user_infos]
 
     if len(images) > len(texts) + len(names):

@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -8,7 +7,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def captain(images: List[BuildImage], texts, args):
+def captain(images: list[BuildImage], texts, args):
     if len(images) == 2:
         images.append(images[-1])
 

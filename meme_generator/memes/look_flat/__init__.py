@@ -1,5 +1,3 @@
-from typing import List
-
 from pil_utils import BuildImage
 from pydantic import Field
 
@@ -17,7 +15,7 @@ class Model(MemeArgsModel):
     ratio: int = Field(2, description=help)
 
 
-def look_flat(images: List[BuildImage], texts: List[str], args: Model):
+def look_flat(images: list[BuildImage], texts: list[str], args: Model):
     text = texts[0] if texts else "可恶...被人看扁了"
     ratio = args.ratio
 
