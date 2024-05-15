@@ -1,6 +1,5 @@
 import re
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
@@ -10,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def read_book(images: List[BuildImage], texts: List[str], args):
+def read_book(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png")
     points = ((0, 108), (1092, 0), (1023, 1134), (29, 1134))
     img = (
@@ -24,7 +23,7 @@ def read_book(images: List[BuildImage], texts: List[str], args):
     text = texts[0] if texts else "エロ本"
 
     chars = list(" ".join(text.splitlines()))
-    pieces: List[BuildImage] = []
+    pieces: list[BuildImage] = []
     for char in chars:
         piece = BuildImage(
             Text2Image.from_text(char, 150, fill="white", weight="bold").to_image()

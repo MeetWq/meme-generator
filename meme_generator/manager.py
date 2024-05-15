@@ -2,14 +2,14 @@ import importlib
 import importlib.util
 import pkgutil
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Optional, Union
 
 from .config import meme_config
 from .exception import NoSuchMeme
 from .log import logger
 from .meme import Meme, MemeArgsType, MemeFunction, MemeParamsType
 
-_memes: Dict[str, Meme] = {}
+_memes: dict[str, Meme] = {}
 
 
 def path_to_module_name(path: Path) -> str:
@@ -64,10 +64,10 @@ def add_meme(
     max_images: int = 0,
     min_texts: int = 0,
     max_texts: int = 0,
-    default_texts: List[str] = [],
+    default_texts: list[str] = [],
     args_type: Optional[MemeArgsType] = None,
-    keywords: List[str] = [],
-    patterns: List[str] = [],
+    keywords: list[str] = [],
+    patterns: list[str] = [],
 ):
     if key in _memes:
         logger.warning(f'Meme with key "{key}" already exists!')
@@ -96,9 +96,9 @@ def get_meme(key: str) -> Meme:
     return _memes[key]
 
 
-def get_memes() -> List[Meme]:
+def get_memes() -> list[Meme]:
     return list(_memes.values())
 
 
-def get_meme_keys() -> List[str]:
+def get_meme_keys() -> list[str]:
     return list(_memes.keys())

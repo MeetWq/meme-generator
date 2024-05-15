@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def love_you(images: List[BuildImage], texts, args):
+def love_you(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square()
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     locs = [(68, 65, 70, 70), (63, 59, 80, 80)]
     for i in range(2):
         heart = BuildImage.open(img_dir / f"{i}.png")

@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Literal, Optional, Tuple
+from typing import Any, Literal, Optional
 
 import filetype
 from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile
@@ -20,7 +20,7 @@ class MemeArgsResponse(BaseModel):
     type: str
     description: Optional[str] = None
     default: Optional[Any] = None
-    enum: Optional[List[Any]] = None
+    enum: Optional[list[Any]] = None
 
 
 class MemeParamsResponse(BaseModel):
@@ -28,14 +28,14 @@ class MemeParamsResponse(BaseModel):
     max_images: int
     min_texts: int
     max_texts: int
-    default_texts: List[str]
-    args: List[MemeArgsResponse]
+    default_texts: list[str]
+    args: list[MemeArgsResponse]
 
 
 class MemeInfoResponse(BaseModel):
     key: str
-    keywords: List[str]
-    patterns: List[str]
+    keywords: list[str]
+    patterns: list[str]
     params: MemeParamsResponse
 
 
@@ -56,11 +56,11 @@ def register_router(meme: Meme):
 
     @app.post(f"/memes/{meme.key}/")
     async def _(
-        images: List[UploadFile] = [],
-        texts: List[str] = meme.params_type.default_texts,
+        images: list[UploadFile] = [],
+        texts: list[str] = meme.params_type.default_texts,
         args: args_model = Depends(args_checker),  # type: ignore
     ):
-        imgs: List[bytes] = []
+        imgs: list[bytes] = []
         for image in images:
             imgs.append(await image.read())
 
@@ -94,16 +94,16 @@ default_meme_list = [
 
 
 class RenderMemeListRequest(BaseModel):
-    meme_list: List[MemeKeyWithProperties] = default_meme_list
+    meme_list: list[MemeKeyWithProperties] = default_meme_list
     order_direction: Literal["row", "column"] = "column"
     columns: int = 4
     column_align: Literal["left", "center", "right"] = "left"
-    item_padding: Tuple[int, int] = (15, 2)
-    image_padding: Tuple[int, int] = (50, 50)
+    item_padding: tuple[int, int] = (15, 2)
+    image_padding: tuple[int, int] = (50, 50)
     bg_color: ColorType = "white"
     fontsize: int = 30
     fontname: str = ""
-    fallback_fonts: List[str] = []
+    fallback_fonts: list[str] = []
 
 
 def register_routers():
@@ -158,7 +158,7 @@ def register_routers():
             if meme.params_type.args_type
             else MemeArgsModel
         )
-        properties: Dict[str, Dict[str, Any]] = (
+        properties: dict[str, dict[str, Any]] = (
             args_model.schema().get("properties", {}).copy()
         )
         properties.pop("user_infos")
@@ -198,7 +198,7 @@ def register_routers():
         return Response(content=content, media_type=media_type)
 
     @app.post("/memes/{key}/parse_args")
-    async def _(key: str, args: List[str] = []):
+    async def _(key: str, args: list[str] = []):
         try:
             meme = get_meme(key)
             return meme.parse_args(args)

@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -11,11 +10,11 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def beat_head(images: List[BuildImage], texts: List[str], args):
+def beat_head(images: list[BuildImage], texts: list[str], args):
     text = texts[0] if texts else "怎么说话的你"
     img = images[0].convert("RGBA")
     locs = [(160, 121, 76, 76), (172, 124, 69, 69), (208, 166, 52, 52)]
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(3):
         x, y, w, h = locs[i]
         head = img.resize((w, h), keep_ratio=True).circle()

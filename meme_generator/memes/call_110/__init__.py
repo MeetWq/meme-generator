@@ -1,11 +1,9 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 
 
-def call_110(images: List[BuildImage], texts, args):
+def call_110(images: list[BuildImage], texts, args):
     img1 = images[0].convert("RGBA").square().resize((250, 250))
     img0 = images[1].convert("RGBA").square().resize((250, 250))
 

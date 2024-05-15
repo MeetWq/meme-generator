@@ -1,4 +1,4 @@
-from typing import List, Literal
+from typing import Literal
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -92,7 +92,7 @@ def always_always(img: BuildImage, loop: bool = False):
     )
 
 
-def always(images: List[BuildImage], texts, args: Model):
+def always(images: list[BuildImage], texts, args: Model):
     img = images[0]
     mode = args.mode
 

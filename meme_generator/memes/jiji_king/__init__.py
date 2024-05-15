@@ -1,6 +1,5 @@
 import math
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -20,7 +19,7 @@ class Model(MemeArgsModel):
     circle: bool = Field(False, description=help)
 
 
-def jiji_king(images: List[BuildImage], texts: List[str], args: Model):
+def jiji_king(images: list[BuildImage], texts: list[str], args: Model):
     block_num = 5
     if len(images) >= 7 or len(texts) >= 7:
         block_num = max(len(images), len(texts)) - 1

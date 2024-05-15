@@ -1,5 +1,4 @@
 import random
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -8,9 +7,9 @@ from meme_generator import add_meme
 from meme_generator.utils import save_gif
 
 
-def shock(images: List[BuildImage], texts, args):
+def shock(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((300, 300))
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(30):
         frames.append(
             img.motion_blur(random.randint(-90, 90), random.randint(0, 50))

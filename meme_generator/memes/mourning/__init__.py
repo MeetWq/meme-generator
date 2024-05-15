@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -19,7 +18,7 @@ class Model(MemeArgsModel):
     black: bool = Field(False, description=help)
 
 
-def mourning(images: List[BuildImage], texts, args: Model):
+def mourning(images: list[BuildImage], texts, args: Model):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:

@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def capoo_rip(images: List[BuildImage], texts, args):
+def capoo_rip(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((150, 100), keep_ratio=True)
     img_left = img.crop((0, 0, 75, 100))
     img_right = img.crop((75, 0, 150, 100))
@@ -40,7 +39,7 @@ def capoo_rip(images: List[BuildImage], texts, args):
         raw_frames[i + 6].paste(img_left.perspective(points1), pos1, below=True)
         raw_frames[i + 6].paste(img_right.perspective(points2), pos2, below=True)
 
-    new_frames: List[BuildImage] = []
+    new_frames: list[BuildImage] = []
     for i in range(3):
         new_frames += raw_frames[0:3]
     new_frames += raw_frames[3:]

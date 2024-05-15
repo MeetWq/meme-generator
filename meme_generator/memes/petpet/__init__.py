@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -20,12 +19,12 @@ class Model(MemeArgsModel):
     circle: bool = Field(False, description=help)
 
 
-def petpet(images: List[BuildImage], texts, args: Model):
+def petpet(images: list[BuildImage], texts, args: Model):
     img = images[0].convert("RGBA").square()
     if args.circle:
         img = img.circle()
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     locs = [
         (14, 20, 98, 98),
         (12, 33, 101, 85),

@@ -1,6 +1,5 @@
 from datetime import datetime
 from pathlib import Path
-from typing import List
 
 import dateparser
 from pil_utils import BuildImage
@@ -20,7 +19,7 @@ class Model(MemeArgsModel):
 img_dir = Path(__file__).parent / "images"
 
 
-def certificate(images, texts: List[str], args: Model):
+def certificate(images, texts: list[str], args: Model):
     time = datetime.now()
     if args.time and (parsed_time := dateparser.parse(args.time)):
         time = parsed_time

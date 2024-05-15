@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def distracted(images: List[BuildImage], texts, args):
+def distracted(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "1.png")
     label = BuildImage.open(img_dir / "0.png")
 

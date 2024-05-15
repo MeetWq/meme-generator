@@ -8,7 +8,7 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 
 <p align="center">
   <img src="https://img.shields.io/github/license/MeetWq/meme-generator" alt="license">
-  <img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <a href="https://pypi.org/project/meme-generator">
     <img src="https://badgen.net/pypi/v/meme-generator" alt="pypi">
   </a>

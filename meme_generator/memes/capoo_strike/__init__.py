@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 img_dir = Path(__file__).parent / "images"
 
 
-def capoo_strike(images: List[BuildImage], texts, args):
+def capoo_strike(images: list[BuildImage], texts, args):
     params = (
         (((0, 4), (153, 0), (138, 105), (0, 157)), (28, 47)),
         (((1, 13), (151, 0), (130, 104), (0, 156)), (28, 48)),

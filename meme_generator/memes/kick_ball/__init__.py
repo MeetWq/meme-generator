@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def kick_ball(images: List[BuildImage], texts, args):
+def kick_ball(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((78, 78))
     # fmt: off
     locs = [
@@ -19,7 +18,7 @@ def kick_ball(images: List[BuildImage], texts, args):
         (50, 136), (51, 176), (52, 169), (55, 181), (58, 153)
     ]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(15):
         frame = BuildImage.open(img_dir / f"{i}.png")
         frame.paste(img.rotate(-24 * i), locs[i], below=True)

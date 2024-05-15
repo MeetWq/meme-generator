@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL import ImageEnhance
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def incivilization(images: List[BuildImage], texts: List[str], args):
+def incivilization(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png")
     points = ((0, 20), (154, 0), (164, 153), (22, 180))
     img = images[0].convert("RGBA").circle().resize((150, 150)).perspective(points)

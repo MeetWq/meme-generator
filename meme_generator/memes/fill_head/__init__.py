@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def fill_head(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def fill_head(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     name = texts[0] if texts else (args.user_infos[0].name if args.user_infos else "它")
     text = f"满脑子都是{name}"
     frame = BuildImage.open(img_dir / "0.jpg")

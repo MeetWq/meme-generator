@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,11 +9,11 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def worship(images: List[BuildImage], texts, args):
+def worship(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA")
     points = ((0, -30), (135, 17), (135, 145), (0, 140))
     paint = img.square().resize((150, 150)).perspective(points)
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(10):
         frame = BuildImage.open(img_dir / f"{i}.png")
         frame.paste(paint, below=True)

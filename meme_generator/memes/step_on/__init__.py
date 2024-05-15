@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def step_on(images: List[BuildImage], texts, args):
+def step_on(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((100, 100), keep_ratio=True)
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     locs = [
         (104, 72, 32, 185, -25),
         (104, 72, 32, 185, -25),

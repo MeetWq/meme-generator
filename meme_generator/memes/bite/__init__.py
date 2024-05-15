@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def bite(images: List[BuildImage], texts, args):
+def bite(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square()
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     # fmt: off
     locs = [
         (90, 90, 105, 150), (90, 83, 96, 172), (90, 90, 106, 148),

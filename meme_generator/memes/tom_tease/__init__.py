@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 img_dir = Path(__file__).parent / "images"
 
 
-def tom_tease(images: List[BuildImage], texts, args):
+def tom_tease(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
             img = img.convert("RGBA").resize((400, 350), keep_ratio=True)

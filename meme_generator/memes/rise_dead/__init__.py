@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def rise_dead(images: List[BuildImage], texts, args):
+def rise_dead(images: list[BuildImage], texts, args):
     locs = [
         ((81, 55), ((0, 2), (101, 0), (103, 105), (1, 105))),
         ((74, 49), ((0, 3), (104, 0), (106, 108), (1, 108))),
@@ -19,7 +18,7 @@ def rise_dead(images: List[BuildImage], texts, args):
     ]
     img = images[0].convert("RGBA").square().resize((150, 150))
     imgs = [img.perspective(points) for _, points in locs]
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(34):
         frame = BuildImage.open(img_dir / f"{i}.png")
         if i <= 28:

@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 import toml
 from pydantic import BaseModel, Extra
@@ -12,13 +12,13 @@ config_file_path = get_config_file("config.toml")
 
 class MemeConfig(BaseModel):
     load_builtin_memes: bool = True
-    meme_dirs: List[Path] = []
-    meme_disabled_list: List[str] = []
+    meme_dirs: list[Path] = []
+    meme_disabled_list: list[str] = []
 
 
 class ResourceConfig(BaseModel):
     resource_url: Optional[str] = None
-    resource_urls: List[str] = [
+    resource_urls: list[str] = [
         "https://raw.githubusercontent.com/MeetWq/meme-generator/",
         "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator/",
         "https://fastly.jsdelivr.net/gh/MeetWq/meme-generator@",

@@ -1,6 +1,5 @@
 import random
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def throw(images: List[BuildImage], texts, args):
+def throw(images: list[BuildImage], texts, args):
     img = (
         images[0]
         .convert("RGBA")

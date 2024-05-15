@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,10 +9,10 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def pat(images: List[BuildImage], texts, args):
+def pat(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square()
     locs = [(11, 73, 106, 100), (8, 79, 112, 96)]
-    img_frames: List[IMG] = []
+    img_frames: list[IMG] = []
     for i in range(10):
         frame = BuildImage.open(img_dir / f"{i}.png")
         x, y, w, h = locs[1] if i == 2 else locs[0]

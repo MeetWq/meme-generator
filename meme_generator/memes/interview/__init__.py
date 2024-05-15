@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def interview(images: List[BuildImage], texts: List[str], args):
+def interview(images: list[BuildImage], texts: list[str], args):
     if len(images) == 2:
         self_img = images[0]
         user_img = images[1]

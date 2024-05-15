@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -20,7 +19,7 @@ class Model(MemeArgsModel):
     circle: bool = Field(False, description=help)
 
 
-def dog_dislike(images: List[BuildImage], texts: List[str], args: Model):
+def dog_dislike(images: list[BuildImage], texts: list[str], args: Model):
     location = [
         (36, 408),
         (36, 410),
@@ -60,7 +59,7 @@ def dog_dislike(images: List[BuildImage], texts: List[str], args: Model):
     head = images[0].convert("RGBA").resize((122, 122), keep_ratio=True)
     if args.circle:
         head = head.circle()
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(34):
         frame = BuildImage.open(img_dir / f"{i}.png")
         frame.paste(head, location[i], alpha=True)

@@ -1,12 +1,10 @@
-from typing import List
-
 from PIL.Image import Transpose
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 
 
-def keep_away(images: List[BuildImage], texts: List[str], args):
+def keep_away(images: list[BuildImage], texts: list[str], args):
     def trans(img: BuildImage, n: int) -> BuildImage:
         img = img.convert("RGBA").square().resize((100, 100))
         if n < 4:

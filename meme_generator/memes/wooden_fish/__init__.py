@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def wooden_fish(images: List[BuildImage], texts, args):
+def wooden_fish(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((85, 85))
     frames = [
         BuildImage.open(img_dir / f"{i}.png").paste(img, (116, 153), below=True).image

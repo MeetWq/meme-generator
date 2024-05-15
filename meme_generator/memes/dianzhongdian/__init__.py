@@ -1,5 +1,3 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
@@ -42,7 +40,7 @@ def _dianzhongdian(img: BuildImage, text: str, trans: str):
     return frame.save_jpg()
 
 
-async def dianzhongdian(images: List[BuildImage], texts: List[str], args):
+async def dianzhongdian(images: list[BuildImage], texts: list[str], args):
     if len(texts) == 1:
         text = texts[0]
         trans = await translate(text, lang_to="jp")

@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 img_dir = Path(__file__).parent / "images"
 
 
-def confuse(images: List[BuildImage], texts, args):
+def confuse(images: list[BuildImage], texts, args):
     img_w = min(images[0].width, 500)
 
     def maker(i: int) -> Maker:

@@ -1,5 +1,4 @@
 import math
-from typing import List
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -17,7 +16,7 @@ class Model(MemeArgsModel):
     circle: bool = Field(False, description=help)
 
 
-def kaleidoscope(images: List[BuildImage], texts, args: Model):
+def kaleidoscope(images: list[BuildImage], texts, args: Model):
     def make(img: BuildImage) -> BuildImage:
         circle_num = 10
         img_per_circle = 4

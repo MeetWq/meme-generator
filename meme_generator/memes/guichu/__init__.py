@@ -1,4 +1,4 @@
-from typing import Dict, List, Literal, NamedTuple, Tuple
+from typing import Literal, NamedTuple
 
 from PIL.Image import Image as IMG
 from PIL.Image import Transpose
@@ -38,18 +38,18 @@ class Model(MemeArgsModel):
     )
 
 
-def guichu(images: List[BuildImage], texts, args: Model):
+def guichu(images: list[BuildImage], texts, args: Model):
     img = images[0].convert("RGBA")
     img_w, img_h = img.size
 
     class Mode(NamedTuple):
         method: Transpose
-        size1: Tuple[int, int, int, int]
-        pos1: Tuple[int, int]
-        size2: Tuple[int, int, int, int]
-        pos2: Tuple[int, int]
+        size1: tuple[int, int, int, int]
+        pos1: tuple[int, int]
+        size2: tuple[int, int, int, int]
+        pos2: tuple[int, int]
 
-    modes: Dict[str, Mode] = {
+    modes: dict[str, Mode] = {
         "left": Mode(
             Transpose.FLIP_LEFT_RIGHT,
             (0, 0, img_w // 2, img_h),
@@ -90,7 +90,7 @@ def guichu(images: List[BuildImage], texts, args: Model):
         img_symmetric.copy().resize_width(img_w * 2), (-img_w // 2, -img_h // 2)
     )
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     frames += (
         ([img.image] * 3 + [img_flip.image] * 3) * 3
         + [img.image, img_flip.image] * 3

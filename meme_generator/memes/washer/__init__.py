@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,10 +9,10 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def washer(images: List[BuildImage], texts, args):
+def washer(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA")
     frame = BuildImage.open(img_dir / "0.png")
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(0, 360, 30):
         frames.append(
             frame.copy()

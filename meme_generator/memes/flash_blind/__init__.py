@@ -1,5 +1,3 @@
-from typing import List
-
 from PIL import ImageOps
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -9,9 +7,9 @@ from meme_generator.exception import TextOverLength
 from meme_generator.utils import save_gif
 
 
-def flash_blind(images: List[BuildImage], texts: List[str], args):
+def flash_blind(images: list[BuildImage], texts: list[str], args):
     img = images[0].convert("RGB").resize_width(500)
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     frames.append(img.image)
     frames.append(ImageOps.invert(img.image))
     img_enlarge = img.resize_canvas((450, img.height * 450 // 500)).resize(

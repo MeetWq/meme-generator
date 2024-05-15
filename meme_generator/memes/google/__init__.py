@@ -1,11 +1,9 @@
-from typing import List
-
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
 
 
-def google(images, texts: List[str], args):
+def google(images, texts: list[str], args):
     text = texts[0]
     text = " ".join(text.splitlines())
     colors = ["#4285f4", "#db4437", "#f4b400", "#4285f4", "#0f9d58", "#db4437"]

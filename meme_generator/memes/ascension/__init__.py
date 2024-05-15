@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def ascension(images, texts: List[str], args):
+def ascension(images, texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png")
     text = f"你原本应该要去地狱的，但因为你生前{texts[0]}，我们就当作你已经服完刑期了"
     try:

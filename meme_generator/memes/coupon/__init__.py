@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def coupon(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def coupon(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     img = images[0].convert("RGBA").circle().resize((60, 60))
     name = args.user_infos[0].name if args.user_infos else ""
     text = (texts[0] if texts else f"{name}陪睡券") + "\n（永久有效）"

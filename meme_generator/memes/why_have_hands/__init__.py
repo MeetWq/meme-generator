@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def why_have_hands(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def why_have_hands(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     img = images[0].convert("RGBA")
 
     if not texts and not args.user_infos:

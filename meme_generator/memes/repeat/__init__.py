@@ -1,6 +1,5 @@
 from datetime import datetime
 from pathlib import Path
-from typing import List, Tuple
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
@@ -12,7 +11,7 @@ from meme_generator.utils import random_text, save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def repeat(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def repeat(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     def single_msg(img: BuildImage, name: str) -> BuildImage:
         user_img = img.convert("RGBA").circle().resize((100, 100))
         user_name_img = Text2Image.from_text(f"{name}", 40).to_image()
@@ -30,7 +29,7 @@ def repeat(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     if text_img.width > 900:
         raise TextOverLength(text)
 
-    users: List[Tuple[BuildImage, str]] = []
+    users: list[tuple[BuildImage, str]] = []
     user_infos = args.user_infos
     for i, image in enumerate(images):
         name = user_infos[i].name if len(user_infos) > i else random_text()
@@ -47,7 +46,7 @@ def repeat(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
     self_img = images[0].convert("RGBA").circle().resize((75, 75))
     input_img.paste(self_img, (15, 40), alpha=True)
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(50):
         frame = BuildImage.new("RGB", (1079, 1192), "white")
         frame.paste(msg_img_twice, (0, -20 * i))

@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 img_dir = Path(__file__).parent / "images"
 
 
-def hit_screen(images: List[BuildImage], texts, args):
+def hit_screen(images: list[BuildImage], texts, args):
     params = (
         (((1, 10), (138, 1), (140, 119), (7, 154)), (32, 37)),
         (((1, 10), (138, 1), (140, 121), (7, 154)), (32, 37)),

@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Literal
+from typing import Literal
 
 from PIL.Image import Transpose
 from pil_utils import BuildImage
@@ -38,7 +38,7 @@ class Model(MemeArgsModel):
     position: Literal["left", "right", "both"] = Field("left", description=help)
 
 
-def gun(images: List[BuildImage], texts, args: Model):
+def gun(images: list[BuildImage], texts, args: Model):
     frame = images[0].convert("RGBA").resize((500, 500), keep_ratio=True)
     gun = BuildImage.open(img_dir / "0.png")
     position = args.position

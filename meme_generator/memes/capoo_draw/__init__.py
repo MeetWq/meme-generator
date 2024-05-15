@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def capoo_draw(images: List[BuildImage], texts, args):
+def capoo_draw(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((175, 120), keep_ratio=True)
     params = (
         (((27, 0), (207, 12), (179, 142), (0, 117)), (30, 16)),
@@ -21,7 +20,7 @@ def capoo_draw(images: List[BuildImage], texts, args):
         points, pos = params[i]
         raw_frames[4 + i].paste(img.perspective(points), pos, below=True)
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     frames.append(raw_frames[0].image)
     for i in range(4):
         frames.append(raw_frames[1].image)

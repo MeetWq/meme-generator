@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def hutao_bite(images: List[BuildImage], texts, args):
+def hutao_bite(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((100, 100))
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     locs = [(98, 101, 108, 234), (96, 100, 108, 237)]
     for i in range(2):
         frame = BuildImage.open(img_dir / f"{i}.png")

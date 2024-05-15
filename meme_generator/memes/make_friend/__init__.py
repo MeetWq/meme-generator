@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage, Text2Image
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def make_friend(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def make_friend(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     img = images[0].convert("RGBA")
 
     if not texts and not args.user_infos:

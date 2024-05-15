@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def look_this_icon(images: List[BuildImage], texts: List[str], args):
+def look_this_icon(images: list[BuildImage], texts: list[str], args):
     text = texts[0] if texts else "朋友\n先看看这个图标再说话"
     frame = BuildImage.open(img_dir / "nmsl.png")
     try:

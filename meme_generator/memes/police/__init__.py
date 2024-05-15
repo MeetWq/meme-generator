@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -8,14 +7,14 @@ from meme_generator import add_meme
 img_dir = Path(__file__).parent / "images"
 
 
-def police(images: List[BuildImage], texts, args):
+def police(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((245, 245))
     frame = BuildImage.open(img_dir / "0.png")
     frame.paste(img, (224, 46), below=True)
     return frame.save_jpg()
 
 
-def police1(images: List[BuildImage], texts, args):
+def police1(images: list[BuildImage], texts, args):
     img = (
         images[0]
         .convert("RGBA")

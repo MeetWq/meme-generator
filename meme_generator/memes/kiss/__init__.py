@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def kiss(images: List[BuildImage], texts, args):
+def kiss(images: list[BuildImage], texts, args):
     self_head = images[0].convert("RGBA").circle().resize((40, 40))
     user_head = images[1].convert("RGBA").circle().resize((50, 50))
     # fmt: off
@@ -23,7 +22,7 @@ def kiss(images: List[BuildImage], texts, args):
         (98, 55), (35, 65), (38, 100), (70, 80), (84, 65), (75, 65)
     ]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(13):
         frame = BuildImage.open(img_dir / f"{i}.png")
         frame.paste(user_head, user_locs[i], alpha=True)

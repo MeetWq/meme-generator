@@ -1,5 +1,6 @@
 import copy
 from argparse import ArgumentError, ArgumentParser
+from collections.abc import Awaitable
 from contextvars import ContextVar
 from dataclasses import dataclass, field
 from io import BytesIO
@@ -7,13 +8,9 @@ from pathlib import Path
 from typing import (
     IO,
     Any,
-    Awaitable,
     Callable,
-    Dict,
-    List,
     Literal,
     Optional,
-    Type,
     TypeVar,
     Union,
     cast,
@@ -40,14 +37,14 @@ class UserInfo(BaseModel):
 
 
 class MemeArgsModel(BaseModel):
-    user_infos: List[UserInfo] = []
+    user_infos: list[UserInfo] = []
 
 
 ArgsModel = TypeVar("ArgsModel", bound=MemeArgsModel)
 
 MemeFunction = Union[
-    Callable[[List[BuildImage], List[str], ArgsModel], BytesIO],
-    Callable[[List[BuildImage], List[str], ArgsModel], Awaitable[BytesIO]],
+    Callable[[list[BuildImage], list[str], ArgsModel], BytesIO],
+    Callable[[list[BuildImage], list[str], ArgsModel], Awaitable[BytesIO]],
 ]
 
 
@@ -77,8 +74,8 @@ class MemeArgsParser(ArgumentParser):
 @dataclass
 class MemeArgsType:
     parser: MemeArgsParser
-    model: Type[MemeArgsModel]
-    instances: List[MemeArgsModel] = field(default_factory=list)
+    model: type[MemeArgsModel]
+    instances: list[MemeArgsModel] = field(default_factory=list)
 
 
 @dataclass
@@ -87,7 +84,7 @@ class MemeParamsType:
     max_images: int = 0
     min_texts: int = 0
     max_texts: int = 0
-    default_texts: List[str] = field(default_factory=list)
+    default_texts: list[str] = field(default_factory=list)
     args_type: Optional[MemeArgsType] = None
 
 
@@ -96,15 +93,15 @@ class Meme:
     key: str
     function: MemeFunction
     params_type: MemeParamsType
-    keywords: List[str] = field(default_factory=list)
-    patterns: List[str] = field(default_factory=list)
+    keywords: list[str] = field(default_factory=list)
+    patterns: list[str] = field(default_factory=list)
 
     async def __call__(
         self,
         *,
-        images: Union[List[str], List[Path], List[bytes], List[BytesIO]] = [],
-        texts: List[str] = [],
-        args: Dict[str, Any] = {},
+        images: Union[list[str], list[Path], list[bytes], list[BytesIO]] = [],
+        texts: list[str] = [],
+        args: dict[str, Any] = {},
     ) -> BytesIO:
         if not (
             self.params_type.min_images <= len(images) <= self.params_type.max_images
@@ -128,7 +125,7 @@ class Meme:
         except ValidationError as e:
             raise ArgModelMismatch(self.key, str(e))
 
-        imgs: List[BuildImage] = []
+        imgs: list[BuildImage] = []
         try:
             for image in images:
                 if isinstance(image, bytes):
@@ -146,7 +143,7 @@ class Meme:
         else:
             return await run_sync(cast(Callable[..., BytesIO], self.function))(**values)
 
-    def parse_args(self, args: List[str] = []) -> Dict[str, Any]:
+    def parse_args(self, args: list[str] = []) -> dict[str, Any]:
         parser = (
             copy.deepcopy(self.params_type.args_type.parser)
             if self.params_type.args_type
@@ -163,7 +160,7 @@ class Meme:
         finally:
             parser_message.reset(t)
 
-    async def generate_preview(self, *, args: Dict[str, Any] = {}) -> BytesIO:
+    async def generate_preview(self, *, args: dict[str, Any] = {}) -> BytesIO:
         default_images = [random_image() for _ in range(self.params_type.min_images)]
         default_texts = (
             self.params_type.default_texts.copy()
@@ -175,7 +172,7 @@ class Meme:
             else [random_text() for _ in range(self.params_type.min_texts)]
         )
 
-        async def _generate_preview(images: List[BytesIO], texts: List[str]):
+        async def _generate_preview(images: list[BytesIO], texts: list[str]):
             try:
                 return await self.__call__(images=images, texts=texts, args=args)
             except TextOrNameNotEnough:

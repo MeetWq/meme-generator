@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,14 +9,14 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def suck(images: List[BuildImage], texts, args):
+def suck(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square()
     # fmt: off
     locs = [(82, 100, 130, 119), (82, 94, 126, 125), (82, 120, 128, 99), (81, 164, 132, 55),
             (79, 163, 132, 55), (82, 140, 127, 79), (83, 152, 125, 67), (75, 157, 140, 62),
             (72, 165, 144, 54), (80, 132, 128, 87), (81, 127, 127, 92), (79, 111, 132, 108)]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(12):
         bg = BuildImage.open(img_dir / f"{i}.png")
         frame = BuildImage.new("RGBA", bg.size, "white")

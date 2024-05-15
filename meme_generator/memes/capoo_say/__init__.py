@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -11,7 +10,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def capoo_say_one_loop(text: str) -> List[IMG]:
+def capoo_say_one_loop(text: str) -> list[IMG]:
     text_frame = BuildImage.new("RGBA", (80, 80))
     try:
         text_frame.draw_text(
@@ -39,7 +38,7 @@ def capoo_say_one_loop(text: str) -> List[IMG]:
         None,
     ]
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(10):
         frame = BuildImage.open(img_dir / f"{i}.png")
         param = params[i]
@@ -52,7 +51,7 @@ def capoo_say_one_loop(text: str) -> List[IMG]:
     return frames
 
 
-def capoo_say(images, texts: List[str], args):
+def capoo_say(images, texts: list[str], args):
     frames = sum([capoo_say_one_loop(text) for text in texts], [])
     return save_gif(frames, 0.1)
 

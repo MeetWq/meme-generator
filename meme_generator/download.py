@@ -3,7 +3,6 @@ import hashlib
 import json
 import time
 from pathlib import Path
-from typing import List, Tuple
 
 import httpx
 from rich.progress import Progress
@@ -18,7 +17,7 @@ def _resource_url(base_url: str, name: str) -> str:
 
 
 # https://github.com/mnixry/nonebot-plugin-gocqhttp/blob/main/nonebot_plugin_gocqhttp/process/download.py
-async def get_fastest_mirror() -> List[str]:
+async def get_fastest_mirror() -> list[str]:
     assert meme_config.resource.resource_urls, "No resource url specified."
 
     async def head_mirror(client: httpx.AsyncClient, base_url: str):
@@ -76,7 +75,7 @@ async def check_resources():
         else:
             return
 
-    download_list: List[Tuple[Path, str]] = []
+    download_list: list[tuple[Path, str]] = []
     for resource in resource_list:
         file_name = str(resource["path"])
         file_hash = str(resource["hash"])

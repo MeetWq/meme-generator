@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -11,7 +10,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def psyduck(images, texts: List[str], args):
+def psyduck(images, texts: list[str], args):
     left_img = BuildImage.new("RGBA", (155, 100))
     right_img = BuildImage.new("RGBA", (155, 100))
 
@@ -52,7 +51,7 @@ def psyduck(images, texts: List[str], args):
         ("left", ((0, 12), (154, 0), (158, 90), (17, 109)), (35, 28)),
     ]
 
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(18):
         frame = BuildImage.open(img_dir / f"{i}.jpg")
         param = params[i]

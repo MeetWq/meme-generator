@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def caoshen_bite(images: List[BuildImage], texts, args):
+def caoshen_bite(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((160, 140), keep_ratio=True)
     # fmt: off
     locs = [
@@ -22,7 +21,7 @@ def caoshen_bite(images: List[BuildImage], texts, args):
         (122, 351, 159, 129), (122, 353, 159, 127), (123, 355, 158, 125),
     ]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(38):
         frame = BuildImage.open(img_dir / f"{i}.png")
         x, y, w, h = locs[i % len(locs)]

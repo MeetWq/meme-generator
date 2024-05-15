@@ -1,12 +1,10 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 
-def windmill_turn(images: List[BuildImage], texts, args):
+def windmill_turn(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
             img = img.convert("RGBA").resize((300, 300), keep_ratio=True)

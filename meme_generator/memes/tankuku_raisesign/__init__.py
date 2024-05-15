@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def tankuku_raisesign(images: List[BuildImage], texts, args):
+def tankuku_raisesign(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((300, 230), keep_ratio=True)
     params = (
         (((0, 46), (320, 0), (350, 214), (38, 260)), (68, 91)),
@@ -29,7 +28,7 @@ def tankuku_raisesign(images: List[BuildImage], texts, args):
         (((0, 35), (200, 0), (224, 133), (25, 169)), (195, 17)),
         (((0, 35), (200, 0), (224, 133), (25, 169)), (195, 17)),
     )
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(15):
         points, pos = params[i]
         frame = BuildImage.open(img_dir / f"{i}.png")

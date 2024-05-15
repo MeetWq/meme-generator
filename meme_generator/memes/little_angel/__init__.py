@@ -1,5 +1,3 @@
-from typing import List
-
 from pil_utils import BuildImage
 
 from meme_generator import MemeArgsModel, add_meme
@@ -7,7 +5,7 @@ from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_jpg_or_gif
 
 
-def little_angel(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def little_angel(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     img_w, img_h = images[0].convert("RGBA").resize_width(500).size
     frame = BuildImage.new("RGBA", (600, img_h + 230), "white")
     text = "非常可爱！简直就是小天使"

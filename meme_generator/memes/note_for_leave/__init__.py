@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import List
 
 import dateparser
 from pil_utils import BuildImage, Text2Image
@@ -18,7 +17,7 @@ class Model(MemeArgsModel):
     name: str = Field("", description="指定名字")
 
 
-def note_for_leave(images: List[BuildImage], texts: List[str], args: Model):
+def note_for_leave(images: list[BuildImage], texts: list[str], args: Model):
     time = datetime.now()
     if args.time and (parsed_time := dateparser.parse(args.time)):
         time = parsed_time

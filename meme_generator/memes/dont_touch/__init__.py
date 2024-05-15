@@ -1,6 +1,5 @@
 import random
 from pathlib import Path
-from typing import List, Tuple
 
 from PIL.Image import Image as IMG
 from PIL.Image import Palette
@@ -12,23 +11,23 @@ from meme_generator.utils import make_jpg_or_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def get_dominant_colors(img: IMG) -> List[Tuple[int, int, int]]:
+def get_dominant_colors(img: IMG) -> list[tuple[int, int, int]]:
     img = img.convert("P", palette=Palette.ADAPTIVE, colors=20)
     palette = img.getpalette()
     assert palette
-    color_indexs = sorted(img.getcolors(), reverse=True)
+    color_indexs = sorted(img.getcolors(), reverse=True)  # type: ignore
     colors = [tuple(palette[i * 3 : i * 3 + 3]) for _, i in color_indexs]
     colors = list(
         filter(lambda c: c[0] * 0.299 + c[1] * 0.578 + c[2] * 0.114 < 200, colors)
     )
-    return colors
+    return colors  # type: ignore
 
 
-def dont_touch(images: List[BuildImage], texts, args):
+def dont_touch(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
     mask = BuildImage.open(img_dir / "mask.png").convert("L")
 
-    def paste_random_blocks(img: BuildImage, colors: List[Tuple[int, int, int]]):
+    def paste_random_blocks(img: BuildImage, colors: list[tuple[int, int, int]]):
         x1, y1, x2, y2 = 200, 300, 400, 650
         block_locs = []
         for _ in range(150):

@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def throw_gif(images: List[BuildImage], texts, args):
+def throw_gif(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").circle()
     locs = [
         [(32, 32, 108, 36)],
@@ -22,7 +21,7 @@ def throw_gif(images: List[BuildImage], texts, args):
         [(35, 35, 259, 31)],
         [(175, 175, -50, 220)],
     ]
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(8):
         frame = BuildImage.open(img_dir / f"{i}.png")
         for w, h, x, y in locs[i]:

@@ -1,12 +1,10 @@
-from typing import List
-
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import MemeArgsModel, add_meme
 from meme_generator.exception import TextOverLength
 
 
-def follow(images: List[BuildImage], texts: List[str], args: MemeArgsModel):
+def follow(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     img = images[0].circle().resize((200, 200))
 
     if texts:

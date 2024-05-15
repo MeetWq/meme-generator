@@ -14,7 +14,7 @@ exclude = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 httpx = ">=0.20.0,<1.0.0"
 loguru = ">=0.6.0,<1.0.0"
 pil-utils = "^0.1.10"
@@ -33,13 +33,13 @@ typing-extensions = ">=4.4.0,<5.0.0"
 meme = "meme_generator.cli:main"
 
 [tool.pyright]
-pythonVersion = "3.8"
+pythonVersion = "3.9"
 pythonPlatform = "All"
 typeCheckingMode = "basic"
 
 [tool.ruff]
 line-length = 88
-target-version = "py38"
+target-version = "py39"
 
 [tool.ruff.lint]
 select = ["E", "W", "F", "UP", "C", "T", "PYI", "PT", "Q"]

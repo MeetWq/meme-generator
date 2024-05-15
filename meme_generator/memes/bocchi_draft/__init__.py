@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def bocchi_draft(images: List[BuildImage], texts, args):
+def bocchi_draft(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((350, 400), keep_ratio=True)
     params = [
         (((54, 62), (353, 1), (379, 382), (1, 399)), (146, 173)),
@@ -30,7 +29,7 @@ def bocchi_draft(images: List[BuildImage], texts, args):
         0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
     ]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(23):
         frame = BuildImage.open(img_dir / f"{i}.png")
         points, pos = params[idx[i]]

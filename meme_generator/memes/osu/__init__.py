@@ -1,6 +1,5 @@
 from io import BytesIO
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -10,7 +9,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def osu(images, texts: List[str], args) -> BytesIO:
+def osu(images, texts: list[str], args) -> BytesIO:
     text = texts[0]
     frame = BuildImage.open(img_dir / "osu.png")
     try:

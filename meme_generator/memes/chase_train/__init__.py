@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def chase_train(images: List[BuildImage], texts, args):
+def chase_train(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").square().resize((42, 42))
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     # fmt: off
     locs = [
         (35, 34, 128, 44), (35, 33, 132, 40), (33, 34, 133, 36), (33, 38, 135, 41),

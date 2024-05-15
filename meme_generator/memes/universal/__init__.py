@@ -1,15 +1,13 @@
-from typing import List
-
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
 from meme_generator.utils import make_jpg_or_gif
 
 
-def universal(images: List[BuildImage], texts: List[str], args):
+def universal(images: list[BuildImage], texts: list[str], args):
     def make(img: BuildImage) -> BuildImage:
         img = img.convert("RGBA").resize_width(500)
-        frames: List[BuildImage] = [img]
+        frames: list[BuildImage] = [img]
         for text in texts:
             text_img = BuildImage(
                 Text2Image.from_bbcode_text(text, fontsize=45, align="center")

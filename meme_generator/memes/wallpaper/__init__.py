@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,9 +9,9 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def wallpaper(images: List[BuildImage], texts, args):
+def wallpaper(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((515, 383), keep_ratio=True)
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(8):
         frames.append(BuildImage.open(img_dir / f"{i}.png").image)
     for i in range(8, 20):

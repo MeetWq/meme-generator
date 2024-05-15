@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -10,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def subject3(images: List[BuildImage], texts, args):
+def subject3(images: list[BuildImage], texts, args):
     self_head = images[0].convert("RGBA").circle().resize((120, 120))
     # fmt: off
     locs = [
@@ -33,7 +32,7 @@ def subject3(images: List[BuildImage], texts, args):
         (78, 70), (74, 67), (67, 67), (65, 72), (65, 79),
     ]
     # fmt: on
-    frames: List[IMG] = []
+    frames: list[IMG] = []
     for i in range(85):
         frame = BuildImage.open(img_dir / f"{i}.png")
         frame.paste(self_head, locs[i], alpha=True)

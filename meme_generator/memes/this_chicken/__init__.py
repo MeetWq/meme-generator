@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from pil_utils import BuildImage
 
@@ -9,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def this_chicken(images: List[BuildImage], texts, args):
+def this_chicken(images: list[BuildImage], texts, args):
     text = texts[0] if texts else "这是十二生肖中的鸡"
     img = images[0].convert("RGBA").resize((640, 640), keep_ratio=True)
 
