@@ -26,8 +26,8 @@ def father_work(images: list[BuildImage], texts: list[str], args):
         raise TextOverLength(text)
 
     def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((230, 96), keep_ratio=True, inside=True)
-        return frame.copy().paste(img, (252, 150), alpha=True)
+        img = img.convert("RGBA").resize((230, 120), keep_ratio=True, inside=True)
+        return frame.copy().paste(img, (252, 142), alpha=True)
 
     return make_jpg_or_gif(images[0], make)
 
