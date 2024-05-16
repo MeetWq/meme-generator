@@ -12,7 +12,7 @@ def fight_with_sunuo(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((565, 1630), keep_ratio=True)
+        img = img.convert("L").resize((565, 1630), keep_ratio=True)
         return frame.copy().paste(img, (0, 245), below=True)
 
     return make_jpg_or_gif(images[0], make)
