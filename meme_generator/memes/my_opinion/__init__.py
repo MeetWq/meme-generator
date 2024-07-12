@@ -6,6 +6,7 @@ from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
+
 def my_opinion(images, texts: list[str], args):
     text = texts[0]
     frame = BuildImage.open(img_dir / "0.png")
@@ -21,4 +22,11 @@ def my_opinion(images, texts: list[str], args):
         raise TextOverLength(text)
     return frame.save_png()
 
-add_meme("my_opinion", my_opinion, min_texts=1, max_texts=1, keywords=["我的意见如下","我的意见是"])
+
+add_meme(
+    "my_opinion",
+    my_opinion,
+    min_texts=1,
+    max_texts=1,
+    keywords=["我的意见如下", "我的意见是"],
+)

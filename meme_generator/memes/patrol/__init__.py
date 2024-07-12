@@ -11,8 +11,10 @@ help = "是否将图片水平翻转"
 parser = MemeArgsParser(prefix_chars="-/")
 parser.add_argument("--horizontal", "/水平翻转", action="store_true", help=help)
 
+
 class Model(MemeArgsModel):
     horizontal: bool = Field(False, description=help)
+
 
 def patrol(images: list[BuildImage], texts, args: Model):
     # fmt: off
@@ -37,16 +39,21 @@ def patrol(images: list[BuildImage], texts, args: Model):
             x, y = locs[i]
             frame.paste(img.resize_width(42), (x, y), alpha=True)
             return frame
-        
+
         return make
 
-    return make_gif_or_combined_gif(images[0], maker, 29, 0.05, FrameAlignPolicy.extend_loop)
+    return make_gif_or_combined_gif(
+        images[0], maker, 29, 0.05, FrameAlignPolicy.extend_loop
+    )
+
 
 add_meme(
-    "patrol", 
-    patrol, 
-    min_images=1, 
+    "patrol",
+    patrol,
+    min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model, [Model(horizontal=False), Model(horizontal=True)]),
+    args_type=MemeArgsType(
+        parser, Model, [Model(horizontal=False), Model(horizontal=True)]
+    ),
     keywords=["巡逻"],
 )
