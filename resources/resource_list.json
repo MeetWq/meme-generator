@@ -2616,6 +2616,38 @@
     "hash": "82f7556d03c3e847ec3dd3f1d0915d9f"
   },
   {
+    "path": "jump/images/0.png",
+    "hash": "f42dccb882c44156e7b4fbe1970263cb"
+  },
+  {
+    "path": "jump/images/1.png",
+    "hash": "36527f09395e5012d3985814b39cfa66"
+  },
+  {
+    "path": "jump/images/2.png",
+    "hash": "14671ed6789004462923b72a07057b05"
+  },
+  {
+    "path": "jump/images/3.png",
+    "hash": "99c19f752041fd94f4690be50a54c164"
+  },
+  {
+    "path": "jump/images/4.png",
+    "hash": "c7a19ddad0aecc9a520ee35f36fa3547"
+  },
+  {
+    "path": "jump/images/5.png",
+    "hash": "774c3bef59b2ae74c2a86f1522299b00"
+  },
+  {
+    "path": "jump/images/6.png",
+    "hash": "ab50ec66891644b0aed14ddd740da7ea"
+  },
+  {
+    "path": "jump/images/7.png",
+    "hash": "9c1fa9f7e03d5e735333237dff2d4381"
+  },
+  {
     "path": "karyl_point/images/0.png",
     "hash": "9ab82387b8f3cce1acdb57499c49ebe7"
   },
@@ -3230,6 +3262,10 @@
   {
     "path": "my_friend/images/label.png",
     "hash": "9538d1dd1e7e3befadacc26bbb511754"
+  },
+  {
+    "path": "my_opinion/images/0.png",
+    "hash": "5b687e8a65e5734113c24aeafcebda77"
   },
   {
     "path": "my_wife/images/0.png",
