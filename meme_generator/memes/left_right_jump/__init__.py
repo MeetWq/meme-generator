@@ -5,7 +5,7 @@ from meme_generator import add_meme
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 
-def patrol(images: list[BuildImage], texts, args):
+def left_right_jump(images: list[BuildImage], texts, args):
     img_w = 100
     img_h = images[0].resize_width(img_w).height
     frame_w = 300
@@ -44,4 +44,10 @@ def patrol(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("patrol", patrol, min_images=1, max_images=1, keywords=["巡逻"])
+add_meme(
+    "left_right_jump",
+    left_right_jump,
+    min_images=1,
+    max_images=1,
+    keywords=["左右横跳"],
+)
