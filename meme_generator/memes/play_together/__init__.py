@@ -8,7 +8,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 img_dir = Path(__file__).parent / "images"
 
 
-def shanghao(images: list[BuildImage], texts, args):
+def play_together(images: list[BuildImage], texts, args):
     params = (
         36 * [(194, 204, 121, 108)]
         + [
@@ -47,4 +47,6 @@ def shanghao(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("shanghao", shanghao, min_images=1, max_images=1, keywords=["上号"])
+add_meme(
+    "play_together", play_together, min_images=1, max_images=1, keywords=["一起玩"]
+)
