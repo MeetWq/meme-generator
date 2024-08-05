@@ -46,4 +46,4 @@ add_meme(
     min_images=1, 
     max_images=1, 
     args_type=MemeArgsType(parser, Model, [Model(character=i) for i in range(1,7)]),
-    keywords=["原神吃"])
+    keywords=["八重吃","胡桃吃","妮露吃","可莉吃","刻晴吃","钟离吃"])
