@@ -10,7 +10,7 @@ from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
 from meme_generator.meme import Meme, MemeArgsModel
-from meme_generator.utils import TextProperties, render_meme_list
+from meme_generator.utils import TextProperties, render_meme_list, run_sync
 
 app = FastAPI()
 
@@ -69,7 +69,7 @@ def register_router(meme: Meme):
         assert isinstance(args, args_model)
 
         try:
-            result = await meme(images=imgs, texts=texts, args=args.dict())
+            result = await run_sync(meme)(images=imgs, texts=texts, args=args.dict())
         except MemeGeneratorException as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
@@ -189,7 +189,7 @@ def register_routers():
     async def _(key: str):
         try:
             meme = get_meme(key)
-            result = await meme.generate_preview()
+            result = await run_sync(meme.generate_preview)()
         except MemeGeneratorException as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 

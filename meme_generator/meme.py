@@ -1,20 +1,10 @@
 import copy
 from argparse import ArgumentError, ArgumentParser
-from collections.abc import Awaitable
 from contextvars import ContextVar
 from dataclasses import dataclass, field
 from io import BytesIO
 from pathlib import Path
-from typing import (
-    IO,
-    Any,
-    Callable,
-    Literal,
-    Optional,
-    TypeVar,
-    Union,
-    cast,
-)
+from typing import IO, Any, Literal, Optional, Protocol, Union
 
 from pil_utils import BuildImage
 from pydantic import BaseModel, ValidationError
@@ -28,7 +18,7 @@ from .exception import (
     TextNumberMismatch,
     TextOrNameNotEnough,
 )
-from .utils import is_coroutine_callable, random_image, random_text, run_sync
+from .utils import random_image, random_text
 
 
 class UserInfo(BaseModel):
@@ -40,12 +30,10 @@ class MemeArgsModel(BaseModel):
     user_infos: list[UserInfo] = []
 
 
-ArgsModel = TypeVar("ArgsModel", bound=MemeArgsModel)
-
-MemeFunction = Union[
-    Callable[[list[BuildImage], list[str], ArgsModel], BytesIO],
-    Callable[[list[BuildImage], list[str], ArgsModel], Awaitable[BytesIO]],
-]
+class MemeFunction(Protocol):
+    def __call__(
+        self, images: list[BuildImage], texts: list[str], args: MemeArgsModel
+    ) -> BytesIO: ...
 
 
 parser_message: ContextVar[str] = ContextVar("parser_message")
@@ -96,7 +84,7 @@ class Meme:
     keywords: list[str] = field(default_factory=list)
     patterns: list[str] = field(default_factory=list)
 
-    async def __call__(
+    def __call__(
         self,
         *,
         images: Union[list[str], list[Path], list[bytes], list[BytesIO]] = [],
@@ -135,13 +123,7 @@ class Meme:
             raise OpenImageFailed(str(e))
 
         values = {"images": imgs, "texts": texts, "args": model}
-
-        if is_coroutine_callable(self.function):
-            return await cast(Callable[..., Awaitable[BytesIO]], self.function)(
-                **values
-            )
-        else:
-            return await run_sync(cast(Callable[..., BytesIO], self.function))(**values)
+        return self.function(**values)
 
     def parse_args(self, args: list[str] = []) -> dict[str, Any]:
         parser = (
@@ -160,7 +142,7 @@ class Meme:
         finally:
             parser_message.reset(t)
 
-    async def generate_preview(self, *, args: dict[str, Any] = {}) -> BytesIO:
+    def generate_preview(self, *, args: dict[str, Any] = {}) -> BytesIO:
         default_images = [random_image() for _ in range(self.params_type.min_images)]
         default_texts = (
             self.params_type.default_texts.copy()
@@ -172,11 +154,11 @@ class Meme:
             else [random_text() for _ in range(self.params_type.min_texts)]
         )
 
-        async def _generate_preview(images: list[BytesIO], texts: list[str]):
+        def _generate_preview(images: list[BytesIO], texts: list[str]):
             try:
-                return await self.__call__(images=images, texts=texts, args=args)
+                return self.__call__(images=images, texts=texts, args=args)
             except TextOrNameNotEnough:
                 texts.append(random_text())
-                return await _generate_preview(images, texts)
+                return _generate_preview(images, texts)
 
-        return await _generate_preview(default_images, default_texts)
+        return _generate_preview(default_images, default_texts)

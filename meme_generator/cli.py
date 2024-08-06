@@ -121,8 +121,7 @@ def generate_meme_preview(key: str) -> str:
         return f'表情 "{key}" 不存在！'
 
     try:
-        loop = asyncio.new_event_loop()
-        result = loop.run_until_complete(meme.generate_preview())
+        result = meme.generate_preview()
         content = result.getvalue()
         ext = filetype.guess_extension(content)
         filename = f"result.{ext}"
@@ -146,8 +145,7 @@ def generate_meme(
             return f'图片路径 "{image}" 不存在！'
 
     try:
-        loop = asyncio.new_event_loop()
-        result = loop.run_until_complete(meme(images=images, texts=texts, args=args))
+        result = meme(images=images, texts=texts, args=args)
         content = result.getvalue()
         ext = filetype.guess_extension(content)
         filename = f"result.{ext}"

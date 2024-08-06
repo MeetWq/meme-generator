@@ -311,7 +311,7 @@ def make_gif_or_combined_gif(
     return save_gif(frames, duration)
 
 
-async def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> str:
+def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> str:
     appid = meme_config.translate.baidu_trans_appid
     apikey = meme_config.translate.baidu_trans_apikey
     if not appid or not apikey:
@@ -331,9 +331,8 @@ async def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> 
         "sign": sign,
     }
     url = "https://fanyi-api.baidu.com/api/trans/vip/translate"
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(url, params=params)
-        result = resp.json()
+    resp = httpx.get(url, params=params)
+    result = resp.json()
     return result["trans_result"][0]["dst"]
 
 
