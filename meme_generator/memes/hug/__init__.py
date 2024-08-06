@@ -9,7 +9,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def stick(images: list[BuildImage], texts, args):
+def hug(images: list[BuildImage], texts, args):
     self_head = images[0].convert("RGBA").circle().resize((120, 120))
     user_head = images[1].convert("RGBA").circle().resize((105, 105))
     # fmt: off
@@ -33,4 +33,4 @@ def stick(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("stick", stick, min_images=2, max_images=2, keywords=["贴", "贴贴"])
+add_meme("hug", hug, min_images=2, max_images=2, keywords=["抱", "抱抱"])
