@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -26,5 +27,22 @@ def police1(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("police", police, min_images=1, max_images=1, keywords=["出警"])
-add_meme("police1", police1, min_images=1, max_images=1, keywords=["警察"])
+add_meme(
+    "police",
+    police,
+    min_images=1,
+    max_images=1,
+    keywords=["出警"],
+    date_created=datetime(2022, 2, 23),
+    date_modified=datetime(2023, 2, 14),
+)
+
+add_meme(
+    "police1",
+    police1,
+    min_images=1,
+    max_images=1,
+    keywords=["警察"],
+    date_created=datetime(2022, 3, 12),
+    date_modified=datetime(2023, 2, 14),
+)

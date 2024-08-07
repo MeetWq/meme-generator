@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Literal
 
 from pil_utils import BuildImage
@@ -113,4 +114,6 @@ add_meme(
         parser, Model, [Model(mode="normal"), Model(mode="circle"), Model(mode="loop")]
     ),
     keywords=["一直"],
+    date_created=datetime(2021, 12, 2),
+    date_modified=datetime(2023, 2, 14),
 )

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PIL.Image import Transpose
 from pil_utils import BuildImage
 
@@ -42,4 +44,6 @@ add_meme(
     max_texts=1,
     default_texts=["如何提高社交质量 : \n远离以下头像的人"],
     keywords=["远离"],
+    date_created=datetime(2022, 5, 31),
+    date_modified=datetime(2023, 2, 14),
 )

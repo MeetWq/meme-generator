@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -15,4 +16,12 @@ def cover_face(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("cover_face", cover_face, min_images=1, max_images=1, keywords=["捂脸"])
+add_meme(
+    "cover_face",
+    cover_face,
+    min_images=1,
+    max_images=1,
+    keywords=["捂脸"],
+    date_created=datetime(2022, 3, 30),
+    date_modified=datetime(2023, 2, 14),
+)

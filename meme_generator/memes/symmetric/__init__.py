@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Literal, NamedTuple
 
 from PIL.Image import Transpose
@@ -113,4 +114,6 @@ add_meme(
         ],
     ),
     keywords=["对称"],
+    date_created=datetime(2022, 3, 14),
+    date_modified=datetime(2023, 2, 14),
 )

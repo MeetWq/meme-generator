@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
@@ -15,4 +17,12 @@ def call_110(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("call_110", call_110, min_images=2, max_images=2, keywords=["遇到困难请拨打"])
+add_meme(
+    "call_110",
+    call_110,
+    min_images=2,
+    max_images=2,
+    keywords=["遇到困难请拨打"],
+    date_created=datetime(2022, 8, 26),
+    date_modified=datetime(2023, 2, 14),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -28,5 +29,12 @@ def run(images, texts: list[str], args):
 
 
 add_meme(
-    "run", run, min_texts=1, max_texts=1, default_texts=["快跑"], keywords=["快跑"]
+    "run",
+    run,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["快跑"],
+    keywords=["快跑"],
+    date_created=datetime(2022, 10, 17),
+    date_modified=datetime(2023, 2, 14),
 )

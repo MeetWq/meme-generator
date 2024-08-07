@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -28,4 +29,12 @@ def scratch_head(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("scratch_head", scratch_head, min_images=1, max_images=1, keywords=["挠头"])
+add_meme(
+    "scratch_head",
+    scratch_head,
+    min_images=1,
+    max_images=1,
+    keywords=["挠头"],
+    date_created=datetime(2023, 1, 7),
+    date_modified=datetime(2023, 2, 14),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -27,5 +28,11 @@ def capoo_rub(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "capoo_rub", capoo_rub, min_images=1, max_images=1, keywords=["咖波蹭", "咖波贴"]
+    "capoo_rub",
+    capoo_rub,
+    min_images=1,
+    max_images=1,
+    keywords=["咖波蹭", "咖波贴"],
+    date_created=datetime(2022, 11, 29),
+    date_modified=datetime(2023, 2, 14),
 )

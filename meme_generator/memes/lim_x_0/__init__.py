@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -31,4 +32,12 @@ def lim_x_0(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("lim_x_0", lim_x_0, min_images=1, max_images=1, keywords=["等价无穷小"])
+add_meme(
+    "lim_x_0",
+    lim_x_0,
+    min_images=1,
+    max_images=1,
+    keywords=["等价无穷小"],
+    date_created=datetime(2023, 1, 9),
+    date_modified=datetime(2023, 2, 14),
+)

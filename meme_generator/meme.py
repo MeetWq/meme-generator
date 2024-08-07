@@ -2,9 +2,10 @@ import copy
 from argparse import ArgumentError, ArgumentParser
 from contextvars import ContextVar
 from dataclasses import dataclass, field
+from datetime import datetime
 from io import BytesIO
 from pathlib import Path
-from typing import IO, Any, Literal, Optional, Protocol, Union
+from typing import IO, Any, Literal, Optional, Protocol, TypeVar, Union
 
 from pil_utils import BuildImage
 from pydantic import BaseModel, ValidationError
@@ -30,9 +31,15 @@ class MemeArgsModel(BaseModel):
     user_infos: list[UserInfo] = []
 
 
+ArgsModel = TypeVar("ArgsModel", bound=MemeArgsModel)
+
+
 class MemeFunction(Protocol):
     def __call__(
-        self, images: list[BuildImage], texts: list[str], args: MemeArgsModel
+        self,
+        images: list[BuildImage],
+        texts: list[str],
+        args: ArgsModel,  # type: ignore
     ) -> BytesIO: ...
 
 
@@ -83,6 +90,8 @@ class Meme:
     params_type: MemeParamsType
     keywords: list[str] = field(default_factory=list)
     patterns: list[str] = field(default_factory=list)
+    date_created: datetime = datetime(2021, 5, 4)
+    date_modified: datetime = datetime.now()
 
     def __call__(
         self,

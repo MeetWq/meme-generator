@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -26,4 +27,12 @@ def garbage(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("garbage", garbage, min_images=1, max_images=1, keywords=["垃圾", "垃圾桶"])
+add_meme(
+    "garbage",
+    garbage,
+    min_images=1,
+    max_images=1,
+    keywords=["垃圾", "垃圾桶"],
+    date_created=datetime(2022, 4, 14),
+    date_modified=datetime(2023, 2, 14),
+)

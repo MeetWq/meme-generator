@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -25,4 +26,12 @@ def captain(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("captain", captain, min_images=2, max_images=5, keywords=["舰长"])
+add_meme(
+    "captain",
+    captain,
+    min_images=2,
+    max_images=5,
+    keywords=["舰长"],
+    date_created=datetime(2022, 10, 9),
+    date_modified=datetime(2023, 2, 14),
+)

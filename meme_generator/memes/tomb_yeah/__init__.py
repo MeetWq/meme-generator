@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -22,5 +23,11 @@ def tomb_yeah(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "tomb_yeah", tomb_yeah, min_images=1, max_images=2, keywords=["上坟", "坟前比耶"]
+    "tomb_yeah",
+    tomb_yeah,
+    min_images=1,
+    max_images=2,
+    keywords=["上坟", "坟前比耶"],
+    date_created=datetime(2023, 11, 12),
+    date_modified=datetime(2023, 11, 12),
 )

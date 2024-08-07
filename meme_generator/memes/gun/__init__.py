@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
@@ -62,4 +63,6 @@ add_meme(
         [Model(position="left"), Model(position="right"), Model(position="both")],
     ),
     keywords=["手枪"],
+    date_created=datetime(2022, 8, 22),
+    date_modified=datetime(2023, 2, 14),
 )

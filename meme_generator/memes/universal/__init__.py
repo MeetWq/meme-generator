@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
@@ -37,4 +39,6 @@ add_meme(
     max_texts=10,
     default_texts=["在此处添加文字"],
     keywords=["万能表情", "空白表情"],
+    date_created=datetime(2022, 4, 20),
+    date_modified=datetime(2023, 2, 14),
 )

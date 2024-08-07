@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
@@ -53,4 +54,6 @@ add_meme(
     default_texts=["不买华为不是", "人"],
     keywords=["吴京xx中国xx"],
     patterns=[r"吴京[\s:：]*(.*?)中国(.*)"],
+    date_created=datetime(2022, 6, 12),
+    date_modified=datetime(2023, 2, 14),
 )

@@ -1,4 +1,5 @@
 import math
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -22,7 +23,7 @@ def lost_dog(images: list[BuildImage], texts, args):
             x_ = round(w_ / 2 + (x - w / 2) / math.cos(theta))
             y_ = round(h / 2 + (y - h / 2) / math.cos(theta))
             if 0 <= x_ < w_ and 0 <= y_ < h:
-                img_new.image.putpixel((x, y), img.image.getpixel((x_, y_)))
+                img_new.image.putpixel((x, y), img.image.getpixel((x_, y_)))  # type: ignore
     img_new = img_new.resize((w // k, h // k))
     frame = BuildImage.open(img_dir / "0.png")
     frame.paste(img_new, (295, 165), below=True)
@@ -35,4 +36,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["寻狗启事"],
+    date_created=datetime(2024, 1, 19),
+    date_modified=datetime(2024, 1, 20),
 )

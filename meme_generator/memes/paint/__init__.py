@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def paint(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("paint", paint, min_images=1, max_images=1, keywords=["这像画吗"])
+add_meme(
+    "paint",
+    paint,
+    min_images=1,
+    max_images=1,
+    keywords=["这像画吗"],
+    date_created=datetime(2022, 3, 11),
+    date_modified=datetime(2023, 2, 14),
+)

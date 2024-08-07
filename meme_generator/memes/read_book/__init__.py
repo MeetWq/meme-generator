@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
@@ -61,4 +62,6 @@ add_meme(
     min_texts=0,
     max_texts=1,
     keywords=["看书"],
+    date_created=datetime(2022, 8, 22),
+    date_modified=datetime(2023, 10, 25),
 )

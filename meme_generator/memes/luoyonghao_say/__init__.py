@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL import ImageFilter
@@ -38,4 +39,6 @@ add_meme(
     max_texts=1,
     default_texts=["又不是不能用"],
     keywords=["罗永浩说"],
+    date_created=datetime(2023, 3, 28),
+    date_modified=datetime(2023, 3, 28),
 )

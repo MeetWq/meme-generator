@@ -105,4 +105,6 @@ add_meme(
     default_texts=["小王", "优秀学生", "一年一班"],
     args_type=MemeArgsType(parser, Model),
     keywords=["奖状", "证书"],
+    date_created=datetime(2023, 12, 3),
+    date_modified=datetime(2023, 12, 3),
 )

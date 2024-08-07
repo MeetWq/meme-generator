@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -52,4 +53,6 @@ add_meme(
     args_type=MemeArgsType(parser, Model, [Model(character=i) for i in range(1, 7)]),
     keywords=["原神吃"],
     # TODO: patterns=
+    date_created=datetime(2024, 8, 6),
+    date_modified=datetime(2024, 8, 6),
 )

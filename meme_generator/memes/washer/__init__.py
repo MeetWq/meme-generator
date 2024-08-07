@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -22,4 +23,12 @@ def washer(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("washer", washer, min_images=1, max_images=1, keywords=["洗衣机"])
+add_meme(
+    "washer",
+    washer,
+    min_images=1,
+    max_images=1,
+    keywords=["洗衣机"],
+    date_created=datetime(2024, 1, 18),
+    date_modified=datetime(2024, 1, 18),
+)

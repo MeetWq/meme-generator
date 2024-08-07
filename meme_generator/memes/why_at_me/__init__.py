@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def why_at_me(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("why_at_me", why_at_me, min_images=1, max_images=1, keywords=["为什么@我"])
+add_meme(
+    "why_at_me",
+    why_at_me,
+    min_images=1,
+    max_images=1,
+    keywords=["为什么@我"],
+    date_created=datetime(2022, 4, 14),
+    date_modified=datetime(2023, 5, 3),
+)

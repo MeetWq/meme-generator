@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 from pydantic import Field
 
@@ -53,4 +55,6 @@ add_meme(
     default_texts=["可恶...被人看扁了"],
     args_type=MemeArgsType(parser, Model),
     keywords=["看扁"],
+    date_created=datetime(2022, 10, 6),
+    date_modified=datetime(2023, 2, 14),
 )

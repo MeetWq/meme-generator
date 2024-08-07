@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Any, Literal, Optional
 
 import filetype
@@ -37,6 +38,8 @@ class MemeInfoResponse(BaseModel):
     keywords: list[str]
     patterns: list[str]
     params: MemeParamsResponse
+    date_created: datetime
+    date_modified: datetime
 
 
 def register_router(meme: Meme):
@@ -183,6 +186,8 @@ def register_routers():
                     for name, info in properties.items()
                 ],
             ),
+            date_created=meme.date_created,
+            date_modified=meme.date_modified,
         )
 
     @app.get("/memes/{key}/preview")

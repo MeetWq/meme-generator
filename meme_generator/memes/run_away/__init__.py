@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -33,4 +34,12 @@ def run_away(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("run_away", run_away, min_images=1, max_images=1, keywords=["快逃"])
+add_meme(
+    "run_away",
+    run_away,
+    min_images=1,
+    max_images=1,
+    keywords=["快逃"],
+    date_created=datetime(2024, 7, 23),
+    date_modified=datetime(2024, 7, 23),
+)

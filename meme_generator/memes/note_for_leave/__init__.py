@@ -81,4 +81,6 @@ add_meme(
     default_texts=["想玩"],
     args_type=MemeArgsType(parser, Model),
     keywords=["请假条"],
+    date_created=datetime(2023, 4, 27),
+    date_modified=datetime(2023, 4, 27),
 )

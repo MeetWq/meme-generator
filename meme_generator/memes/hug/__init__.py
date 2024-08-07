@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -33,4 +34,12 @@ def hug(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("hug", hug, min_images=2, max_images=2, keywords=["抱", "抱抱"])
+add_meme(
+    "hug",
+    hug,
+    min_images=2,
+    max_images=2,
+    keywords=["抱", "抱抱"],
+    date_created=datetime(2024, 8, 6),
+    date_modified=datetime(2024, 8, 6),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -46,4 +47,6 @@ add_meme(
     default_texts=["原神，启动！"],
     keywords=["原神启动"],
     patterns=[r"(\S+启动[!！]?)"],
+    date_created=datetime(2023, 7, 1),
+    date_modified=datetime(2023, 7, 1),
 )

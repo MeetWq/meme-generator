@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -25,4 +26,12 @@ def pat(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.085)
 
 
-add_meme("pat", pat, min_images=1, max_images=1, keywords=["拍"])
+add_meme(
+    "pat",
+    pat,
+    min_images=1,
+    max_images=1,
+    keywords=["拍"],
+    date_created=datetime(2021, 12, 1),
+    date_modified=datetime(2023, 2, 14),
+)

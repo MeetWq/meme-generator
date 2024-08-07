@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -35,4 +36,12 @@ def rub(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("rub", rub, min_images=2, max_images=2, keywords=["贴", "贴贴", "蹭", "蹭蹭"])
+add_meme(
+    "rub",
+    rub,
+    min_images=2,
+    max_images=2,
+    keywords=["贴", "贴贴", "蹭", "蹭蹭"],
+    date_created=datetime(2021, 6, 11),
+    date_modified=datetime(2023, 2, 14),
+)

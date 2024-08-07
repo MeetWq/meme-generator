@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -15,4 +16,12 @@ def rip_angrily(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("rip_angrily", rip_angrily, min_images=1, max_images=1, keywords=["怒撕"])
+add_meme(
+    "rip_angrily",
+    rip_angrily,
+    min_images=1,
+    max_images=1,
+    keywords=["怒撕"],
+    date_created=datetime(2022, 10, 9),
+    date_modified=datetime(2023, 2, 14),
+)

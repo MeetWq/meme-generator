@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PIL import Image, ImageDraw
 from pil_utils import BuildImage
 from pil_utils.fonts import Font
@@ -20,6 +22,7 @@ def charpic(images: list[BuildImage], texts, args):
             line = ""
             for x in range(img.width):
                 gray = img.image.getpixel((x, y))
+                assert isinstance(gray, float)
                 line += str_map[int(num * gray / 256)] if gray != 0 else " "
             lines.append(line)
         text = "\n".join(lines)
@@ -33,4 +36,12 @@ def charpic(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(img, make)
 
 
-add_meme("charpic", charpic, min_images=1, max_images=1, keywords=["字符画"])
+add_meme(
+    "charpic",
+    charpic,
+    min_images=1,
+    max_images=1,
+    keywords=["字符画"],
+    date_created=datetime(2022, 7, 21),
+    date_modified=datetime(2023, 10, 2),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
@@ -62,4 +63,6 @@ add_meme(
     default_texts=["网友"],
     keywords=["我推的网友"],
     patterns=[r"我推的(\S+)"],
+    date_created=datetime(2023, 6, 1),
+    date_modified=datetime(2023, 6, 23),
 )

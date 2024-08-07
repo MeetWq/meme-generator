@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -81,4 +82,6 @@ add_meme(
     default_texts=["我超爱你"],
     args_type=MemeArgsType(parser, Model),
     keywords=["流萤举牌"],
+    date_created=datetime(2024, 5, 5),
+    date_modified=datetime(2024, 5, 6),
 )

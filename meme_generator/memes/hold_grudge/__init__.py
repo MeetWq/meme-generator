@@ -32,4 +32,6 @@ add_meme(
     max_texts=1,
     default_texts=["群友不发涩图"],
     keywords=["记仇"],
+    date_created=datetime(2021, 12, 15),
+    date_modified=datetime(2023, 2, 14),
 )

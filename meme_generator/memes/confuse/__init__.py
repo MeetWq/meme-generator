@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -28,4 +29,12 @@ def confuse(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("confuse", confuse, min_images=1, max_images=1, keywords=["迷惑"])
+add_meme(
+    "confuse",
+    confuse,
+    min_images=1,
+    max_images=1,
+    keywords=["迷惑"],
+    date_created=datetime(2022, 9, 4),
+    date_modified=datetime(2023, 2, 14),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -32,4 +33,12 @@ def walnut_zoom(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("walnut_zoom", walnut_zoom, min_images=1, max_images=1, keywords=["胡桃放大"])
+add_meme(
+    "walnut_zoom",
+    walnut_zoom,
+    min_images=1,
+    max_images=1,
+    keywords=["胡桃放大"],
+    date_created=datetime(2022, 10, 1),
+    date_modified=datetime(2023, 2, 14),
+)

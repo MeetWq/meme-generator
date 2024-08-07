@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -76,4 +77,6 @@ add_meme(
     max_texts=0,
     args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
     keywords=["狗都不玩"],
+    date_created=datetime(2023, 11, 16),
+    date_modified=datetime(2023, 11, 16),
 )

@@ -1,4 +1,6 @@
+from datetime import datetime
 from pathlib import Path
+
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
@@ -28,4 +30,12 @@ def jump(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("jump", jump, min_images=1, max_images=1, keywords=["跳"])
+add_meme(
+    "jump",
+    jump,
+    min_images=1,
+    max_images=1,
+    keywords=["跳"],
+    date_created=datetime(2024, 7, 14),
+    date_modified=datetime(2024, 7, 14),
+)

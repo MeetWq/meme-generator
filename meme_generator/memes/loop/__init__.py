@@ -1,6 +1,7 @@
-from pydantic import Field
+from datetime import datetime
 
 from pil_utils import BuildImage
+from pydantic import Field
 
 from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
@@ -50,4 +51,6 @@ add_meme(
         parser, Model, [Model(horizontal=False), Model(horizontal=True)]
     ),
     keywords=["循环"],
+    date_created=datetime(2024, 7, 14),
+    date_modified=datetime(2024, 7, 14),
 )

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
@@ -19,4 +21,12 @@ def alike(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("alike", alike, min_images=1, max_images=1, keywords=["一样"])
+add_meme(
+    "alike",
+    alike,
+    min_images=1,
+    max_images=1,
+    keywords=["一样"],
+    date_created=datetime(2022, 1, 2),
+    date_modified=datetime(2023, 2, 22),
+)

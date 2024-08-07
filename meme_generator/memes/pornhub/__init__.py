@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage, Text2Image
 
 from meme_generator import add_meme
@@ -34,4 +36,6 @@ add_meme(
     max_texts=2,
     default_texts=["You", "Tube"],
     keywords=["ph", "pornhub"],
+    date_created=datetime(2022, 10, 27),
+    date_modified=datetime(2023, 2, 14),
 )

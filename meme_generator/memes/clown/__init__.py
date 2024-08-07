@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -68,4 +69,6 @@ add_meme(
     max_images=1,
     args_type=MemeArgsType(parser, Model, [Model(person=False), Model(person=True)]),
     keywords=["小丑"],
+    date_created=datetime(2023, 10, 14),
+    date_modified=datetime(2023, 10, 14),
 )

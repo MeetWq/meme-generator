@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def karyl_point(images: list[BuildImage], texts, args):
     return frame.save_png()
 
 
-add_meme("karyl_point", karyl_point, min_images=1, max_images=1, keywords=["凯露指"])
+add_meme(
+    "karyl_point",
+    karyl_point,
+    min_images=1,
+    max_images=1,
+    keywords=["凯露指"],
+    date_created=datetime(2022, 11, 16),
+    date_modified=datetime(2023, 2, 14),
+)

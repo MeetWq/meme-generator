@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -18,4 +19,12 @@ def taunt(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("taunt", taunt, min_images=1, max_images=1, keywords=["嘲讽"])
+add_meme(
+    "taunt",
+    taunt,
+    min_images=1,
+    max_images=1,
+    keywords=["嘲讽"],
+    date_created=datetime(2023, 7, 19),
+    date_modified=datetime(2023, 7, 19),
+)

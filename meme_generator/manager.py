@@ -1,6 +1,7 @@
 import importlib
 import importlib.util
 import pkgutil
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union
 
@@ -68,6 +69,8 @@ def add_meme(
     args_type: Optional[MemeArgsType] = None,
     keywords: list[str] = [],
     patterns: list[str] = [],
+    date_created: datetime = datetime(2021, 5, 4),
+    date_modified: datetime = datetime.now(),
 ):
     if key in _memes:
         logger.warning(f'Meme with key "{key}" already exists!')
@@ -85,6 +88,8 @@ def add_meme(
         ),
         keywords=keywords,
         patterns=patterns,
+        date_created=date_created,
+        date_modified=date_modified,
     )
 
     _memes[key] = meme

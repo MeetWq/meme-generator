@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PIL.Image import Image as IMG
 from PIL.Image import Resampling, Transform
 from pil_utils import BuildImage, Text2Image
@@ -193,4 +195,6 @@ add_meme(
     max_texts=2,
     default_texts=["我去", "洛天依"],
     keywords=["5000兆"],
+    date_created=datetime(2022, 10, 29),
+    date_modified=datetime(2023, 2, 14),
 )

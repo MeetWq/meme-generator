@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
@@ -55,4 +57,6 @@ add_meme(
     max_texts=2,
     default_texts=["救命啊"],
     keywords=["入典", "典中典", "黑白草图"],
+    date_created=datetime(2022, 3, 12),
+    date_modified=datetime(2023, 2, 14),
 )

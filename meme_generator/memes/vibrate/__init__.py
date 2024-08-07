@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -31,4 +32,12 @@ def vibrate(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("vibrate", vibrate, min_images=1, max_images=1, keywords=["震动"])
+add_meme(
+    "vibrate",
+    vibrate,
+    min_images=1,
+    max_images=1,
+    keywords=["震动"],
+    date_created=datetime(2023, 8, 28),
+    date_modified=datetime(2023, 8, 28),
+)

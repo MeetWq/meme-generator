@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -21,4 +22,12 @@ def throw(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("throw", throw, min_images=1, max_images=1, keywords=["丢", "扔"])
+add_meme(
+    "throw",
+    throw,
+    min_images=1,
+    max_images=1,
+    keywords=["丢", "扔"],
+    date_created=datetime(2021, 5, 5),
+    date_modified=datetime(2023, 3, 30),
+)

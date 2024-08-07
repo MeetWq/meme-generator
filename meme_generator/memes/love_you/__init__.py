@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -22,4 +23,12 @@ def love_you(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.2)
 
 
-add_meme("love_you", love_you, min_images=1, max_images=1, keywords=["永远爱你"])
+add_meme(
+    "love_you",
+    love_you,
+    min_images=1,
+    max_images=1,
+    keywords=["永远爱你"],
+    date_created=datetime(2022, 3, 13),
+    date_modified=datetime(2023, 2, 14),
+)

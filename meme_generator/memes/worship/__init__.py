@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -21,4 +22,12 @@ def worship(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("worship", worship, min_images=1, max_images=1, keywords=["膜", "膜拜"])
+add_meme(
+    "worship",
+    worship,
+    min_images=1,
+    max_images=1,
+    keywords=["膜", "膜拜"],
+    date_created=datetime(2022, 2, 10),
+    date_modified=datetime(2023, 2, 14),
+)

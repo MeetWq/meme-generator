@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Literal, NamedTuple
 
 from PIL.Image import Image as IMG
@@ -116,4 +117,6 @@ add_meme(
         ],
     ),
     keywords=["鬼畜"],
+    date_created=datetime(2023, 7, 19),
+    date_modified=datetime(2023, 7, 19),
 )

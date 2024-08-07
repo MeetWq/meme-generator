@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -39,4 +40,6 @@ add_meme(
     max_images=1,
     args_type=MemeArgsType(parser, Model),
     keywords=["爬"],
+    date_created=datetime(2021, 5, 5),
+    date_modified=datetime(2023, 2, 14),
 )

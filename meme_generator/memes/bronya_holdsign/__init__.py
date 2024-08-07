@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -33,4 +34,6 @@ add_meme(
     max_texts=1,
     default_texts=["V我50"],
     keywords=["布洛妮娅举牌", "大鸭鸭举牌"],
+    date_created=datetime(2022, 10, 27),
+    date_modified=datetime(2023, 3, 30),
 )

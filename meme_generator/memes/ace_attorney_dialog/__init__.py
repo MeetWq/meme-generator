@@ -1,4 +1,5 @@
 import math
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
@@ -116,4 +117,6 @@ add_meme(
     max_texts=1,
     default_texts=["表情包制作"],
     keywords=["逆转裁判气泡"],
+    date_created=datetime(2024, 5, 3),
+    date_modified=datetime(2024, 5, 3),
 )

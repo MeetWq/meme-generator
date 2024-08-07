@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -24,4 +25,12 @@ def beat_up(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("beat_up", beat_up, min_images=2, max_images=2, keywords=["揍"])
+add_meme(
+    "beat_up",
+    beat_up,
+    min_images=2,
+    max_images=2,
+    keywords=["揍"],
+    date_created=datetime(2024, 4, 9),
+    date_modified=datetime(2024, 4, 9),
+)

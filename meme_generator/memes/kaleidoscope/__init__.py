@@ -1,4 +1,5 @@
 import math
+from datetime import datetime
 
 from pil_utils import BuildImage
 from pydantic import Field
@@ -55,4 +56,6 @@ add_meme(
     max_images=1,
     args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
     keywords=["万花筒", "万花镜"],
+    date_created=datetime(2023, 1, 8),
+    date_modified=datetime(2023, 2, 14),
 )

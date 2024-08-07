@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def no_response(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("no_response", no_response, min_images=1, max_images=1, keywords=["无响应"])
+add_meme(
+    "no_response",
+    no_response,
+    min_images=1,
+    max_images=1,
+    keywords=["无响应"],
+    date_created=datetime(2022, 10, 1),
+    date_modified=datetime(2023, 2, 14),
+)

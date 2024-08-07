@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -24,4 +25,12 @@ def knock(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.04)
 
 
-add_meme("knock", knock, min_images=1, max_images=1, keywords=["敲"])
+add_meme(
+    "knock",
+    knock,
+    min_images=1,
+    max_images=1,
+    keywords=["敲"],
+    date_created=datetime(2022, 4, 14),
+    date_modified=datetime(2023, 2, 14),
+)

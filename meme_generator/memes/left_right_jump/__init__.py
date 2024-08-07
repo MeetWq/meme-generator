@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PIL.Image import Transpose
 from pil_utils import BuildImage
 
@@ -50,4 +52,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["左右横跳"],
+    date_created=datetime(2024, 7, 14),
+    date_modified=datetime(2024, 7, 14),
 )

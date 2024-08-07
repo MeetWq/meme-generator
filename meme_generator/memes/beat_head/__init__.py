@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -43,4 +44,6 @@ add_meme(
     min_texts=0,
     max_texts=1,
     keywords=["拍头"],
+    date_created=datetime(2023, 3, 8),
+    date_modified=datetime(2023, 3, 8),
 )

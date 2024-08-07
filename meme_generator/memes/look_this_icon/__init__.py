@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -40,4 +41,6 @@ add_meme(
     max_texts=1,
     default_texts=["朋友\n先看看这个图标再说话"],
     keywords=["看图标"],
+    date_created=datetime(2022, 10, 7),
+    date_modified=datetime(2023, 2, 14),
 )

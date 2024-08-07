@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -19,4 +20,12 @@ def distracted(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("distracted", distracted, min_images=1, max_images=1, keywords=["注意力涣散"])
+add_meme(
+    "distracted",
+    distracted,
+    min_images=1,
+    max_images=1,
+    keywords=["注意力涣散"],
+    date_created=datetime(2022, 4, 20),
+    date_modified=datetime(2023, 2, 14),
+)

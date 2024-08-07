@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
@@ -18,4 +20,12 @@ def trance(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("trance", trance, min_images=1, max_images=1, keywords=["恍惚"])
+add_meme(
+    "trance",
+    trance,
+    min_images=1,
+    max_images=1,
+    keywords=["恍惚"],
+    date_created=datetime(2022, 12, 11),
+    date_modified=datetime(2023, 2, 14),
+)

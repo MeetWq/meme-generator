@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -24,4 +25,12 @@ def slap(images, texts: list[str], args):
     return frame.save_jpg()
 
 
-add_meme("slap", slap, min_texts=1, max_texts=1, keywords=["一巴掌"])
+add_meme(
+    "slap",
+    slap,
+    min_texts=1,
+    max_texts=1,
+    keywords=["一巴掌"],
+    date_created=datetime(2022, 1, 19),
+    date_modified=datetime(2023, 2, 14),
+)

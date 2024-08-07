@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL import ImageEnhance
@@ -39,4 +40,6 @@ add_meme(
     max_texts=1,
     default_texts=["你刚才说的话不是很礼貌！"],
     keywords=["不文明"],
+    date_created=datetime(2022, 10, 12),
+    date_modified=datetime(2023, 2, 14),
 )

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -48,5 +49,11 @@ def play_together(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "play_together", play_together, min_images=1, max_images=1, keywords=["一起玩"]
+    "play_together",
+    play_together,
+    min_images=1,
+    max_images=1,
+    keywords=["一起玩"],
+    date_created=datetime(2024, 7, 26),
+    date_modified=datetime(2024, 7, 26),
 )
