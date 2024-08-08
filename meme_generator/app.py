@@ -10,18 +10,16 @@ from meme_generator.config import meme_config
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
-from meme_generator.meme import CommandShortcut, Meme, MemeArgsModel
+from meme_generator.meme import CommandShortcut, Meme, MemeArgsModel, ParserOption
 from meme_generator.utils import TextProperties, render_meme_list, run_sync
 
 app = FastAPI()
 
 
 class MemeArgsResponse(BaseModel):
-    name: str
-    type: str
-    description: Optional[str] = None
-    default: Optional[Any] = None
-    enum: Optional[list[Any]] = None
+    args_model: dict[str, Any]
+    args_examples: list[dict[str, Any]]
+    parser_options: list[ParserOption]
 
 
 class MemeParamsResponse(BaseModel):
@@ -30,7 +28,7 @@ class MemeParamsResponse(BaseModel):
     min_texts: int
     max_texts: int
     default_texts: list[str]
-    args: list[MemeArgsResponse]
+    args_type: Optional[MemeArgsResponse] = None
 
 
 class MemeInfoResponse(BaseModel):
@@ -157,15 +155,15 @@ def register_routers():
         except NoSuchMeme as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
-        args_model = (
-            meme.params_type.args_type.args_model
-            if meme.params_type.args_type
-            else MemeArgsModel
-        )
-        properties: dict[str, dict[str, Any]] = (
-            args_model.schema().get("properties", {}).copy()
-        )
-        properties.pop("user_infos")
+        args_type_response = None
+        if args_type := meme.params_type.args_type:
+            args_model = args_type.args_model
+            args_type_response = MemeArgsResponse(
+                args_model=args_model.schema(),
+                args_examples=[example.dict() for example in args_type.args_examples],
+                parser_options=args_type.parser_options,
+            )
+
         return MemeInfoResponse(
             key=meme.key,
             keywords=meme.keywords,
@@ -177,16 +175,7 @@ def register_routers():
                 min_texts=meme.params_type.min_texts,
                 max_texts=meme.params_type.max_texts,
                 default_texts=meme.params_type.default_texts,
-                args=[
-                    MemeArgsResponse(
-                        name=name,
-                        type=info.get("type", ""),
-                        description=info.get("description"),
-                        default=info.get("default"),
-                        enum=info.get("enum"),
-                    )
-                    for name, info in properties.items()
-                ],
+                args_type=args_type_response,
             ),
             date_created=meme.date_created,
             date_modified=meme.date_modified,
