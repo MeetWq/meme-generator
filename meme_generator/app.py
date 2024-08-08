@@ -10,7 +10,7 @@ from meme_generator.config import meme_config
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
-from meme_generator.meme import Meme, MemeArgsModel
+from meme_generator.meme import CommandShortcut, Meme, MemeArgsModel
 from meme_generator.utils import TextProperties, render_meme_list, run_sync
 
 app = FastAPI()
@@ -36,7 +36,8 @@ class MemeParamsResponse(BaseModel):
 class MemeInfoResponse(BaseModel):
     key: str
     keywords: list[str]
-    patterns: list[str]
+    shortcuts: list[CommandShortcut]
+    tags: list[str]
     params: MemeParamsResponse
     date_created: datetime
     date_modified: datetime
@@ -44,7 +45,7 @@ class MemeInfoResponse(BaseModel):
 
 def register_router(meme: Meme):
     if args_type := meme.params_type.args_type:
-        args_model = args_type.model
+        args_model = args_type.args_model
     else:
         args_model = MemeArgsModel
 
@@ -157,7 +158,7 @@ def register_routers():
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
         args_model = (
-            meme.params_type.args_type.model
+            meme.params_type.args_type.args_model
             if meme.params_type.args_type
             else MemeArgsModel
         )
@@ -168,7 +169,8 @@ def register_routers():
         return MemeInfoResponse(
             key=meme.key,
             keywords=meme.keywords,
-            patterns=meme.patterns,
+            shortcuts=meme.shortcuts,
+            tags=meme.tags,
             params=MemeParamsResponse(
                 min_images=meme.params_type.min_images,
                 max_images=meme.params_type.max_images,
@@ -201,14 +203,6 @@ def register_routers():
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
         return Response(content=content, media_type=media_type)
-
-    @app.post("/memes/{key}/parse_args")
-    async def _(key: str, args: list[str] = []):
-        try:
-            meme = get_meme(key)
-            return meme.parse_args(args)
-        except MemeGeneratorException as e:
-            raise HTTPException(status_code=e.status_code, detail=str(e))
 
     for meme in sorted(get_memes(), key=lambda meme: meme.key):
         register_router(meme)

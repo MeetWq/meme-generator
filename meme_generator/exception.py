@@ -41,20 +41,6 @@ class OpenImageFailed(MemeGeneratorException):
         super().__init__(message)
 
 
-class ParserExit(MemeGeneratorException):
-    status_code: int = 534
-
-    def __init__(self, status: int = 0, error_message: Optional[str] = None):
-        self.status = status
-        self.error_message = error_message or ""
-        message = (
-            f"Argument parser failed to parse. (status={self.status}"
-            + (f", message={self.error_message!r}" if self.error_message else "")
-            + ")"
-        )
-        super().__init__(message)
-
-
 class ParamsMismatch(MemeGeneratorException):
     status_code: int = 540
 
@@ -101,7 +87,7 @@ class ArgMismatch(ParamsMismatch):
     pass
 
 
-class ArgParserExit(ArgMismatch):
+class ArgParserMismatch(ArgMismatch):
     status_code: int = 551
 
     def __init__(self, meme_key: str, error_message: str):

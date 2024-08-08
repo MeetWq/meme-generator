@@ -1,21 +1,18 @@
-import copy
-from argparse import ArgumentError, ArgumentParser
-from contextvars import ContextVar
 from dataclasses import dataclass, field
 from datetime import datetime
 from io import BytesIO
 from pathlib import Path
-from typing import IO, Any, Literal, Optional, Protocol, TypeVar, Union
+from typing import Any, Literal, Optional, Protocol, TypeVar, Union
 
+from arclet.alconna import ArgFlag, Args, Empty, Option
+from arclet.alconna.action import Action
 from pil_utils import BuildImage
 from pydantic import BaseModel, ValidationError
 
 from .exception import (
     ArgModelMismatch,
-    ArgParserExit,
     ImageNumberMismatch,
     OpenImageFailed,
-    ParserExit,
     TextNumberMismatch,
     TextOrNameNotEnough,
 )
@@ -43,34 +40,54 @@ class MemeFunction(Protocol):
     ) -> BytesIO: ...
 
 
-parser_message: ContextVar[str] = ContextVar("parser_message")
+class ParserArg(BaseModel):
+    name: str
+    value: str
+    default: Optional[Any] = None
+    flags: Optional[list[ArgFlag]] = None
 
 
-class MemeArgsParser(ArgumentParser):
-    """`shell_like` 命令参数解析器，解析出错时不会退出程序。
+class ParserOption(BaseModel):
+    names: list[str]
+    args: Optional[list[ParserArg]] = None
+    dest: Optional[str] = None
+    default: Optional[Any] = None
+    action: Optional[Action] = None
+    help_text: Optional[str] = None
+    compact: bool = False
 
-    用法:
-        用法与 `argparse.ArgumentParser` 相同，
-        参考文档: [argparse](https://docs.python.org/3/library/argparse.html)
-    """
+    def option(self) -> Option:
+        args = Args()
+        for arg in self.args or []:
+            args.add(
+                name=arg.name,
+                value=arg.value,
+                default=arg.default or Empty,
+                flags=arg.flags,
+            )
 
-    def _print_message(self, message: str, file: Optional[IO[str]] = None):
-        if (msg := parser_message.get(None)) is not None:
-            parser_message.set(msg + message)
-        else:
-            super()._print_message(message, file)
+        return Option(
+            name="|".join(self.names),
+            args=args,
+            dest=self.dest,
+            default=self.default,
+            action=self.action,
+            help_text=self.help_text,
+            compact=self.compact,
+        )
 
-    def exit(self, status: int = 0, message: Optional[str] = None):
-        if message:
-            self._print_message(message)
-        raise ParserExit(status=status, error_message=parser_message.get(None))
+
+class CommandShortcut(BaseModel):
+    key: str
+    args: Optional[list[str]] = None
+    humanized: Optional[str] = None
 
 
 @dataclass
 class MemeArgsType:
-    parser: MemeArgsParser
-    model: type[MemeArgsModel]
-    instances: list[MemeArgsModel] = field(default_factory=list)
+    args_model: type[MemeArgsModel]
+    args_examples: list[MemeArgsModel] = field(default_factory=list)
+    parser_options: list[ParserOption] = field(default_factory=list)
 
 
 @dataclass
@@ -89,7 +106,8 @@ class Meme:
     function: MemeFunction
     params_type: MemeParamsType
     keywords: list[str] = field(default_factory=list)
-    patterns: list[str] = field(default_factory=list)
+    shortcuts: list[CommandShortcut] = field(default_factory=list)
+    tags: list[str] = field(default_factory=list)
     date_created: datetime = datetime(2021, 5, 4)
     date_modified: datetime = datetime.now()
 
@@ -113,7 +131,7 @@ class Meme:
             )
 
         if args_type := self.params_type.args_type:
-            args_model = args_type.model
+            args_model = args_type.args_model
         else:
             args_model = MemeArgsModel
 
@@ -133,23 +151,6 @@ class Meme:
 
         values = {"images": imgs, "texts": texts, "args": model}
         return self.function(**values)
-
-    def parse_args(self, args: list[str] = []) -> dict[str, Any]:
-        parser = (
-            copy.deepcopy(self.params_type.args_type.parser)
-            if self.params_type.args_type
-            else MemeArgsParser()
-        )
-        parser.add_argument("texts", nargs="*", default=[])
-        t = parser_message.set("")
-        try:
-            return vars(parser.parse_args(args))
-        except ArgumentError as e:
-            raise ArgParserExit(self.key, str(e))
-        except ParserExit as e:
-            raise ArgParserExit(self.key, e.error_message)
-        finally:
-            parser_message.reset(t)
 
     def generate_preview(self, *, args: dict[str, Any] = {}) -> BytesIO:
         default_images = [random_image() for _ in range(self.params_type.min_images)]

@@ -8,7 +8,7 @@ from typing import Optional, Union
 from .config import meme_config
 from .exception import NoSuchMeme
 from .log import logger
-from .meme import Meme, MemeArgsType, MemeFunction, MemeParamsType
+from .meme import CommandShortcut, Meme, MemeArgsType, MemeFunction, MemeParamsType
 
 _memes: dict[str, Meme] = {}
 
@@ -68,7 +68,8 @@ def add_meme(
     default_texts: list[str] = [],
     args_type: Optional[MemeArgsType] = None,
     keywords: list[str] = [],
-    patterns: list[str] = [],
+    shortcuts: list[CommandShortcut] = [],
+    tags: list[str] = [],
     date_created: datetime = datetime(2021, 5, 4),
     date_modified: datetime = datetime.now(),
 ):
@@ -87,7 +88,8 @@ def add_meme(
             min_images, max_images, min_texts, max_texts, default_texts, args_type
         ),
         keywords=keywords,
-        patterns=patterns,
+        shortcuts=shortcuts,
+        tags=tags,
         date_created=date_created,
         date_modified=date_modified,
     )
