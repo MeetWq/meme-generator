@@ -3,7 +3,7 @@ from pathlib import Path
 
 from pil_utils import BuildImage
 
-from meme_generator import add_meme
+from meme_generator import CommandShortcut, add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
@@ -38,8 +38,14 @@ add_meme(
     min_texts=2,
     max_texts=2,
     default_texts=["高情商", "低情商"],
-    keywords=["低情商xx高情商xx"],
-    patterns=[r"低情商[\s:：]*(.+?)\s+高情商[\s:：]*(.+)"],
+    keywords=["低情商", "高情商"],
+    shortcuts=[
+        CommandShortcut(
+            key=r"低情商[\s:：]*(?P<left>\S+)\s*高情商[\s:：]*(?P<right>\S+)",
+            args=["{low}", "{high}"],
+            humanized="低情商xx高情商xx",
+        )
+    ],
     date_created=datetime(2022, 6, 12),
-    date_modified=datetime(2023, 2, 14),
+    date_modified=datetime(2024, 8, 9),
 )

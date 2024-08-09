@@ -9,10 +9,12 @@ from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "我老婆"
+
 
 def teach(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png").resize_width(960).convert("RGBA")
-    text = texts[0] if texts else "我老婆"
+    text = texts[0] if texts else default_text
     try:
         frame.draw_text(
             (10, frame.height - 80, frame.width - 10, frame.height - 5),
@@ -39,7 +41,7 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
-    default_texts=["我老婆"],
+    default_texts=[default_text],
     keywords=["讲课", "敲黑板"],
     date_created=datetime(2022, 8, 16),
     date_modified=datetime(2023, 2, 14),

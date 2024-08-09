@@ -1,30 +1,51 @@
+import random
 from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    CommandShortcut,
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
+from meme_generator.exception import MemeGeneratorException
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 img_dir = Path(__file__).parent / "images"
 
-help_text = "角色：1、八重神子，2、胡桃，3、妮露，4、可莉，5、刻晴，6、钟离"
-
-parser = MemeArgsParser(prefix_chars="-/")
-parser.add_argument("--character", "/角色", help=help_text, default=1)
+help_text = "角色编号：1、八重神子，2、胡桃，3、妮露，4、可莉，5、刻晴，6、钟离"
 
 
 class Model(MemeArgsModel):
-    character: int = Field(1, description=help_text)
+    character: int = Field(0, description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[Model(character=i) for i in range(1, 7)],
+    parser_options=[
+        ParserOption(
+            names=["-c", "--character", "角色"],
+            args=[ParserArg(name="character", value="int")],
+            help_text=help_text,
+        ),
+    ],
+)
 
 
 def genshin_eat(images: list[BuildImage], texts, args: Model):
-    if args.character not in range(1, 7):
-        raise ValueError("角色参数错误，请选择1-6")
-    name = ["yae_miko", "hutao", "nilou", "klee", "keqing", "zhongli"][
-        args.character - 1
-    ]
+    names = ["yae_miko", "hutao", "nilou", "klee", "keqing", "zhongli"]
+    if args.character == 0:
+        name = random.choice(names)
+    elif args.character not in range(1, 7):
+        raise MemeGeneratorException("角色编号错误，请选择1-6")
+    else:
+        name = names[args.character - 1]
 
     position_list = [(110, 249), (119, 228), (120, 209), (119, 202), (124, 221)]
 
@@ -50,9 +71,16 @@ add_meme(
     genshin_eat,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model, [Model(character=i) for i in range(1, 7)]),
+    args_type=args_type,
     keywords=["原神吃"],
-    # TODO: patterns=
+    shortcuts=[
+        CommandShortcut(key=r"(?:八重神子|神子|八重)吃", args=["--character", "1"]),
+        CommandShortcut(key="胡桃吃", args=["--character", "2"]),
+        CommandShortcut(key="妮露吃", args=["--character", "3"]),
+        CommandShortcut(key="可莉吃", args=["--character", "4"]),
+        CommandShortcut(key="刻晴吃", args=["--character", "5"]),
+        CommandShortcut(key="钟离吃", args=["--character", "6"]),
+    ],
     date_created=datetime(2024, 8, 6),
-    date_modified=datetime(2024, 8, 6),
+    date_modified=datetime(2024, 8, 9),
 )

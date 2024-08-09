@@ -5,20 +5,35 @@ from pathlib import Path
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
 
-help = "图片编号，范围为 1~21"
-
-parser = MemeArgsParser()
-parser.add_argument("-n", "--number", type=int, default=0, help=help)
+help_text = "图片编号，范围为 1~21"
 
 
 class Model(MemeArgsModel):
-    number: int = Field(0, description=help)
+    number: int = Field(0, description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    parser_options=[
+        ParserOption(
+            names=["-n", "--number"],
+            args=[ParserArg(name="number", value="int")],
+            help_text=help_text,
+        ),
+    ],
+)
 
 
 def firefly_holdsign(images, texts: list[str], args: Model):
@@ -80,7 +95,7 @@ add_meme(
     min_texts=1,
     max_texts=1,
     default_texts=["我超爱你"],
-    args_type=MemeArgsType(parser, Model),
+    args_type=args_type,
     keywords=["流萤举牌"],
     date_created=datetime(2024, 5, 5),
     date_modified=datetime(2024, 5, 6),

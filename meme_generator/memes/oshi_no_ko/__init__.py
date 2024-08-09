@@ -3,7 +3,7 @@ from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
 
-from meme_generator import add_meme
+from meme_generator import CommandShortcut, add_meme
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_png_or_gif
 
@@ -62,7 +62,13 @@ add_meme(
     max_texts=1,
     default_texts=["网友"],
     keywords=["我推的网友"],
-    patterns=[r"我推的(\S+)"],
+    shortcuts=[
+        CommandShortcut(
+            key=r"我推的(?P<name>\S+)",
+            args=["{name}"],
+            humanized="我推的xx",
+        )
+    ],
     date_created=datetime(2023, 6, 1),
     date_modified=datetime(2023, 6, 23),
 )
