@@ -25,15 +25,15 @@ def genshin_eat(images: list[BuildImage], texts, args: Model):
         args.character - 1
     ]
 
-    position_list = [(110, 249), (119, 228), (120, 209), (119, 202), (124, 221)]
+    position_list = [(106,245),(115,224),(116,205),(115,198),(120,217)]
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
             chara = BuildImage.open(img_dir / name / f"{i:02d}.png")
             if i in range(4, 9):
-                food = img.convert("RGBA").circle().resize((36, 36), keep_ratio=True)
+                food = img.convert("RGBA").circle().resize((44, 44), keep_ratio=True)
                 if i == 8:
-                    food = food.resize((36, 27))
+                    food = food.resize((44, 33))
                 chara.paste(food, position_list[i - 4], alpha=True)
             return chara
 
