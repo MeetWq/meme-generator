@@ -4,7 +4,16 @@ from pathlib import Path
 from typing import Any
 
 import filetype
-from arclet.alconna import Alconna, Args, CommandMeta, MultiVar, Option, Subcommand
+from arclet.alconna import (
+    Alconna,
+    Args,
+    CommandMeta,
+    MultiVar,
+    Option,
+    Subcommand,
+    TextFormatter,
+)
+from arclet.alconna.exceptions import SpecialOptionTriggered
 from arclet.alconna.tools import RichConsoleFormatter
 
 from meme_generator.app import run_server
@@ -90,8 +99,18 @@ def meme_info(key: str) -> str:
 
     args_info = ""
     if args_type := meme.params_type.args_type:
+        formater = TextFormatter()
         for option in args_type.parser_options:
-            args_info += f"\n  * {'|'.join(option.names)}  {option.help_text}"
+            opt = option.option()
+            alias_text = (
+                " ".join(opt.requires)
+                + (" " if opt.requires else "")
+                + "│".join(sorted(opt.aliases, key=len))
+            )
+            args_info += (
+                f"\n  * {alias_text}{opt.separators[0]}"
+                f"{formater.parameters(opt.args)} {opt.help_text}"
+            )
 
     return (
         f"表情名：{meme.key}\n"
@@ -153,7 +172,8 @@ def main():
     result = parser.parse(["meme"] + sys.argv[1:])
 
     if not result.matched:
-        print(result.error_info)  # noqa: T201
+        if not isinstance(result.error_info, SpecialOptionTriggered):
+            print(result.error_info)  # noqa: T201
         return
 
     if not result.subcommands:
