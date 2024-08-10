@@ -74,7 +74,11 @@ add_meme(
     args_type=args_type,
     keywords=["原神吃"],
     shortcuts=[
-        CommandShortcut(key=r"(?:八重神子|神子|八重)吃", args=["--character", "1"]),
+        CommandShortcut(
+            key=r"(?:八重神子|神子|八重)吃",
+            args=["--character", "1"],
+            humanized="八重神子吃",
+        ),
         CommandShortcut(key="胡桃吃", args=["--character", "2"]),
         CommandShortcut(key="妮露吃", args=["--character", "3"]),
         CommandShortcut(key="可莉吃", args=["--character", "4"]),

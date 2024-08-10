@@ -10,7 +10,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def caoshen_bite(images: list[BuildImage], texts, args):
+def nahida_bite(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((160, 140), keep_ratio=True)
     # fmt: off
     locs = [
@@ -32,11 +32,11 @@ def caoshen_bite(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "caoshen_bite",
-    caoshen_bite,
+    "nahida_bite",
+    nahida_bite,
     min_images=1,
     max_images=1,
-    keywords=["草神啃"],
+    keywords=["纳西妲啃", "草神啃"],
     date_created=datetime(2023, 6, 23),
-    date_modified=datetime(2023, 6, 23),
+    date_modified=datetime(2024, 8, 10),
 )

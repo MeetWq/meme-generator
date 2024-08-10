@@ -33,6 +33,6 @@ add_meme(
     min_images=1,
     max_images=2,
     keywords=["撕"],
-    date_created=datetime(2021, 5, 4),
+    date_created=datetime(2021, 5, 5),
     date_modified=datetime(2023, 2, 14),
 )
