@@ -25,7 +25,7 @@ def genshin_eat(images: list[BuildImage], texts, args: Model):
         args.character - 1
     ]
 
-    position_list = [(106,245),(115,224),(116,205),(115,198),(120,217)]
+    position_list = [(106, 245), (115, 224), (116, 205), (115, 198), (120, 217)]
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
