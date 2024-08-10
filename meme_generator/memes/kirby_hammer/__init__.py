@@ -6,6 +6,7 @@ from pil_utils import BuildImage
 from pydantic import Field
 
 from meme_generator import MemeArgsModel, MemeArgsType, ParserOption, add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -73,6 +74,7 @@ add_meme(
     max_images=1,
     args_type=args_type,
     keywords=["卡比锤", "卡比重锤"],
+    tags=MemeTags.kirby,
     date_created=datetime(2022, 11, 8),
     date_modified=datetime(2023, 2, 14),
 )

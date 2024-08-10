@@ -85,7 +85,7 @@ def meme_info(key: str) -> str:
     shortcuts = "、".join(
         [f'"{shortcut.humanized or shortcut.key}"' for shortcut in meme.shortcuts]
     )
-    tags = "、".join([f'"{tag}"' for tag in meme.tags])
+    tags = "、".join([f'"{tag}"' for tag in sorted(meme.tags)])
 
     image_num = f"{meme.params_type.min_images}"
     if meme.params_type.max_images > meme.params_type.min_images:

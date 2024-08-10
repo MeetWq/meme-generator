@@ -34,7 +34,7 @@ class MemeInfoResponse(BaseModel):
     key: str
     keywords: list[str]
     shortcuts: list[CommandShortcut]
-    tags: list[str]
+    tags: set[str]
     params: MemeParamsResponse
     date_created: datetime
     date_modified: datetime

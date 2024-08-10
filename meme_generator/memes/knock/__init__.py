@@ -5,6 +5,7 @@ from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -31,6 +32,7 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["敲"],
+    tags=MemeTags.gura,
     date_created=datetime(2022, 4, 14),
     date_modified=datetime(2023, 2, 14),
 )

@@ -69,7 +69,7 @@ def add_meme(
     args_type: Optional[MemeArgsType] = None,
     keywords: list[str] = [],
     shortcuts: list[CommandShortcut] = [],
-    tags: list[str] = [],
+    tags: set[str] = set(),
     date_created: datetime = datetime(2021, 5, 4),
     date_modified: datetime = datetime.now(),
 ):

@@ -4,6 +4,7 @@ from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
 
@@ -32,6 +33,7 @@ add_meme(
     min_images=2,
     max_images=5,
     keywords=["舰长"],
+    tags=MemeTags.captain,
     date_created=datetime(2022, 10, 9),
     date_modified=datetime(2023, 2, 14),
 )

@@ -107,7 +107,7 @@ class Meme:
     params_type: MemeParamsType
     keywords: list[str] = field(default_factory=list)
     shortcuts: list[CommandShortcut] = field(default_factory=list)
-    tags: list[str] = field(default_factory=list)
+    tags: set[str] = field(default_factory=set)
     date_created: datetime = datetime(2021, 5, 4)
     date_modified: datetime = datetime.now()
 

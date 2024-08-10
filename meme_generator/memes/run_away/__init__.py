@@ -4,6 +4,7 @@ from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -40,6 +41,7 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["快逃"],
+    tags=MemeTags.miku,
     date_created=datetime(2024, 7, 23),
     date_modified=datetime(2024, 7, 23),
 )

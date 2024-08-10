@@ -5,6 +5,7 @@ from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -31,6 +32,7 @@ add_meme(
     min_images=2,
     max_images=2,
     keywords=["揍"],
+    tags=MemeTags.tom | MemeTags.jerry,
     date_created=datetime(2024, 4, 9),
     date_modified=datetime(2024, 4, 9),
 )

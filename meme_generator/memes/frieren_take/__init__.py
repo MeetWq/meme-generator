@@ -5,6 +5,7 @@ from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -43,6 +44,7 @@ add_meme(
     max_texts=1,
     default_texts=[default_text],
     keywords=["芙莉莲拿"],
+    tags=MemeTags.frieren,
     date_created=datetime(2024, 1, 18),
     date_modified=datetime(2024, 8, 9),
 )

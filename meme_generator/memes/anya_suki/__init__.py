@@ -5,6 +5,7 @@ from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -43,6 +44,7 @@ add_meme(
     max_texts=1,
     default_texts=[default_text],
     keywords=["阿尼亚喜欢"],
+    tags=MemeTags.anya,
     date_created=datetime(2022, 5, 10),
     date_modified=datetime(2023, 2, 14),
 )

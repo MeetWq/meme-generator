@@ -5,6 +5,7 @@ from pil_utils import BuildImage, Text2Image
 
 from meme_generator import CommandShortcut, add_meme
 from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -69,6 +70,7 @@ add_meme(
             humanized="我推的xx",
         )
     ],
+    tags=MemeTags.oshi_no_ko,
     date_created=datetime(2023, 6, 1),
     date_modified=datetime(2023, 6, 23),
 )

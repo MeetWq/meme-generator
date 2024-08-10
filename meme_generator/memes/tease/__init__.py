@@ -5,6 +5,7 @@ from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -54,6 +55,7 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["拿捏", "戏弄"],
+    tags=MemeTags.blue_archive,
     date_created=datetime(2023, 6, 27),
     date_modified=datetime(2023, 6, 27),
 )

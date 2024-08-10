@@ -13,6 +13,7 @@ from meme_generator import (
     add_meme,
 )
 from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
 
@@ -97,6 +98,7 @@ add_meme(
     default_texts=["我超爱你"],
     args_type=args_type,
     keywords=["流萤举牌"],
+    tags=MemeTags.firefly,
     date_created=datetime(2024, 5, 5),
     date_modified=datetime(2024, 5, 6),
 )
