@@ -164,7 +164,7 @@ class Meme:
             else [random_text() for _ in range(self.params_type.min_texts)]
         )
 
-        def _generate_preview(images: list[BytesIO], texts: list[str]):
+        def _generate_preview(images: list[bytes], texts: list[str]):
             try:
                 return self.__call__(images=images, texts=texts, args=args)
             except TextOrNameNotEnough:

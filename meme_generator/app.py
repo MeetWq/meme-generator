@@ -3,7 +3,6 @@ from typing import Any, Literal, Optional
 
 import filetype
 from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile
-from pil_utils.types import ColorType, FontStyle, FontWeight
 from pydantic import BaseModel, ValidationError
 
 from meme_generator.config import meme_config
@@ -11,7 +10,7 @@ from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
 from meme_generator.meme import CommandShortcut, Meme, MemeArgsModel, ParserOption
-from meme_generator.utils import TextProperties, render_meme_list, run_sync
+from meme_generator.utils import MemeProperties, render_meme_list, run_sync
 
 app = FastAPI()
 
@@ -82,11 +81,8 @@ def register_router(meme: Meme):
 
 class MemeKeyWithProperties(BaseModel):
     meme_key: str
-    fill: ColorType = "black"
-    style: FontStyle = "normal"
-    weight: FontWeight = "normal"
-    stroke_width: int = 0
-    stroke_fill: Optional[ColorType] = None
+    disabled: bool = False
+    labels: list[Literal["new", "hot"]] = []
 
 
 default_meme_list = [
@@ -97,15 +93,8 @@ default_meme_list = [
 
 class RenderMemeListRequest(BaseModel):
     meme_list: list[MemeKeyWithProperties] = default_meme_list
-    order_direction: Literal["row", "column"] = "column"
-    columns: int = 4
-    column_align: Literal["left", "center", "right"] = "left"
-    item_padding: tuple[int, int] = (15, 2)
-    image_padding: tuple[int, int] = (50, 50)
-    bg_color: ColorType = "white"
-    fontsize: int = 30
-    fontname: str = ""
-    fallback_fonts: list[str] = []
+    text_template: str = "{keywords}"
+    add_category_icon: bool = True
 
 
 def register_routers():
@@ -115,13 +104,7 @@ def register_routers():
             meme_list = [
                 (
                     get_meme(p.meme_key),
-                    TextProperties(
-                        fill=p.fill,
-                        style=p.style,
-                        weight=p.weight,
-                        stroke_width=p.stroke_width,
-                        stroke_fill=p.stroke_fill,
-                    ),
+                    MemeProperties(disabled=p.disabled, labels=p.labels),
                 )
                 for p in params.meme_list
             ]
@@ -130,15 +113,8 @@ def register_routers():
 
         result = render_meme_list(
             meme_list,
-            order_direction=params.order_direction,
-            columns=params.columns,
-            column_align=params.column_align,
-            item_padding=params.item_padding,
-            image_padding=params.image_padding,
-            bg_color=params.bg_color,
-            fontsize=params.fontsize,
-            fontname=params.fontname,
-            fallback_fonts=params.fallback_fonts,
+            text_template=params.text_template,
+            add_category_icon=params.add_category_icon,
         )
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
