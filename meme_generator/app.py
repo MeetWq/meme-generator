@@ -32,10 +32,10 @@ class MemeParamsResponse(BaseModel):
 
 class MemeInfoResponse(BaseModel):
     key: str
+    params_type: MemeParamsResponse
     keywords: list[str]
     shortcuts: list[CommandShortcut]
     tags: set[str]
-    params: MemeParamsResponse
     date_created: datetime
     date_modified: datetime
 
@@ -142,10 +142,7 @@ def register_routers():
 
         return MemeInfoResponse(
             key=meme.key,
-            keywords=meme.keywords,
-            shortcuts=meme.shortcuts,
-            tags=meme.tags,
-            params=MemeParamsResponse(
+            params_type=MemeParamsResponse(
                 min_images=meme.params_type.min_images,
                 max_images=meme.params_type.max_images,
                 min_texts=meme.params_type.min_texts,
@@ -153,6 +150,9 @@ def register_routers():
                 default_texts=meme.params_type.default_texts,
                 args_type=args_type_response,
             ),
+            keywords=meme.keywords,
+            shortcuts=meme.shortcuts,
+            tags=meme.tags,
             date_created=meme.date_created,
             date_modified=meme.date_modified,
         )
