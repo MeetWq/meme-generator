@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -15,5 +16,11 @@ def decent_kiss(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "decent_kiss", decent_kiss, min_images=1, max_images=1, keywords=["像样的亲亲"]
+    "decent_kiss",
+    decent_kiss,
+    min_images=1,
+    max_images=1,
+    keywords=["像样的亲亲"],
+    date_created=datetime(2022, 4, 14),
+    date_modified=datetime(2023, 2, 14),
 )

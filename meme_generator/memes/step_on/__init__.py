@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -27,4 +28,12 @@ def step_on(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.07)
 
 
-add_meme("step_on", step_on, min_images=1, max_images=1, keywords=["踩"])
+add_meme(
+    "step_on",
+    step_on,
+    min_images=1,
+    max_images=1,
+    keywords=["踩"],
+    date_created=datetime(2023, 3, 28),
+    date_modified=datetime(2023, 3, 28),
+)

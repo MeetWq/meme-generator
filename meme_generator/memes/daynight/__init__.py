@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -17,5 +18,11 @@ def daynight(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "daynight", daynight, min_images=2, max_images=2, keywords=["白天黑夜", "白天晚上"]
+    "daynight",
+    daynight,
+    min_images=2,
+    max_images=2,
+    keywords=["白天黑夜", "白天晚上"],
+    date_created=datetime(2023, 10, 3),
+    date_modified=datetime(2023, 10, 3),
 )

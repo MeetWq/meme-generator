@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -40,4 +41,12 @@ def telescope(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("telescope", telescope, min_images=1, max_images=1, keywords=["望远镜"])
+add_meme(
+    "telescope",
+    telescope,
+    min_images=1,
+    max_images=1,
+    keywords=["望远镜"],
+    date_created=datetime(2024, 1, 18),
+    date_modified=datetime(2024, 1, 18),
+)

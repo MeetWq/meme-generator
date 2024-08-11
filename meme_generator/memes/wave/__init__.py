@@ -1,4 +1,5 @@
 import math
+from datetime import datetime
 
 from pil_utils import BuildImage
 
@@ -28,7 +29,8 @@ def wave(images: list[BuildImage], texts, args):
                     dy = int(sin(j) * j / img_h)
                     if 0 <= i + dx < img_w and 0 <= j + dy < img_h:
                         frame.image.putpixel(
-                            (i, j), img.image.getpixel((i + dx, j + dy))
+                            (i, j),
+                            img.image.getpixel((i + dx, j + dy)),  # type: ignore
                         )
 
             frame = frame.resize_canvas((int(img_w - amp), int(img_h - amp)))
@@ -43,4 +45,12 @@ def wave(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("wave", wave, min_images=1, max_images=1, keywords=["波纹"])
+add_meme(
+    "wave",
+    wave,
+    min_images=1,
+    max_images=1,
+    keywords=["波纹"],
+    date_created=datetime(2022, 10, 26),
+    date_modified=datetime(2023, 2, 14),
+)

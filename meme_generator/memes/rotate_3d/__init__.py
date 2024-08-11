@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import numpy as np
 from pil_utils import BuildImage
 
@@ -66,4 +68,12 @@ def rotate_3d(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("rotate_3d", rotate_3d, min_images=1, max_images=1, keywords=["三维旋转"])
+add_meme(
+    "rotate_3d",
+    rotate_3d,
+    min_images=1,
+    max_images=1,
+    keywords=["三维旋转"],
+    date_created=datetime(2024, 4, 30),
+    date_modified=datetime(2024, 4, 30),
+)

@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
@@ -7,6 +8,8 @@ from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
+
+default_text = "エロ本"
 
 
 def read_book(images: list[BuildImage], texts: list[str], args):
@@ -20,7 +23,7 @@ def read_book(images: list[BuildImage], texts: list[str], args):
     cover = img.perspective(points)
     frame.paste(cover, (1138, 1172), below=True)
 
-    text = texts[0] if texts else "エロ本"
+    text = texts[0] if texts else default_text
 
     chars = list(" ".join(text.splitlines()))
     pieces: list[BuildImage] = []
@@ -60,5 +63,8 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
+    default_texts=[default_text],
     keywords=["看书"],
+    date_created=datetime(2022, 8, 22),
+    date_modified=datetime(2023, 10, 25),
 )

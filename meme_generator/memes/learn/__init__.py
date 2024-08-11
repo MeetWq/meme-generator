@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -8,9 +9,11 @@ from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "偷学群友数理基础"
+
 
 def learn(images: list[BuildImage], texts: list[str], args):
-    text = texts[0] if texts else "偷学群友数理基础"
+    text = texts[0] if texts else default_text
     frame = BuildImage.open(img_dir / "0.png")
     try:
         frame.draw_text(
@@ -37,6 +40,8 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
-    default_texts=["偷学群友数理基础"],
+    default_texts=[default_text],
     keywords=["偷学"],
+    date_created=datetime(2022, 12, 4),
+    date_modified=datetime(2023, 2, 14),
 )

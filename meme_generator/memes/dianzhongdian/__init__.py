@@ -1,13 +1,21 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
-from meme_generator.utils import run_sync, translate
+from meme_generator.utils import translate
 
 
-@run_sync
-def _dianzhongdian(img: BuildImage, text: str, trans: str):
-    img = img.convert("L").resize_width(500)
+def dianzhongdian(images: list[BuildImage], texts: list[str], args):
+    if len(texts) == 1:
+        text = texts[0]
+        trans = translate(text, lang_to="jp")
+    else:
+        text = texts[0]
+        trans = texts[1]
+
+    img = images[0].convert("L").resize_width(500)
     text_img1 = BuildImage.new("RGBA", (500, 60))
     text_img2 = BuildImage.new("RGBA", (500, 35))
 
@@ -40,17 +48,6 @@ def _dianzhongdian(img: BuildImage, text: str, trans: str):
     return frame.save_jpg()
 
 
-async def dianzhongdian(images: list[BuildImage], texts: list[str], args):
-    if len(texts) == 1:
-        text = texts[0]
-        trans = await translate(text, lang_to="jp")
-    else:
-        text = texts[0]
-        trans = texts[1]
-
-    return await _dianzhongdian(images[0], text, trans)
-
-
 add_meme(
     "dianzhongdian",
     dianzhongdian,
@@ -60,4 +57,6 @@ add_meme(
     max_texts=2,
     default_texts=["救命啊"],
     keywords=["入典", "典中典", "黑白草图"],
+    date_created=datetime(2022, 3, 12),
+    date_modified=datetime(2023, 2, 14),
 )

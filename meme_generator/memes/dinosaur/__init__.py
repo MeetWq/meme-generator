@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -18,4 +19,12 @@ def dinosaur(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("dinosaur", dinosaur, min_images=1, max_images=1, keywords=["恐龙", "小恐龙"])
+add_meme(
+    "dinosaur",
+    dinosaur,
+    min_images=1,
+    max_images=1,
+    keywords=["恐龙", "小恐龙"],
+    date_created=datetime(2023, 1, 6),
+    date_modified=datetime(2023, 2, 14),
+)

@@ -1,9 +1,11 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -21,4 +23,13 @@ def wallpaper(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.07)
 
 
-add_meme("wallpaper", wallpaper, min_images=1, max_images=1, keywords=["墙纸"])
+add_meme(
+    "wallpaper",
+    wallpaper,
+    min_images=1,
+    max_images=1,
+    keywords=["墙纸"],
+    tags=MemeTags.rick,
+    date_created=datetime(2022, 3, 9),
+    date_modified=datetime(2023, 2, 14),
+)

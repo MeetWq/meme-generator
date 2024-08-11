@@ -1,41 +1,54 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
+from arclet.alconna import store_value
 from PIL.Image import Transpose
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 
 img_dir = Path(__file__).parent / "images"
 
 
-help = "枪的位置"
-
-parser = MemeArgsParser(prefix_chars="-/")
-group = parser.add_mutually_exclusive_group()
-group.add_argument(
-    "-p",
-    "--position",
-    dest="position",
-    type=str,
-    choices=["left", "right", "both"],
-    default="left",
-    help=help,
-)
-group.add_argument(
-    "--left", "/左手", action="store_const", const="left", dest="position"
-)
-group.add_argument(
-    "--right", "/右手", action="store_const", const="right", dest="position"
-)
-group.add_argument(
-    "--both", "/双手", action="store_const", const="both", dest="position"
-)
+help_text = "枪的位置，包含 left、right、both"
 
 
 class Model(MemeArgsModel):
-    position: Literal["left", "right", "both"] = Field("left", description=help)
+    position: Literal["left", "right", "both"] = Field("left", description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[
+        Model(position="left"),
+        Model(position="right"),
+        Model(position="both"),
+    ],
+    parser_options=[
+        ParserOption(
+            names=["-p", "--position"],
+            args=[ParserArg(name="position", value="str")],
+            help_text=help_text,
+        ),
+        ParserOption(
+            names=["--left", "左手"], dest="position", action=store_value("left")
+        ),
+        ParserOption(
+            names=["--right", "右手"], dest="position", action=store_value("right")
+        ),
+        ParserOption(
+            names=["--both", "双手"], dest="position", action=store_value("both")
+        ),
+    ],
+)
 
 
 def gun(images: list[BuildImage], texts, args: Model):
@@ -56,10 +69,8 @@ add_meme(
     gun,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(
-        parser,
-        Model,
-        [Model(position="left"), Model(position="right"), Model(position="both")],
-    ),
+    args_type=args_type,
     keywords=["手枪"],
+    date_created=datetime(2022, 8, 22),
+    date_modified=datetime(2023, 2, 14),
 )

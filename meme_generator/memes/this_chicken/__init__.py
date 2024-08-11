@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -7,9 +8,11 @@ from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "这是十二生肖中的鸡"
+
 
 def this_chicken(images: list[BuildImage], texts, args):
-    text = texts[0] if texts else "这是十二生肖中的鸡"
+    text = texts[0] if texts else default_text
     img = images[0].convert("RGBA").resize((640, 640), keep_ratio=True)
 
     frame = BuildImage.open(img_dir / "0.png")
@@ -39,6 +42,8 @@ add_meme(
     min_images=1,
     max_images=1,
     max_texts=1,
-    default_texts=["这是十二生肖中的鸡"],
+    default_texts=[default_text],
     keywords=["这是鸡", "🐔"],
+    date_created=datetime(2023, 11, 12),
+    date_modified=datetime(2024, 1, 18),
 )

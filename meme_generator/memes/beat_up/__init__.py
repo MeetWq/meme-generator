@@ -1,9 +1,11 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -24,4 +26,13 @@ def beat_up(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("beat_up", beat_up, min_images=2, max_images=2, keywords=["揍"])
+add_meme(
+    "beat_up",
+    beat_up,
+    min_images=2,
+    max_images=2,
+    keywords=["揍"],
+    tags=MemeTags.tom | MemeTags.jerry,
+    date_created=datetime(2024, 4, 9),
+    date_modified=datetime(2024, 4, 9),
+)

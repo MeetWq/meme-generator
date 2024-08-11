@@ -1,5 +1,6 @@
 import math
 import random
+from datetime import datetime
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
@@ -74,4 +75,6 @@ add_meme(
     max_texts=1,
     default_texts=["douyin"],
     keywords=["douyin"],
+    date_created=datetime(2022, 10, 29),
+    date_modified=datetime(2023, 2, 14),
 )

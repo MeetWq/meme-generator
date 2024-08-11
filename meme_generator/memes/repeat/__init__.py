@@ -65,4 +65,6 @@ add_meme(
     max_texts=1,
     default_texts=["救命啊"],
     keywords=["复读"],
+    date_created=datetime(2022, 6, 8),
+    date_modified=datetime(2023, 2, 14),
 )

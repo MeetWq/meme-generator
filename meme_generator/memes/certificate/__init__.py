@@ -5,15 +5,30 @@ import dateparser
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.exception import TextOverLength
-
-parser = MemeArgsParser()
-parser.add_argument("-t", "--time", type=str, default="", help="指定时间")
 
 
 class Model(MemeArgsModel):
     time: str = Field("", description="指定时间")
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    parser_options=[
+        ParserOption(
+            names=["-t", "--time"],
+            args=[ParserArg(name="time", value="str")],
+            help_text="指定时间",
+        ),
+    ],
+)
 
 
 img_dir = Path(__file__).parent / "images"
@@ -103,6 +118,8 @@ add_meme(
     min_texts=3,
     max_texts=4,
     default_texts=["小王", "优秀学生", "一年一班"],
-    args_type=MemeArgsType(parser, Model),
+    args_type=args_type,
     keywords=["奖状", "证书"],
+    date_created=datetime(2023, 12, 3),
+    date_modified=datetime(2023, 12, 3),
 )

@@ -1,8 +1,9 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
 
-from meme_generator import add_meme
+from meme_generator import CommandShortcut, add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
@@ -27,6 +28,14 @@ add_meme(
     min_texts=1,
     max_texts=1,
     default_texts=["好"],
-    keywords=["xx起来了"],
-    patterns=[r"(.+?)\s+起来了"],
+    keywords=["好起来了"],
+    shortcuts=[
+        CommandShortcut(
+            key=r"(?P<text>\S+)\s*起来了",
+            args=["{text}"],
+            humanized="xx起来了",
+        )
+    ],
+    date_created=datetime(2022, 6, 12),
+    date_modified=datetime(2023, 2, 14),
 )

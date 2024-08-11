@@ -1,10 +1,17 @@
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 
+from arclet.alconna import store_true
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserOption,
+    add_meme,
+)
 
 IMG_DIR = Path(__file__).parent / "images"
 CIRCLE_PATH = IMG_DIR / "circle.png"
@@ -25,12 +32,23 @@ PERSON_INFO = PicInfo(PERSON_PATH, (434, 467), 26, (174, 378))
 
 HELP_PERSON = "是否使用爷爷头轮廓"
 
-parser = MemeArgsParser(prefix_chars="-/")
-parser.add_argument("--person", "/爷", action="store_true", help=HELP_PERSON)
-
 
 class Model(MemeArgsModel):
     person: bool = Field(False, description=HELP_PERSON)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[Model(person=False), Model(person=True)],
+    parser_options=[
+        ParserOption(
+            names=["--person", "爷"],
+            default=False,
+            action=store_true,
+            help_text=HELP_PERSON,
+        )
+    ],
+)
 
 
 def clown(images: list[BuildImage], texts, args: Model):
@@ -66,6 +84,8 @@ add_meme(
     clown,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model, [Model(person=False), Model(person=True)]),
+    args_type=args_type,
     keywords=["小丑"],
+    date_created=datetime(2023, 10, 14),
+    date_modified=datetime(2023, 10, 14),
 )

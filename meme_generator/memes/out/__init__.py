@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -26,4 +27,12 @@ def out(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make, keep_transparency=True)
 
 
-add_meme("out", out, min_images=1, max_images=1, keywords=["out"])
+add_meme(
+    "out",
+    out,
+    min_images=1,
+    max_images=1,
+    keywords=["out"],
+    date_created=datetime(2024, 4, 26),
+    date_modified=datetime(2024, 4, 26),
+)

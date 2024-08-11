@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -8,9 +9,11 @@ from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "朋友\n先看看这个图标再说话"
+
 
 def look_this_icon(images: list[BuildImage], texts: list[str], args):
-    text = texts[0] if texts else "朋友\n先看看这个图标再说话"
+    text = texts[0] if texts else default_text
     frame = BuildImage.open(img_dir / "nmsl.png")
     try:
         frame.draw_text(
@@ -38,6 +41,8 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
-    default_texts=["朋友\n先看看这个图标再说话"],
+    default_texts=[default_text],
     keywords=["看图标"],
+    date_created=datetime(2022, 10, 7),
+    date_modified=datetime(2023, 2, 14),
 )

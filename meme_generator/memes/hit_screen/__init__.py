@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -45,5 +46,11 @@ def hit_screen(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "hit_screen", hit_screen, min_images=1, max_images=1, keywords=["打穿", "打穿屏幕"]
+    "hit_screen",
+    hit_screen,
+    min_images=1,
+    max_images=1,
+    keywords=["打穿", "打穿屏幕"],
+    date_created=datetime(2022, 9, 30),
+    date_modified=datetime(2023, 2, 14),
 )

@@ -1,8 +1,10 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -55,4 +57,7 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["咖波撕"],
+    tags=MemeTags.capoo,
+    date_created=datetime(2023, 4, 17),
+    date_modified=datetime(2023, 4, 28),
 )

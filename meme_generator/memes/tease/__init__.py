@@ -1,9 +1,11 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -47,4 +49,13 @@ def tease(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("tease", tease, min_images=1, max_images=1, keywords=["拿捏", "戏弄"])
+add_meme(
+    "tease",
+    tease,
+    min_images=1,
+    max_images=1,
+    keywords=["拿捏", "戏弄"],
+    tags=MemeTags.blue_archive,
+    date_created=datetime(2023, 6, 27),
+    date_modified=datetime(2023, 6, 27),
+)

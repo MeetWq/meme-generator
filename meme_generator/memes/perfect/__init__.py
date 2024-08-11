@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def perfect(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("perfect", perfect, min_images=1, max_images=1, keywords=["完美"])
+add_meme(
+    "perfect",
+    perfect,
+    min_images=1,
+    max_images=1,
+    keywords=["完美"],
+    date_created=datetime(2022, 3, 10),
+    date_modified=datetime(2023, 2, 14),
+)

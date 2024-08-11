@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL import ImageFilter
@@ -32,4 +33,12 @@ def loading(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("loading", loading, min_images=1, max_images=1, keywords=["加载中"])
+add_meme(
+    "loading",
+    loading,
+    min_images=1,
+    max_images=1,
+    keywords=["加载中"],
+    date_created=datetime(2021, 12, 29),
+    date_modified=datetime(2023, 2, 14),
+)

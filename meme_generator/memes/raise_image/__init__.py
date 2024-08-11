@@ -1,3 +1,4 @@
+from datetime import datetime
 from io import BytesIO
 from pathlib import Path
 
@@ -32,4 +33,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["举"],
+    date_created=datetime(2023, 8, 9),
+    date_modified=datetime(2023, 8, 9),
 )

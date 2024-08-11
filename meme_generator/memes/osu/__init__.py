@@ -1,3 +1,4 @@
+from datetime import datetime
 from io import BytesIO
 from pathlib import Path
 
@@ -36,4 +37,6 @@ add_meme(
     max_texts=1,
     default_texts=["hso!"],
     keywords=["osu"],
+    date_created=datetime(2023, 7, 27),
+    date_modified=datetime(2023, 7, 27),
 )

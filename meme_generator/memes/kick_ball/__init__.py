@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -26,4 +27,12 @@ def kick_ball(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.1)
 
 
-add_meme("kick_ball", kick_ball, min_images=1, max_images=1, keywords=["踢球"])
+add_meme(
+    "kick_ball",
+    kick_ball,
+    min_images=1,
+    max_images=1,
+    keywords=["踢球"],
+    date_created=datetime(2022, 11, 29),
+    date_modified=datetime(2023, 2, 14),
+)

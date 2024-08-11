@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -9,9 +10,11 @@ from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "怎么说话的你"
+
 
 def beat_head(images: list[BuildImage], texts: list[str], args):
-    text = texts[0] if texts else "怎么说话的你"
+    text = texts[0] if texts else default_text
     img = images[0].convert("RGBA")
     locs = [(160, 121, 76, 76), (172, 124, 69, 69), (208, 166, 52, 52)]
     frames: list[IMG] = []
@@ -42,5 +45,8 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
+    default_texts=[default_text],
     keywords=["拍头"],
+    date_created=datetime(2023, 3, 8),
+    date_modified=datetime(2023, 3, 8),
 )

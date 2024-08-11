@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PIL import ImageOps
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
@@ -58,4 +60,6 @@ add_meme(
     max_texts=1,
     default_texts=["闪瞎你们的狗眼"],
     keywords=["闪瞎"],
+    date_created=datetime(2023, 5, 5),
+    date_modified=datetime(2023, 5, 5),
 )

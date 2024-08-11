@@ -4,12 +4,14 @@ import dateparser
 from pil_utils import BuildImage, Text2Image
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.exception import TextOverLength
-
-parser = MemeArgsParser()
-parser.add_argument("-t", "--time", type=str, default="", help="指定时间")
-parser.add_argument("-n", "--name", type=str, default="", help="指定名字")
 
 
 class Model(MemeArgsModel):
@@ -17,12 +19,31 @@ class Model(MemeArgsModel):
     name: str = Field("", description="指定名字")
 
 
+args_type = MemeArgsType(
+    args_model=Model,
+    parser_options=[
+        ParserOption(
+            names=["-t", "--time"],
+            args=[ParserArg(name="time", value="str")],
+            help_text="指定时间",
+        ),
+        ParserOption(
+            names=["-n", "--name"],
+            args=[ParserArg(name="name", value="str")],
+            help_text="指定名字",
+        ),
+    ],
+)
+
+default_text = "想玩原神"
+
+
 def note_for_leave(images: list[BuildImage], texts: list[str], args: Model):
     time = datetime.now()
     if args.time and (parsed_time := dateparser.parse(args.time)):
         time = parsed_time
     name = args.name or (args.user_infos[-1].name if args.user_infos else "")
-    text = texts[0] if texts else "想玩"
+    text = texts[0] if texts else default_text
     img = (
         images[0]
         .convert("RGBA")
@@ -78,7 +99,9 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
-    default_texts=["想玩"],
-    args_type=MemeArgsType(parser, Model),
+    default_texts=[default_text],
+    args_type=args_type,
     keywords=["请假条"],
+    date_created=datetime(2023, 4, 27),
+    date_modified=datetime(2023, 4, 27),
 )

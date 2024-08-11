@@ -1,22 +1,35 @@
+from datetime import datetime
 from pathlib import Path
 
+from arclet.alconna import store_true
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, MemeArgsType, ParserOption, add_meme
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
 
-help = "是否将图片变为圆形"
-
-parser = MemeArgsParser(prefix_chars="-/")
-parser.add_argument("--circle", "/圆", action="store_true", help=help)
+help_text = "是否将图片变为圆形"
 
 
 class Model(MemeArgsModel):
-    circle: bool = Field(False, description=help)
+    circle: bool = Field(False, description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[Model(circle=False), Model(circle=True)],
+    parser_options=[
+        ParserOption(
+            names=["--circle", "圆"],
+            default=False,
+            action=store_true,
+            help_text=help_text,
+        ),
+    ],
+)
 
 
 def dog_dislike(images: list[BuildImage], texts: list[str], args: Model):
@@ -74,6 +87,8 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=0,
-    args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
+    args_type=args_type,
     keywords=["狗都不玩"],
+    date_created=datetime(2023, 11, 16),
+    date_modified=datetime(2023, 11, 16),
 )

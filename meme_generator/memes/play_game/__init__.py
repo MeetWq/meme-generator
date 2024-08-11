@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -8,9 +9,11 @@ from meme_generator.utils import make_jpg_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "来玩休闲游戏啊"
+
 
 def play_game(images: list[BuildImage], texts: list[str], args):
-    text = texts[0] if texts else "来玩休闲游戏啊"
+    text = texts[0] if texts else default_text
     frame = BuildImage.open(img_dir / "0.png")
     try:
         frame.draw_text(
@@ -41,6 +44,8 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
-    default_texts=["来玩休闲游戏啊"],
+    default_texts=[default_text],
     keywords=["玩游戏"],
+    date_created=datetime(2022, 1, 4),
+    date_modified=datetime(2023, 2, 14),
 )

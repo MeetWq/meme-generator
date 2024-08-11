@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -22,4 +23,12 @@ def listen_music(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("listen_music", listen_music, min_images=1, max_images=1, keywords=["听音乐"])
+add_meme(
+    "listen_music",
+    listen_music,
+    min_images=1,
+    max_images=1,
+    keywords=["听音乐"],
+    date_created=datetime(2022, 3, 12),
+    date_modified=datetime(2023, 2, 14),
+)

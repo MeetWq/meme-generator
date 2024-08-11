@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Transpose
@@ -59,4 +60,6 @@ add_meme(
     max_texts=2,
     default_texts=["Porn", "Hub"],
     keywords=["yt", "youtube"],
+    date_created=datetime(2022, 10, 27),
+    date_modified=datetime(2023, 2, 14),
 )

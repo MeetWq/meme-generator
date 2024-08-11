@@ -1,7 +1,11 @@
+from datetime import datetime
+
 from PIL.Image import Transpose
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+
+defalut_text = "如何提高社交质量 : \n远离以下头像的人"
 
 
 def keep_away(images: list[BuildImage], texts: list[str], args):
@@ -18,7 +22,7 @@ def keep_away(images: list[BuildImage], texts: list[str], args):
         frame.paste(img, ((count % 4) * 100, y))
         count += 1
 
-    text = texts[0] if texts else "如何提高社交质量 : \n远离以下头像的人"
+    text = texts[0] if texts else defalut_text
     frame = BuildImage.new("RGB", (400, 290), "white")
     frame.draw_text((10, 10, 390, 80), text, max_fontsize=40, halign="left")
     count = 0
@@ -40,6 +44,8 @@ add_meme(
     max_images=8,
     min_texts=0,
     max_texts=1,
-    default_texts=["如何提高社交质量 : \n远离以下头像的人"],
+    default_texts=[defalut_text],
     keywords=["远离"],
+    date_created=datetime(2022, 5, 31),
+    date_modified=datetime(2023, 2, 14),
 )

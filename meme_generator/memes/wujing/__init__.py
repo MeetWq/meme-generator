@@ -1,9 +1,10 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
 from pil_utils import BuildImage
 
-from meme_generator import add_meme
+from meme_generator import CommandShortcut, add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
@@ -51,6 +52,14 @@ add_meme(
     min_texts=2,
     max_texts=2,
     default_texts=["不买华为不是", "人"],
-    keywords=["吴京xx中国xx"],
-    patterns=[r"吴京[\s:：]*(.*?)中国(.*)"],
+    keywords=["吴京中国"],
+    shortcuts=[
+        CommandShortcut(
+            key=r"吴京[\s:：]*(?P<left>\S*)中国(?P<right>\S*)",
+            args=["{left}", "{right}"],
+            humanized="吴京xx中国xx",
+        )
+    ],
+    date_created=datetime(2022, 6, 12),
+    date_modified=datetime(2023, 2, 14),
 )

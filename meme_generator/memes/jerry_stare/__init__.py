@@ -1,8 +1,11 @@
+from datetime import datetime
 from pathlib import Path
-from pil_utils import BuildImage
-from meme_generator import add_meme
-from meme_generator.utils import make_png_or_gif
 
+from pil_utils import BuildImage
+
+from meme_generator import add_meme
+from meme_generator.tags import MemeTags
+from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
@@ -12,9 +15,18 @@ def jerry_stare(images: list[BuildImage], texts, args):
 
     def make(img: BuildImage) -> BuildImage:
         img = img.convert("RGBA").circle().resize((150, 150), keep_ratio=True)
-        return jerry.copy().paste(img, (184, 268), img, below=True)
+        return jerry.copy().paste(img, (184, 268), below=True)
 
     return make_png_or_gif(images[0], make)
 
 
-add_meme("jerry_stare", jerry_stare, min_images=1, max_images=1, keywords=["杰瑞盯"])
+add_meme(
+    "jerry_stare",
+    jerry_stare,
+    min_images=1,
+    max_images=1,
+    keywords=["杰瑞盯"],
+    tags=MemeTags.jerry,
+    date_created=datetime(2024, 8, 9),
+    date_modified=datetime(2024, 8, 9),
+)

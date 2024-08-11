@@ -1,26 +1,24 @@
+from datetime import datetime
 from typing import Any, Literal, Optional
 
 import filetype
 from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile
-from pil_utils.types import ColorType, FontStyle, FontWeight
 from pydantic import BaseModel, ValidationError
 
 from meme_generator.config import meme_config
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
-from meme_generator.meme import Meme, MemeArgsModel
-from meme_generator.utils import TextProperties, render_meme_list
+from meme_generator.meme import CommandShortcut, Meme, MemeArgsModel, ParserOption
+from meme_generator.utils import MemeProperties, render_meme_list, run_sync
 
 app = FastAPI()
 
 
 class MemeArgsResponse(BaseModel):
-    name: str
-    type: str
-    description: Optional[str] = None
-    default: Optional[Any] = None
-    enum: Optional[list[Any]] = None
+    args_model: dict[str, Any]
+    args_examples: list[dict[str, Any]]
+    parser_options: list[ParserOption]
 
 
 class MemeParamsResponse(BaseModel):
@@ -29,19 +27,22 @@ class MemeParamsResponse(BaseModel):
     min_texts: int
     max_texts: int
     default_texts: list[str]
-    args: list[MemeArgsResponse]
+    args_type: Optional[MemeArgsResponse] = None
 
 
 class MemeInfoResponse(BaseModel):
     key: str
+    params_type: MemeParamsResponse
     keywords: list[str]
-    patterns: list[str]
-    params: MemeParamsResponse
+    shortcuts: list[CommandShortcut]
+    tags: set[str]
+    date_created: datetime
+    date_modified: datetime
 
 
 def register_router(meme: Meme):
     if args_type := meme.params_type.args_type:
-        args_model = args_type.model
+        args_model = args_type.args_model
     else:
         args_model = MemeArgsModel
 
@@ -69,7 +70,7 @@ def register_router(meme: Meme):
         assert isinstance(args, args_model)
 
         try:
-            result = await meme(images=imgs, texts=texts, args=args.dict())
+            result = await run_sync(meme)(images=imgs, texts=texts, args=args.dict())
         except MemeGeneratorException as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
@@ -80,11 +81,8 @@ def register_router(meme: Meme):
 
 class MemeKeyWithProperties(BaseModel):
     meme_key: str
-    fill: ColorType = "black"
-    style: FontStyle = "normal"
-    weight: FontWeight = "normal"
-    stroke_width: int = 0
-    stroke_fill: Optional[ColorType] = None
+    disabled: bool = False
+    labels: list[Literal["new", "hot"]] = []
 
 
 default_meme_list = [
@@ -95,15 +93,8 @@ default_meme_list = [
 
 class RenderMemeListRequest(BaseModel):
     meme_list: list[MemeKeyWithProperties] = default_meme_list
-    order_direction: Literal["row", "column"] = "column"
-    columns: int = 4
-    column_align: Literal["left", "center", "right"] = "left"
-    item_padding: tuple[int, int] = (15, 2)
-    image_padding: tuple[int, int] = (50, 50)
-    bg_color: ColorType = "white"
-    fontsize: int = 30
-    fontname: str = ""
-    fallback_fonts: list[str] = []
+    text_template: str = "{keywords}"
+    add_category_icon: bool = True
 
 
 def register_routers():
@@ -113,13 +104,7 @@ def register_routers():
             meme_list = [
                 (
                     get_meme(p.meme_key),
-                    TextProperties(
-                        fill=p.fill,
-                        style=p.style,
-                        weight=p.weight,
-                        stroke_width=p.stroke_width,
-                        stroke_fill=p.stroke_fill,
-                    ),
+                    MemeProperties(disabled=p.disabled, labels=p.labels),
                 )
                 for p in params.meme_list
             ]
@@ -128,15 +113,8 @@ def register_routers():
 
         result = render_meme_list(
             meme_list,
-            order_direction=params.order_direction,
-            columns=params.columns,
-            column_align=params.column_align,
-            item_padding=params.item_padding,
-            image_padding=params.image_padding,
-            bg_color=params.bg_color,
-            fontsize=params.fontsize,
-            fontname=params.fontname,
-            fallback_fonts=params.fallback_fonts,
+            text_template=params.text_template,
+            add_category_icon=params.add_category_icon,
         )
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
@@ -153,57 +131,43 @@ def register_routers():
         except NoSuchMeme as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
-        args_model = (
-            meme.params_type.args_type.model
-            if meme.params_type.args_type
-            else MemeArgsModel
-        )
-        properties: dict[str, dict[str, Any]] = (
-            args_model.schema().get("properties", {}).copy()
-        )
-        properties.pop("user_infos")
+        args_type_response = None
+        if args_type := meme.params_type.args_type:
+            args_model = args_type.args_model
+            args_type_response = MemeArgsResponse(
+                args_model=args_model.schema(),
+                args_examples=[example.dict() for example in args_type.args_examples],
+                parser_options=args_type.parser_options,
+            )
+
         return MemeInfoResponse(
             key=meme.key,
-            keywords=meme.keywords,
-            patterns=meme.patterns,
-            params=MemeParamsResponse(
+            params_type=MemeParamsResponse(
                 min_images=meme.params_type.min_images,
                 max_images=meme.params_type.max_images,
                 min_texts=meme.params_type.min_texts,
                 max_texts=meme.params_type.max_texts,
                 default_texts=meme.params_type.default_texts,
-                args=[
-                    MemeArgsResponse(
-                        name=name,
-                        type=info.get("type", ""),
-                        description=info.get("description"),
-                        default=info.get("default"),
-                        enum=info.get("enum"),
-                    )
-                    for name, info in properties.items()
-                ],
+                args_type=args_type_response,
             ),
+            keywords=meme.keywords,
+            shortcuts=meme.shortcuts,
+            tags=meme.tags,
+            date_created=meme.date_created,
+            date_modified=meme.date_modified,
         )
 
     @app.get("/memes/{key}/preview")
     async def _(key: str):
         try:
             meme = get_meme(key)
-            result = await meme.generate_preview()
+            result = await run_sync(meme.generate_preview)()
         except MemeGeneratorException as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
         return Response(content=content, media_type=media_type)
-
-    @app.post("/memes/{key}/parse_args")
-    async def _(key: str, args: list[str] = []):
-        try:
-            meme = get_meme(key)
-            return meme.parse_args(args)
-        except MemeGeneratorException as e:
-            raise HTTPException(status_code=e.status_code, detail=str(e))
 
     for meme in sorted(get_memes(), key=lambda meme: meme.key):
         register_router(meme)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -38,4 +39,6 @@ add_meme(
         "为了待会去码头整点薯条",
     ],
     keywords=["整点薯条"],
+    date_created=datetime(2022, 10, 26),
+    date_modified=datetime(2023, 2, 14),
 )

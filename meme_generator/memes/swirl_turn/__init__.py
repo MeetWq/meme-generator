@@ -1,4 +1,5 @@
 import math
+from datetime import datetime
 
 from pil_utils import BuildImage
 
@@ -35,4 +36,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["回旋转", "旋风转"],
+    date_created=datetime(2024, 5, 7),
+    date_modified=datetime(2024, 5, 7),
 )

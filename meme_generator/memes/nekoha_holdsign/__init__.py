@@ -1,9 +1,11 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
 
@@ -34,4 +36,7 @@ add_meme(
     max_texts=1,
     default_texts=["V我50"],
     keywords=["猫羽雫举牌", "猫猫举牌"],
+    tags=MemeTags.nekoha,
+    date_created=datetime(2023, 3, 30),
+    date_modified=datetime(2023, 3, 30),
 )

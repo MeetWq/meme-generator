@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -33,5 +34,11 @@ def rise_dead(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "rise_dead", rise_dead, min_images=1, max_images=1, keywords=["诈尸", "秽土转生"]
+    "rise_dead",
+    rise_dead,
+    min_images=1,
+    max_images=1,
+    keywords=["诈尸", "秽土转生"],
+    date_created=datetime(2022, 11, 8),
+    date_modified=datetime(2023, 2, 14),
 )

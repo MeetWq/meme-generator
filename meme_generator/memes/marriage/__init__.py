@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -24,5 +25,11 @@ def marriage(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "marriage", marriage, min_images=1, max_images=1, keywords=["结婚申请", "结婚登记"]
+    "marriage",
+    marriage,
+    min_images=1,
+    max_images=1,
+    keywords=["结婚申请", "结婚登记"],
+    date_created=datetime(2022, 5, 31),
+    date_modified=datetime(2023, 2, 14),
 )

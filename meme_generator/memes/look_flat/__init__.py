@@ -1,22 +1,41 @@
+from datetime import datetime
+
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_jpg_or_gif
 
-help = "图片“压扁”比例"
-
-parser = MemeArgsParser()
-parser.add_argument("-r", "--ratio", type=int, default=2, help=help)
+help_text = "图片“压扁”比例，默认为 2"
 
 
 class Model(MemeArgsModel):
-    ratio: int = Field(2, description=help)
+    ratio: int = Field(2, description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    parser_options=[
+        ParserOption(
+            names=["-r", "--ratio"],
+            args=[ParserArg(name="ratio", value="int")],
+            help_text=help_text,
+        ),
+    ],
+)
+
+default_text = "可恶...被人看扁了"
 
 
 def look_flat(images: list[BuildImage], texts: list[str], args: Model):
-    text = texts[0] if texts else "可恶...被人看扁了"
+    text = texts[0] if texts else default_text
     ratio = args.ratio
 
     img_w = 500
@@ -50,7 +69,9 @@ add_meme(
     max_images=1,
     min_texts=0,
     max_texts=1,
-    default_texts=["可恶...被人看扁了"],
-    args_type=MemeArgsType(parser, Model),
+    default_texts=[default_text],
+    args_type=args_type,
     keywords=["看扁"],
+    date_created=datetime(2022, 10, 6),
+    date_modified=datetime(2023, 2, 14),
 )

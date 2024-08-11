@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -19,5 +20,11 @@ def dont_go_near(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "dont_go_near", dont_go_near, min_images=1, max_images=1, keywords=["不要靠近"]
+    "dont_go_near",
+    dont_go_near,
+    min_images=1,
+    max_images=1,
+    keywords=["不要靠近"],
+    date_created=datetime(2022, 1, 2),
+    date_modified=datetime(2023, 4, 20),
 )

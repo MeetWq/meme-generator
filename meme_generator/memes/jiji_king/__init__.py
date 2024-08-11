@@ -1,22 +1,35 @@
 import math
+from datetime import datetime
 from pathlib import Path
 
+from arclet.alconna import store_true
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import MemeArgsModel, MemeArgsType, ParserOption, add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
-help = "是否将图片变为圆形"
-
-parser = MemeArgsParser(prefix_chars="-/")
-parser.add_argument("--circle", "/圆", action="store_true", help=help)
+help_text = "是否将图片变为圆形"
 
 
 class Model(MemeArgsModel):
-    circle: bool = Field(False, description=help)
+    circle: bool = Field(False, description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[Model(circle=False), Model(circle=True)],
+    parser_options=[
+        ParserOption(
+            names=["--circle", "圆"],
+            default=False,
+            action=store_true,
+            help_text=help_text,
+        ),
+    ],
+)
 
 
 def jiji_king(images: list[BuildImage], texts: list[str], args: Model):
@@ -97,6 +110,8 @@ add_meme(
     max_images=11,
     min_texts=0,
     max_texts=11,
-    args_type=MemeArgsType(parser, Model, [Model(circle=False), Model(circle=True)]),
+    args_type=args_type,
     keywords=["急急国王"],
+    date_created=datetime(2022, 10, 10),
+    date_modified=datetime(2023, 2, 14),
 )

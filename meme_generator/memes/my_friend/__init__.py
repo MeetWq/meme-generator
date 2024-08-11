@@ -1,21 +1,37 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
-help = "指定名字"
-
-parser = MemeArgsParser()
-parser.add_argument("-n", "--name", type=str, default="", help=help)
+help_text = "指定名字"
 
 
 class Model(MemeArgsModel):
-    name: str = Field("", description=help)
+    name: str = Field("", description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    parser_options=[
+        ParserOption(
+            names=["-n", "--name"],
+            args=[ParserArg(name="name", value="str")],
+            help_text=help_text,
+        ),
+    ],
+)
 
 
 def my_friend(images: list[BuildImage], texts: list[str], args: Model):
@@ -73,6 +89,8 @@ add_meme(
     min_texts=1,
     max_texts=10,
     default_texts=["让我康康"],
-    args_type=MemeArgsType(parser, Model),
+    args_type=args_type,
     keywords=["我朋友说"],
+    date_created=datetime(2022, 3, 11),
+    date_modified=datetime(2023, 2, 14),
 )

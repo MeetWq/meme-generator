@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -21,5 +22,11 @@ def thump_wildly(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "thump_wildly", thump_wildly, min_images=1, max_images=1, keywords=["捶爆", "爆捶"]
+    "thump_wildly",
+    thump_wildly,
+    min_images=1,
+    max_images=1,
+    keywords=["捶爆", "爆捶"],
+    date_created=datetime(2023, 3, 31),
+    date_modified=datetime(2023, 3, 31),
 )

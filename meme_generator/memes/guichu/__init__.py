@@ -1,41 +1,58 @@
+from datetime import datetime
 from typing import Literal, NamedTuple
 
+from arclet.alconna import store_value
 from PIL.Image import Image as IMG
 from PIL.Image import Transpose
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.utils import save_gif
 
-help = "鬼畜对称方向"
-
-parser = MemeArgsParser(prefix_chars="-/")
-group = parser.add_mutually_exclusive_group()
-group.add_argument(
-    "-d",
-    "--direction",
-    type=str,
-    choices=["left", "right", "top", "bottom"],
-    default="left",
-    help=help,
-)
-group.add_argument(
-    "--left", "/左", action="store_const", const="left", dest="direction"
-)
-group.add_argument(
-    "--right", "/右", action="store_const", const="right", dest="direction"
-)
-group.add_argument("--top", "/上", action="store_const", const="top", dest="direction")
-group.add_argument(
-    "--bottom", "/下", action="store_const", const="bottom", dest="direction"
-)
+help_text = "鬼畜对称方向，包含 left、right、top、bottom"
 
 
 class Model(MemeArgsModel):
     direction: Literal["left", "right", "top", "bottom"] = Field(
-        "left", description=help
+        "left", description=help_text
     )
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[
+        Model(direction="left"),
+        Model(direction="right"),
+        Model(direction="top"),
+        Model(direction="bottom"),
+    ],
+    parser_options=[
+        ParserOption(
+            names=["-d", "--direction"],
+            args=[ParserArg(name="direction", value="str")],
+            help_text=help_text,
+        ),
+        ParserOption(
+            names=["--left", "左"], dest="direction", action=store_value("left")
+        ),
+        ParserOption(
+            names=["--right", "右"], dest="direction", action=store_value("right")
+        ),
+        ParserOption(
+            names=["--top", "上"], dest="direction", action=store_value("top")
+        ),
+        ParserOption(
+            names=["--bottom", "下"], dest="direction", action=store_value("bottom")
+        ),
+    ],
+)
 
 
 def guichu(images: list[BuildImage], texts, args: Model):
@@ -105,15 +122,8 @@ add_meme(
     guichu,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(
-        parser,
-        Model,
-        [
-            Model(direction="left"),
-            Model(direction="right"),
-            Model(direction="top"),
-            Model(direction="bottom"),
-        ],
-    ),
+    args_type=args_type,
     keywords=["鬼畜"],
+    date_created=datetime(2023, 7, 19),
+    date_modified=datetime(2023, 7, 19),
 )

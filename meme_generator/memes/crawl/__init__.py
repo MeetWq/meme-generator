@@ -1,22 +1,38 @@
 import random
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 
 img_dir = Path(__file__).parent / "images"
 
 
-help = "图片编号，范围为 1~92"
-
-parser = MemeArgsParser()
-parser.add_argument("-n", "--number", type=int, default=0, help=help)
+help_text = "图片编号，范围为 1~92"
 
 
 class Model(MemeArgsModel):
-    number: int = Field(0, description=help)
+    number: int = Field(0, description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    parser_options=[
+        ParserOption(
+            names=["-n", "--number"],
+            args=[ParserArg(name="number", value="int")],
+            help_text=help_text,
+        ),
+    ],
+)
 
 
 def crawl(images: list[BuildImage], texts: list[str], args: Model):
@@ -37,6 +53,8 @@ add_meme(
     crawl,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(parser, Model),
+    args_type=args_type,
     keywords=["爬"],
+    date_created=datetime(2021, 5, 5),
+    date_modified=datetime(2023, 2, 14),
 )

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
@@ -18,4 +20,12 @@ def funny_mirror(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.05)
 
 
-add_meme("funny_mirror", funny_mirror, min_images=1, max_images=1, keywords=["哈哈镜"])
+add_meme(
+    "funny_mirror",
+    funny_mirror,
+    min_images=1,
+    max_images=1,
+    keywords=["哈哈镜"],
+    date_created=datetime(2022, 3, 13),
+    date_modified=datetime(2023, 2, 14),
+)

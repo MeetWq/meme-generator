@@ -1,9 +1,18 @@
+from datetime import datetime
 from typing import Literal
 
+from arclet.alconna import store_value
 from pil_utils import BuildImage
 from pydantic import Field
 
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    CommandShortcut,
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.utils import (
     FrameAlignPolicy,
     Maker,
@@ -11,25 +20,36 @@ from meme_generator.utils import (
     make_jpg_or_gif,
 )
 
-help = "生成模式"
-
-parser = MemeArgsParser(prefix_chars="-/")
-group = parser.add_mutually_exclusive_group()
-group.add_argument(
-    "--mode",
-    type=str,
-    choices=["normal", "circle", "loop"],
-    default="normal",
-    help=help,
-)
-group.add_argument(
-    "--circle", "/套娃", action="store_const", const="circle", dest="mode"
-)
-group.add_argument("--loop", "/循环", action="store_const", const="loop", dest="mode")
+help_text = "生成模式，包含 normal、loop、circle"
 
 
 class Model(MemeArgsModel):
-    mode: Literal["normal", "loop", "circle"] = Field("normal", description=help)
+    mode: Literal["normal", "loop", "circle"] = Field("normal", description=help_text)
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[Model(mode="normal"), Model(mode="circle"), Model(mode="loop")],
+    parser_options=[
+        ParserOption(
+            names=["--mode"],
+            args=[ParserArg(name="mode", value="str")],
+            help_text=help_text,
+        ),
+        ParserOption(
+            names=["--circle", "套娃"],
+            dest="mode",
+            action=store_value("circle"),
+            help_text="套娃模式",
+        ),
+        ParserOption(
+            names=["--loop", "循环"],
+            dest="mode",
+            action=store_value("loop"),
+            help_text="循环模式",
+        ),
+    ],
+)
 
 
 def always_normal(img: BuildImage):
@@ -109,8 +129,9 @@ add_meme(
     always,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(
-        parser, Model, [Model(mode="normal"), Model(mode="circle"), Model(mode="loop")]
-    ),
+    args_type=args_type,
     keywords=["一直"],
+    shortcuts=[CommandShortcut(key="一直一直", args=["--loop"])],
+    date_created=datetime(2021, 12, 2),
+    date_modified=datetime(2024, 8, 9),
 )

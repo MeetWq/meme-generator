@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def anti_kidnap(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("anti_kidnap", anti_kidnap, min_images=1, max_images=1, keywords=["防诱拐"])
+add_meme(
+    "anti_kidnap",
+    anti_kidnap,
+    min_images=1,
+    max_images=1,
+    keywords=["防诱拐"],
+    date_created=datetime(2022, 7, 9),
+    date_modified=datetime(2023, 2, 14),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def potato(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("potato", potato, min_images=1, max_images=1, keywords=["土豆"])
+add_meme(
+    "potato",
+    potato,
+    min_images=1,
+    max_images=1,
+    keywords=["土豆"],
+    date_created=datetime(2023, 1, 19),
+    date_modified=datetime(2023, 2, 14),
+)

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -19,5 +20,11 @@ def blood_pressure(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "blood_pressure", blood_pressure, min_images=1, max_images=1, keywords=["高血压"]
+    "blood_pressure",
+    blood_pressure,
+    min_images=1,
+    max_images=1,
+    keywords=["高血压"],
+    date_created=datetime(2022, 8, 22),
+    date_modified=datetime(2023, 2, 14),
 )

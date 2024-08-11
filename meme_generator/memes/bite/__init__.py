@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -29,4 +30,12 @@ def bite(images: list[BuildImage], texts, args):
     return save_gif(frames, 0.07)
 
 
-add_meme("bite", bite, min_images=1, max_images=1, keywords=["啃"])
+add_meme(
+    "bite",
+    bite,
+    min_images=1,
+    max_images=1,
+    keywords=["啃"],
+    date_created=datetime(2022, 2, 15),
+    date_modified=datetime(2023, 2, 14),
+)

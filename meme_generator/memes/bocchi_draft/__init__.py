@@ -1,9 +1,11 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -39,5 +41,12 @@ def bocchi_draft(images: list[BuildImage], texts, args):
 
 
 add_meme(
-    "bocchi_draft", bocchi_draft, min_images=1, max_images=1, keywords=["波奇手稿"]
+    "bocchi_draft",
+    bocchi_draft,
+    min_images=1,
+    max_images=1,
+    keywords=["波奇手稿"],
+    tags=MemeTags.bocchi,
+    date_created=datetime(2022, 11, 29),
+    date_modified=datetime(2023, 2, 14),
 )

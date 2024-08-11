@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -14,4 +15,12 @@ def china_flag(images: list[BuildImage], texts, args):
     return frame.save_jpg()
 
 
-add_meme("china_flag", china_flag, min_images=1, max_images=1, keywords=["国旗"])
+add_meme(
+    "china_flag",
+    china_flag,
+    min_images=1,
+    max_images=1,
+    keywords=["国旗"],
+    date_created=datetime(2022, 3, 9),
+    date_modified=datetime(2023, 2, 14),
+)

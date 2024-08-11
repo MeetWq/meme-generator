@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from PIL.Image import Image as IMG
@@ -7,6 +8,7 @@ from pil_utils.fonts import DEFAULT_FALLBACK_FONTS
 from pil_utils.text2image import Line
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
 
@@ -76,4 +78,7 @@ add_meme(
     max_texts=2,
     default_texts=["Blue", "Archive"],
     keywords=["蔚蓝档案标题", "batitle"],
+    tags=MemeTags.blue_archive,
+    date_created=datetime(2023, 10, 14),
+    date_modified=datetime(2023, 10, 14),
 )

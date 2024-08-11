@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -6,6 +7,8 @@ from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
+
+defalut_text = "采访大佬经验"
 
 
 def interview(images: list[BuildImage], texts: list[str], args):
@@ -18,7 +21,7 @@ def interview(images: list[BuildImage], texts: list[str], args):
     self_img = self_img.convert("RGBA").square().resize((124, 124))
     user_img = user_img.convert("RGBA").square().resize((124, 124))
 
-    text = texts[0] if texts else "采访大佬经验"
+    text = texts[0] if texts else defalut_text
 
     frame = BuildImage.new("RGBA", (600, 310), "white")
     microphone = BuildImage.open(img_dir / "microphone.png")
@@ -39,6 +42,8 @@ add_meme(
     max_images=2,
     min_texts=0,
     max_texts=1,
-    default_texts=["采访大佬经验"],
+    default_texts=[defalut_text],
     keywords=["采访"],
+    date_created=datetime(2022, 3, 15),
+    date_modified=datetime(2023, 2, 14),
 )

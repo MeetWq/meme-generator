@@ -1,18 +1,64 @@
+from datetime import datetime
+from typing import Literal
+
+from arclet.alconna import store_value
+from pil_utils import BuildImage
 from pydantic import Field
 
-from pil_utils import BuildImage
-
-from meme_generator import MemeArgsModel, MemeArgsParser, MemeArgsType, add_meme
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
-help = "是否改为水平循环"
-
-parser = MemeArgsParser(prefix_chars="-/")
-parser.add_argument("--horizontal", "/水平", action="store_true", help=help)
+help_text = "循环方向，包含 left、right、top、bottom"
 
 
 class Model(MemeArgsModel):
-    horizontal: bool = Field(False, description=help)
+    direction: Literal["left", "right", "top", "bottom"] = Field(
+        "top", description=help_text
+    )
+
+
+args_type = MemeArgsType(
+    args_model=Model,
+    args_examples=[
+        Model(direction="left"),
+        Model(direction="right"),
+        Model(direction="top"),
+        Model(direction="bottom"),
+    ],
+    parser_options=[
+        ParserOption(
+            names=["-d", "--direction"],
+            args=[ParserArg(name="direction", value="str")],
+            help_text=help_text,
+        ),
+        ParserOption(
+            names=["--left", "左"],
+            dest="direction",
+            action=store_value("left"),
+        ),
+        ParserOption(
+            names=["--right", "右"],
+            dest="direction",
+            action=store_value("right"),
+        ),
+        ParserOption(
+            names=["--top", "上"],
+            dest="direction",
+            action=store_value("top"),
+        ),
+        ParserOption(
+            names=["--bottom", "下"],
+            dest="direction",
+            action=store_value("bottom"),
+        ),
+    ],
+)
 
 
 def loop(images: list[BuildImage], texts, args: Model):
@@ -20,19 +66,34 @@ def loop(images: list[BuildImage], texts, args: Model):
         def make(img: BuildImage) -> BuildImage:
             img = img.convert("RGBA")
             width, height = img.size
-            if not args.horizontal:
+
+            if args.direction in ["top", "bottom"]:
                 extend_img = BuildImage.new("RGBA", (width, height * 2), "white")
                 extend_img.paste(img, (0, 0))
                 extend_img.paste(img, (0, height))
-                return extend_img.crop(
-                    (0, int(height / 30 * i), width, int(height / 30 * i) + height)
-                )
-            extend_img = BuildImage.new("RGBA", (width * 2, height), "white")
-            extend_img.paste(img, (0, 0))
-            extend_img.paste(img, (width, 0))
-            return extend_img.crop(
-                (int(width / 30 * i), 0, int(width / 30 * i) + width, height)
-            )
+
+                if args.direction == "top":
+                    return extend_img.crop(
+                        (0, int(height / 30 * i), width, int(height / 30 * i) + height)
+                    )
+                else:
+                    return extend_img.crop(
+                        (0, height - int(height / 30 * i), width, height * 2)
+                    )
+
+            else:
+                extend_img = BuildImage.new("RGBA", (width * 2, height), "white")
+                extend_img.paste(img, (0, 0))
+                extend_img.paste(img, (width, 0))
+
+                if args.direction == "left":
+                    return extend_img.crop(
+                        (int(width / 30 * i), 0, int(width / 30 * i) + width, height)
+                    )
+                else:
+                    return extend_img.crop(
+                        (width - int(width / 30 * i), 0, width * 2, height)
+                    )
 
         return make
 
@@ -46,8 +107,8 @@ add_meme(
     loop,
     min_images=1,
     max_images=1,
-    args_type=MemeArgsType(
-        parser, Model, [Model(horizontal=False), Model(horizontal=True)]
-    ),
+    args_type=args_type,
     keywords=["循环"],
+    date_created=datetime(2024, 7, 14),
+    date_modified=datetime(2024, 8, 9),
 )

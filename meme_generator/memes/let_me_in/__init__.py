@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -18,4 +19,12 @@ def let_me_in(images: list[BuildImage], texts, args):
     return make_jpg_or_gif(images[0], make)
 
 
-add_meme("let_me_in", let_me_in, min_images=1, max_images=1, keywords=["让我进去"])
+add_meme(
+    "let_me_in",
+    let_me_in,
+    min_images=1,
+    max_images=1,
+    keywords=["让我进去"],
+    date_created=datetime(2024, 7, 18),
+    date_modified=datetime(2024, 7, 18),
+)
