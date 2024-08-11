@@ -20,12 +20,10 @@ class ResourceConfig(BaseModel):
     resource_url: Optional[str] = None
     resource_urls: list[str] = [
         "https://raw.githubusercontent.com/MeetWq/meme-generator/",
-        "https://ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator/",
+        "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MeetWq/meme-generator/",
+        "https://cdn.jsdelivr.net/gh/MeetWq/meme-generator@",
         "https://fastly.jsdelivr.net/gh/MeetWq/meme-generator@",
-        "https://raw.fastgit.org/MeetWq/meme-generator/",
-        "https://raw.fgit.ml/MeetWq/meme-generator/",
         "https://raw.gitmirror.com/MeetWq/meme-generator/",
-        "https://raw.kgithub.com/MeetWq/meme-generator/",
     ]
 
 
