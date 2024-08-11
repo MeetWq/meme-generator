@@ -22,8 +22,7 @@ def charpic(images: list[BuildImage], texts, args):
             line = ""
             for x in range(img.width):
                 gray = img.image.getpixel((x, y))
-                assert isinstance(gray, float)
-                line += str_map[int(num * gray / 256)] if gray != 0 else " "
+                line += str_map[int(num * gray / 256)] if gray != 0 else " "  # type: ignore
             lines.append(line)
         text = "\n".join(lines)
         text_img = Image.new("RGB", (2000, 2000), "white")

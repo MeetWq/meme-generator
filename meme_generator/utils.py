@@ -10,7 +10,7 @@ from enum import Enum
 from functools import partial, wraps
 from io import BytesIO
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Callable, Literal, Optional, Protocol, TypeVar
+from typing import TYPE_CHECKING, Any, Callable, Literal, Protocol, TypeVar
 
 import httpx
 from PIL.Image import Image as IMG
@@ -115,23 +115,10 @@ def get_avg_duration(image: IMG) -> float:
 
 def split_gif(image: IMG) -> list[IMG]:
     frames: list[IMG] = []
-
-    update_mode = "full"
     n_frames = getattr(image, "n_frames", 1)
     for i in range(n_frames):
         image.seek(i)
-        if image.tile:  # type: ignore
-            update_region = image.tile[0][1][2:]  # type: ignore
-            if update_region != image.size:
-                update_mode = "partial"
-                break
-
-    last_frame: Optional[IMG] = None
-    for i in range(n_frames):
-        image.seek(i)
         frame = image.copy()
-        if update_mode == "partial" and last_frame:
-            frame = last_frame.copy().paste(frame)
         frames.append(frame)
     image.seek(0)
     if image.info.__contains__("transparency"):
