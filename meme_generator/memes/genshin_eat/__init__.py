@@ -93,5 +93,5 @@ add_meme(
     | MemeTags.keqing
     | MemeTags.zhongli,
     date_created=datetime(2024, 8, 6),
-    date_modified=datetime(2024, 8, 9),
+    date_modified=datetime(2024, 8, 10),
 )

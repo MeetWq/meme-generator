@@ -1,8 +1,11 @@
+from datetime import datetime
 from pathlib import Path
-from pil_utils import BuildImage
-from meme_generator import add_meme
-from meme_generator.utils import FrameAlignPolicy, make_gif_or_combined_gif, Maker
 
+from pil_utils import BuildImage
+
+from meme_generator import add_meme
+from meme_generator.tags import MemeTags
+from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 img_dir = Path(__file__).parent / "images"
 
@@ -10,8 +13,8 @@ img_dir = Path(__file__).parent / "images"
 def shiroko_pero(images: list[BuildImage], texts, args):
     mask = BuildImage.open(img_dir / "mask.png").convert("RGBA")
 
-    def maker(i):
-        def make(img: BuildImage) -> Maker:
+    def maker(i) -> Maker:
+        def make(img: BuildImage) -> BuildImage:
             suika = img.convert("RGBA").resize((245, 245), keep_ratio=True)
             frame = BuildImage.open(img_dir / f"{i}.png").convert("RGBA")
             suika_mask = BuildImage.new("RGBA", (245, 245), (0, 0, 0, 0))
@@ -26,4 +29,13 @@ def shiroko_pero(images: list[BuildImage], texts, args):
     )
 
 
-add_meme("shiroko_pero", shiroko_pero, min_images=1, max_images=1, keywords=["白子舔"])
+add_meme(
+    "shiroko_pero",
+    shiroko_pero,
+    min_images=1,
+    max_images=1,
+    keywords=["白子舔"],
+    tags=MemeTags.shiroko,
+    date_created=datetime(2024, 8, 10),
+    date_modified=datetime(2024, 8, 10),
+)
