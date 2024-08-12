@@ -392,7 +392,7 @@ def render_meme_list(
             x += 50
         text_color = TEXT_COLOR_DISABLED if properties.disabled else TEXT_COLOR_NORMAL
         t2m = Text2Image.from_text(text, fontsize=FONTSIZE, fill=text_color)
-        t2m.draw_on_image(image.image, (x + 5, 5))
+        t2m.draw_on_image(image.image, (x + 5, (image.height - t2m.height) // 2))
         x += t2m.width + 10
         if "new" in properties.labels:
             image.paste(label_new, (x + 5, 10), alpha=True)
