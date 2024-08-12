@@ -23,6 +23,7 @@ class Model(MemeArgsModel):
 
 args_type = MemeArgsType(
     args_model=Model,
+    args_examples=[Model(mode="yes"), Model(mode="no")],
     parser_options=[
         ParserOption(names=["-y", "--yes"], dest="mode", action=store_value("yes")),
         ParserOption(names=["-n", "--no"], dest="mode", action=store_value("no")),
