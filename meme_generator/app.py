@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 from typing import Any, Literal, Optional
 
@@ -5,6 +6,7 @@ import filetype
 from fastapi import Depends, FastAPI, Form, HTTPException, Response, UploadFile
 from pydantic import BaseModel, ValidationError
 
+from meme_generator.compat import model_dump, model_json_schema, type_validate_python
 from meme_generator.config import meme_config
 from meme_generator.exception import MemeGeneratorException, NoSuchMeme
 from meme_generator.log import LOGGING_CONFIG, setup_logger
@@ -46,12 +48,14 @@ def register_router(meme: Meme):
     else:
         args_model = MemeArgsModel
 
-    def args_checker(args: Optional[str] = Form(default=str(args_model().json()))):
+    def args_checker(
+        args: Optional[str] = Form(default=json.dumps(model_dump(args_model()))),
+    ):
         if not args:
             return MemeArgsModel()
         try:
-            model = args_model.parse_raw(args)
-        except ValidationError as e:
+            model = type_validate_python(args_model, json.loads(args))
+        except (ValidationError, json.decoder.JSONDecodeError) as e:
             raise HTTPException(status_code=552, detail=str(e))
         return model
 
@@ -70,7 +74,9 @@ def register_router(meme: Meme):
         assert isinstance(args, args_model)
 
         try:
-            result = await run_sync(meme)(images=imgs, texts=texts, args=args.dict())
+            result = await run_sync(meme)(
+                images=imgs, texts=texts, args=model_dump(args)
+            )
         except MemeGeneratorException as e:
             raise HTTPException(status_code=e.status_code, detail=str(e))
 
@@ -135,8 +141,10 @@ def register_routers():
         if args_type := meme.params_type.args_type:
             args_model = args_type.args_model
             args_type_response = MemeArgsResponse(
-                args_model=args_model.schema(),
-                args_examples=[example.dict() for example in args_type.args_examples],
+                args_model=model_json_schema(args_model),
+                args_examples=[
+                    model_dump(example) for example in args_type.args_examples
+                ],
                 parser_options=args_type.parser_options,
             )
 
