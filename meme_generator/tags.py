@@ -85,3 +85,4 @@ class MemeTags:
     capoo = {"猫猫虫", "咖波"}
     nekoha = {"猫羽雫"}
     kirby = {"星之卡比"}
+    atri = {"亚托莉", "ATRI", "萝卜子"}
