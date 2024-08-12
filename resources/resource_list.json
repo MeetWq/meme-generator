@@ -56,6 +56,18 @@
     "hash": "e09e50c266c1e8babfe2c73612ac4200"
   },
   {
+    "path": "atri_pillow/images/border.png",
+    "hash": "79937102e6ae95ccfa294855d5b0e469"
+  },
+  {
+    "path": "atri_pillow/images/no.png",
+    "hash": "26f0fc8a93bf5be13ed4395ae2219934"
+  },
+  {
+    "path": "atri_pillow/images/yes.png",
+    "hash": "5b177dd1778fd2a2a8703b4da5870847"
+  },
+  {
     "path": "back_to_work/images/0.png",
     "hash": "d85cf009fac3ce49ed90883e0c61e737"
   },
