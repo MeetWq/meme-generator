@@ -51,8 +51,6 @@ def atri_pillow(images, texts: list[str], args: Model):
             lines_align="center",
             fontname="FZShaoEr-M11S",
             fill=text_color,
-            stroke_fill=text_color,
-            stroke_ratio=0.01,
         )
     except ValueError:
         raise TextOverLength(text)
