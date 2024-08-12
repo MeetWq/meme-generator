@@ -38,14 +38,19 @@ add_meme(
     min_texts=2,
     max_texts=2,
     default_texts=["高情商", "低情商"],
-    keywords=["低情商", "高情商"],
+    keywords=["高低情商", "低高情商"],
     shortcuts=[
         CommandShortcut(
-            key=r"低情商[\s:：]*(?P<left>\S+)\s*高情商[\s:：]*(?P<right>\S+)",
+            key=r"低情商[\s:：]*(?P<low>\S+)\s*高情商[\s:：]*(?P<high>\S+)",
             args=["{low}", "{high}"],
             humanized="低情商xx高情商xx",
-        )
+        ),
+        CommandShortcut(
+            key=r"高情商[\s:：]*(?P<high>\S+)\s*低情商[\s:：]*(?P<low>\S+)",
+            args=["{low}", "{high}"],
+            humanized="高情商xx低情商xx",
+        ),
     ],
     date_created=datetime(2022, 6, 12),
-    date_modified=datetime(2024, 8, 9),
+    date_modified=datetime(2024, 8, 12),
 )
