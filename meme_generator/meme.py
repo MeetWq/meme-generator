@@ -9,6 +9,7 @@ from arclet.alconna.action import Action
 from pil_utils import BuildImage
 from pydantic import BaseModel, ValidationError
 
+from .compat import type_validate_python
 from .exception import (
     ArgModelMismatch,
     ImageNumberMismatch,
@@ -136,7 +137,7 @@ class Meme:
             args_model = MemeArgsModel
 
         try:
-            model = args_model.parse_obj(args)
+            model = type_validate_python(args_model, args)
         except ValidationError as e:
             raise ArgModelMismatch(self.key, str(e))
 

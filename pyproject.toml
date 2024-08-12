@@ -38,6 +38,7 @@ meme = "meme_generator.cli:main"
 pythonVersion = "3.9"
 pythonPlatform = "All"
 typeCheckingMode = "basic"
+defineConstant = { PYDANTIC_V2 = true }
 
 [tool.ruff]
 line-length = 88

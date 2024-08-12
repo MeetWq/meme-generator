@@ -5,6 +5,8 @@ from typing import TYPE_CHECKING
 
 import loguru
 
+from .compat import model_dump
+
 if TYPE_CHECKING:
     from loguru import Logger, Record
 
@@ -81,5 +83,5 @@ def setup_logger():
         f"Config file path: <y><d>{config_file_path.resolve()}</d></y>"
     )
     logger.opt(colors=True).debug(
-        f"Loaded config: <y><d>{str(meme_config.dict())}</d></y>"
+        f"Loaded config: <y><d>{model_dump(meme_config)}</d></y>"
     )
