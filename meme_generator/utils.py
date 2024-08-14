@@ -299,8 +299,7 @@ def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> str:
     apikey = meme_config.translate.baidu_trans_apikey
     if not appid or not apikey:
         raise MemeGeneratorException(
-            "The `baidu_trans_appid` or `baidu_trans_apikey` is not set."
-            "Please check your config file!"
+            '"baidu_trans_appid" 或 "baidu_trans_apikey" 未设置，请检查配置文件！'
         )
     salt = str(round(time.time() * 1000))
     sign_raw = appid + text + salt + apikey

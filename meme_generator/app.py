@@ -8,7 +8,11 @@ from pydantic import BaseModel, ValidationError
 
 from meme_generator.compat import model_dump, model_json_schema, type_validate_python
 from meme_generator.config import meme_config
-from meme_generator.exception import MemeGeneratorException, NoSuchMeme
+from meme_generator.exception import (
+    ArgModelMismatch,
+    MemeGeneratorException,
+    NoSuchMeme,
+)
 from meme_generator.log import LOGGING_CONFIG, setup_logger
 from meme_generator.manager import get_meme, get_meme_keys, get_memes
 from meme_generator.meme import CommandShortcut, Meme, MemeArgsModel, ParserOption
@@ -55,8 +59,9 @@ def register_router(meme: Meme):
             return MemeArgsModel()
         try:
             model = type_validate_python(args_model, json.loads(args))
-        except (ValidationError, json.decoder.JSONDecodeError) as e:
-            raise HTTPException(status_code=552, detail=str(e))
+        except ValidationError as e:
+            e = ArgModelMismatch(meme.key, str(e))
+            raise HTTPException(status_code=552, detail=e.message)
         return model
 
     @app.post(f"/memes/{meme.key}/")
@@ -78,7 +83,7 @@ def register_router(meme: Meme):
                 images=imgs, texts=texts, args=model_dump(args)
             )
         except MemeGeneratorException as e:
-            raise HTTPException(status_code=e.status_code, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=e.message)
 
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"
@@ -115,7 +120,7 @@ def register_routers():
                 for p in params.meme_list
             ]
         except NoSuchMeme as e:
-            raise HTTPException(status_code=e.status_code, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=e.message)
 
         result = render_meme_list(
             meme_list,
@@ -135,7 +140,7 @@ def register_routers():
         try:
             meme = get_meme(key)
         except NoSuchMeme as e:
-            raise HTTPException(status_code=e.status_code, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=e.message)
 
         args_type_response = None
         if args_type := meme.params_type.args_type:
@@ -171,7 +176,7 @@ def register_routers():
             meme = get_meme(key)
             result = await run_sync(meme.generate_preview)()
         except MemeGeneratorException as e:
-            raise HTTPException(status_code=e.status_code, detail=str(e))
+            raise HTTPException(status_code=e.status_code, detail=e.message)
 
         content = result.getvalue()
         media_type = str(filetype.guess_mime(content)) or "text/plain"

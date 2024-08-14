@@ -11,7 +11,7 @@ class MemeGeneratorException(Exception):
         return self.__repr__()
 
     def __repr__(self) -> str:
-        return f"Error in meme_generator: {self.message}"
+        return f"表情制作出错！{self.message}"
 
 
 class NoSuchMeme(MemeGeneratorException):
@@ -19,7 +19,7 @@ class NoSuchMeme(MemeGeneratorException):
 
     def __init__(self, meme_key: str):
         self.meme_key = meme_key
-        message = f'No such meme with key="{self.meme_key}"'
+        message = f"表情“{self.meme_key}”不存在"
         super().__init__(message)
 
 
@@ -28,7 +28,7 @@ class TextOverLength(MemeGeneratorException):
 
     def __init__(self, text: str):
         self.text = text
-        message = f'Text "{self.text}" is too long!'
+        message = f"文本“{self.text}”过长"
         super().__init__(message)
 
 
@@ -37,7 +37,7 @@ class OpenImageFailed(MemeGeneratorException):
 
     def __init__(self, error_message: str):
         self.error_message = error_message
-        message = f'Error opening images: "{self.error_message}"'
+        message = f"图片加载失败（{self.error_message}）"
         super().__init__(message)
 
 
@@ -46,19 +46,16 @@ class ParamsMismatch(MemeGeneratorException):
 
     def __init__(self, meme_key: str, message: str):
         self.meme_key = meme_key
-        self.message = message
-
-    def __repr__(self) -> str:
-        return f'ParamsMismatch(key="{self.meme_key}", message="{self.message}")'
+        message = f"表情“{self.meme_key}”参数不匹配：{message}"
+        super().__init__(message)
 
 
 class ImageNumberMismatch(ParamsMismatch):
     status_code: int = 541
 
     def __init__(self, meme_key: str, min_images: int = 0, max_images: int = 0):
-        message = (
-            "The number of images is incorrect, "
-            f"it should be no less than {min_images} and no more than {max_images}"
+        message = f"图片数量不符，图片数量应为 {min_images}" + (
+            f" ~ {max_images}" if max_images > min_images else ""
         )
         super().__init__(meme_key, message)
 
@@ -67,9 +64,8 @@ class TextNumberMismatch(ParamsMismatch):
     status_code: int = 542
 
     def __init__(self, meme_key: str, min_texts: int = 0, max_texts: int = 0):
-        message = (
-            "The number of texts is incorrect, "
-            f"it should be no less than {min_texts} and no more than {max_texts}"
+        message = f"文本数量不符，文本数量应为 {min_texts}" + (
+            f" ~ {max_texts}" if max_texts > min_texts else ""
         )
         super().__init__(meme_key, message)
 
@@ -78,7 +74,7 @@ class TextOrNameNotEnough(ParamsMismatch):
     status_code: int = 543
 
     def __init__(self, meme_key: str, message: Optional[str] = None):
-        message = message or "The number of texts or user names is not enough"
+        message = message or "文本或用户名数量不足"
         super().__init__(meme_key, message)
 
 
@@ -92,7 +88,7 @@ class ArgParserMismatch(ArgMismatch):
 
     def __init__(self, meme_key: str, error_message: str):
         self.error_message = error_message
-        message = f"Argument parser failed to parse: {self.error_message}"
+        message = f"参数解析失败（{self.error_message}）"
         super().__init__(meme_key, message)
 
 
@@ -101,5 +97,5 @@ class ArgModelMismatch(ArgMismatch):
 
     def __init__(self, meme_key: str, error_message: str):
         self.error_message = error_message
-        message = f"Argument model validation failed: {self.error_message}"
+        message = f"参数模型验证失败（{self.error_message}）"
         super().__init__(meme_key, message)
