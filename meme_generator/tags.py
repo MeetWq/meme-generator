@@ -87,5 +87,5 @@ class MemeTags:
     kirby = {"星之卡比"}
     atri = {"亚托莉", "ATRI", "萝卜子"}
 
-    #QQ黄豆
-    qq = {"QQ","黄豆","qq"}
+    # QQ黄豆
+    qq = {"QQ", "黄豆", "qq"}

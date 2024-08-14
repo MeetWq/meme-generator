@@ -12,7 +12,7 @@ img_dir = Path(__file__).parent / "images"
 
 def qq_candy(images: list[BuildImage], texts, args):
     positions = [
-        #(perspective_points,paste_positon)
+        # (perspective_points,paste_positon)
         (((72, 0), (72, 75), (0, 75), (0, 0)), (172, 124)),
         (((72, 0), (72, 75), (0, 75), (0, 0)), (172, 124)),
         (((74, 0), (74, 77), (0, 77), (0, 0)), (173, 122)),
@@ -103,16 +103,22 @@ def qq_candy(images: list[BuildImage], texts, args):
         (((76, 0), (76, 73), (0, 73), (0, 0)), (172, 125)),
         (((76, 0), (76, 73), (0, 73), (0, 0)), (172, 125)),
         (((76, 0), (76, 73), (0, 73), (0, 0)), (172, 125)),
-        (((76, 0), (76, 73), (0, 73), (0, 0)), (172, 125))
+        (((76, 0), (76, 73), (0, 73), (0, 0)), (172, 125)),
     ]
-    def maker(i:int)->Maker:
+
+    def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize((76,76), keep_ratio=True).circle().rotate(90)
-            if i in [19,20,27,28]:
+            img = (
+                img.convert("RGBA")
+                .resize((76, 76), keep_ratio=True)
+                .circle()
+                .rotate(90)
+            )
+            if i in [19, 20, 27, 28]:
                 img = img.transpose(Image.FLIP_TOP_BOTTOM)
             img = img.perspective(positions[i][0])
             bg = BuildImage.open(img_dir / f"{i}.png")
-            bg.image.paste(img.image, positions[i][1],img.image)
+            bg.image.paste(img.image, positions[i][1], img.image)
             return bg
 
         return make
@@ -120,6 +126,7 @@ def qq_candy(images: list[BuildImage], texts, args):
     return make_gif_or_combined_gif(
         images[0], maker, 91, 0.033, FrameAlignPolicy.extend_first
     )
+
 
 add_meme(
     "qq_candy",
