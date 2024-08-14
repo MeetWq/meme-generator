@@ -4,12 +4,8 @@ on:
   push:
     branches:
       - "main"
-  pull_request:
-    paths:
-      - "meme_generator/**"
-      - "resources/**"
-      - "poetry.lock"
-      - "pyproject.toml"
+    tags:
+      - "v*"
   workflow_dispatch:
 
 jobs:
@@ -53,5 +49,3 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}

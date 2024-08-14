@@ -11,23 +11,10 @@ concurrency:
 jobs:
   issue_commented:
     name: Issue comment
-    if: ${{ !github.event.issue.pull_request && startsWith(github.event.comment.body, '/') }}
+    if: startsWith(github.event.comment.body, '/')
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/meetwq/github-meme-bot:main
-      env:
-        APP_ID: ${{ secrets.MEME_APP_ID }}
-        PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
-        SMMS_SECRET_TOKEN: ${{ secrets.SMMS_SECRET_TOKEN }}
-    steps:
-      - run: /app/start_memebot.sh
-
-  pr_commented:
-    name: PR comment
-    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/') }}
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/meetwq/github-meme-bot:pr-${{ github.event.issue.number }}
       env:
         APP_ID: ${{ secrets.MEME_APP_ID }}
         PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
