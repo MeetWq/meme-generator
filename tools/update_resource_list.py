@@ -3,7 +3,9 @@ import json
 from pathlib import Path
 
 dir_path = Path(__file__).parent
-memes_path = dir_path.parent / "meme_generator" / "memes"
+project_path = dir_path.parent
+memes_path = project_path / "meme_generator" / "memes"
+resource_list_path = project_path / "resources" / "resource_list.json"
 
 
 def update():
@@ -18,7 +20,7 @@ def update():
             }
         )
     resource_list.sort(key=lambda i: i["path"])
-    with open(dir_path / "resource_list.json", "w", encoding="utf-8") as f:
+    with open(resource_list_path, "w", encoding="utf-8") as f:
         json.dump(resource_list, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
