@@ -1,18 +1,16 @@
 from datetime import datetime
 from pathlib import Path
-from PIL import Image
-from pil_utils import BuildImage
-from meme_generator import add_meme
-from meme_generator.tags import MemeTags
-from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
+from pil_utils import BuildImage
+
+from meme_generator import add_meme
+from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
 img_dir = Path(__file__).parent / "images"
 
 
-def qq_candy(images: list[BuildImage], texts, args):
-    positions = [
-        # (perspective_points,paste_positon)
+def lick_candy(images: list[BuildImage], texts, args):
+    params = [
         (((72, 0), (72, 75), (0, 75), (0, 0)), (172, 124)),
         (((72, 0), (72, 75), (0, 75), (0, 0)), (172, 124)),
         (((74, 0), (74, 77), (0, 77), (0, 0)), (173, 122)),
@@ -108,33 +106,26 @@ def qq_candy(images: list[BuildImage], texts, args):
 
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
-            img = (
-                img.convert("RGBA")
-                .resize((76, 76), keep_ratio=True)
-                .circle()
-                .rotate(90)
-            )
-            if i in [19, 20, 27, 28]:
-                img = img.transpose(Image.FLIP_TOP_BOTTOM)
-            img = img.perspective(positions[i][0])
+            img = img.convert("RGBA").resize((76, 76)).circle().rotate(90)
             bg = BuildImage.open(img_dir / f"{i}.png")
-            bg.image.paste(img.image, positions[i][1], img.image)
+            if i not in [19, 20, 27, 28]:
+                points, pos = params[i]
+                bg.paste(img.perspective(points), pos, alpha=True)
             return bg
 
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 91, 0.033, FrameAlignPolicy.extend_first
+        images[0], maker, 91, 0.03, FrameAlignPolicy.extend_first
     )
 
 
 add_meme(
-    "qq_candy",
-    qq_candy,
+    "lick_candy",
+    lick_candy,
     min_images=1,
     max_images=1,
-    keywords=["QQ舔糖"],
-    tags=MemeTags.qq,
+    keywords=["舔糖", "舔棒棒糖"],
     date_created=datetime(2024, 8, 14),
     date_modified=datetime(2024, 8, 14),
 )
