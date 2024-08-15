@@ -14,7 +14,7 @@ def always_like(images: list[BuildImage], texts: list[str], args: MemeArgsModel)
     names = [info.name for info in args.user_infos]
 
     if len(images) > len(texts) + len(names):
-        raise TextOrNameNotEnough("always_like")
+        raise TextOrNameNotEnough()
     texts = texts + names
 
     img = images[0].convert("RGBA")

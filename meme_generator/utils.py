@@ -19,7 +19,7 @@ from pil_utils.types import ColorType
 from typing_extensions import ParamSpec
 
 from .config import meme_config
-from .exception import MemeGeneratorException
+from .exception import MemeFeedback
 
 if TYPE_CHECKING:
     from .meme import Meme
@@ -298,7 +298,7 @@ def translate(text: str, lang_from: str = "auto", lang_to: str = "zh") -> str:
     appid = meme_config.translate.baidu_trans_appid
     apikey = meme_config.translate.baidu_trans_apikey
     if not appid or not apikey:
-        raise MemeGeneratorException(
+        raise MemeFeedback(
             '"baidu_trans_appid" 或 "baidu_trans_apikey" 未设置，请检查配置文件！'
         )
     salt = str(round(time.time() * 1000))

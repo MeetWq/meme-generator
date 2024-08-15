@@ -13,7 +13,7 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
-from meme_generator.exception import MemeGeneratorException
+from meme_generator.exception import MemeFeedback
 from meme_generator.tags import MemeTags
 from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_gif
 
@@ -44,7 +44,7 @@ def genshin_eat(images: list[BuildImage], texts, args: Model):
     if args.character == 0:
         name = random.choice(names)
     elif args.character not in range(1, 7):
-        raise MemeGeneratorException("角色编号错误，请选择1-6")
+        raise MemeFeedback("角色编号错误，请选择1-6")
     else:
         name = names[args.character - 1]
 

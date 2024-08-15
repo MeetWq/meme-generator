@@ -13,7 +13,7 @@ def why_have_hands(images: list[BuildImage], texts: list[str], args: MemeArgsMod
     img = images[0].convert("RGBA")
 
     if not texts and not args.user_infos:
-        raise TextOrNameNotEnough("why_have_hands")
+        raise TextOrNameNotEnough()
     name = texts[0] if texts else args.user_infos[0].name
 
     frame = BuildImage.open(img_dir / "0.png")

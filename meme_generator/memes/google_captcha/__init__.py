@@ -8,7 +8,7 @@ from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 
 def google_captcha(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     if not texts and not args.user_infos:
-        raise TextOrNameNotEnough("google_captcha")
+        raise TextOrNameNotEnough()
 
     name = texts[0] if texts else args.user_infos[0].name
     image = images[0].convert("RGBA").resize((932, 932), keep_ratio=True)

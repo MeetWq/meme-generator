@@ -60,7 +60,7 @@ def register_router(meme: Meme):
         try:
             model = type_validate_python(args_model, json.loads(args))
         except ValidationError as e:
-            e = ArgModelMismatch(meme.key, str(e))
+            e = ArgModelMismatch(str(e))
             raise HTTPException(status_code=552, detail=e.message)
         return model
 

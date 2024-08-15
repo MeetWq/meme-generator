@@ -123,12 +123,12 @@ class Meme:
             self.params_type.min_images <= len(images) <= self.params_type.max_images
         ):
             raise ImageNumberMismatch(
-                self.key, self.params_type.min_images, self.params_type.max_images
+                self.params_type.min_images, self.params_type.max_images
             )
 
         if not (self.params_type.min_texts <= len(texts) <= self.params_type.max_texts):
             raise TextNumberMismatch(
-                self.key, self.params_type.min_texts, self.params_type.max_texts
+                self.params_type.min_texts, self.params_type.max_texts
             )
 
         if args_type := self.params_type.args_type:
@@ -139,7 +139,7 @@ class Meme:
         try:
             model = type_validate_python(args_model, args)
         except ValidationError as e:
-            raise ArgModelMismatch(self.key, str(e))
+            raise ArgModelMismatch(str(e))
 
         imgs: list[BuildImage] = []
         try:

@@ -13,7 +13,7 @@ def make_friend(images: list[BuildImage], texts: list[str], args: MemeArgsModel)
     img = images[0].convert("RGBA")
 
     if not texts and not args.user_infos:
-        raise TextOrNameNotEnough("make_friend")
+        raise TextOrNameNotEnough()
     name = texts[0] if texts else args.user_infos[0].name
 
     bg = BuildImage.open(img_dir / "0.png")

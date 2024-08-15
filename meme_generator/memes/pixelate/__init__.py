@@ -10,7 +10,7 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
-from meme_generator.exception import MemeGeneratorException
+from meme_generator.exception import MemeFeedback
 from meme_generator.utils import make_jpg_or_gif
 
 help_text = "像素化大小，默认为 10"
@@ -36,7 +36,7 @@ def pixelate(images: list[BuildImage], texts, args: Model):
     image = images[0]
     num = args.number
     if not (1 <= num < min(image.size)):
-        raise MemeGeneratorException("请输入合适的像素化大小")
+        raise MemeFeedback("请输入合适的像素化大小")
 
     def make(img: BuildImage) -> BuildImage:
         image = img.image

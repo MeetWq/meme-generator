@@ -10,7 +10,7 @@ from meme_generator.exception import TextOrNameNotEnough, TextOverLength
 
 def ask(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     if not texts and not args.user_infos:
-        raise TextOrNameNotEnough("ask")
+        raise TextOrNameNotEnough()
 
     name = texts[0] if texts else args.user_infos[0].name
     ta = "他" if args.user_infos and args.user_infos[0].gender == "male" else "她"
