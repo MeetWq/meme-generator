@@ -12,6 +12,7 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
+from meme_generator.exception import MemeFeedback
 
 img_dir = Path(__file__).parent / "images"
 
@@ -37,10 +38,12 @@ args_type = MemeArgsType(
 
 def crawl(images: list[BuildImage], texts: list[str], args: Model):
     total_num = 92
-    if 1 <= args.number <= total_num:
+    if args.number == 0:
+        num = random.randint(1, total_num)
+    elif 1 <= args.number <= total_num:
         num = args.number
     else:
-        num = random.randint(1, total_num)
+        raise MemeFeedback(f"图片编号错误，请选择 1~{total_num}")
 
     img = images[0].convert("RGBA").circle().resize((100, 100))
     frame = BuildImage.open(img_dir / f"{num:02d}.jpg")

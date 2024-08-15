@@ -12,7 +12,7 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
-from meme_generator.exception import TextOverLength
+from meme_generator.exception import MemeFeedback, TextOverLength
 from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
@@ -40,10 +40,12 @@ args_type = MemeArgsType(
 def firefly_holdsign(images, texts: list[str], args: Model):
     text = texts[0]
     total_num = 21
-    if 1 <= args.number <= total_num:
+    if args.number == 0:
+        num = random.randint(1, total_num)
+    elif 1 <= args.number <= total_num:
         num = args.number
     else:
-        num = random.randint(1, total_num)
+        raise MemeFeedback(f"图片编号错误，请选择 1~{total_num}")
 
     params = [
         ((300, 200), (144, 322), ((0, 66), (276, 0), (319, 178), (43, 244))),

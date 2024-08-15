@@ -10,7 +10,7 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
-from meme_generator.exception import TextOverLength
+from meme_generator.exception import MemeFeedback, TextOverLength
 from meme_generator.utils import make_jpg_or_gif
 
 help_text = "图片“压扁”比例，默认为 2"
@@ -37,6 +37,8 @@ default_text = "可恶...被人看扁了"
 def look_flat(images: list[BuildImage], texts: list[str], args: Model):
     text = texts[0] if texts else default_text
     ratio = args.ratio
+    if not 1 <= ratio < images[0].height:
+        raise MemeFeedback("请输入合适的“压扁”比例")
 
     img_w = 500
     text_h = 80
