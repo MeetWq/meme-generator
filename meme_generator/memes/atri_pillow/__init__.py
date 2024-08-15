@@ -39,7 +39,7 @@ def atri_pillow(images, texts: list[str], args: Model):
     if mode == "yes":
         text_color = (255, 0, 0, 80)
     else:
-        text_color = (0, 0, 255, 80)
+        text_color = (0, 80, 255, 80)
     frame = BuildImage.open(img_dir / f"{mode}.png")
     text_img = BuildImage.new("RGBA", (300, 150))
     try:
@@ -55,7 +55,7 @@ def atri_pillow(images, texts: list[str], args: Model):
         )
     except ValueError:
         raise TextOverLength(text)
-    frame.paste(text_img.rotate(-4, expand=True), (302, 288), alpha=True)
+    frame.alpha_composite(text_img.rotate(-4, expand=True), (302, 288))
     border = BuildImage.open(img_dir / "border.png")
     frame.paste(border, (0, 416))
     return frame.save_png()
