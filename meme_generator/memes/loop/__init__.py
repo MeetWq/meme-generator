@@ -72,28 +72,22 @@ def loop(images: list[BuildImage], texts, args: Model):
                 extend_img.paste(img, (0, 0))
                 extend_img.paste(img, (0, height))
 
+                dh = round(height / 30 * i)
                 if args.direction == "top":
-                    return extend_img.crop(
-                        (0, int(height / 30 * i), width, int(height / 30 * i) + height)
-                    )
+                    return extend_img.crop((0, dh, width, dh + height))
                 else:
-                    return extend_img.crop(
-                        (0, height - int(height / 30 * i), width, height * 2)
-                    )
+                    return extend_img.crop((0, height - dh, width, height * 2 - dh))
 
             else:
                 extend_img = BuildImage.new("RGBA", (width * 2, height), "white")
                 extend_img.paste(img, (0, 0))
                 extend_img.paste(img, (width, 0))
 
+                dw = round(width / 30 * i)
                 if args.direction == "left":
-                    return extend_img.crop(
-                        (int(width / 30 * i), 0, int(width / 30 * i) + width, height)
-                    )
+                    return extend_img.crop((dw, 0, dw + width, height))
                 else:
-                    return extend_img.crop(
-                        (width - int(width / 30 * i), 0, width * 2, height)
-                    )
+                    return extend_img.crop((width - dw, 0, width * 2 - dw, height))
 
         return make
 
@@ -110,5 +104,5 @@ add_meme(
     args_type=args_type,
     keywords=["循环"],
     date_created=datetime(2024, 7, 14),
-    date_modified=datetime(2024, 8, 9),
+    date_modified=datetime(2024, 8, 15),
 )

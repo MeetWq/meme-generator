@@ -71,5 +71,5 @@ add_meme(
     keywords=["亚托莉枕头"],
     tags=MemeTags.atri,
     date_created=datetime(2024, 8, 12),
-    date_modified=datetime(2024, 8, 12),
+    date_modified=datetime(2024, 8, 15),
 )
