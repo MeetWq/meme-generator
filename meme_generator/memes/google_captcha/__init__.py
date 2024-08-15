@@ -11,7 +11,7 @@ def google_captcha(images: list[BuildImage], texts: list[str], args: MemeArgsMod
         raise TextOrNameNotEnough("google_captcha")
 
     name = texts[0] if texts else args.user_infos[0].name
-    image = images[0].resize((932, 932), keep_ratio=True)
+    image = images[0].convert("RGBA").resize((932, 932), keep_ratio=True)
 
     canvas = BuildImage.new("RGB", (1000, 1535), "#FFF")
     length = 233
