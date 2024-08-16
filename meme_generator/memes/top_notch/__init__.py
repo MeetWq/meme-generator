@@ -14,10 +14,10 @@ def top_notch(images, texts: list[str], args):
     text = f"好，不愧是顶尖{texts[0]}"
     try:
         frame.draw_text(
-            (60, 600, 960, 680),
+            (10, 240, 420, 300),
             text,
             allow_wrap=True,
-            max_fontsize=50,
+            max_fontsize=30,
             min_fontsize=20,
         )
     except ValueError:
@@ -32,6 +32,6 @@ add_meme(
     max_texts=1,
     default_texts=["运营"],
     keywords=["顶尖"],
-    date_created=datetime(2024, 8, 16),
-    date_modified=datetime(2024, 8, 16),
+    date_created=datetime(2024, 8, 17),
+    date_modified=datetime(2024, 8, 17),
 )
