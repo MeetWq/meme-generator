@@ -4,6 +4,7 @@ from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
@@ -31,6 +32,7 @@ add_meme(
     min_texts=1,
     max_texts=1,
     keywords=["我的意见如下", "我的意见是"],
+    tags=MemeTags.touhou,
     date_created=datetime(2024, 7, 14),
     date_modified=datetime(2024, 7, 14),
 )

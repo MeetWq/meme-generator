@@ -81,6 +81,15 @@ class MemeTags:
     # VOCALOID
     miku = {"初音未来"}
 
+    # 明日方舟
+    arknights = {"明日方舟"}
+
+    # 东方Project
+    touhou = {"东方Project"}
+
+    # 舞萌
+    maimai = {"舞萌"}
+
     # 其他
     capoo = {"猫猫虫", "咖波"}
     nekoha = {"猫羽雫"}
