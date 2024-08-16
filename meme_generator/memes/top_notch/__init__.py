@@ -17,7 +17,7 @@ def top_notch(images, texts: list[str], args):
             (10, 240, 420, 300),
             text,
             allow_wrap=True,
-            max_fontsize=30,
+            max_fontsize=40,
             min_fontsize=20,
         )
     except ValueError:
