@@ -22,7 +22,7 @@ def top_notch(images, texts: list[str], args):
         )
     except ValueError:
         raise TextOverLength(texts[0])
-    return frame.save_jpg()
+    return frame.save_png()
 
 
 add_meme(
