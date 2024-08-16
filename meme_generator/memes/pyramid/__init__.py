@@ -1,5 +1,4 @@
 from datetime import datetime
-from pathlib import Path
 
 from PIL import Image, ImageDraw
 from pil_utils import BuildImage
