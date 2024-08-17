@@ -94,14 +94,6 @@ def save_gif(frames: list[IMG], duration: float) -> BytesIO:
     return save_gif(new_frames, duration)
 
 
-class Maker(Protocol):
-    def __call__(self, img: BuildImage) -> BuildImage: ...
-
-
-class GifMaker(Protocol):
-    def __call__(self, i: int) -> Maker: ...
-
-
 def get_avg_duration(image: IMG) -> float:
     if not getattr(image, "is_animated", False):
         return 0
@@ -110,7 +102,7 @@ def get_avg_duration(image: IMG) -> float:
     for i in range(n_frames):
         image.seek(i)
         total_duration += image.info["duration"]
-    return total_duration / n_frames
+    return total_duration / n_frames / 1000
 
 
 def split_gif(image: IMG) -> list[IMG]:
@@ -124,54 +116,6 @@ def split_gif(image: IMG) -> list[IMG]:
     if image.info.__contains__("transparency"):
         frames[0].info["transparency"] = image.info["transparency"]
     return frames
-
-
-def make_jpg_or_gif(
-    img: BuildImage, func: Maker, keep_transparency: bool = False
-) -> BytesIO:
-    """
-    制作静图或者动图
-    :params
-      * ``img``: 输入图片
-      * ``func``: 图片处理函数，输入img，返回处理后的图片
-      * ``keep_transparency``: 传入gif时，是否保留该gif的透明度
-    """
-    image = img.image
-    if not getattr(image, "is_animated", False):
-        return func(img).save_jpg()
-    else:
-        frames = split_gif(image)
-        duration = get_avg_duration(image) / 1000
-        frames = [func(BuildImage(frame)).image for frame in frames]
-        if keep_transparency:
-            image.seek(0)
-            if image.info.__contains__("transparency"):
-                frames[0].info["transparency"] = image.info["transparency"]
-        return save_gif(frames, duration)
-
-
-def make_png_or_gif(
-    img: BuildImage, func: Maker, keep_transparency: bool = False
-) -> BytesIO:
-    """
-    制作静图或者动图
-    :params
-      * ``img``: 输入图片
-      * ``func``: 图片处理函数，输入img，返回处理后的图片
-      * ``keep_transparency``: 传入gif时，是否保留该gif的透明度
-    """
-    image = img.image
-    if not getattr(image, "is_animated", False):
-        return func(img).save_png()
-    else:
-        frames = split_gif(image)
-        duration = get_avg_duration(image) / 1000
-        frames = [func(BuildImage(frame)).image for frame in frames]
-        if keep_transparency:
-            image.seek(0)
-            if image.info.__contains__("transparency"):
-                frames[0].info["transparency"] = image.info["transparency"]
-        return save_gif(frames, duration)
 
 
 class FrameAlignPolicy(Enum):
@@ -189,107 +133,209 @@ class FrameAlignPolicy(Enum):
     """以循环方式延长"""
 
 
+def get_aligned_gif_indexes(
+    gif_infos: list[tuple[int, float]],
+    frame_num_target: int,
+    duration_target: float,
+    frame_align: FrameAlignPolicy = FrameAlignPolicy.no_extend,
+) -> tuple[list[list[int]], list[int]]:
+    """
+    将gif按照目标帧数和帧间隔对齐
+    :params
+        * ``gif_infos``: 每个输入gif的帧数和帧间隔，帧间隔单位为秒
+        * ``frame_num_target``: 目标gif的帧数
+        * ``duration_target``: 目标gif的帧间隔，单位为秒
+        * ``frame_align``: 要对齐的gif长度大于目标gif时，gif长度对齐方式
+    :return
+        * 输入gif的帧索引列表和目标gif的帧索引列表
+    """
+
+    frame_idxs_target: list[int] = list(range(frame_num_target))
+
+    max_total_duration_input = max(
+        frame_num * duration for frame_num, duration in gif_infos
+    )
+    total_duration_target = frame_num_target * duration_target
+    if (
+        diff_duration := max_total_duration_input - total_duration_target
+    ) >= duration_target:
+        diff_num = math.ceil(diff_duration / duration_target)
+
+        if frame_align == FrameAlignPolicy.extend_first:
+            frame_idxs_target = [0] * diff_num + frame_idxs_target
+
+        elif frame_align == FrameAlignPolicy.extend_last:
+            frame_idxs_target += [frame_num_target - 1] * diff_num
+
+        elif frame_align == FrameAlignPolicy.extend_loop:
+            frame_num_total = frame_num_target
+            # 重复目标gif，直到每个gif总时长之差在1个间隔以内，或总帧数超出最大帧数
+            while frame_num_total + frame_num_target <= meme_config.gif.gif_max_frames:
+                frame_num_total += frame_num_target
+                frame_idxs_target += list(range(frame_num_target))
+                total_duration = frame_num_total * duration_target
+                if all(
+                    math.fabs(
+                        round(total_duration / duration) * duration - total_duration
+                    )
+                    <= duration_target
+                    for _, duration in gif_infos
+                ):
+                    break
+
+    frame_idxs_input: list[list[int]] = []
+    for frame_num, duration in gif_infos:
+        frame_idx = 0
+        time_start = 0
+        frame_idxs: list[int] = []
+        for i in range(len(frame_idxs_target)):
+            while frame_idx < frame_num:
+                if (
+                    frame_idx * duration
+                    <= i * duration_target - time_start
+                    < (frame_idx + 1) * duration
+                ):
+                    frame_idxs.append(frame_idx)
+                    break
+                else:
+                    frame_idx += 1
+                    if frame_idx >= frame_num:
+                        frame_idx = 0
+                        time_start += frame_num * duration
+        frame_idxs_input.append(frame_idxs)
+
+    return frame_idxs_input, frame_idxs_target
+
+
+class Maker(Protocol):
+    def __call__(self, imgs: list[BuildImage]) -> BuildImage: ...
+
+
+class GifMaker(Protocol):
+    def __call__(self, i: int) -> Maker: ...
+
+
+def merge_gif(imgs: list[BuildImage], func: Maker) -> BytesIO:
+    """
+    合并动图
+    :params
+      * ``imgs``: 输入图片列表
+      * ``func``: 图片处理函数，输入imgs，返回处理后的图片
+    """
+    images = [img.image for img in imgs]
+    gif_images = [image for image in images if getattr(image, "is_animated", False)]
+
+    if len(gif_images) == 1:
+        frames: list[IMG] = []
+        frame_num = getattr(gif_images[0], "n_frames", 1)
+        duration = get_avg_duration(gif_images[0])
+        for i in range(frame_num):
+            frame_images: list[IMG] = []
+            for image in images:
+                if getattr(image, "is_animated", False):
+                    image.seek(i)
+                frame_images.append(image.copy())
+            frame = func([BuildImage(image) for image in frame_images])
+            frames.append(frame.image)
+        return save_gif(frames, duration)
+
+    gif_infos = [
+        (getattr(image, "n_frames", 1), get_avg_duration(image)) for image in gif_images
+    ]
+    target_duration = min(duration for _, duration in gif_infos)
+    target_gif_idx = [
+        i for i, (_, duration) in enumerate(gif_infos) if duration == target_duration
+    ][0]
+    target_frame_num = gif_infos[target_gif_idx][0]
+    gif_infos.pop(target_gif_idx)
+    frame_idxs, target_frame_idxs = get_aligned_gif_indexes(
+        gif_infos, target_frame_num, target_duration, FrameAlignPolicy.extend_loop
+    )
+    frame_idxs.insert(target_gif_idx, target_frame_idxs)
+
+    frames: list[IMG] = []
+    for i in range(len(target_frame_idxs)):
+        frame_images: list[IMG] = []
+        gif_idx = 0
+        for image in images:
+            if getattr(image, "is_animated", False):
+                image.seek(frame_idxs[gif_idx][i])
+                gif_idx += 1
+            frame_images.append(image.copy())
+        frame = func([BuildImage(image) for image in frame_images])
+        frames.append(frame.image)
+
+    return save_gif(frames, target_duration)
+
+
+def make_jpg_or_gif(imgs: list[BuildImage], func: Maker) -> BytesIO:
+    """
+    制作静图或者动图
+    :params
+      * ``imgs``: 输入图片列表
+      * ``func``: 图片处理函数，输入imgs，返回处理后的图片
+    """
+    images = [img.image for img in imgs]
+    if all(not getattr(image, "is_animated", False) for image in images):
+        return func(imgs).save_jpg()
+
+    return merge_gif(imgs, func)
+
+
+def make_png_or_gif(imgs: list[BuildImage], func: Maker) -> BytesIO:
+    """
+    制作静图或者动图
+    :params
+      * ``imgs``: 输入图片列表
+      * ``func``: 图片处理函数，输入imgs，返回处理后的图片
+    """
+    images = [img.image for img in imgs]
+    if all(not getattr(image, "is_animated", False) for image in images):
+        return func(imgs).save_png()
+
+    return merge_gif(imgs, func)
+
+
 def make_gif_or_combined_gif(
-    img: BuildImage,
+    imgs: list[BuildImage],
     maker: GifMaker,
     frame_num: int,
     duration: float,
     frame_align: FrameAlignPolicy = FrameAlignPolicy.no_extend,
-    input_based: bool = False,
-    keep_transparency: bool = False,
 ) -> BytesIO:
     """
     使用静图或动图制作gif
     :params
-      * ``img``: 输入图片，如头像
+      * ``imgs``: 输入图片列表
       * ``maker``: 图片处理函数生成，传入第几帧，返回对应的图片处理函数
       * ``frame_num``: 目标gif的帧数
       * ``duration``: 相邻帧之间的时间间隔，单位为秒
       * ``frame_align``: 要叠加的gif长度大于基准gif时，gif长度对齐方式
-      * ``input_based``: 是否以输入gif为基准合成gif，默认为`False`，即以目标gif为基准
-      * ``keep_transparency``: 传入gif时，是否保留该gif的透明度
     """
-    image = img.image
-    if not getattr(image, "is_animated", False):
-        return save_gif([maker(i)(img).image for i in range(frame_num)], duration)
+    images = [img.image for img in imgs]
+    if all(not getattr(image, "is_animated", False) for image in images):
+        return save_gif([maker(i)(imgs).image for i in range(frame_num)], duration)
 
-    frame_num_in = getattr(image, "n_frames", 1)
-    duration_in = get_avg_duration(image) / 1000
-    total_duration_in = frame_num_in * duration_in
-    total_duration = frame_num * duration
-
-    if input_based:
-        frame_num_base = frame_num_in
-        frame_num_fit = frame_num
-        duration_base = duration_in
-        duration_fit = duration
-        total_duration_base = total_duration_in
-        total_duration_fit = total_duration
-    else:
-        frame_num_base = frame_num
-        frame_num_fit = frame_num_in
-        duration_base = duration
-        duration_fit = duration_in
-        total_duration_base = total_duration
-        total_duration_fit = total_duration_in
-
-    frame_idxs: list[int] = list(range(frame_num_base))
-    diff_duration = total_duration_fit - total_duration_base
-    diff_num = int(diff_duration / duration_base)
-
-    if diff_duration >= duration_base:
-        if frame_align == FrameAlignPolicy.extend_first:
-            frame_idxs = [0] * diff_num + frame_idxs
-
-        elif frame_align == FrameAlignPolicy.extend_last:
-            frame_idxs += [frame_num_base - 1] * diff_num
-
-        elif frame_align == FrameAlignPolicy.extend_loop:
-            frame_num_total = frame_num_base
-            # 重复基准gif，直到两个gif总时长之差在1个间隔以内，或总帧数超出最大帧数
-            while frame_num_total + frame_num_base <= meme_config.gif.gif_max_frames:
-                frame_num_total += frame_num_base
-                frame_idxs += list(range(frame_num_base))
-                multiple = round(frame_num_total * duration_base / total_duration_fit)
-                if (
-                    math.fabs(
-                        total_duration_fit * multiple - frame_num_total * duration_base
-                    )
-                    <= duration_base
-                ):
-                    break
+    gif_infos = [
+        (getattr(image, "n_frames", 1), get_avg_duration(image))
+        for image in images
+        if getattr(image, "is_animated", False)
+    ]
+    frame_idxs_input, frame_idxs_target = get_aligned_gif_indexes(
+        gif_infos, frame_num, duration, frame_align
+    )
 
     frames: list[IMG] = []
-    frame_idx_fit = 0
-    time_start = 0
-    for i, idx in enumerate(frame_idxs):
-        while frame_idx_fit < frame_num_fit:
-            if (
-                frame_idx_fit * duration_fit
-                <= i * duration_base - time_start
-                < (frame_idx_fit + 1) * duration_fit
-            ):
-                if input_based:
-                    idx_in = idx
-                    idx_maker = frame_idx_fit
-                else:
-                    idx_in = frame_idx_fit
-                    idx_maker = idx
-
-                func = maker(idx_maker)
-                image.seek(idx_in)
-                frames.append(func(BuildImage(image.copy())).image)
-                break
-            else:
-                frame_idx_fit += 1
-                if frame_idx_fit >= frame_num_fit:
-                    frame_idx_fit = 0
-                    time_start += total_duration_fit
-
-    if keep_transparency:
-        image.seek(0)
-        if image.info.__contains__("transparency"):
-            frames[0].info["transparency"] = image.info["transparency"]
+    for i in range(len(frame_idxs_target)):
+        frame_images: list[IMG] = []
+        gif_idx = 0
+        for image in images:
+            if getattr(image, "is_animated", False):
+                image.seek(frame_idxs_input[gif_idx][i])
+                gif_idx += 1
+            frame_images.append(image.copy())
+        frame = maker(i)([BuildImage(image) for image in frame_images])
+        frames.append(frame.image)
 
     return save_gif(frames, duration)
 

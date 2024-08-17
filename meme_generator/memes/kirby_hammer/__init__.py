@@ -42,8 +42,8 @@ def kirby_hammer(images: list[BuildImage], texts, args: Model):
     ]
     # fmt: on
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA")
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA")
             if args.circle:
                 img = img.circle()
             img = img.resize_height(80)
@@ -63,7 +63,7 @@ def kirby_hammer(images: list[BuildImage], texts, args: Model):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 62, 0.05, FrameAlignPolicy.extend_loop
+        images, maker, 62, 0.05, FrameAlignPolicy.extend_loop
     )
 
 

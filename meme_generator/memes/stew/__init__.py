@@ -26,11 +26,11 @@ def stew(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     except ValueError:
         raise TextOverLength(name)
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((181, 154), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((181, 154), keep_ratio=True)
         return frame.copy().paste(img, (9, -2), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

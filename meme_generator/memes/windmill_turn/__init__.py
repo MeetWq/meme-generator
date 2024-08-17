@@ -8,8 +8,8 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 
 def windmill_turn(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize((300, 300), keep_ratio=True)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize((300, 300), keep_ratio=True)
             frame = BuildImage.new("RGBA", (600, 600), "white")
             frame.paste(img, alpha=True)
             frame.paste(img.rotate(90), (0, 300), alpha=True)
@@ -20,7 +20,7 @@ def windmill_turn(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 5, 0.05, FrameAlignPolicy.extend_loop
+        images, maker, 5, 0.05, FrameAlignPolicy.extend_loop
     )
 
 

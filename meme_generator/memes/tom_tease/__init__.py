@@ -12,8 +12,8 @@ img_dir = Path(__file__).parent / "images"
 
 def tom_tease(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize((400, 350), keep_ratio=True)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize((400, 350), keep_ratio=True)
             img = img.perspective(((0, 100), (290, 0), (290, 370), (0, 335)))
             bg = BuildImage.open(img_dir / f"{i}.png")
             frame = BuildImage.new("RGBA", bg.size, "white")
@@ -23,7 +23,7 @@ def tom_tease(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 11, 0.2, FrameAlignPolicy.extend_first
+        images, maker, 11, 0.2, FrameAlignPolicy.extend_first
     )
 
 

@@ -13,13 +13,13 @@ def mihoyo(images: list[BuildImage], texts, args):
     mask = BuildImage.new("RGBA", (500, 60), (53, 49, 65, 230))
     logo = BuildImage.open(img_dir / "logo.png").resize_height(50)
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((500, 500), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((500, 500), keep_ratio=True)
         img.paste(mask, (0, 440), alpha=True)
         img.paste(logo, ((img.width - logo.width) // 2, 445), alpha=True)
         return img.circle_corner(100)
 
-    return make_png_or_gif(images[0], make)
+    return make_png_or_gif(images, make)
 
 
 add_meme(

@@ -8,19 +8,19 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 
 
 def wave(images: list[BuildImage], texts, args):
-    img = images[0]
-    img_w = min(max(img.width, 360), 720)
+    img_w = min(max(images[0].width, 360), 720)
     period = img_w / 6
     amp = img_w / 60
     frame_num = 8
-    phase = 0
-
-    def sin(x):
-        return amp * math.sin(2 * math.pi / period * (x + phase)) / 2
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize_width(img_w)
+        def sin(x):
+            return (
+                amp * math.sin(2 * math.pi / period * (x + i * period / frame_num)) / 2
+            )
+
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize_width(img_w)
             img_h = img.height
             frame = img.copy()
             for i in range(img_w):
@@ -34,14 +34,12 @@ def wave(images: list[BuildImage], texts, args):
                         )
 
             frame = frame.resize_canvas((int(img_w - amp), int(img_h - amp)))
-            nonlocal phase
-            phase += period / frame_num
             return frame
 
         return make
 
     return make_gif_or_combined_gif(
-        img, maker, frame_num, 0.01, FrameAlignPolicy.extend_loop
+        images, maker, frame_num, 0.01, FrameAlignPolicy.extend_loop
     )
 
 

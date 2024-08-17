@@ -12,14 +12,17 @@ img_dir = Path(__file__).parent / "images"
 def smash(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
         points = ((1, 237), (826, 1), (832, 508), (160, 732))
         screen = (
-            img.convert("RGBA").resize((800, 500), keep_ratio=True).perspective(points)
+            imgs[0]
+            .convert("RGBA")
+            .resize((800, 500), keep_ratio=True)
+            .perspective(points)
         )
         return frame.copy().paste(screen, (-136, -81), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

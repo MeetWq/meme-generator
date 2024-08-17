@@ -47,8 +47,8 @@ def rotate_3d(images: list[BuildImage], texts, args):
         return img.perspective(tuple(dsts))
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA")
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA")
             frame = bg.copy()
             rotated = rotate_y(img, i * 12 * np.pi / 180)
             frame.paste(
@@ -64,7 +64,7 @@ def rotate_3d(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 30, 0.07, FrameAlignPolicy.extend_loop
+        images, maker, 30, 0.07, FrameAlignPolicy.extend_loop
     )
 
 

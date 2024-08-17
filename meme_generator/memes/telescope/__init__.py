@@ -11,8 +11,8 @@ img_dir = Path(__file__).parent / "images"
 
 def telescope(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").square()
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").square()
             img_big = img.resize((600, 600))
             img_small = img.resize((230, 230))
             frame = BuildImage.open(img_dir / f"{i}.png")
@@ -37,7 +37,7 @@ def telescope(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 69, 0.1, FrameAlignPolicy.extend_first
+        images, maker, 69, 0.1, FrameAlignPolicy.extend_first
     )
 
 

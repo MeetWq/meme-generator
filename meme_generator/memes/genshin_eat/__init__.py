@@ -51,10 +51,12 @@ def genshin_eat(images: list[BuildImage], texts, args: Model):
     position_list = [(106, 245), (115, 224), (116, 205), (115, 198), (120, 217)]
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
+        def make(imgs: list[BuildImage]) -> BuildImage:
             chara = BuildImage.open(img_dir / name / f"{i:02d}.png")
             if i in range(4, 9):
-                food = img.convert("RGBA").circle().resize((44, 44), keep_ratio=True)
+                food = (
+                    imgs[0].convert("RGBA").circle().resize((44, 44), keep_ratio=True)
+                )
                 if i == 8:
                     food = food.resize((44, 33))
                 chara.paste(food, position_list[i - 4], alpha=True)
@@ -63,7 +65,7 @@ def genshin_eat(images: list[BuildImage], texts, args: Model):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 16, 0.08, FrameAlignPolicy.extend_loop
+        images, maker, 16, 0.08, FrameAlignPolicy.extend_loop
     )
 
 

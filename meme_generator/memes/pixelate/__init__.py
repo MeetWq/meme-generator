@@ -33,18 +33,18 @@ args_type = MemeArgsType(
 
 
 def pixelate(images: list[BuildImage], texts, args: Model):
-    image = images[0]
     num = args.number
-    if not (1 <= num < min(image.size)):
+    if not (1 <= num < min(images[0].size)):
         raise MemeFeedback("请输入合适的像素化大小")
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0]
         image = img.image
         image = image.resize((img.width // num, img.height // num), resample=0)
         image = image.resize(img.size, resample=0)
         return BuildImage(image)
 
-    return make_jpg_or_gif(image, make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

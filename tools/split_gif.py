@@ -12,7 +12,7 @@ def split(gif_path: Path, output_path: Path):
         print("不是 gif 文件")  # noqa T001
         exit(1)
     duration = get_avg_duration(image)
-    print(f"gif 平均帧间隔: {duration} ms")  # noqa T001
+    print(f"gif 平均帧间隔: {duration} s")  # noqa T001
     frames = split_gif(image)
     output_path.mkdir(parents=True, exist_ok=True)
     for i, frame in enumerate(frames):

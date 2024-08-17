@@ -27,14 +27,17 @@ def genshin_start(images: list[BuildImage], texts: list[str], args):
         except ValueError:
             raise TextOverLength(text)
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
         points = ((0, 116), (585, 0), (584, 319), (43, 385))
         screen = (
-            img.convert("RGBA").resize((600, 330), keep_ratio=True).perspective(points)
+            imgs[0]
+            .convert("RGBA")
+            .resize((600, 330), keep_ratio=True)
+            .perspective(points)
         )
         return frame.copy().paste(screen, (412, 121), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

@@ -12,11 +12,11 @@ img_dir = Path(__file__).parent / "images"
 def dinosaur(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((680, 578), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((680, 578), keep_ratio=True)
         return frame.copy().paste(img, (294, 369), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

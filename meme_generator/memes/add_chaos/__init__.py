@@ -12,10 +12,10 @@ img_dir = Path(__file__).parent / "images"
 def add_chaos(images: list[BuildImage], texts, args):
     banner = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
-        return img.convert("RGBA").resize_width(240).paste(banner)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        return imgs[0].convert("RGBA").resize_width(240).paste(banner)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

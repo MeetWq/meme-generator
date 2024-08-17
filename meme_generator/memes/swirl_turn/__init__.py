@@ -11,8 +11,8 @@ def swirl_turn(images: list[BuildImage], texts, args):
     frame_num = 40
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").circle().resize((100, 100))
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").circle().resize((100, 100))
             start_angle = i * 360 / frame_num
             frame = BuildImage.new("RGBA", (300, 300))
             num = 24
@@ -26,7 +26,7 @@ def swirl_turn(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, frame_num, 0.02, FrameAlignPolicy.extend_loop
+        images, maker, frame_num, 0.02, FrameAlignPolicy.extend_loop
     )
 
 

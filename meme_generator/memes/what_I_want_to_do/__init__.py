@@ -12,11 +12,11 @@ img_dir = Path(__file__).parent / "images"
 def what_I_want_to_do(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").circle().resize((270, 270))
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").circle().resize((270, 270))
         return frame.copy().paste(img, (350, 590), alpha=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

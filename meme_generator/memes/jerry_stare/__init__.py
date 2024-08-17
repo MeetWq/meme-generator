@@ -13,11 +13,11 @@ img_dir = Path(__file__).parent / "images"
 def jerry_stare(images: list[BuildImage], texts, args):
     jerry = BuildImage.open(img_dir / "0.png").convert("RGBA")
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").circle().resize((150, 150), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").circle().resize((150, 150), keep_ratio=True)
         return jerry.copy().paste(img, (184, 268), below=True)
 
-    return make_png_or_gif(images[0], make)
+    return make_png_or_gif(images, make)
 
 
 add_meme(

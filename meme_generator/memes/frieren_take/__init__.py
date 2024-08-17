@@ -29,11 +29,11 @@ def frieren_take(images: list[BuildImage], texts: list[str], args):
     except ValueError:
         raise TextOverLength(text)
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((102, 108), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((102, 108), keep_ratio=True)
         return frame.copy().paste(img, (130, 197), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(
