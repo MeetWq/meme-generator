@@ -20,17 +20,17 @@ def walnut_zoom(images: list[BuildImage], texts, args):
     # fmt: on
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
+        def make(imgs: list[BuildImage]) -> BuildImage:
             frame = BuildImage.open(img_dir / f"{i}.png")
             x, y, w, h = locs[seq[i]]
-            img = img.convert("RGBA").resize((w, h), keep_ratio=True)
+            img = imgs[0].convert("RGBA").resize((w, h), keep_ratio=True)
             frame.paste(img.rotate(4.2, expand=True), (x, y), below=True)
             return frame
 
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 24, 0.2, FrameAlignPolicy.extend_last
+        images, maker, 24, 0.2, FrameAlignPolicy.extend_last
     )
 
 

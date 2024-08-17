@@ -42,8 +42,8 @@ def oshi_no_ko(images: list[BuildImage], texts: list[str], args):
     background = BuildImage.open(img_dir / "background.png")
     foreground = BuildImage.open(img_dir / "foreground.png")
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((681, 692), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((681, 692), keep_ratio=True)
         return (
             background.copy()
             .paste(img, alpha=True)
@@ -51,7 +51,7 @@ def oshi_no_ko(images: list[BuildImage], texts: list[str], args):
             .paste(foreground, alpha=True)
         )
 
-    return make_png_or_gif(images[0], make)
+    return make_png_or_gif(images, make)
 
 
 add_meme(

@@ -12,12 +12,12 @@ img_dir = Path(__file__).parent / "images"
 def dog_of_vtb(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
         points = ((0, 0), (579, 0), (584, 430), (5, 440))
-        img = img.convert("RGBA").resize((600, 450), keep_ratio=True)
+        img = imgs[0].convert("RGBA").resize((600, 450), keep_ratio=True)
         return frame.copy().paste(img.perspective(points), (97, 32), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

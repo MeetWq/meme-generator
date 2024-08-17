@@ -11,8 +11,8 @@ img_dir = Path(__file__).parent / "images"
 
 def vibrate(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").square()
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").square()
             w = img.size[0]
             locs = [
                 (0, 0),
@@ -28,7 +28,7 @@ def vibrate(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 5, 0.05, FrameAlignPolicy.extend_loop
+        images, maker, 5, 0.05, FrameAlignPolicy.extend_loop
     )
 
 

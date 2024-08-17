@@ -22,8 +22,8 @@ def capoo_strike(images: list[BuildImage], texts, args):
     )
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize((200, 160), keep_ratio=True)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize((200, 160), keep_ratio=True)
             points, pos = params[i]
             frame = BuildImage.open(img_dir / f"{i}.png")
             frame.paste(img.perspective(points), pos, below=True)
@@ -32,7 +32,7 @@ def capoo_strike(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 7, 0.05, FrameAlignPolicy.extend_loop
+        images, maker, 7, 0.05, FrameAlignPolicy.extend_loop
     )
 
 

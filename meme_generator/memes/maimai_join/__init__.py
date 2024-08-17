@@ -13,11 +13,11 @@ img_dir = Path(__file__).parent / "images"
 def maimai_join(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").square().resize((400, 400))
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").square().resize((400, 400))
         return frame.copy().paste(img, (50, 50), alpha=True, below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

@@ -28,11 +28,11 @@ def father_work(images: list[BuildImage], texts: list[str], args):
     except ValueError:
         raise TextOverLength(text)
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((230, 120), keep_ratio=True, inside=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((230, 120), keep_ratio=True, inside=True)
         return frame.copy().paste(img, (252, 142), alpha=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

@@ -30,7 +30,7 @@ args_type = MemeArgsType(
 
 
 def kaleidoscope(images: list[BuildImage], texts, args: Model):
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
         circle_num = 10
         img_per_circle = 4
         init_angle = 0
@@ -41,7 +41,7 @@ def kaleidoscope(images: list[BuildImage], texts, args: Model):
 
         cx = cy = radius(circle_num)
 
-        img = img.convert("RGBA")
+        img = imgs[0].convert("RGBA")
         frame = BuildImage.new("RGBA", (cx * 2, cy * 2), "white")
         for i in range(circle_num):
             r = radius(i)
@@ -58,7 +58,7 @@ def kaleidoscope(images: list[BuildImage], texts, args: Model):
             init_angle += angle_step / 2
         return frame
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

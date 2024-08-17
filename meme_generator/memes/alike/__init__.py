@@ -14,11 +14,11 @@ def alike(images: list[BuildImage], texts, args):
         (365, 10, 460, 140), "一样", max_fontsize=40, min_fontsize=30, halign="left"
     )
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize((150, 150), keep_ratio=True)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize((150, 150), keep_ratio=True)
         return frame.copy().paste(img, (200, 15), alpha=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

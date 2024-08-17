@@ -105,8 +105,8 @@ def lick_candy(images: list[BuildImage], texts, args):
     ]
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize((76, 76)).circle().rotate(90)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize((76, 76)).circle().rotate(90)
             bg = BuildImage.open(img_dir / f"{i}.png")
             if i not in [19, 20, 27, 28]:
                 points, pos = params[i]
@@ -116,7 +116,7 @@ def lick_candy(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 91, 0.03, FrameAlignPolicy.extend_first
+        images, maker, 91, 0.03, FrameAlignPolicy.extend_first
     )
 
 

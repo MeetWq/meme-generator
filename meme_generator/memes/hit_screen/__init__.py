@@ -30,8 +30,8 @@ def hit_screen(images: list[BuildImage], texts, args):
     )
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize((140, 120), keep_ratio=True)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize((140, 120), keep_ratio=True)
             frame = BuildImage.open(img_dir / f"{i}.png")
             if 6 <= i < 22:
                 points, pos = params[i - 6]
@@ -41,7 +41,7 @@ def hit_screen(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 29, 0.2, FrameAlignPolicy.extend_first
+        images, maker, 29, 0.2, FrameAlignPolicy.extend_first
     )
 
 

@@ -12,14 +12,14 @@ img_dir = Path(__file__).parent / "images"
 def pinch(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
         return frame.paste(
-            img.convert("RGBA").resize((1800, 1440), keep_ratio=True),
+            imgs[0].convert("RGBA").resize((1800, 1440), keep_ratio=True),
             (1080, 0),
             below=True,
         )
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

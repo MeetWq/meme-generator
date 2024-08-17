@@ -22,8 +22,8 @@ def run_away(images: list[BuildImage], texts, args):
         frame_h = round(frame_w * img_h / img_w)
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            frame = img.convert("RGBA").resize((frame_w, frame_h), keep_ratio=True)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            frame = imgs[0].convert("RGBA").resize((frame_w, frame_h), keep_ratio=True)
             miku = BuildImage.open(img_dir / f"{i}.png")
             frame.paste(miku, (frame_w - miku_w, frame_h - miku_h), alpha=True)
             return frame
@@ -31,7 +31,7 @@ def run_away(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 42, 0.03, FrameAlignPolicy.extend_loop
+        images, maker, 42, 0.03, FrameAlignPolicy.extend_loop
     )
 
 

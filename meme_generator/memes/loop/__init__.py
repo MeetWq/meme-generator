@@ -63,8 +63,8 @@ args_type = MemeArgsType(
 
 def loop(images: list[BuildImage], texts, args: Model):
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA")
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA")
             width, height = img.size
 
             if args.direction in ["top", "bottom"]:
@@ -92,7 +92,7 @@ def loop(images: list[BuildImage], texts, args: Model):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 30, 0.05, FrameAlignPolicy.extend_loop
+        images, maker, 30, 0.05, FrameAlignPolicy.extend_loop
     )
 
 

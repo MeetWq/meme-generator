@@ -9,13 +9,12 @@ from meme_generator.utils import make_jpg_or_gif
 
 
 def charpic(images: list[BuildImage], texts, args):
-    img = images[0]
     str_map = "@@$$&B88QMMGW##EE93SPPDOOU**==()+^,\"--''.  "
     num = len(str_map)
     font = Font.find("Consolas").load_font(15)
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize_width(150).convert("L")
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize_width(150).convert("L")
         img = img.resize((img.width, img.height // 2))
         lines = []
         for y in range(img.height):
@@ -32,7 +31,7 @@ def charpic(images: list[BuildImage], texts, args):
         text_img = text_img.crop((0, 0, w, h))
         return BuildImage(text_img)
 
-    return make_jpg_or_gif(img, make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

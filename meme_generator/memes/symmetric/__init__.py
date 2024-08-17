@@ -63,8 +63,7 @@ args_type = MemeArgsType(
 
 
 def symmetric(images: list[BuildImage], texts, args: Model):
-    img = images[0]
-    img_w, img_h = img.size
+    img_w, img_h = images[0].size
 
     class Mode(NamedTuple):
         method: Transpose
@@ -111,7 +110,8 @@ def symmetric(images: list[BuildImage], texts, args: Model):
 
     mode = modes[args.direction]
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0]
         first = img.convert("RGBA")
         second = img.convert("RGBA").transpose(mode.method)
         frame = BuildImage.new("RGBA", mode.frame_size)
@@ -119,7 +119,7 @@ def symmetric(images: list[BuildImage], texts, args: Model):
         frame.paste(second.crop(mode.size2), mode.pos2, alpha=True)
         return frame
 
-    return make_jpg_or_gif(img, make, keep_transparency=True)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

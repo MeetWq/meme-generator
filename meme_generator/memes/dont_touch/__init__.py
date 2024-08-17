@@ -44,14 +44,15 @@ def dont_touch(images: list[BuildImage], texts, args):
             block = block.rotate(45, expand=True)
             img.paste(block, (x, y), alpha=True)
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0]
         img_frame = frame.copy()
         colors = get_dominant_colors(img.image)
         paste_random_blocks(img_frame, colors)
         img = img.convert("RGBA").resize((250, 250), keep_ratio=True, inside=True)
         return img_frame.paste(img, (25, 460), alpha=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

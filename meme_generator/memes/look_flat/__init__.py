@@ -54,14 +54,14 @@ def look_flat(images: list[BuildImage], texts: list[str], args: Model):
     except ValueError:
         raise TextOverLength(text)
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA").resize_width(img_w)
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA").resize_width(img_w)
         img = img.resize((img_w, img.height // ratio))
         img_h = img.height
         frame = BuildImage.new("RGBA", (img_w, img_h + text_h), "white")
         return frame.paste(img, alpha=True).paste(text_frame, (0, img_h), alpha=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

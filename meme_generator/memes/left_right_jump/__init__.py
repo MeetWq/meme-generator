@@ -69,8 +69,8 @@ def left_right_jump(images: list[BuildImage], texts, args: Model):
     dx = (frame_w - img_w) / (frame_num / 2 - 1)
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = images[0].convert("RGBA").resize_width(img_w)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize_width(img_w)
             if args.direction == "left_right":
                 if i >= round(frame_num / 2):
                     x = frame_w - img_w - dx * (frame_num - i - 1)
@@ -89,7 +89,7 @@ def left_right_jump(images: list[BuildImage], texts, args: Model):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, frame_num, 0.04, FrameAlignPolicy.extend_loop
+        images, maker, frame_num, 0.04, FrameAlignPolicy.extend_loop
     )
 
 

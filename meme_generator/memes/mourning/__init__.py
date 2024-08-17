@@ -34,12 +34,13 @@ args_type = MemeArgsType(
 def mourning(images: list[BuildImage], texts, args: Model):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0]
         img = img.convert("L") if args.black else img.convert("RGBA")
         img = img.resize((635, 725), keep_ratio=True)
         return frame.copy().paste(img, (645, 145), below=True)
 
-    return make_jpg_or_gif(images[0], make)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

@@ -53,7 +53,8 @@ args_type = MemeArgsType(
 
 
 def always_normal(img: BuildImage):
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0]
         img_big = img.convert("RGBA").resize_width(500)
         img_small = img.convert("RGBA").resize_width(100)
         h1 = img_big.height
@@ -70,7 +71,7 @@ def always_normal(img: BuildImage):
         )
         return frame
 
-    return make_jpg_or_gif(img, make)
+    return make_jpg_or_gif([img], make)
 
 
 def always_always(img: BuildImage, loop: bool = False):
@@ -88,8 +89,8 @@ def always_always(img: BuildImage, loop: bool = False):
     coeff = 5 ** (1 / frame_num)
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
-            img = img.convert("RGBA").resize_width(500)
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize_width(500)
             base_frame = text_frame.copy().paste(img, alpha=True)
             frame = BuildImage.new("RGBA", base_frame.size, "white")
             r = coeff**i
@@ -105,10 +106,10 @@ def always_always(img: BuildImage, loop: bool = False):
         return make
 
     if not loop:
-        return make_jpg_or_gif(img, maker(0))
+        return make_jpg_or_gif([img], maker(0))
 
     return make_gif_or_combined_gif(
-        img, maker, frame_num, 0.1, FrameAlignPolicy.extend_loop
+        [img], maker, frame_num, 0.1, FrameAlignPolicy.extend_loop
     )
 
 

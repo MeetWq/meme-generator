@@ -12,8 +12,8 @@ img_dir = Path(__file__).parent / "images"
 def out(images: list[BuildImage], texts, args):
     frame = BuildImage.open(img_dir / "out.png")
 
-    def make(img: BuildImage) -> BuildImage:
-        img = img.convert("RGBA")
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0].convert("RGBA")
         out = frame.copy().resize_width(int(img.width * 0.5), keep_ratio=True)
         return img.paste(
             out,
@@ -24,7 +24,7 @@ def out(images: list[BuildImage], texts, args):
             alpha=True,
         )
 
-    return make_jpg_or_gif(images[0], make, keep_transparency=True)
+    return make_jpg_or_gif(images, make)
 
 
 add_meme(

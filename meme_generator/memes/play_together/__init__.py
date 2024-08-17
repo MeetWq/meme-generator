@@ -35,9 +35,9 @@ def play_together(images: list[BuildImage], texts, args):
     )
 
     def maker(i: int) -> Maker:
-        def make(img: BuildImage) -> BuildImage:
+        def make(imgs: list[BuildImage]) -> BuildImage:
             x, y, w, h = params[i]
-            screen = img.convert("RGBA").resize((w, h), keep_ratio=True)
+            screen = imgs[0].convert("RGBA").resize((w, h), keep_ratio=True)
             frame = BuildImage.open(img_dir / f"{i}.png")
             frame.paste(screen, (x, y), below=True)
             return frame
@@ -45,7 +45,7 @@ def play_together(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images[0], maker, 60, 0.06, FrameAlignPolicy.extend_last
+        images, maker, 60, 0.06, FrameAlignPolicy.extend_last
     )
 
 
