@@ -1,5 +1,4 @@
 import asyncio
-import sys
 from pathlib import Path
 from typing import Any
 
@@ -169,7 +168,7 @@ def generate_meme(
 def main():
     setup_logger()
     parser = construct_parser()
-    result = parser.parse(["meme"] + sys.argv[1:])
+    result = parser()
 
     if not result.matched:
         if not isinstance(result.error_info, SpecialOptionTriggered):
