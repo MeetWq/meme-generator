@@ -747,13 +747,13 @@ files = [
 
 [[package]]
 name = "pil-utils"
-version = "0.1.11"
+version = "0.1.12"
 description = "A simple PIL wrapper and text-to-image tool"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "pil_utils-0.1.11-py3-none-any.whl", hash = "sha256:23bba5483987b6161de3174e4f70d72ad80cca043001a4b5ef35454e1f8b7f39"},
-    {file = "pil_utils-0.1.11.tar.gz", hash = "sha256:386c357ff27d09595026e539879d29b64c33c9be0ca631d786ac2d4ac70281b9"},
+    {file = "pil_utils-0.1.12-py3-none-any.whl", hash = "sha256:8d7703dc1634549386f5b0a6c1e4cf6664b08967c071c861add1aa9b18df1612"},
+    {file = "pil_utils-0.1.12.tar.gz", hash = "sha256:faf854e0c4ec3db4804127c36e2cab8b0dcd2b3f6f238b636f972661c4b06583"},
 ]
 
 [package.dependencies]

@@ -227,20 +227,18 @@ def merge_gif(imgs: list[BuildImage], func: Maker) -> BytesIO:
 
     if len(gif_images) == 1:
         frames: list[IMG] = []
-        gif_frames = split_gif(gif_images[0])
+        frame_num = getattr(gif_images[0], "n_frames", 1)
         duration = get_avg_duration(gif_images[0])
-        for i in range(len(gif_frames)):
+        for i in range(frame_num):
             frame_images: list[IMG] = []
             for image in images:
                 if getattr(image, "is_animated", False):
-                    frame_images.append(gif_frames[i])
-                else:
-                    frame_images.append(image.copy())
+                    image.seek(i)
+                frame_images.append(image.copy())
             frame = func([BuildImage(image) for image in frame_images])
             frames.append(frame.image)
         return save_gif(frames, duration)
 
-    gif_frames = [split_gif(image) for image in gif_images]
     gif_infos = [
         (getattr(image, "n_frames", 1), get_avg_duration(image)) for image in gif_images
     ]
@@ -261,10 +259,9 @@ def merge_gif(imgs: list[BuildImage], func: Maker) -> BytesIO:
         gif_idx = 0
         for image in images:
             if getattr(image, "is_animated", False):
-                frame_images.append(gif_frames[gif_idx][frame_idxs[gif_idx][i]])
+                image.seek(frame_idxs[gif_idx][i])
                 gif_idx += 1
-            else:
-                frame_images.append(image.copy())
+            frame_images.append(image.copy())
         frame = func([BuildImage(image) for image in frame_images])
         frames.append(frame.image)
 
@@ -328,20 +325,15 @@ def make_gif_or_combined_gif(
         gif_infos, frame_num, duration, frame_align
     )
 
-    gif_frames = [
-        split_gif(image) for image in images if getattr(image, "is_animated", False)
-    ]
-
     frames: list[IMG] = []
     for i in range(len(frame_idxs_target)):
         frame_images: list[IMG] = []
         gif_idx = 0
         for image in images:
             if getattr(image, "is_animated", False):
-                frame_images.append(gif_frames[gif_idx][frame_idxs_input[gif_idx][i]])
+                image.seek(frame_idxs_input[gif_idx][i])
                 gif_idx += 1
-            else:
-                frame_images.append(image.copy())
+            frame_images.append(image.copy())
         frame = maker(i)([BuildImage(image) for image in frame_images])
         frames.append(frame.image)
 
