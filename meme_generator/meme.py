@@ -71,7 +71,7 @@ class ParserOption(BaseModel):
             name="|".join(self.names),
             args=args,
             dest=self.dest,
-            default=self.default,
+            default=self.default or Empty,
             action=self.action,
             help_text=self.help_text,
             compact=self.compact,
