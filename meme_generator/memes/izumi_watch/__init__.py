@@ -13,7 +13,8 @@ img_dir = Path(__file__).parent / "images"
 def izumi_watch(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png")
 
-    def make(img: BuildImage) -> BuildImage:
+    def make(imgs: list[BuildImage]) -> BuildImage:
+        img = imgs[0]
         img = img.convert("RGBA").resize((510, 360), keep_ratio=True)
         return frame.copy().paste(
             img.perspective(((0, 0), (465, 0), (465, 340), (0, 360))),
