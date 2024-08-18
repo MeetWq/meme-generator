@@ -21,7 +21,7 @@ def izumi_watch(images: list[BuildImage], texts: list[str], args):
             below=True,
         )
 
-    return make_png_or_gif(images[0], make)
+    return make_png_or_gif(images, make)
 
 
 add_meme(
