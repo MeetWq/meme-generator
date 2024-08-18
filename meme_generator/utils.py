@@ -326,7 +326,7 @@ def make_gif_or_combined_gif(
     )
 
     frames: list[IMG] = []
-    for i in range(len(frame_idxs_target)):
+    for i, idx in enumerate(frame_idxs_target):
         frame_images: list[IMG] = []
         gif_idx = 0
         for image in images:
@@ -334,7 +334,7 @@ def make_gif_or_combined_gif(
                 image.seek(frame_idxs_input[gif_idx][i])
                 gif_idx += 1
             frame_images.append(image.copy())
-        frame = maker(i)([BuildImage(image) for image in frame_images])
+        frame = maker(idx)([BuildImage(image) for image in frame_images])
         frames.append(frame.image)
 
     return save_gif(frames, duration)
