@@ -69,6 +69,11 @@ class MemeTags:
 
     mahiro = {"绪山真寻"} | onimai
 
+    # 幸运星
+    lucky_star = {"幸运星"}
+
+    izumi = {"泉此方"} | lucky_star
+
     # 猫和老鼠
     tom_and_jerry = {"猫和老鼠"}
 
