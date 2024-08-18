@@ -9,19 +9,20 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 
 img_dir = Path(__file__).parent / "images"
 
+
 def pepe_raise(images: list[BuildImage], texts, args):
     # fmt: off
     left_locs = [
-        (107, 30), (107, 30), (95, 45), 
-        (80, 160), (80, 160), (70, 98), 
+        (107, 30), (107, 30), (95, 45),
+        (80, 160), (80, 160), (70, 98),
     ]
     right_locs = [
-        (320, 145), (320, 145), (330, 130), 
+        (320, 145), (320, 145), (330, 130),
         (300, 50), (300, 50), (323, 80),
     ]
     # fmt: on
     frame_num = 6
-    
+
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]) -> BuildImage:
             frame = BuildImage.open(img_dir / f"{i}.png")
@@ -37,11 +38,12 @@ def pepe_raise(images: list[BuildImage], texts, args):
         images, maker, frame_num, 0.06, FrameAlignPolicy.extend_loop
     )
 
+
 add_meme(
-    "pepe_raise", 
-    pepe_raise, 
-    min_images=2, 
-    max_images=2, 
+    "pepe_raise",
+    pepe_raise,
+    min_images=2,
+    max_images=2,
     keywords=["佩佩举"],
     tags=MemeTags.arknights,
     date_created=datetime(2024, 8, 18),
