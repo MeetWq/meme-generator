@@ -68,7 +68,7 @@ class MemeTags:
     onimai = {"别当欧尼酱了"}
 
     mahiro = {"绪山真寻"} | onimai
-    
+
     # 猫和老鼠
     tom_and_jerry = {"猫和老鼠"}
 

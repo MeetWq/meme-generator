@@ -19,14 +19,15 @@ def boring(images: list[BuildImage], texts, args):
         (0, 116),
         (-3, 116),
         (-7, 117),
-        ]
+    ]
+
     def maker(i: int) -> Maker:
         def make(img: BuildImage) -> BuildImage:
             img = img.convert("RGBA").resize((100, 100), keep_ratio=True)
             img = img.perspective(((0, 6), (77, -5), (100, 100), (32, 100)))
             bg = BuildImage.open(img_dir / f"{i}.png")
             frame = BuildImage.new("RGBA", (240, 240), "white")
-            frame.paste(bg).paste(img,positions[min(max(i-16,0),5)], below=True)
+            frame.paste(bg).paste(img, positions[min(max(i - 16, 0), 5)], below=True)
             return frame
 
         return make
@@ -41,7 +42,7 @@ add_meme(
     boring,
     min_images=1,
     max_images=1,
-    keywords=["无聊","看困了"],
+    keywords=["无聊", "看困了"],
     tags=MemeTags.mahiro,
     date_created=datetime(2024, 8, 18),
     date_modified=datetime(2024, 8, 18),
