@@ -31,9 +31,9 @@ add_meme(
     keywords=["好起来了"],
     shortcuts=[
         CommandShortcut(
-            key=r"(?P<text>\S+)\s*起来了",
+            key=r"(?P<text>\S{1,4})\s+起来了",
             args=["{text}"],
-            humanized="xx起来了",
+            humanized="xx 起来了",
         )
     ],
     date_created=datetime(2022, 6, 12),

@@ -5,7 +5,6 @@ from pil_utils import BuildImage
 from pydantic import Field
 
 from meme_generator import (
-    CommandShortcut,
     MemeArgsModel,
     MemeArgsType,
     ParserArg,
@@ -97,13 +96,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["我老婆", "这是我老婆"],
-    shortcuts=[
-        CommandShortcut(
-            key=r"这是(?P<pron>\S{1,3})的(?P<name>\S{1,5})",
-            args=["--pron", "{pron}", "--name", "{name}"],
-            humanized="这是xx的xx",
-        )
-    ],
     args_type=args_type,
     date_created=datetime(2022, 7, 29),
     date_modified=datetime(2024, 8, 12),
