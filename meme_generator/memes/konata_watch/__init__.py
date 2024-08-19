@@ -14,11 +14,10 @@ def konata_watch(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png")
 
     def make(imgs: list[BuildImage]) -> BuildImage:
-        img = imgs[0]
-        img = img.convert("RGBA").resize((510, 360), keep_ratio=True)
+        img = imgs[0].convert("RGBA").resize((270, 200), keep_ratio=True)
         return frame.copy().paste(
-            img.perspective(((0, 0), (465, 0), (465, 340), (0, 360))),
-            (44, 20),
+            img.perspective(((0, 1), (275, 0), (273, 202), (2, 216))),
+            (50, 188),
             below=True,
         )
 
@@ -33,5 +32,5 @@ add_meme(
     keywords=["泉此方看"],
     tags=MemeTags.konata,
     date_created=datetime(2024, 8, 18),
-    date_modified=datetime(2024, 8, 18),
+    date_modified=datetime(2024, 8, 19),
 )
