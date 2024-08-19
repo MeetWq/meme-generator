@@ -176,10 +176,13 @@ def get_aligned_gif_indexes(
                 total_duration = frame_num_total * duration_target
                 if all(
                     math.fabs(
-                        round(total_duration / duration) * duration - total_duration
+                        round(total_duration / duration / frame_num)
+                        * duration
+                        * frame_num
+                        - total_duration
                     )
                     <= duration_target
-                    for _, duration in gif_infos
+                    for frame_num, duration in gif_infos
                 ):
                     break
 
