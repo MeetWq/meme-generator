@@ -1,4 +1,3 @@
-from typing import Tuple
 import random
 import datetime
 
@@ -10,17 +9,11 @@ from meme_generator.utils import Maker, make_gif_or_combined_gif, FrameAlignPoli
 
 
 class dot:
-    positon: Tuple[int, int]
-    velocity: Tuple[float, float]
-    direction: Tuple[float, float]
-    radius: int
-
     def __init__(self, positon, direction):
         self.positon = positon
         self.velocity = (0, 0)
         self.direction = direction
         self.radius = random.randint(1, 3)
-
     def move(self, step: int) -> None:
         a = 0.02 * step / self.radius
         self.velocity = (
