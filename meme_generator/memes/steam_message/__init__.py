@@ -12,7 +12,6 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
-from meme_generator.exception import MemeFeedback
 
 img_dir = Path(__file__).parent / "images"
 
@@ -36,9 +35,7 @@ args_type = MemeArgsType(
 
 
 def steam_message(images: list[BuildImage], texts: list[str], args: Model):
-    name = args.name or (args.user_infos[0].name if args.user_infos else "")
-    if not name:
-        raise MemeFeedback("请指定名字")
+    name = args.name or (args.user_infos[0].name if args.user_infos else "好友")
     game = texts[0]
 
     text_name = Text2Image.from_text(name, 65, fill="#e3ffc2")
@@ -93,7 +90,7 @@ add_meme(
     shortcuts=[
         CommandShortcut(
             key=r"(?P<name>\S+)正在玩(?P<game>\S+)",
-            args=["{game}", "--name", "{name}"],
+            args=["--name", "{name}", "{game}"],
             humanized="xx正在玩xx",
         )
     ],
