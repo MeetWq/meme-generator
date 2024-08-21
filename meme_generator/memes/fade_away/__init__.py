@@ -25,7 +25,7 @@ class dot:
             self.positon[0] + round(self.velocity[0]),
             self.positon[1] + round(self.velocity[1]),
         )
-        if random.random() < 0.3:
+        if random.random() < 0.25:
             self.radius -= 1
 
     def draw_dot(self, img: Image.Image) -> None:
@@ -73,26 +73,26 @@ def fade_away(images: list[BuildImage], texts, args):
     if area >= 40000:
         width = round(200 * width / (area**0.5))
         height = round(200 * height // (area**0.5))
-    o = (width * 2 // 3, height)
+    o = (width * 2 // 3, height * 2)
     step = (o[0] ** 2 + o[1] ** 2) ** 0.5 / 24
     dusts = []
 
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]) -> BuildImage:
             img = imgs[0].image.convert("RGBA").resize((width, height))
-            if i < 36:
+            if i < 28:
                 new_img = img.copy()
                 for x in range(width):
                     for y in range(
-                        max(0, min(height, height - round(step * i))), height
+                        max(0, min(height, height - round(step * (i + 11)))), height
                     ):
                         pixel = (x, y)
                         if img.getpixel(pixel)[3] == 0:
                             continue
                         distance = ((x - o[0]) ** 2 + (y - o[1]) ** 2) ** 0.5
-                        if distance <= step * (i - 12):
+                        if distance <= step * (i - 5):
                             new_img.putpixel(pixel, (0, 0, 0, 0))
-                        elif distance <= step * (i - 11):
+                        elif distance <= step * (i - 4):
                             new_img.putpixel(pixel, (0, 0, 0, 255))
                             if random.random() <= 0.06:
                                 direction = (
@@ -100,7 +100,7 @@ def fade_away(images: list[BuildImage], texts, args):
                                     (y - o[1] * 1.5) / distance,
                                 )
                                 dusts.append(dot((x, y), direction))
-                        elif distance <= step * (i - 1):
+                        elif distance <= step * (i + 2):
                             factor = (distance - step * (i - 11)) / (step * 12)
                             factor = max(0, min(1, factor))
                             original_pixel = img.getpixel(pixel)
