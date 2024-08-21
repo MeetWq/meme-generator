@@ -1,4 +1,5 @@
 from datetime import datetime
+from pathlib import Path
 
 from pil_utils import BuildImage, Text2Image
 from pydantic import Field
@@ -12,6 +13,8 @@ from meme_generator import (
     add_meme,
 )
 from meme_generator.exception import MemeFeedback
+
+img_dir = Path(__file__).parent / "images"
 
 help_text = "指定名字"
 
@@ -37,22 +40,43 @@ def steam_message(images: list[BuildImage], texts: list[str], args: Model):
     if not name:
         raise MemeFeedback("请指定名字")
     game = texts[0]
-    image = images[0].convert("RGBA").resize((280, 280), keep_ratio=True)
 
-    text_name = Text2Image.from_text(name, 70, fill="#e3ffc2")
-    text_play = Text2Image.from_text("正在玩", 60, fill="#d1d1c0")
-    text_game = Text2Image.from_text(game, 70, fill="#91c257")
+    text_name = Text2Image.from_text(name, 65, fill="#e3ffc2")
+    text_play = Text2Image.from_text("正在玩", 62, fill="#d1d1c0")
+    text_game = Text2Image.from_text(game, 65, fill="#91c257")
 
-    frame_w = max(text_name.width, text_play.width, text_game.width, 550) + 450
-    frame_h = 390
-    frame = BuildImage.new("RGB", (frame_w, frame_h), "#14161f")
-    frame.paste(BuildImage.new("RGB", (280, 280), "#191b23"), (40, 55))
-    frame.paste(image, (40, 55), alpha=True)
-    frame.draw_rectangle((330, 55, 348, 335), fill="#6cbe48")
+    avatar_w = 280
+    padding_h = 50
+    padding_v = 80
+    margin_rec = 6
+    rec_w = 15
+    margin_text = 80
+    text_w = max(text_name.width, text_play.width, text_game.width)
+    text_w = max(text_w, 1300)
+    text_x = padding_h + avatar_w + margin_rec + rec_w + margin_text
+    frame_w = text_x + text_w + padding_h
+    frame_h = padding_v * 2 + avatar_w
 
-    text_play.draw_on_image(frame.image, (400, (frame_h - text_play.height) // 2))
-    text_name.draw_on_image(frame.image, (400, 100 - text_name.height // 2))
-    text_game.draw_on_image(frame.image, (400, 290 - text_game.height // 2))
+    frame = BuildImage.new("RGBA", (frame_w, frame_h), "#14161f")
+    frame.paste(
+        BuildImage.new("RGB", (avatar_w, avatar_w), "#191b23"), (padding_h, padding_v)
+    )
+    avatar = images[0].convert("RGBA").resize((avatar_w, avatar_w), keep_ratio=True)
+    frame.paste(avatar, (padding_h, padding_v), alpha=True)
+    rec_x = padding_h + avatar_w + margin_rec
+    frame.draw_rectangle(
+        (rec_x, padding_v, rec_x + rec_w, frame_h - padding_v), fill="#6cbe48"
+    )
+    logo = BuildImage.open(img_dir / "logo.png")
+    frame.alpha_composite(logo, (frame_w - 870, -370))
+    text_play.draw_on_image(frame.image, (text_x, (frame_h - text_play.height) // 2))
+    text_name.draw_on_image(
+        frame.image, (text_x, padding_v + 40 - text_name.height // 2)
+    )
+    text_game.draw_on_image(
+        frame.image, (text_x, frame_h - padding_v - 40 - text_game.height // 2)
+    )
+
     return frame.save_jpg()
 
 
