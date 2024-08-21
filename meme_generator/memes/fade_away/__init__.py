@@ -1,40 +1,39 @@
-import random
 import datetime
+import random
 
-from pil_utils import BuildImage
 from PIL import Image, ImageDraw
+from pil_utils import BuildImage
 
 from meme_generator import add_meme
-from meme_generator.utils import Maker, make_gif_or_combined_gif, FrameAlignPolicy
+from meme_generator.utils import Maker, make_gif_or_combined_gif
 
 
-class dot:
-    def __init__(self, positon, direction):
-        self.positon = positon
-        self.velocity = (0, 0)
-        self.direction = direction
+class Dot:
+    def __init__(self, positon: tuple[int, int], direction: tuple[float, float]):
+        self.px = positon[0]
+        self.py = positon[1]
+        self.vx = 0
+        self.vy = 0
+        self.dx = direction[0]
+        self.dy = direction[1]
         self.radius = random.randint(1, 3)
 
-    def move(self, step: int) -> None:
+    def move(self, step: int):
         a = 0.02 * step / self.radius
-        self.velocity = (
-            self.velocity[0] + a * self.direction[0],
-            self.velocity[1] + a * self.direction[1],
-        )
-        self.positon = (
-            self.positon[0] + round(self.velocity[0]),
-            self.positon[1] + round(self.velocity[1]),
-        )
+        self.vx += a * self.dx
+        self.vy += a * self.dy
+        self.px += round(self.vx)
+        self.py += round(self.vy)
         if random.random() < 0.25:
             self.radius -= 1
 
-    def draw_dot(self, img: Image.Image) -> None:
+    def draw_on(self, img: Image.Image):
         ImageDraw.Draw(img).ellipse(
             (
-                self.positon[0] - self.radius,
-                self.positon[1] - self.radius,
-                self.positon[0] + self.radius,
-                self.positon[1] + self.radius,
+                self.px - self.radius,
+                self.py - self.radius,
+                self.px + self.radius,
+                self.py + self.radius,
             ),
             fill=(0, 0, 0, 255),
         )
@@ -43,16 +42,16 @@ class dot:
         w, h = img.size
         if (
             self.radius <= 0
-            or self.positon[0] + self.radius < 0
-            or self.positon[0] - self.radius > w
-            or self.positon[1] + self.radius < 0
-            or self.positon[1] - self.radius > h
+            or self.px + self.radius < 0
+            or self.px - self.radius > w
+            or self.py + self.radius < 0
+            or self.py - self.radius > h
         ):
             return True
         return False
 
 
-def make_dust(dusts: list[dot], step, size):
+def make_dust(dusts: list[Dot], step: int, size: tuple[int, int]) -> Image.Image:
     dust_mask = Image.new("RGBA", size)
     remove_list = []
     for dot in dusts:
@@ -60,7 +59,7 @@ def make_dust(dusts: list[dot], step, size):
         if dot.out_of_img(dust_mask):
             remove_list.append(dot)
         else:
-            dot.draw_dot(dust_mask)
+            dot.draw_on(dust_mask)
     for dot in remove_list:
         dusts.remove(dot)
     return dust_mask
@@ -73,21 +72,23 @@ def fade_away(images: list[BuildImage], texts, args):
     if area >= 40000:
         width = round(200 * width / (area**0.5))
         height = round(200 * height // (area**0.5))
-    o = (width * 2 // 3, height * 2)
+    o = (width * 2 // 3, height * 3 // 2)
     step = (o[0] ** 2 + o[1] ** 2) ** 0.5 / 24
     dusts = []
 
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]) -> BuildImage:
             img = imgs[0].image.convert("RGBA").resize((width, height))
-            if 9 < i < 28:
+            if i <= 9:
+                return BuildImage(img)
+            elif 9 < i < 28:
                 new_img = img.copy()
                 for x in range(width):
                     for y in range(
                         max(0, min(height, height - round(step * (i + 11)))), height
                     ):
                         pixel = (x, y)
-                        if img.getpixel(pixel)[3] == 0:
+                        if img.getpixel(pixel)[3] == 0:  # type: ignore
                             continue
                         distance = ((x - o[0]) ** 2 + (y - o[1]) ** 2) ** 0.5
                         if distance <= step * (i - 5):
@@ -99,22 +100,15 @@ def fade_away(images: list[BuildImage], texts, args):
                                     (x - o[0]) / distance,
                                     (y - o[1] * 1.5) / distance,
                                 )
-                                dusts.append(dot((x, y), direction))
+                                dusts.append(Dot((x, y), direction))
                         elif distance <= step * (i + 2):
                             factor = (distance - step * (i - 11)) / (step * 12)
                             factor = max(0, min(1, factor))
-                            original_pixel = img.getpixel(pixel)
-                            gray = round(
-                                (
-                                    original_pixel[0]
-                                    + original_pixel[1]
-                                    + original_pixel[2]
-                                )
-                                * factor
-                                * (0.9 + 0.2 * random.random())
-                                // 3
-                            )
-                            new_color = (gray, gray, gray, original_pixel[3])
+                            factor *= 0.9 + 0.2 * random.random()
+                            value = img.getpixel(pixel)
+                            gray = (value[0] + value[1] + value[2]) / 3  # type: ignore
+                            gray = round(gray * factor)
+                            new_color = (gray, gray, gray, value[3])  # type: ignore
                             new_img.putpixel(pixel, new_color)
                         else:
                             continue
@@ -126,7 +120,7 @@ def fade_away(images: list[BuildImage], texts, args):
 
         return make
 
-    return make_gif_or_combined_gif(images, maker, 50, 0.06, FrameAlignPolicy.no_extend)
+    return make_gif_or_combined_gif(images, maker, 35, 0.08)
 
 
 add_meme(
@@ -136,5 +130,5 @@ add_meme(
     min_images=1,
     keywords=["灰飞烟灭"],
     date_created=datetime.datetime(2024, 8, 20),
-    date_modified=datetime.datetime(2024, 8, 20),
+    date_modified=datetime.datetime(2024, 8, 21),
 )
