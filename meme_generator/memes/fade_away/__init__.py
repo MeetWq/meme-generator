@@ -80,7 +80,7 @@ def fade_away(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]) -> BuildImage:
             img = imgs[0].image.convert("RGBA").resize((width, height))
-            if i < 28:
+            if 9 < i < 28:
                 new_img = img.copy()
                 for x in range(width):
                     for y in range(
