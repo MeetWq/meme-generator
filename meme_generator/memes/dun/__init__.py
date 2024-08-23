@@ -32,6 +32,6 @@ add_meme(
     min_images=1,
     tags=MemeTags.capoo,
     keywords=["炖"],
-    date_created=datetime.datetime(2024, 8, 21),
-    date_modified=datetime.datetime(2024, 8, 21),
+    date_created=datetime.datetime(2024, 8, 23),
+    date_modified=datetime.datetime(2024, 8, 23),
 )
