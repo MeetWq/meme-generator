@@ -11,18 +11,22 @@ from meme_generator.utils import Maker, make_gif_or_combined_gif, FrameAlignPoli
 img_dir = Path(__file__).parent / "images"
 
 
-def dun(images:list[BuildImage],texts,args):
-    def maker(i:int)->Maker:
-        def make(imgs:list[BuildImage])->BuildImage:
-            img = imgs[0].convert("RGBA").resize((80,80),keep_ratio=True).circle()
+def dun(images: list[BuildImage], texts, args):
+    def maker(i: int) -> Maker:
+        def make(imgs: list[BuildImage]) -> BuildImage:
+            img = imgs[0].convert("RGBA").resize((80, 80), keep_ratio=True).circle()
             bg = BuildImage.open(img_dir / f"{i}.png").convert("RGBA")
-            if i in [2,3,5]:
+            if i in [2, 3, 5]:
                 y = 45
             else:
                 y = 47
-            return bg.paste(img,(88, y),below=True)
+            return bg.paste(img, (88, y), below=True)
+
         return make
-    return make_gif_or_combined_gif(images, maker,5,0.08, FrameAlignPolicy.extend_loop)
+
+    return make_gif_or_combined_gif(
+        images, maker, 5, 0.08, FrameAlignPolicy.extend_loop
+    )
 
 
 add_meme(
