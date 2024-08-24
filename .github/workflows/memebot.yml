@@ -19,5 +19,7 @@ jobs:
         APP_ID: ${{ secrets.MEME_APP_ID }}
         PRIVATE_KEY: ${{ secrets.MEME_PRIVATE_KEY }}
         SMMS_SECRET_TOKEN: ${{ secrets.SMMS_SECRET_TOKEN }}
+        BAIDU_TRANS_APPID: ${{ secrets.BAIDU_TRANS_APPID }}
+        BAIDU_TRANS_APIKEY: ${{ secrets.BAIDU_TRANS_APIKEY }}
     steps:
       - run: /app/start_memebot.sh

@@ -46,7 +46,7 @@ RUN apt-get update \
   && apt-get purge -y --auto-remove \
   && rm -rf /var/lib/apt/lists/* \
   && pip install --no-cache-dir --upgrade -r /app/requirements.txt \
-  && pip install --no-cache-dir --upgrade nonebot2 nonebot-adapter-github
+  && pip install --no-cache-dir --upgrade nonebot2 nonebot-adapter-github nonebot-plugin-alconna
 
 COPY ./meme_generator /app/meme_generator
 
