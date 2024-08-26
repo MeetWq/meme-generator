@@ -2,13 +2,11 @@ from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
-from PIL import Image
 
-from meme_generator.tags import MemeTags
-from meme_generator.exception import TextOverLength
 from meme_generator import add_meme
+from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 from meme_generator.utils import save_gif
-
 
 img_dir = Path(__file__).parent / "images"
 
@@ -42,13 +40,13 @@ def blamed_mahiro(images, texts: list[str], args):
         ([(76, 0), (84, 194), (58, 205), (0, 36)], (188, -9)),
     ]
     frames = []
-    text_frame = BuildImage.new("RGBA", (320, 80))
+    text_frame = BuildImage.new("RGBA", (400, 80))
     try:
         text_frame.draw_text(
-            (0, -4, 330, 90),
+            (10, 0, 350, 80),
             text,
             max_fontsize=80,
-            min_fontsize=76,
+            min_fontsize=60,
             spacing=0,
             allow_wrap=False,
             fontname="FZKaTong-M19S",
@@ -60,11 +58,11 @@ def blamed_mahiro(images, texts: list[str], args):
     except ValueError:
         raise TextOverLength(text)
     for i, param in enumerate(params):
-        bg = Image.open(img_dir / f"{i}.png")
+        bg = BuildImage.open(img_dir / f"{i}.png")
         if i > 1:
-            frame = text_frame.perspective(param[0]).image
-            bg.paste(frame, param[1], frame)
-        frames.append(bg)
+            frame = text_frame.perspective(param[0])
+            bg.paste(frame, param[1], alpha=True)
+        frames.append(bg.image)
     return save_gif(frames, 0.08)
 
 
