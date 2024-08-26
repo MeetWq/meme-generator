@@ -43,7 +43,7 @@ def blamed_mahiro(images, texts: list[str], args):
     text_frame = BuildImage.new("RGBA", (400, 80))
     try:
         text_frame.draw_text(
-            (10, 0, 350, 80),
+            (0, -5, 350, 85),
             text,
             max_fontsize=80,
             min_fontsize=60,
