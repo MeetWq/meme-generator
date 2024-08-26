@@ -13,7 +13,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def blamed_mahiro(images, texts:list[str], args):
+def blamed_mahiro(images, texts: list[str], args):
     text = "ニート" if not len(texts) else texts[0]
     params = [
         None,
@@ -39,7 +39,7 @@ def blamed_mahiro(images, texts:list[str], args):
         ([(37, 0), (42, 96), (29, 100), (0, 18)], (91, -6)),
         ([(37, 0), (42, 96), (29, 100), (0, 18)], (91, -6)),
         ([(39, 0), (43, 98), (31, 102), (0, 17)], (91, -5)),
-        ([(38, 0), (42, 97), (29, 103), (0, 18)], (94, -4))
+        ([(38, 0), (42, 97), (29, 103), (0, 18)], (94, -4)),
     ]
     frames = []
     text_frame = BuildImage.new("RGBA", (200, 40))
@@ -52,13 +52,13 @@ def blamed_mahiro(images, texts:list[str], args):
             allow_wrap=False,
             fontname="FZKaTong-M19S",
             halign="left",
-            fill=(108,60,82,255),
+            fill=(108, 60, 82, 255),
             stroke_ratio=0.01,
-            stroke_fill=(255,255,255,255),
+            stroke_fill=(255, 255, 255, 255),
         )
     except ValueError:
         raise TextOverLength(text)
-    for i,param in enumerate(params):
+    for i, param in enumerate(params):
         bg = Image.open(img_dir / f"{i}.png")
         if i > 1:
             frame = text_frame.perspective(param[0]).image
