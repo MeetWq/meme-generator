@@ -13,7 +13,7 @@ from meme_generator.utils import save_gif
 img_dir = Path(__file__).parent / "images"
 
 
-def blamed_mahiro(images, texts:list[str], args):
+def blamed_mahiro(images, texts: list[str], args):
     text = "傻逼" if not len(texts) else texts[0]
     params = [
         None,
@@ -39,33 +39,34 @@ def blamed_mahiro(images, texts:list[str], args):
         ([(74, 0), (84, 192), (59, 200), (0, 35)], (182, -12)),
         ([(74, 0), (84, 192), (59, 200), (0, 35)], (182, -12)),
         ([(78, 0), (86, 196), (62, 205), (0, 35)], (182, -10)),
-        ([(76, 0), (84, 194), (58, 205), (0, 36)], (188, -9))
-        ]
+        ([(76, 0), (84, 194), (58, 205), (0, 36)], (188, -9)),
+    ]
     frames = []
     text_frame = BuildImage.new("RGBA", (320, 80))
     try:
         text_frame.draw_text(
-                (0, -4,330,90),
-                text,
-                max_fontsize=80,
-                min_fontsize=76,
-                spacing=0,
-                allow_wrap=False,
-                fontname="FZKaTong-M19S",
-                halign="left",
-                fill=(108,60,82,255),
-                stroke_ratio=0.01,
-                stroke_fill=(255,255,255,255),
-            )
+            (0, -4, 330, 90),
+            text,
+            max_fontsize=80,
+            min_fontsize=76,
+            spacing=0,
+            allow_wrap=False,
+            fontname="FZKaTong-M19S",
+            halign="left",
+            fill=(108, 60, 82, 255),
+            stroke_ratio=0.01,
+            stroke_fill=(255, 255, 255, 255),
+        )
     except ValueError:
         raise TextOverLength(text)
-    for i,param in enumerate(params):
+    for i, param in enumerate(params):
         bg = Image.open(img_dir / f"{i}.png")
         if i > 1:
             frame = text_frame.perspective(param[0]).image
             bg.paste(frame, param[1], frame)
         frames.append(bg)
     return save_gif(frames, 0.08)
+
 
 add_meme(
     "blamed_mahiro",
