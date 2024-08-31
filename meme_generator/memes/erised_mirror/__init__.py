@@ -4,6 +4,7 @@ from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.tags import MemeTags
 from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -29,6 +30,7 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["意若思镜"],
+    tags=MemeTags.harry_potter,
     date_created=datetime(2024, 8, 31),
     date_modified=datetime(2024, 8, 31),
 )
