@@ -17,7 +17,7 @@ def erised_mirror(images: list[BuildImage], texts: list[str], args):
         return frame.paste(
             img.perspective(((0, 0), (360, 0), (367, 207), (7, 207))),
             (55, 578),
-            alpha=True
+            alpha=True,
         )
 
     return make_jpg_or_gif(images, make)
