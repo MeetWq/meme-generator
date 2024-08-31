@@ -14,7 +14,7 @@ def erised_mirror(images: list[BuildImage], texts: list[str], args):
 
     def make(imgs: list[BuildImage]) -> BuildImage:
         img = imgs[0].convert("RGBA").resize((360, 207), keep_ratio=True)
-        return frame.paste(
+        return frame.copy().paste(
             img.perspective(((0, 0), (360, 0), (367, 207), (7, 207))),
             (55, 578),
             alpha=True,
