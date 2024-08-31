@@ -35,20 +35,15 @@ def clauvio_twist(images: list[BuildImage], texts, args):
 
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]) -> BuildImage:
-            img = (
-                imgs[0]
-                .convert("RGBA")
-                .resize((100, 100), keep_ratio=True)
-                .circle()
-                .rotate(params[i % 20][0])
-            )
+            img = imgs[0].convert("RGBA").resize((100, 100), keep_ratio=True).circle()
+            angle, pos = params[i % 20]
             bg = BuildImage.open(img_dir / f"{i}.png")
-            return bg.paste(img, params[i % 20][1], alpha=True)
+            return bg.paste(img.rotate(angle), pos, alpha=True)
 
         return make
 
     return make_gif_or_combined_gif(
-        images, maker, 40, 0.045, FrameAlignPolicy.extend_loop
+        images, maker, 40, 0.05, FrameAlignPolicy.extend_loop
     )
 
 
@@ -57,7 +52,7 @@ add_meme(
     clauvio_twist,
     min_images=1,
     max_images=1,
-    keywords=["clauvio搓"],
+    keywords=["鼠鼠搓"],
     date_created=datetime(2024, 8, 31),
     date_modified=datetime(2024, 8, 31),
 )
