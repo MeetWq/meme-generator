@@ -27,7 +27,10 @@ def rbq(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     name = "她"
     if texts:
         name = texts[0]
-   
+    elif args.user_infos:
+        info = args.user_infos[0]
+        ta = "他" if info.gender == "male" else "她"
+        name = info.name or ta
 
     text = f"请问你们看到{name}了吗?"
     try:
