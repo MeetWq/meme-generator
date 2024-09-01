@@ -31,7 +31,7 @@ _✨ 表情包生成器，用于制作各种沙雕表情包 ✨_
 
 如果希望编写、贡献新的表情，可以参考 [--> 新表情编写指北 <--](https://github.com/MeetWq/meme-generator/wiki/%E6%96%B0%E8%A1%A8%E6%83%85%E7%BC%96%E5%86%99%E6%8C%87%E5%8C%97)
 
-对于一些不适合放在主仓库的表情，可以提交至 [--> 额外表情仓库 <--](https://github.com/MeetWq/meme-generator-contrib)
+合并了 [--> 额外表情仓库 <--](https://github.com/MeetWq/meme-generator-contrib)
 
 ## 声明
 
