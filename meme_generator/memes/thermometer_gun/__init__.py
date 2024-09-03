@@ -12,7 +12,7 @@ img_dir = Path(__file__).parent / "images"
 defalut_text = "笨蛋"
 
 
-def infrared_thermometer(images: list[BuildImage], texts: list[str], args):
+def thermometer_gun(images: list[BuildImage], texts: list[str], args):
     text = defalut_text if not len(texts) else texts[0]
     text_frame = BuildImage.new("RGBA", (200, 125))
     try:
@@ -48,8 +48,8 @@ def infrared_thermometer(images: list[BuildImage], texts: list[str], args):
 
 
 add_meme(
-    "infrared_thermometer",
-    infrared_thermometer,
+    "thermometer_gun",
+    thermometer_gun,
     min_images=1,
     max_images=1,
     max_texts=1,
