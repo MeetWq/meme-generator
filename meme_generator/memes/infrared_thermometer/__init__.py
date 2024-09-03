@@ -14,13 +14,13 @@ def infrared_thermometer(images: list[BuildImage], texts: list[str], args):
     text_frame = BuildImage.new("RGBA", (200, 125))
     try:
         text_frame.draw_text(
-            (0,0,200,125),
+            (0, 0, 200, 125),
             text,
             allow_wrap=True,
             max_fontsize=60,
             min_fontsize=15,
             fontname="FZKaTong-M19S",
-            lines_align="center"
+            lines_align="center",
         )
     except ValueError:
         raise TextOverLength(text)
@@ -31,8 +31,13 @@ def infrared_thermometer(images: list[BuildImage], texts: list[str], args):
     else:
         size = (round(img_w), round(img_w))
         pos = (0, round(img_h - img_w))
-    frame = BuildImage.open(img_dir / "0.png").paste(text_frame,(555,240),alpha=True).resize(size)
-    def make(imgs:list[BuildImage])->BuildImage:
+    frame = (
+        BuildImage.open(img_dir / "0.png")
+        .paste(text_frame, (555, 240), alpha=True)
+        .resize(size)
+    )
+
+    def make(imgs: list[BuildImage]) -> BuildImage:
         img = imgs[0].convert("RGBA")
         return img.paste(frame, pos, alpha=True)
 
@@ -51,10 +56,3 @@ add_meme(
     date_created=datetime(2024, 9, 3),
     date_modified=datetime(2024, 9, 3),
 )
-
-
-
-
-
-
-
