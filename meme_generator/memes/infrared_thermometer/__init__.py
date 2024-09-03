@@ -10,14 +10,15 @@ img_dir = Path(__file__).parent / "images"
 
 def infrared_thermometer(images:list[BuildImage],texts:list[str],args):
     text = "笨蛋" if not len(texts) else texts[0]
-    text_frame = BuildImage.new("RGBA", (240, 140), "white")
+    text_frame = BuildImage.new("RGBA", (200, 125))
     try:
         text_frame.draw_text(
-            (0,0,240,140),
+            (0,0,200,125),
             text,
             allow_wrap=True,
-            max_fontsize=100,
-            min_fontsize=40,
+            max_fontsize=60,
+            min_fontsize=15,
+            fontname="FZKaTong-M19S",
             lines_align="center"
         )
     except ValueError:
@@ -29,15 +30,7 @@ def infrared_thermometer(images:list[BuildImage],texts:list[str],args):
     else:
         size = (round(img_w), round(img_w))
         pos = (0, round(img_h - img_w))
-    frame = (
-        BuildImage.open(img_dir / "0.png")
-        .paste(
-            text_frame.perspective(((0, 109), (214, 0), (274, 126), (62, 234))), 
-            (782,122),
-            alpha=True
-            )
-        .resize(size)
-    )
+    frame = BuildImage.open(img_dir / "0.png").paste(text_frame,(555,240),alpha=True).resize(size)
     def make(imgs:list[BuildImage])->BuildImage:
         img = imgs[0].convert("RGBA")
         return img.paste(frame, pos, alpha=True)
@@ -53,9 +46,13 @@ add_meme(
     min_texts=0,
     keywords=["体温枪"],
     default_texts=["笨蛋"],
-    date_created=datetime(2024, 9, 2),
-    date_modified=datetime(2024, 9, 2),
+    date_created=datetime(2024, 9, 3),
+    date_modified=datetime(2024, 9, 3),
 )
+
+
+
+
 
 
 
