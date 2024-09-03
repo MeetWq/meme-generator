@@ -8,11 +8,13 @@ from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
 
-def infrared_thermometer(images:list[BuildImage],texts:list[str],args):
+
+def infrared_thermometer(images: list[BuildImage], texts: list[str], args):
     text = "笨蛋" if not len(texts) else texts[0]
     text_frame = BuildImage.new("RGBA", (200, 125))
     try:
         text_frame.draw_text(
+<<<<<<< HEAD
             (0,0,200,125),
             text,
             allow_wrap=True,
@@ -20,6 +22,14 @@ def infrared_thermometer(images:list[BuildImage],texts:list[str],args):
             min_fontsize=15,
             fontname="FZKaTong-M19S",
             lines_align="center"
+=======
+            (0, 0, 240, 140),
+            text,
+            allow_wrap=True,
+            max_fontsize=100,
+            min_fontsize=40,
+            lines_align="center",
+>>>>>>> b113167cbc2a5e406549cbcf7640eeee740af1f9
         )
     except ValueError:
         raise TextOverLength(text)
@@ -30,12 +40,27 @@ def infrared_thermometer(images:list[BuildImage],texts:list[str],args):
     else:
         size = (round(img_w), round(img_w))
         pos = (0, round(img_h - img_w))
+<<<<<<< HEAD
     frame = BuildImage.open(img_dir / "0.png").paste(text_frame,(555,240),alpha=True).resize(size)
     def make(imgs:list[BuildImage])->BuildImage:
+=======
+    frame = (
+        BuildImage.open(img_dir / "0.png")
+        .paste(
+            text_frame.perspective(((0, 109), (214, 0), (274, 126), (62, 234))),
+            (782, 122),
+            alpha=True,
+        )
+        .resize(size)
+    )
+
+    def make(imgs: list[BuildImage]) -> BuildImage:
+>>>>>>> b113167cbc2a5e406549cbcf7640eeee740af1f9
         img = imgs[0].convert("RGBA")
         return img.paste(frame, pos, alpha=True)
 
     return make_png_or_gif(images, make)
+
 
 add_meme(
     "infrared_thermometer",
@@ -49,6 +74,7 @@ add_meme(
     date_created=datetime(2024, 9, 3),
     date_modified=datetime(2024, 9, 3),
 )
+<<<<<<< HEAD
 
 
 
@@ -56,3 +82,5 @@ add_meme(
 
 
 
+=======
+>>>>>>> b113167cbc2a5e406549cbcf7640eeee740af1f9
