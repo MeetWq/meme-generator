@@ -16,7 +16,7 @@ def police(images: list[BuildImage], texts: list[str], args):
         text_frame.draw_text(
             (0, 0, 250, 85),
             text,
-            fontname="SimSun",
+            fontname="Noto Serif SC",
             max_fontsize=60,
             min_fontsize=20,
         )
