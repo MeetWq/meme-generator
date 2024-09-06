@@ -9,12 +9,12 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def police(images: list[BuildImage], texts:list[str], args):
+def police(images: list[BuildImage], texts: list[str], args):
     text = "平安名すみれ" if not texts else texts[0]
     text_frame = BuildImage.new("RGBA", (250, 85))
     try:
         text_frame.draw_text(
-            (0,0,250,85),
+            (0, 0, 250, 85),
             text,
             fontname="SimSun",
             max_fontsize=60,
@@ -23,7 +23,7 @@ def police(images: list[BuildImage], texts:list[str], args):
     except ValueError:
         raise TextOverLength(text)
     img = images[0].convert("RGBA").square().resize((245, 245))
-    
+
     frame = BuildImage.open(img_dir / "0.png")
     frame.paste(img, (224, 46), below=True)
     frame.paste(text_frame, (220, 395), alpha=True)
