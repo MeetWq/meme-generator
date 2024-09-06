@@ -54,7 +54,7 @@ add_meme(
     default_texts=[default_text],
     keywords=["出警"],
     date_created=datetime(2022, 2, 23),
-    date_modified=datetime(2023, 2, 14),
+    date_modified=datetime(2024, 9, 6),
 )
 
 add_meme(
