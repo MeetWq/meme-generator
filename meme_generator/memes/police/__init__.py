@@ -8,9 +8,11 @@ from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
+default_text = "平安名すみれ"
+
 
 def police(images: list[BuildImage], texts: list[str], args):
-    text = "平安名すみれ" if not texts else texts[0]
+    text = default_text if not texts else texts[0]
     text_frame = BuildImage.new("RGBA", (250, 85))
     try:
         text_frame.draw_text(
@@ -49,7 +51,7 @@ add_meme(
     max_images=1,
     max_texts=1,
     min_texts=0,
-    default_texts=["平安名すみれ"],
+    default_texts=[default_text],
     keywords=["出警"],
     date_created=datetime(2022, 2, 23),
     date_modified=datetime(2023, 2, 14),
