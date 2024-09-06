@@ -12,7 +12,7 @@ baidu_trans_appid = "$BAIDU_TRANS_APPID"
 baidu_trans_apikey = "$BAIDU_TRANS_APIKEY"
 
 [server]
-host = "0.0.0.0"
+host = "127.0.0.1"
 port = 2233
 
 [log]
