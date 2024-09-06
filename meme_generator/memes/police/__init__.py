@@ -4,14 +4,29 @@ from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
+from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
 
-def police(images: list[BuildImage], texts, args):
+def police(images: list[BuildImage], texts:list[str], args):
+    text = "平安名すみれ" if not texts else texts[0]
+    text_frame = BuildImage.new("RGBA", (250, 85))
+    try:
+        text_frame.draw_text(
+            (0,0,250,85),
+            text,
+            fontname="SimSun",
+            max_fontsize=60,
+            min_fontsize=20,
+        )
+    except ValueError:
+        raise TextOverLength(text)
     img = images[0].convert("RGBA").square().resize((245, 245))
+    
     frame = BuildImage.open(img_dir / "0.png")
     frame.paste(img, (224, 46), below=True)
+    frame.paste(text_frame, (220, 395), alpha=True)
     return frame.save_jpg()
 
 
@@ -32,6 +47,9 @@ add_meme(
     police,
     min_images=1,
     max_images=1,
+    max_texts=1,
+    min_texts=0,
+    default_texts=["平安名すみれ"],
     keywords=["出警"],
     date_created=datetime(2022, 2, 23),
     date_modified=datetime(2023, 2, 14),
