@@ -101,7 +101,7 @@ def get_avg_duration(image: IMG) -> float:
     n_frames = getattr(image, "n_frames", 1)
     for i in range(n_frames):
         image.seek(i)
-        total_duration += image.info["duration"]
+        total_duration += image.info.get("duration", 20)
     return total_duration / n_frames / 1000
 
 

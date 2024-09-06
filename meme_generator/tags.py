@@ -100,6 +100,9 @@ class MemeTags:
     # 舞萌
     maimai = {"舞萌"}
 
+    # 哈利·波特
+    harry_potter = {"哈利·波特"}
+
     # 其他
     capoo = {"猫猫虫", "咖波"}
     nekoha = {"猫羽雫"}
