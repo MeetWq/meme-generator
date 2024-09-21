@@ -4,8 +4,8 @@ from pathlib import Path
 from pil_utils import BuildImage
 
 from meme_generator import add_meme
-from meme_generator.tags import MemeTags
 from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
 
