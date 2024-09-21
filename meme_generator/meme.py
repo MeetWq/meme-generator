@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from io import BytesIO
 from pathlib import Path
-from typing import Any, Literal, Optional, Protocol, TypeVar, Union
+from typing import Any, Callable, Literal, Optional, TypeVar, Union
 
 from arclet.alconna import ArgFlag, Args, Empty, Option
 from arclet.alconna.action import Action
@@ -31,14 +31,7 @@ class MemeArgsModel(BaseModel):
 
 ArgsModel = TypeVar("ArgsModel", bound=MemeArgsModel)
 
-
-class MemeFunction(Protocol):
-    def __call__(
-        self,
-        images: list[BuildImage],
-        texts: list[str],
-        args: ArgsModel,  # type: ignore
-    ) -> BytesIO: ...
+MemeFunction = Callable[[list[BuildImage], list[str], ArgsModel], BytesIO]
 
 
 class ParserArg(BaseModel):
@@ -146,12 +139,11 @@ class Meme:
             for image in images:
                 if isinstance(image, bytes):
                     image = BytesIO(image)
-                imgs.append(BuildImage.open(image))  # type: ignore
+                imgs.append(BuildImage.open(image))
         except Exception as e:
             raise OpenImageFailed(str(e))
 
-        values = {"images": imgs, "texts": texts, "args": model}
-        return self.function(**values)
+        return self.function(imgs, texts, model)
 
     def generate_preview(self, *, args: dict[str, Any] = {}) -> BytesIO:
         default_images = [random_image() for _ in range(self.params_type.min_images)]

@@ -1,6 +1,6 @@
 from datetime import datetime
-from typing import Literal
 from pathlib import Path
+from typing import Literal
 
 from arclet.alconna import store_value
 from pil_utils import BuildImage
@@ -14,7 +14,6 @@ from meme_generator import (
     add_meme,
 )
 from meme_generator.utils import make_png_or_gif
-
 
 help_text = "小丑在前/后，front/behind"
 
