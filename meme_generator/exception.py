@@ -28,7 +28,8 @@ class TextOverLength(MemeGeneratorException):
 
     def __init__(self, text: str):
         self.text = text
-        message = f"文本“{self.text}”过长"
+        repr = text if len(text) <= 10 else (text[:10] + "...")
+        message = f"文本“{repr}”过长"
         super().__init__(message)
 
 
