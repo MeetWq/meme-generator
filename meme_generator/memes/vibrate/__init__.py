@@ -12,8 +12,9 @@ img_dir = Path(__file__).parent / "images"
 def vibrate(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]) -> BuildImage:
-            img = imgs[0].convert("RGBA").square()
+            img = imgs[0].convert("RGBA")
             w = img.size[0]
+            y = img.size[1]
             locs = [
                 (0, 0),
                 (w // 25, w // 25),
@@ -21,7 +22,7 @@ def vibrate(images: list[BuildImage], texts, args):
                 (0, w // 25),
                 (w // 25, 0),
             ]
-            frame = BuildImage.new("RGBA", (w + w // 25, w + w // 25), "white")
+            frame = BuildImage.new("RGBA", (w + w // 25, y + y // 25), "white")
             frame.paste(img, locs[i], alpha=True)
             return frame
 
