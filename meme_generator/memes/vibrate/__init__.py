@@ -17,9 +17,9 @@ def vibrate(images: list[BuildImage], texts, args):
             y = img.size[1]
             locs = [
                 (0, 0),
-                (w // 25, w // 25),
-                (w // 50, w // 50),
-                (0, w // 25),
+                (w // 25, y // 25),
+                (w // 50, y // 50),
+                (0, y // 25),
                 (w // 25, 0),
             ]
             frame = BuildImage.new("RGBA", (w + w // 25, y + y // 25), "white")
