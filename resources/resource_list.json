@@ -2200,6 +2200,10 @@
     "hash": "3248f754830433778ae06df6ba2735d8"
   },
   {
+    "path": "emperor_dragon/images/0.png",
+    "hash": "b9092c3f98d43b98e225eeba4410c1e0"
+  },
+  {
     "path": "erised_mirror/images/0.png",
     "hash": "891050979519e03438f8a84665fb4b16"
   },
@@ -4702,6 +4706,10 @@
   {
     "path": "painter/images/0.png",
     "hash": "a9b282341ef7222e44ad66cd9a39819c"
+  },
+  {
+    "path": "panda_dragon_figure/images/0.png",
+    "hash": "4b45bd21c8c60e6d894008811d395d73"
   },
   {
     "path": "pass_the_buck/images/0.png",
@@ -7738,6 +7746,10 @@
   {
     "path": "washer/images/0.png",
     "hash": "0751d5a44f68ff21f15f1276149971a4"
+  },
+  {
+    "path": "wechat_pay/images/0.png",
+    "hash": "d8bdaedc6369a77ed0df04ef5d111b62"
   },
   {
     "path": "what_I_want_to_do/images/0.png",
