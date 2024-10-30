@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pil_utils import BuildImage
@@ -10,7 +11,6 @@ img_dir = Path(__file__).parent / "images"
 
 def emperor_dragon(images, texts: list[str], args):
     text = texts[0]
-
     frame = BuildImage.open(img_dir / "0.png")
 
     try:
@@ -25,6 +25,7 @@ def emperor_dragon(images, texts: list[str], args):
         )
     except ValueError:
         raise TextOverLength(text)
+
     return frame.save_png()
 
 
@@ -34,4 +35,6 @@ add_meme(
     min_texts=1,
     max_texts=1,
     keywords=["皇帝龙图"],
+    date_created=datetime(2024, 10, 30),
+    date_modified=datetime(2024, 10, 30),
 )
