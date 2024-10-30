@@ -123,6 +123,8 @@ add_gif_meme(
     ((2, 9), (14, 20), (27, 40), (45, 62)),
     ("哦～", "（飞扑）", "一直想看你这幅表情", "这幅嫉妒我的表情"),
     fontsize=17,
+    date_created=datetime(2024, 10, 30),
+    date_modified=datetime(2024, 10, 30),
 )
 
 add_gif_meme(
