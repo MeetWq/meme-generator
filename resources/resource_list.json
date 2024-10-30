@@ -7749,7 +7749,11 @@
   },
   {
     "path": "wechat_pay/images/0.png",
-    "hash": "d8bdaedc6369a77ed0df04ef5d111b62"
+    "hash": "8856be347c02e65c9f60fefc5bc2374a"
+  },
+  {
+    "path": "wechat_pay/images/logo.png",
+    "hash": "2ef194c12081ab94660049df55c4c314"
   },
   {
     "path": "what_I_want_to_do/images/0.png",
