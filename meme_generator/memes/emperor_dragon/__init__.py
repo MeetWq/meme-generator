@@ -1,29 +1,32 @@
 from pathlib import Path
-from meme_generator import add_meme
+
 from pil_utils import BuildImage
+
+from meme_generator import add_meme
 from meme_generator.exception import TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
+
 def emperor_dragon(images, texts: list[str], args):
     text = texts[0]
-    
+
     frame = BuildImage.open(img_dir / "0.png")
-    
-    
+
     try:
-     frame.draw_text(
-        (30, 440, 485, 512), 
-        text, 
-        allow_wrap=True,
-        lines_align="center",
-        min_fontsize=10, 
-        max_fontsize=100, 
-        fill=(0, 0, 0),  
-    )
+        frame.draw_text(
+            (30, 440, 485, 512),
+            text,
+            allow_wrap=True,
+            lines_align="center",
+            min_fontsize=10,
+            max_fontsize=100,
+            fill=(0, 0, 0),
+        )
     except ValueError:
-        raise TextOverLength(text) 
-    return frame.save_png() 
+        raise TextOverLength(text)
+    return frame.save_png()
+
 
 add_meme(
     "emperor_dragon",
