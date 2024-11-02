@@ -23,7 +23,7 @@ def psyduck(images, texts: list[str], args):
                 max_fontsize=80,
                 min_fontsize=30,
                 allow_wrap=True,
-                fontname="FZSJ-QINGCRJ",
+                font_families=["FZSJ-QINGCRJ"],
             )
         except ValueError:
             raise TextOverLength(text)

@@ -34,7 +34,7 @@ def why_have_hands(images: list[BuildImage], texts: list[str], args: MemeArgsMod
             max_fontsize=70,
             min_fontsize=30,
             halign="left",
-            weight="bold",
+            font_style="bold",
         )
         frame.paste(text_frame.rotate(-15, expand=True), (75, 825), alpha=True)
         frame.draw_text(
@@ -42,14 +42,14 @@ def why_have_hands(images: list[BuildImage], texts: list[str], args: MemeArgsMod
             f"托托{name}!",
             max_fontsize=70,
             min_fontsize=30,
-            weight="bold",
+            font_style="bold",
         )
         frame.draw_text(
             (50, 1325, 650, 1475),
             f"赞美{name}!",
             max_fontsize=90,
             min_fontsize=30,
-            weight="bold",
+            font_style="bold",
             valign="top",
         )
         frame.draw_text(
@@ -57,7 +57,7 @@ def why_have_hands(images: list[BuildImage], texts: list[str], args: MemeArgsMod
             f"为{name}奉献所有财产!",
             max_fontsize=70,
             min_fontsize=30,
-            weight="bold",
+            font_style="bold",
             allow_wrap=True,
         )
     except ValueError:

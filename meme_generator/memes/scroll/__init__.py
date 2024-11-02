@@ -14,7 +14,7 @@ img_dir = Path(__file__).parent / "images"
 def scroll(images, texts: list[str], args):
     text = texts[0]
     text2image = Text2Image.from_text(text, 40).wrap(600)
-    if len(text2image.lines) > 5:
+    if text2image.height > 200:
         raise TextOverLength(text)
     text_img = text2image.to_image()
     text_w, text_h = text_img.size

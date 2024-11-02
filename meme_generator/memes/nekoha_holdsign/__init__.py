@@ -19,7 +19,7 @@ def nekoha_holdsign(images, texts: list[str], args):
             text,
             fill=(72, 110, 173),
             allow_wrap=True,
-            fontname="FZShaoEr-M11S",
+            font_families=["FZShaoEr-M11S"],
             max_fontsize=65,
             min_fontsize=25,
             lines_align="center",

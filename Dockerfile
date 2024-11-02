@@ -19,7 +19,6 @@ EXPOSE 2233
 VOLUME /data
 
 ENV TZ=Asia/Shanghai \
-  LC_ALL=zh_CN.UTF-8 \
   LOAD_BUILTIN_MEMES=true \
   MEME_DIRS="[\"/data/memes\"]" \
   MEME_DISABLED_LIST="[]" \
@@ -34,8 +33,7 @@ COPY --from=tmp /tmp/requirements.txt /app/requirements.txt
 COPY ./resources/fonts/* /usr/share/fonts/meme-fonts/
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends locales fontconfig fonts-noto-color-emoji gettext \
-  && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
+  && apt-get install -y --no-install-recommends fontconfig fonts-noto-color-emoji libgl1-mesa-glx libgl1-mesa-dri \
   && fc-cache -fv \
   && apt-get purge -y --auto-remove \
   && rm -rf /var/lib/apt/lists/* \

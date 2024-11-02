@@ -19,7 +19,7 @@ def my_opinion(images, texts: list[str], args):
             text,
             max_fontsize=500,
             min_fontsize=20,
-            weight="bold",
+            font_style="bold",
         )
     except ValueError:
         raise TextOverLength(text)

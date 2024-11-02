@@ -48,7 +48,9 @@ def steam_message(images: list[BuildImage], texts: list[str], args: Model):
     margin_rec = 6
     rec_w = 15
     margin_text = 80
-    text_w = max(text_name.width, text_play.width, text_game.width)
+    text_w = round(
+        max(text_name.longest_line, text_play.longest_line, text_game.longest_line)
+    )
     text_w = max(text_w, 1300)
     text_x = padding_h + avatar_w + margin_rec + rec_w + margin_text
     frame_w = text_x + text_w + padding_h

@@ -12,8 +12,8 @@ img_dir = Path(__file__).parent / "images"
 def hold_grudge(images, texts: list[str], args):
     date = datetime.today().strftime("%Y{}%m{}%d{}").format("年", "月", "日")
     text = f"{date} 晴\n{texts[0]}\n这个仇我先记下了"
-    text2image = Text2Image.from_text(text, 45, fill="black", spacing=10).wrap(440)
-    if len(text2image.lines) > 10:
+    text2image = Text2Image.from_text(text, 45, fill="black").wrap(440)
+    if text2image.height > 500:
         raise TextOverLength(texts[0])
     text_img = text2image.to_image()
 

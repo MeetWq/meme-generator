@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING, Any, Callable, Literal, TypeVar
 import httpx
 from PIL.Image import Image as IMG
 from pil_utils import BuildImage, Text2Image
-from pil_utils.types import ColorType
+from pil_utils.typing import ColorType
 from typing_extensions import ParamSpec
 
 from .config import meme_config
@@ -436,9 +436,9 @@ def render_meme_list(
             image.paste(icon, (x + 10, 10), alpha=True)
             x += 50
         text_color = TEXT_COLOR_DISABLED if properties.disabled else TEXT_COLOR_NORMAL
-        t2m = Text2Image.from_text(text, fontsize=FONTSIZE, fill=text_color)
+        t2m = Text2Image.from_text(text, FONTSIZE, fill=text_color)
         t2m.draw_on_image(image.image, (x + 5, (image.height - t2m.height) // 2))
-        x += t2m.width + 10
+        x += math.ceil(t2m.longest_line) + 10
         if "new" in properties.labels:
             image.paste(label_new, (x + 5, 10), alpha=True)
             x += 35
@@ -455,9 +455,11 @@ def render_meme_list(
     for col in range(cols):
         col_meme_list = meme_list[col * rows : (col + 1) * rows]
         max_width = max(
-            Text2Image.from_text(
-                meme_text(col * rows + row, meme), fontsize=FONTSIZE
-            ).width
+            math.ceil(
+                Text2Image.from_text(
+                    meme_text(col * rows + row, meme), FONTSIZE
+                ).longest_line
+            )
             + (50 if add_category_icon else 0)
             + 20
             + len(properties.labels) * 35

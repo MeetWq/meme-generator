@@ -10,10 +10,10 @@ from meme_generator import add_meme
 
 def fivethousand_choyen(images, texts: list[str], args):
     fontsize = 200
-    fontname = "Noto Sans SC"
+    font_families = ["Noto Sans SC"]
     text = texts[0]
-    pos_x = 40
-    pos_y = 220
+    pos_x = 20
+    pos_y = 0
     imgs: list[tuple[IMG, tuple[int, int]]] = []
 
     def transform(img: IMG) -> IMG:
@@ -26,20 +26,18 @@ def fivethousand_choyen(images, texts: list[str], args):
             Resampling.BILINEAR,
         )
 
-    def shift(t2m: Text2Image) -> tuple[int, int]:
-        return (
-            pos_x
-            - t2m.lines[0].chars[0].stroke_width
-            - max(char.stroke_width for char in t2m.lines[0].chars),
-            pos_y - t2m.lines[0].ascent,
-        )
-
     def add_color_text(stroke_width: int, fill: str, pos: tuple[int, int]):
         t2m = Text2Image.from_text(
-            text, fontsize, fontname=fontname, stroke_width=stroke_width, fill=fill
+            text,
+            fontsize,
+            font_families=font_families,
+            fill=fill,
+            stroke_width=stroke_width,
+            stroke_fill=fill,
         )
-        dx, dy = shift(t2m)
-        imgs.append((transform(t2m.to_image()), (dx + pos[0], dy + pos[1])))
+        imgs.append(
+            (transform(t2m.to_image(padding=(20, 0))), (pos_x + pos[0], pos_y + pos[1]))
+        )
 
     def add_gradient_text(
         stroke_width: int,
@@ -47,18 +45,22 @@ def fivethousand_choyen(images, texts: list[str], args):
         color_stops: list[tuple[float, tuple[int, int, int]]],
         pos: tuple[int, int],
     ):
-        t2m = Text2Image.from_text(
-            text, fontsize, fontname=fontname, stroke_width=stroke_width, fill="white"
-        )
-        mask = transform(t2m.to_image()).convert("L")
-        dx, dy = shift(t2m)
         gradient = LinearGradient(
-            (dir[0] - dx, dir[1] - dy, dir[2] - dx, dir[3] - dy),
+            (dir[0] - pos_x, dir[1] - pos_y, dir[2] - pos_x, dir[3] - pos_y),
             [ColorStop(*color_stop) for color_stop in color_stops],
         )
-        bg = gradient.create_image(mask.size)
-        bg.putalpha(mask)
-        imgs.append((bg, (dx + pos[0], dy + pos[1])))
+        paint = gradient.create_paint()
+        t2m = Text2Image.from_text(
+            text,
+            fontsize,
+            font_families=font_families,
+            fill=paint,
+            stroke_width=stroke_width,
+            stroke_fill=paint,
+        )
+        imgs.append(
+            (transform(t2m.to_image(padding=(20, 0))), (pos_x + pos[0], pos_y + pos[1]))
+        )
 
     # 黑
     add_color_text(22, "black", (8, 8))
@@ -126,9 +128,9 @@ def fivethousand_choyen(images, texts: list[str], args):
     )
 
     text = texts[1]
-    fontname = "Noto Serif SC"
-    pos_x = 300
-    pos_y = 480
+    font_families = ["Noto Serif SC"]
+    pos_x = 280
+    pos_y = 260
     # 黑
     add_color_text(22, "black", (10, 4))
     # 银
@@ -196,5 +198,5 @@ add_meme(
     default_texts=["我去", "洛天依"],
     keywords=["5000兆"],
     date_created=datetime(2022, 10, 29),
-    date_modified=datetime(2023, 2, 14),
+    date_modified=datetime(2024, 11, 2),
 )

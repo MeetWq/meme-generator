@@ -21,7 +21,7 @@ def capoo_say_one_loop(text: str) -> list[IMG]:
             max_fontsize=80,
             min_fontsize=20,
             allow_wrap=True,
-            fontname="FZKaTong-M19S",
+            font_families=["FZKaTong-M19S"],
             lines_align="center",
         )
     except ValueError:

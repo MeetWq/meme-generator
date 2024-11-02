@@ -60,7 +60,7 @@ def my_wife(images: list[BuildImage], texts, args: Model):
             min_fontsize=30,
             allow_wrap=True,
             lines_align="center",
-            weight="bold",
+            font_style="bold",
         )
         text = f"那么这就不是你的{name}\n这是{pron}的{name}"
         frame.draw_text(
@@ -69,7 +69,7 @@ def my_wife(images: list[BuildImage], texts, args: Model):
             max_fontsize=70,
             min_fontsize=30,
             allow_wrap=True,
-            weight="bold",
+            font_style="bold",
         )
         text = f"滚去找你\n自己的{name}去"
         frame.draw_text(
@@ -79,7 +79,7 @@ def my_wife(images: list[BuildImage], texts, args: Model):
             min_fontsize=30,
             allow_wrap=True,
             lines_align="center",
-            weight="bold",
+            font_style="bold",
         )
     except ValueError:
         raise TextOverLength(name)

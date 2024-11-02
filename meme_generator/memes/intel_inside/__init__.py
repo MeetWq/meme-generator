@@ -20,8 +20,8 @@ def intel_inside(images, texts: list[str], args):
             max_fontsize=180,
             min_fontsize=80,
             fill="white",
-            fontname="Neo Sans",
-            weight="bold",
+            font_families=["Neo Sans"],
+            font_style="bold",
         )
     except ValueError:
         raise TextOverLength(text)

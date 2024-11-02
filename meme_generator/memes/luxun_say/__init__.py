@@ -23,7 +23,7 @@ def luxun_say(images, texts: list[str], args):
         )
     except ValueError:
         raise TextOverLength(text)
-    frame.draw_text((320, 400), "--鲁迅", fontsize=30, fill="white")
+    frame.draw_text((320, 400), "--鲁迅", font_size=30, fill="white")
     return frame.save_jpg()
 
 

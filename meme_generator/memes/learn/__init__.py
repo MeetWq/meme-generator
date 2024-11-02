@@ -21,7 +21,7 @@ def learn(images: list[BuildImage], texts: list[str], args):
             text,
             max_fontsize=350,
             min_fontsize=200,
-            weight="bold",
+            font_style="bold",
         )
     except ValueError:
         raise TextOverLength(text)
