@@ -39,7 +39,7 @@ COPY --from=tmp /tmp/github-meme-bot/.env /app/.env
 COPY ./resources/fonts/* /usr/share/fonts/meme-fonts/
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends fontconfig fonts-noto-color-emoji libgl1-mesa-glx libgl1-mesa-dri \
+  && apt-get install -y --no-install-recommends fontconfig fonts-noto-color-emoji libgl1-mesa-glx libgl1-mesa-dri gettext \
   && fc-cache -fv \
   && apt-get purge -y --auto-remove \
   && rm -rf /var/lib/apt/lists/* \
