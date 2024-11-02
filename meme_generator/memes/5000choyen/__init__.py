@@ -198,5 +198,5 @@ add_meme(
     default_texts=["我去", "洛天依"],
     keywords=["5000兆"],
     date_created=datetime(2022, 10, 29),
-    date_modified=datetime(2023, 2, 14),
+    date_modified=datetime(2024, 11, 2),
 )

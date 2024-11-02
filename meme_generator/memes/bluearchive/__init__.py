@@ -63,5 +63,5 @@ add_meme(
     keywords=["蔚蓝档案标题", "batitle"],
     tags=MemeTags.blue_archive,
     date_created=datetime(2023, 10, 14),
-    date_modified=datetime(2023, 10, 14),
+    date_modified=datetime(2024, 11, 2),
 )
