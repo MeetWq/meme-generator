@@ -17,16 +17,15 @@ def oshi_no_ko(images: list[BuildImage], texts: list[str], args):
     text_frame1 = BuildImage.open(img_dir / "text1.png")
     text_frame2 = BuildImage.open(img_dir / "text2.png")
 
-    bias_y = 5
     text_frame3 = BuildImage(
         Text2Image.from_text(
             name,
-            fontname="HiraginoMin",
-            fontsize=150,
+            150,
+            font_families=["HiraginoMin"],
             stroke_width=4,
             stroke_fill="white",
         ).to_image()
-    ).resize_height(text_frame1.height + bias_y)
+    ).resize_height(text_frame1.height)
     if text_frame3.width > 800:
         raise TextOverLength(name)
 
@@ -35,7 +34,7 @@ def oshi_no_ko(images: list[BuildImage], texts: list[str], args):
         (text_frame1.width + text_frame2.width + text_frame3.width, text_frame2.height),
     )
     text_frame.paste(text_frame1, (0, 0), alpha=True).paste(
-        text_frame3, (text_frame1.width, bias_y), alpha=True
+        text_frame3, (text_frame1.width, 0), alpha=True
     ).paste(text_frame2, (text_frame1.width + text_frame3.width, 0), alpha=True)
     text_frame = text_frame.resize_width(663)
 

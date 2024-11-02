@@ -24,13 +24,13 @@ def name_generator(images: list[BuildImage], texts, args):
     img = images[0].convert("RGBA").resize((490, 490), keep_ratio=True)
     frame.paste(img, (310, 235), alpha=True)
     frame.draw_text(
-        (20, 450), "您的亚名是", fontsize=40, fill=(105, 105, 105), weight="bold"
+        (20, 450), "您的亚名是", font_size=40, fill=(105, 105, 105), font_style="bold"
     ).draw_text(
         (20, 620),
         name,
-        fontsize=60,
+        font_size=60,
         fill=color,
-        weight="bold",
+        font_style="bold",
         stroke_ratio=0.07,
         stroke_fill="white",
     )

@@ -12,7 +12,7 @@ def universal(images: list[BuildImage], texts: list[str], args):
         frames: list[BuildImage] = [img]
         for text in texts:
             text_img = BuildImage(
-                Text2Image.from_bbcode_text(text, fontsize=45, align="center")
+                Text2Image.from_bbcode_text(text, 45, align="center")
                 .wrap(480)
                 .to_image()
             )

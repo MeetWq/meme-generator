@@ -17,7 +17,7 @@ def ace_attorney_dialog(images, texts: list[str], args):
             text,
             fontsize,
             fill="#e60012",
-            fontname=fontname,
+            font_families=[fontname],
             stroke_width=4,
             stroke_fill="#500000",
         ).to_image()
@@ -26,7 +26,7 @@ def ace_attorney_dialog(images, texts: list[str], args):
             text,
             fontsize,
             fill="#500000",
-            fontname=fontname,
+            font_families=[fontname],
             stroke_width=shadow_width,
             stroke_fill="#500000",
         ).to_image()

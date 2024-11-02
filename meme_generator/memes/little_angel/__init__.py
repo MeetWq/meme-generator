@@ -12,7 +12,7 @@ def little_angel(images: list[BuildImage], texts: list[str], args: MemeArgsModel
     frame = BuildImage.new("RGBA", (600, img_h + 230), "white")
     text = "非常可爱！简直就是小天使"
     frame.draw_text(
-        (10, img_h + 120, 590, img_h + 185), text, max_fontsize=48, weight="bold"
+        (10, img_h + 120, 590, img_h + 185), text, max_fontsize=48, font_style="bold"
     )
 
     ta = "她"
@@ -26,13 +26,13 @@ def little_angel(images: list[BuildImage], texts: list[str], args: MemeArgsModel
 
     text = f"{ta}没失踪也没怎么样  我只是觉得你们都该看一下"
     frame.draw_text(
-        (20, img_h + 180, 580, img_h + 215), text, max_fontsize=26, weight="bold"
+        (20, img_h + 180, 580, img_h + 215), text, max_fontsize=26, font_style="bold"
     )
 
     text = f"请问你们看到{name}了吗?"
     try:
         frame.draw_text(
-            (20, 0, 580, 110), text, max_fontsize=70, min_fontsize=25, weight="bold"
+            (20, 0, 580, 110), text, max_fontsize=70, min_fontsize=25, font_style="bold"
         )
     except ValueError:
         raise TextOverLength(name)

@@ -21,8 +21,7 @@ def raise_sign(images, texts: list[str], args):
             min_fontsize=30,
             allow_wrap=True,
             lines_align="center",
-            spacing=10,
-            fontname="FZShaoEr-M11S",
+            font_families=["FZShaoEr-M11S"],
             fill="#51201b",
         )
     except ValueError:

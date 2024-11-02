@@ -23,7 +23,7 @@ def incivilization(images: list[BuildImage], texts: list[str], args):
         frame.draw_text(
             (57, 42, 528, 117),
             text,
-            weight="bold",
+            font_style="bold",
             max_fontsize=50,
             min_fontsize=20,
             allow_wrap=True,

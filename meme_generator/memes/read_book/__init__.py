@@ -29,7 +29,7 @@ def read_book(images: list[BuildImage], texts: list[str], args):
     pieces: list[BuildImage] = []
     for char in chars:
         piece = BuildImage(
-            Text2Image.from_text(char, 150, fill="white", weight="bold").to_image()
+            Text2Image.from_text(char, 150, fill="white", font_style="bold").to_image()
         )
         if re.fullmatch(r"[a-zA-Z0-9\s]", char):
             piece = piece.rotate(-90, expand=True)

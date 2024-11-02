@@ -20,6 +20,10 @@
     "hash": "dc201145111b74eca4d09429afe0dfb9"
   },
   {
+    "path": "alipay/images/0.png",
+    "hash": "1e70fc77885db23b9f378c40bf369d0b"
+  },
+  {
     "path": "always_like/images/0.png",
     "hash": "7e4b3845cf80fa46942269d58bd64e9d"
   },
@@ -394,6 +398,22 @@
   {
     "path": "capoo_draw/images/5.png",
     "hash": "f0480a00928db523221265376dfe7c07"
+  },
+  {
+    "path": "capoo_point/images/0.png",
+    "hash": "11f29893dd088b449d7b497f61a0db82"
+  },
+  {
+    "path": "capoo_point/images/1.png",
+    "hash": "5e6d97bf1518ff1672cdefe595498e0d"
+  },
+  {
+    "path": "capoo_point/images/2.png",
+    "hash": "a0dfd5c0c01193f6b0931c11e099301c"
+  },
+  {
+    "path": "capoo_point/images/3.png",
+    "hash": "3fffe1d9bc2e12ed1a5e4468df3313cb"
   },
   {
     "path": "capoo_rip/images/0.png",
@@ -2184,6 +2204,10 @@
     "hash": "3248f754830433778ae06df6ba2735d8"
   },
   {
+    "path": "emperor_dragon/images/0.png",
+    "hash": "b9092c3f98d43b98e225eeba4410c1e0"
+  },
+  {
     "path": "erised_mirror/images/0.png",
     "hash": "891050979519e03438f8a84665fb4b16"
   },
@@ -2912,6 +2936,10 @@
     "hash": "1d691ef44c9015b90118d462d8254bcf"
   },
   {
+    "path": "gif_subtitle/images/jiamianqishi.gif",
+    "hash": "5488c2a459eab8d0f51b8b899bb8cfa4"
+  },
+  {
     "path": "gif_subtitle/images/maikease.gif",
     "hash": "6eb2aa718212b23329a43e4bfd70998c"
   },
@@ -3194,6 +3222,10 @@
   {
     "path": "incivilization/images/0.png",
     "hash": "352c9534c4ff182174b0b29e7ff7df42"
+  },
+  {
+    "path": "intel_inside/images/0.jpg",
+    "hash": "c38b067c9f843e40dfab06e76e96b772"
   },
   {
     "path": "interview/images/huaji.png",
@@ -4678,6 +4710,10 @@
   {
     "path": "painter/images/0.png",
     "hash": "a9b282341ef7222e44ad66cd9a39819c"
+  },
+  {
+    "path": "panda_dragon_figure/images/0.png",
+    "hash": "4b45bd21c8c60e6d894008811d395d73"
   },
   {
     "path": "pass_the_buck/images/0.png",
@@ -7714,6 +7750,14 @@
   {
     "path": "washer/images/0.png",
     "hash": "0751d5a44f68ff21f15f1276149971a4"
+  },
+  {
+    "path": "wechat_pay/images/0.png",
+    "hash": "8856be347c02e65c9f60fefc5bc2374a"
+  },
+  {
+    "path": "wechat_pay/images/logo.png",
+    "hash": "2ef194c12081ab94660049df55c4c314"
   },
   {
     "path": "what_I_want_to_do/images/0.png",

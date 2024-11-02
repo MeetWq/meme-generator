@@ -53,7 +53,7 @@ jobs:
 
       - name: Install fonts
         run: |
-          sudo apt install fonts-noto-color-emoji
+          sudo apt install fonts-noto-color-emoji libgl1-mesa-glx libgl1-mesa-dri
           sudo mkdir /usr/share/fonts/myfonts
           sudo cp resources/fonts/* /usr/share/fonts/myfonts/
           fc-cache -fv

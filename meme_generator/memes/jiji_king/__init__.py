@@ -75,7 +75,7 @@ def jiji_king(images: list[BuildImage], texts: list[str], args: Model):
                     (0, 0, 90, 90),
                     char,
                     lines_align="center",
-                    weight="bold",
+                    font_style="bold",
                     max_fontsize=60,
                     min_fontsize=30,
                     fill="white",
@@ -93,7 +93,7 @@ def jiji_king(images: list[BuildImage], texts: list[str], args: Model):
             (10, 300, frame.width - 10, 390),
             text,
             lines_align="center",
-            weight="bold",
+            font_style="bold",
             max_fontsize=100,
             min_fontsize=30,
         )

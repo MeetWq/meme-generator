@@ -10,12 +10,12 @@ img_dir = Path(__file__).parent / "images"
 
 
 def youtube(images, texts: list[str], args):
-    left_img = Text2Image.from_text(texts[0], fontsize=200, fill="black").to_image(
+    left_img = Text2Image.from_text(texts[0], 200, fill="black").to_image(
         bg_color="white", padding=(30, 20)
     )
 
     right_img = Text2Image.from_text(
-        texts[1], fontsize=200, fill="white", weight="bold"
+        texts[1], 200, fill="white", font_style="bold"
     ).to_image(bg_color=(230, 33, 23), padding=(50, 20))
     right_img = BuildImage(right_img).resize_canvas(
         (max(right_img.width, 400), right_img.height), bg_color=(230, 33, 23)

@@ -26,7 +26,7 @@ def google_captcha(images: list[BuildImage], texts: list[str], args: MemeArgsMod
         "请选择包含",
         fill="white",
         max_fontsize=40,
-        weight="bold",
+        font_style="bold",
         halign="left",
     )
     try:
@@ -35,7 +35,7 @@ def google_captcha(images: list[BuildImage], texts: list[str], args: MemeArgsMod
             name,
             fill="white",
             max_fontsize=80,
-            weight="bold",
+            font_style="bold",
             halign="left",
         )
     except ValueError:
@@ -45,7 +45,7 @@ def google_captcha(images: list[BuildImage], texts: list[str], args: MemeArgsMod
         "的所有图块，如果没有，请点击“跳过”",
         fill="white",
         max_fontsize=40,
-        weight="bold",
+        font_style="bold",
         halign="left",
     )
     canvas.paste(banner, (19, 19))
@@ -53,7 +53,7 @@ def google_captcha(images: list[BuildImage], texts: list[str], args: MemeArgsMod
     bottom = BuildImage.new("RGB", (1000, 182), "#FFF")
     button = BuildImage.new("RGB", (283, 121), "#4790E4")
     button.draw_text(
-        (0, 0, 283, 121), "跳过", fill="white", max_fontsize=40, weight="bold"
+        (0, 0, 283, 121), "跳过", fill="white", max_fontsize=40, font_style="bold"
     )
     bottom.paste(button, (687, 30))
     bottom_border = BuildImage.new("RGB", (1002, 186), "#D5D5D5")

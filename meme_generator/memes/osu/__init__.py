@@ -19,10 +19,10 @@ def osu(images, texts: list[str], args) -> BytesIO:
             text,
             max_fontsize=192,
             min_fontsize=80,
-            weight="bold",
+            font_style="bold",
             fill="white",
             lines_align="center",
-            fontname="Aller",
+            font_families=["Aller"],
         )
     except ValueError:
         raise TextOverLength(text)

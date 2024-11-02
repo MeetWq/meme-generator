@@ -20,7 +20,7 @@ def look_this_icon(images: list[BuildImage], texts: list[str], args):
             (0, 933, 1170, 1143),
             text,
             lines_align="center",
-            weight="bold",
+            font_style="bold",
             max_fontsize=100,
             min_fontsize=50,
         )

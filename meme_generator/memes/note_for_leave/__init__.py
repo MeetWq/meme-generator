@@ -54,20 +54,20 @@ def note_for_leave(images: list[BuildImage], texts: list[str], args: Model):
     frame.draw_text(
         (40, 20, 760, 180),
         text="请假条",
-        weight="bold",
+        font_style="bold",
         max_fontsize=100,
         min_fontsize=80,
     )
-    frame.draw_text((40, 200), "本人", fontsize=50)
-    name_width = Text2Image.from_text(name, fontsize=50).width
-    if (name_width) > 800:
+    frame.draw_text((40, 200), "本人", font_size=50)
+    name_width = Text2Image.from_text(name, 50).longest_line
+    if name_width > 800:
         raise TextOverLength(name)
     name_width = min(450, max(150, name_width)) + 50
     frame.draw_text(
         (150, 200, 150 + name_width, 265), text=name, max_fontsize=50, min_fontsize=20
     )
     frame.draw_line((150, 260, 150 + name_width, 260), fill="black", width=4)
-    frame.draw_text((160 + name_width, 200), "因", fontsize=50)
+    frame.draw_text((160 + name_width, 200), "因", font_size=50)
     try:
         frame.draw_text(
             (40, 300, 285, 700),
@@ -88,7 +88,7 @@ def note_for_leave(images: list[BuildImage], texts: list[str], args: Model):
         min_fontsize=30,
         halign="left",
     )
-    frame.draw_text((40, 800), text="望领导批准！！！", fontsize=75, weight="bold")
+    frame.draw_text((40, 800), text="望领导批准！！！", font_size=75, font_style="bold")
     return frame.save_jpg()
 
 

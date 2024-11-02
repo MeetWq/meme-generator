@@ -11,7 +11,7 @@ img_dir = Path(__file__).parent / "images"
 def nokia(images, texts: list[str], args):
     text = texts[0][:900]
     text_img = (
-        Text2Image.from_text(text, 70, fontname="FZXS14", fill="black", spacing=30)
+        Text2Image.from_text(text, 70, font_families=["FZXS14"], fill="black")
         .wrap(700)
         .to_image()
     )
@@ -22,7 +22,7 @@ def nokia(images, texts: list[str], args):
     )
 
     head_img = Text2Image.from_text(
-        f"{len(text)}/900", 70, fontname="FZXS14", fill=(129, 212, 250, 255)
+        f"{len(text)}/900", 70, font_families=["FZXS14"], fill=(129, 212, 250, 255)
     ).to_image()
     head_img = BuildImage(head_img).rotate(-9.3, expand=True)
 

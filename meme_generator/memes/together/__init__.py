@@ -20,7 +20,7 @@ def together(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
         frame.draw_text(
             (10, 140, 190, 190),
             text,
-            weight="bold",
+            font_style="bold",
             max_fontsize=50,
             min_fontsize=10,
             allow_wrap=True,
