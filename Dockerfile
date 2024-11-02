@@ -26,7 +26,8 @@ ENV TZ=Asia/Shanghai \
   GIF_MAX_FRAMES=100 \
   BAIDU_TRANS_APPID="" \
   BAIDU_TRANS_APIKEY="" \
-  LOG_LEVEL="INFO"
+  LOG_LEVEL="INFO" \
+  PILLOW_BLOCKS_MAX=5
 
 COPY --from=tmp /tmp/requirements.txt /app/requirements.txt
 
