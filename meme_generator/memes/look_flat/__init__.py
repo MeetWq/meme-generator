@@ -49,7 +49,7 @@ def look_flat(images: list[BuildImage], texts: list[str], args: Model):
             text,
             max_fontsize=55,
             min_fontsize=30,
-            weight="bold",
+            font_style="bold",
         )
     except ValueError:
         raise TextOverLength(text)

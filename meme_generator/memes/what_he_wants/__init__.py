@@ -27,7 +27,7 @@ def what_he_wants(images: list[BuildImage], texts: list[str], args):
                 min_fontsize=20,
                 stroke_ratio=0.07,
                 stroke_fill="white",
-                weight="bold",
+                font_style="bold",
                 valign="bottom",
             )
         except ValueError:

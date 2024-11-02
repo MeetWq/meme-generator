@@ -22,7 +22,7 @@ def thermometer_gun(images: list[BuildImage], texts: list[str], args):
             allow_wrap=True,
             max_fontsize=60,
             min_fontsize=15,
-            fontname="FZKaTong-M19S",
+            font_families=["FZKaTong-M19S"],
             lines_align="center",
         )
     except ValueError:

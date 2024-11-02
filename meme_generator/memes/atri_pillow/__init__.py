@@ -50,7 +50,7 @@ def atri_pillow(images, texts: list[str], args: Model):
             min_fontsize=30,
             allow_wrap=True,
             lines_align="center",
-            fontname="FZShaoEr-M11S",
+            font_families=["FZShaoEr-M11S"],
             fill=text_color,
         )
     except ValueError:

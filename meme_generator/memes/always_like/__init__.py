@@ -31,7 +31,7 @@ def always_like(images: list[BuildImage], texts: list[str], args: MemeArgsModel)
             text,
             max_fontsize=70,
             min_fontsize=30,
-            weight="bold",
+            font_style="bold",
         )
     except ValueError:
         raise TextOverLength(text)
@@ -42,10 +42,10 @@ def always_like(images: list[BuildImage], texts: list[str], args: MemeArgsModel)
         )
 
     if len(images) > 1:
-        text_w = Text2Image.from_text(text, 70).width
+        text_w = Text2Image.from_text(text, 70).longest_line
         ratio = min((frame.width - 40) / text_w, 1)
         text_w *= ratio
-        name_w = Text2Image.from_text(name, 70).width * ratio
+        name_w = Text2Image.from_text(name, 70).longest_line * ratio
         start_w = text_w - name_w + (frame.width - text_w) // 2
         frame.draw_line(
             (start_w, 525, start_w + name_w, 525), fill=random_color(), width=10
@@ -65,13 +65,13 @@ def always_like(images: list[BuildImage], texts: list[str], args: MemeArgsModel)
                 name,
                 max_fontsize=70,
                 min_fontsize=30,
-                weight="bold",
+                font_style="bold",
             )
         except ValueError:
             raise TextOverLength(text)
 
         if len(images) > i + 1:
-            name_w = min(Text2Image.from_text(name, 70).width, 380)
+            name_w = min(Text2Image.from_text(name, 70).longest_line, 380)
             start_w = 400 + (410 - name_w) // 2
             line_h = current_h + 40
             frame.draw_line(

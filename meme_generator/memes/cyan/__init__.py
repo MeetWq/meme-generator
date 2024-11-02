@@ -12,7 +12,7 @@ def cyan(images: list[BuildImage], texts, args):
         (400, 40, 480, 280),
         "群\n青",
         max_fontsize=80,
-        weight="bold",
+        font_style="bold",
         fill="white",
         stroke_ratio=0.04,
         stroke_fill=color,

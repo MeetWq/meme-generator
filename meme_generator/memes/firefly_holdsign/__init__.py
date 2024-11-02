@@ -82,8 +82,7 @@ def firefly_holdsign(images, texts: list[str], args: Model):
             min_fontsize=30,
             allow_wrap=True,
             lines_align="center",
-            spacing=10,
-            fontname="FZShaoEr-M11S",
+            font_families=["FZShaoEr-M11S"],
             fill="#3b0b07",
         )
     except ValueError:
