@@ -402,13 +402,13 @@ numpy = [
 
 [[package]]
 name = "pil-utils"
-version = "0.2.0b4"
+version = "0.2.0"
 description = "A simple PIL wrapper and text-to-image tool"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "pil_utils-0.2.0b4-py3-none-any.whl", hash = "sha256:743fe7812f51af029f6e7ae7cc28d8dcfa284bfa15ef8aa5e6d813bdd8eff3ab"},
-    {file = "pil_utils-0.2.0b4.tar.gz", hash = "sha256:7b66bfeafede0e9823b3d6a33d4ba43059a71ce0b2cb4b243b57c2378d830110"},
+    {file = "pil_utils-0.2.0-py3-none-any.whl", hash = "sha256:7b95009ce13c87243a5ca93b7b68e29dd41ac7398d4c26379475da0f81425ea2"},
+    {file = "pil_utils-0.2.0.tar.gz", hash = "sha256:738573fc1f0d3ae4a8df464966cd8b8f440a7281eaa8fc69b44a98997480fe08"},
 ]
 
 [package.dependencies]
@@ -1100,4 +1100,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "81ce5ce9f13b42f84fe675b8e15df24f29078c075c8e1da2374fb4c09388d89d"
+content-hash = "e607ee1968ee8a73cd1cb74c575d916bce14df07bb51c91d1c5a8516035f6488"
