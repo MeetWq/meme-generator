@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "feat/skia"
     tags:
       - "v*"
   workflow_dispatch:
