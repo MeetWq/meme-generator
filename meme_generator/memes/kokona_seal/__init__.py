@@ -40,7 +40,7 @@ args_type = MemeArgsType(
 def kokona_seal(images, texts: list[str], args: Model):
     text = texts[0]
     if args.number == 0:
-        num = random.randint(1, 9)
+        num = random.randint(1, 12)
     elif 1 <= args.number <= 12:
         num = args.number
     else:
@@ -50,7 +50,7 @@ def kokona_seal(images, texts: list[str], args: Model):
     loc = (100, 20)
     frame = BuildImage.open(img_dir / f"{num}.png")
     text_img = BuildImage.new("RGBA", size)
-    padding = 0
+    padding = 10
     try:
         text_img.draw_text(
             (padding, padding, size[0] - padding, size[1] - padding),
@@ -58,10 +58,9 @@ def kokona_seal(images, texts: list[str], args: Model):
             max_fontsize=150,
             min_fontsize=50,
             allow_wrap=False,
-            lines_align="center",
-            spacing=10,
+            lines_align="left",
             font_families=["FZShaoEr-M11S"],
-            fill="#ff0000",
+            fill="#fe0000",
         )
     except ValueError:
         raise TextOverLength(text)
