@@ -44,10 +44,10 @@ def kokona_seal(images, texts: list[str], args: Model):
     elif 1 <= args.number <= 12:
         num = args.number
     else:
-        raise MemeFeedback(f"图片编号错误，请选择 1~12")
-    size = (288,155)
-    points = ((0,70),(280,0),(320,150),(40,220))
-    loc = (100,20)
+        raise MemeFeedback("图片编号错误，请选择 1~12")
+    size = (288, 155)
+    points = ((0, 70), (280, 0), (320, 150), (40, 220))
+    loc = (100, 20)
     frame = BuildImage.open(img_dir / f"{num}.png")
     text_img = BuildImage.new("RGBA", size)
     padding = 0
