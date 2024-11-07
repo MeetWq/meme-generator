@@ -23,6 +23,7 @@ class MemeTags:
     blue_archive = {"蔚蓝档案", "碧蓝档案"}
 
     shiroko = {"砂狼白子"} | blue_archive
+    kokona = {"心奈"} | blue_archive
 
     # 公主连结
     re_dive = {"公主连结"}
