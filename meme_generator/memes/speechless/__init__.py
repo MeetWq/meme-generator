@@ -18,7 +18,7 @@ def speechless(images: list[BuildImage], texts: list[str], args):
     def make(imgs: list[BuildImage]) -> BuildImage:
         img = imgs[0].convert("RGBA").resize_width(500)
         text_img = BuildImage(
-            Text2Image.from_text(text, 50, align="center")
+            Text2Image.from_text(text, 45, align="center")
             .wrap(480)
             .to_image(bg_color="white")
         )
