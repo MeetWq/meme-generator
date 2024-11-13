@@ -8,7 +8,7 @@ from meme_generator.exception import TextOverLength
 img_dir = Path(__file__).parent / "images"
 
 
-def nopress(images, texts: list[str], args):
+def dont_press(images, texts: list[str], args):
     text = texts[0]
 
     img_path = img_dir / "0.png"
@@ -22,18 +22,17 @@ def nopress(images, texts: list[str], args):
             lines_align="center",
             min_fontsize=20,
             max_fontsize=50,
-            fill=(0, 0, 0),
         )
     except ValueError:
         raise TextOverLength(text)
-    return frame.save_png()
+    return frame.save_jpg()
 
 
 add_meme(
-    "nopress",
-    nopress,
-    min_texts=0,
+    "dont_press",
+    dont_press,
+    min_texts=1,
     max_texts=1,
-    default_texts=["楼上是小南梁"],
+    default_texts=["世界毁灭"],
     keywords=["不要按"],
 )
