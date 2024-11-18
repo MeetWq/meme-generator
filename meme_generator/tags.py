@@ -75,6 +75,9 @@ class MemeTags:
 
     konata = {"泉此方"} | lucky_star
 
+    # 凉宫春日
+    haruhi = {"凉宫春日"}
+
     # 猫和老鼠
     tom_and_jerry = {"猫和老鼠"}
 
