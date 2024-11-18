@@ -10,13 +10,20 @@ img_dir = Path(__file__).parent / "images"
 
 
 def sold_out(images: list[BuildImage], texts, args):
-    frame = BuildImage.open(img_dir / "0.png")
+    icon = BuildImage.open(img_dir / "0.png")
 
     def make(imgs: list[BuildImage]) -> BuildImage:
-        return frame.copy().paste(
-            imgs[0].convert("RGBA").resize((960, 960), keep_ratio=True),
-            (0, 0),
-            below=True,
+        frame = imgs[0].convert("RGBA")
+        if frame.width > frame.height:
+            frame = frame.resize_height(600)
+        else:
+            frame = frame.resize_width(600)
+        mask = BuildImage.new("RGBA", frame.size, (0, 0, 0, 64))
+        frame.paste(mask, alpha=True)
+        return frame.paste(
+            icon,
+            ((frame.width - icon.height) // 2, (frame.height - icon.height) // 2),
+            alpha=True,
         )
 
     return make_jpg_or_gif(images, make)
@@ -28,6 +35,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["卖掉了"],
-    date_created=datetime(2023, 3, 12),
-    date_modified=datetime(2023, 3, 12),
+    date_created=datetime(2024, 11, 18),
+    date_modified=datetime(2024, 11, 18),
 )
