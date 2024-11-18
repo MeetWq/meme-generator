@@ -1,9 +1,10 @@
 from datetime import datetime
 from pathlib import Path
 
+from pil_utils import BuildImage
+
 from meme_generator import add_meme
 from meme_generator.utils import make_jpg_or_gif
-from pil_utils import BuildImage
 
 img_dir = Path(__file__).parent / "images"
 
