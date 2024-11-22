@@ -45,8 +45,8 @@ def kokona_seal(images, texts: list[str], args: Model):
         num = args.number
     else:
         raise MemeFeedback("图片编号错误，请选择 1~12")
-    size = (320,155)
-    loc = (75,25)
+    size = (320, 155)
+    loc = (75, 25)
     frame = BuildImage.open(img_dir / f"{num}.png")
     text_img = BuildImage.new("RGBA", size)
     padding = 10
@@ -63,7 +63,7 @@ def kokona_seal(images, texts: list[str], args: Model):
         )
     except ValueError:
         raise TextOverLength(text)
-    frame.paste(text_img.rotate(16,expand=True), loc, alpha=True)
+    frame.paste(text_img.rotate(16, expand=True), loc, alpha=True)
     return frame.save_png()
 
 

@@ -44,9 +44,7 @@ def gorilla_throw(images: list[BuildImage], texts, args):
 
         return make
 
-    return make_gif_or_combined_gif(
-        images, maker, 42, 0.04, FrameAlignPolicy.no_extend
-    )
+    return make_gif_or_combined_gif(images, maker, 42, 0.04, FrameAlignPolicy.no_extend)
 
 
 add_meme(
