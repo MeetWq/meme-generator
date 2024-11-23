@@ -12,12 +12,12 @@ def rbq(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     frame = BuildImage.new("RGBA", (600, img_h + 230), "white")
     text = "非常可爱！简直就是"
     frame.draw_text(
-         (0, img_h + 120, 480, img_h + 185), text, max_fontsize=48, weight="bold", fill=(0, 0, 0)
+         (0, img_h + 120, 480, img_h + 185), text, max_fontsize=48, font_style="bold", fill=(0, 0, 0)
     )
     
     text = "RBQ"
     frame.draw_text(
-        (440, img_h + 120, 570, img_h + 185), text, max_fontsize=48, weight="bold", fill=(255, 0, 0)
+        (440, img_h + 120, 570, img_h + 185), text, max_fontsize=48, font_style="bold", fill=(255, 0, 0)
     )
     text = f"她没失踪也没怎么样  我只是觉得你们都该玩一下"
     frame.draw_text(
@@ -35,7 +35,7 @@ def rbq(images: list[BuildImage], texts: list[str], args: MemeArgsModel):
     text = f"请问你们看到{name}了吗?"
     try:
         frame.draw_text(
-            (20, 0, 580, 110), text, max_fontsize=70, min_fontsize=25, weight="bold"
+            (20, 0, 580, 110), text, max_fontsize=70, min_fontsize=25, font_style="bold"
         )
     except ValueError:
         raise TextOverLength(name)
