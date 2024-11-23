@@ -77,5 +77,5 @@ add_meme(
     keywords=["心奈印章"],
     tags=MemeTags.kokona,
     date_created=datetime(2024, 11, 5),
-    date_modified=datetime(2024, 11, 5),
+    date_modified=datetime(2024, 11, 22),
 )

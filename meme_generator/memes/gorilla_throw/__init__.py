@@ -54,5 +54,5 @@ add_meme(
     max_images=1,
     keywords=["猩猩扔"],
     date_created=datetime(2024, 11, 16),
-    date_modified=datetime(2024, 11, 16),
+    date_modified=datetime(2024, 11, 22),
 )
