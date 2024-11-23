@@ -45,9 +45,8 @@ def kokona_seal(images, texts: list[str], args: Model):
         num = args.number
     else:
         raise MemeFeedback("图片编号错误，请选择 1~12")
-    size = (288, 155)
-    points = ((0, 70), (280, 0), (320, 150), (40, 220))
-    loc = (100, 20)
+    size = (320, 155)
+    loc = (75, 25)
     frame = BuildImage.open(img_dir / f"{num}.png")
     text_img = BuildImage.new("RGBA", size)
     padding = 10
@@ -64,7 +63,7 @@ def kokona_seal(images, texts: list[str], args: Model):
         )
     except ValueError:
         raise TextOverLength(text)
-    frame.paste(text_img.perspective(points), loc, alpha=True)
+    frame.paste(text_img.rotate(16, expand=True), loc, alpha=True)
     return frame.save_png()
 
 
@@ -78,5 +77,5 @@ add_meme(
     keywords=["心奈印章"],
     tags=MemeTags.kokona,
     date_created=datetime(2024, 11, 5),
-    date_modified=datetime(2024, 11, 5),
+    date_modified=datetime(2024, 11, 22),
 )
