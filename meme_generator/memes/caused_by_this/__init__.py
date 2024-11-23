@@ -1,9 +1,10 @@
 from datetime import datetime
 from pathlib import Path
 
-from pil_utils import BuildImage
+from pil_utils import BuildImage, Text2Image
 
 from meme_generator import CommandShortcut, add_meme
+from meme_generator.exception import TextOverLength
 from meme_generator.utils import make_png_or_gif
 
 img_dir = Path(__file__).parent / "images"
@@ -14,9 +15,26 @@ default_text = "心脏病 高血压 心律不齐 心肌梗塞 失眠 脱发 呼�
 def caused_by_this(images: list[BuildImage], texts: list[str], args):
     frame = BuildImage.open(img_dir / "0.png")
     text = texts[0] if texts else default_text
-    frame.draw_text(
-        (130, 760, 400, 1000), text, max_fontsize=60, min_fontsize=10, allow_wrap=True
+
+    text_img1 = Text2Image.from_text("你的", 55).to_image()
+    text_img2 = Text2Image.from_text("主要都是由这个引起的", 55).to_image()
+    frame.paste(text_img1, (10, 887 - text_img1.height // 2), alpha=True)
+    frame.paste(
+        text_img2,
+        (frame.width - text_img2.width - 10, 887 - text_img2.height // 2),
+        alpha=True,
     )
+
+    try:
+        frame.draw_text(
+            (text_img1.width + 20, 760, frame.width - text_img2.width - 20, 1000),
+            text,
+            max_fontsize=60,
+            min_fontsize=10,
+            allow_wrap=True,
+        )
+    except ValueError:
+        raise TextOverLength(text)
 
     def make(imgs: list[BuildImage]) -> BuildImage:
         img = imgs[0].convert("RGBA").resize((550, 360), keep_ratio=True)
@@ -44,5 +62,5 @@ add_meme(
         ),
     ],
     date_created=datetime(2024, 11, 18),
-    date_modified=datetime(2024, 11, 18),
+    date_modified=datetime(2024, 11, 22),
 )

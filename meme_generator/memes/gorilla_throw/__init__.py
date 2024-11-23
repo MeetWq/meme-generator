@@ -44,9 +44,7 @@ def gorilla_throw(images: list[BuildImage], texts, args):
 
         return make
 
-    return make_gif_or_combined_gif(
-        images, maker, 42, 0.04, FrameAlignPolicy.extend_first
-    )
+    return make_gif_or_combined_gif(images, maker, 42, 0.04, FrameAlignPolicy.no_extend)
 
 
 add_meme(
@@ -56,5 +54,5 @@ add_meme(
     max_images=1,
     keywords=["猩猩扔"],
     date_created=datetime(2024, 11, 16),
-    date_modified=datetime(2024, 11, 16),
+    date_modified=datetime(2024, 11, 22),
 )
