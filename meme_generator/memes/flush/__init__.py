@@ -17,7 +17,9 @@ def flush(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]):
             # 先转为正方形，再调整至模板尺寸（调整成和爆炸图片一样的大小）
-            img = imgs[0].convert("RGBA").square().resize(template_size, keep_ratio=True)
+            img = (
+                imgs[0].convert("RGBA").square().resize(template_size, keep_ratio=True)
+            )
             w, h = template_size
 
             if i >= 18:
