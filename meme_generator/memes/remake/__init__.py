@@ -9,16 +9,18 @@ from meme_generator.utils import save_gif
 
 img_dir = Path(__file__).parent / "images"
 
+import sys
+
 import cv2
 import dlib
-import sys
 import numpy as np
 
+
 def hog_anime_face_detect(image_path, model_path):
-    img = cv2.imread(image_path) if type(image_path)==str else image_path # 读取图片
+    img = cv2.imread(image_path) if type(image_path) == str else image_path  # 读取图片
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # 图片灰度化
     img_gray = cv2.equalizeHist(img_gray)  # 直方图均衡化
-    face_detector = dlib.simple_object_detector(str(model_path)) # 加载检测器
+    face_detector = dlib.simple_object_detector(str(model_path))  # 加载检测器
     faces = face_detector(img_gray)
 
     return faces
@@ -79,7 +81,6 @@ def remake(images: List[BuildImage], texts, args):
         else:
             frames.append(frame.image)
             frames.append(frame.image)
-
 
     return save_gif(frames, 0.1)
 
