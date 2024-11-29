@@ -11,14 +11,17 @@ img_dir = Path(__file__).parent / "images"
 
 
 def flush(images: list[BuildImage], texts, args):
+    # 获取模板图片的尺寸
+    template_size = BuildImage.open(img_dir / "0.png").size
+
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]):
-            img = imgs[0].convert("RGBA").square()
-            w, h = img.size
+            # 先转为正方形，再调整至模板尺寸（调整成和爆炸图片一样的大小）
+            img = imgs[0].convert("RGBA").square().resize(template_size, keep_ratio=True)
+            w, h = template_size
+
             if i >= 18:
-                return BuildImage.open(img_dir / f"{i-18}.png").resize(
-                    (w, h), keep_ratio=True
-                )
+                return BuildImage.open(img_dir / f"{i-18}.png")
 
             j = 0.2 * (2 * random.random() - 1)  # 抖动
             k = 8 * i  # 变红
