@@ -105,6 +105,11 @@ class MemeTags:
     # 舞萌
     maimai = {"舞萌"}
 
+    # 学园偶像大师
+    gakuen_imas = {"学园偶像大师"}
+
+    kotone = {"藤田琴音"} | gakuen_imas
+
     # 哈利·波特
     harry_potter = {"哈利·波特"}
 
