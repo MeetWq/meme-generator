@@ -105,7 +105,7 @@ class MemeTags:
     # 舞萌
     maimai = {"舞萌"}
 
-    #学园偶像大师
+    # 学园偶像大师
     gakuen_imas = {"学园偶像大师"}
 
     kotone = {"藤田琴音"} | gakuen_imas

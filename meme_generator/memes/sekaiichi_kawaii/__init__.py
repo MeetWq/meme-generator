@@ -11,26 +11,23 @@ img_dir = Path(__file__).parent / "images"
 
 
 def sekaiichi_kawaii(images: list[BuildImage], texts: list[str], args):
-    w,h = images[0].size
-    if (w/h) > 1.155:
+    w, h = images[0].size
+    if (w / h) > 1.155:
         fg = BuildImage.open(img_dir / "0.png")
-        size = (810,416)
+        size = (810, 416)
     else:
         fg = BuildImage.open(img_dir / "1.png")
-        size = (585,810)
-    white = BuildImage.new("RGBA",size,color=(255,255,255,255))
+        size = (585, 810)
+    white = BuildImage.new("RGBA", size, color=(255, 255, 255, 255))
+
     def make(imgs: list[BuildImage]) -> BuildImage:
-        img = imgs[0].convert("RGBA").resize(size,keep_ratio=True)
+        img = imgs[0].convert("RGBA").resize(size, keep_ratio=True)
         frame = fg.copy().paste(
-            white.copy().paste(
-                img,
-                (0,0),
-                alpha=True
-            ),
-            (45,45),
+            white.copy().paste(img, (0, 0), alpha=True),
+            (45, 45),
             alpha=True,
-            below=True
-            )
+            below=True,
+        )
         return frame
 
     return make_jpg_or_gif(images, make)
@@ -43,6 +40,6 @@ add_meme(
     max_images=1,
     keywords=["世界第一可爱"],
     tags=MemeTags.kotone,
-    date_created=datetime(2024,12,4),
-    date_modified=datetime(2024,12,4),
+    date_created=datetime(2024, 12, 4),
+    date_modified=datetime(2024, 12, 4),
 )
