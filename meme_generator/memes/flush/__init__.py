@@ -14,11 +14,14 @@ def flush(images: list[BuildImage], texts, args):
     def maker(i: int) -> Maker:
         def make(imgs: list[BuildImage]):
             img = imgs[0].convert("RGBA").square()
+            max_width = 282
+            if img.width > max_width:
+                img = img.resize((max_width, max_width))
             w, h = img.size
+
             if i >= 18:
-                return BuildImage.open(img_dir / f"{i-18}.png").resize(
-                    (w, h), keep_ratio=True
-                )
+                frame = BuildImage.open(img_dir / f"{i-18}.png")
+                return frame.resize((w, h))
 
             j = 0.2 * (2 * random.random() - 1)  # 抖动
             k = 8 * i  # 变红
