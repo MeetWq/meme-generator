@@ -128,6 +128,16 @@ add_gif_meme(
 )
 
 add_gif_meme(
+    "wuyage",
+    ["乌鸦哥"],
+    ((8, 32), (35, 58), (60, 85)),
+    ("哟 云崽机器人", "今天掉线了没", "来给他弹个版本过低"),
+    fontsize=18,
+    date_created=datetime(2024, 12, 5),
+    date_modified=datetime(2024, 12, 5),
+)
+
+add_gif_meme(
     "zengxiaoxian",
     ["曾小贤"],
     ((3, 15), (24, 30), (30, 46), (56, 63)),
