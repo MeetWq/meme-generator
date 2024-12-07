@@ -113,6 +113,9 @@ class MemeTags:
     # 哈利·波特
     harry_potter = {"哈利·波特"}
 
+    #鸣潮
+    jinhsi = {"今汐", "汐汐"}
+    
     # 其他
     capoo = {"猫猫虫", "咖波"}
     nekoha = {"猫羽雫"}
