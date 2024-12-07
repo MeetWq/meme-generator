@@ -60,7 +60,7 @@ def jinhsi(images, texts: list[str], args: Model):
         ((320, 375), (39, 160), ((0, 0), (140, 0), (140, 148), (0, 148))),
         ((320, 375), (39, 169), ((0, 0), (140, 0), (140, 148), (0, 148))),
         ((320, 375), (39, 166), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ]
+    ]
     size, loc, points = params[num - 1]
     frame = BuildImage.open(img_dir / f"{num:02d}.png")
     text_img = BuildImage.new("RGBA", size)
@@ -89,9 +89,8 @@ add_meme(
     max_texts=8,
     default_texts=["汐汐"],
     args_type=args_type,
-    keywords=["汐汐","今汐"],
+    keywords=["汐汐", "今汐"],
     tags=MemeTags.jinhsi,
     date_created=datetime(2024, 5, 5),
     date_modified=datetime(2024, 5, 6),
 )
-
