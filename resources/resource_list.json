@@ -2980,6 +2980,10 @@
     "hash": "ef27895e6f030f6a308d60189aba662d"
   },
   {
+    "path": "gif_subtitle/images/wuyage.gif",
+    "hash": "ffc52c0c7ffa2a169709dddf0580bc8e"
+  },
+  {
     "path": "gif_subtitle/images/yalidaye.gif",
     "hash": "ce1a77bc761384d08324bc94a495d74f"
   },
@@ -3422,6 +3426,54 @@
   {
     "path": "jiji_king/images/0.png",
     "hash": "346ae46e7697540a3bec08c30ad78969"
+  },
+  {
+    "path": "jinhsi/images/01.png",
+    "hash": "b207772d3eb5b93a01d0d71dfe43cc1c"
+  },
+  {
+    "path": "jinhsi/images/02.png",
+    "hash": "75202ef429a7ffaa5d4a010900d08cb6"
+  },
+  {
+    "path": "jinhsi/images/03.png",
+    "hash": "a8097abf4e19e506e1d51e475873499c"
+  },
+  {
+    "path": "jinhsi/images/04.png",
+    "hash": "2a0449d82cb14e8afba4ce62d62ad4f6"
+  },
+  {
+    "path": "jinhsi/images/05.png",
+    "hash": "5bb0b186e2287264b5b5cd15259d29c0"
+  },
+  {
+    "path": "jinhsi/images/06.png",
+    "hash": "c88bf1270cdba2d96f3463d9c5aa9f8f"
+  },
+  {
+    "path": "jinhsi/images/07.png",
+    "hash": "85f4d77a92f410686b5b6f169ce82689"
+  },
+  {
+    "path": "jinhsi/images/08.png",
+    "hash": "9dccfc34ba57543494b44e2d62c3bcd9"
+  },
+  {
+    "path": "jinhsi/images/09.png",
+    "hash": "8b71449ed36b539f77a8392f334d305d"
+  },
+  {
+    "path": "jinhsi/images/10.png",
+    "hash": "507c9edc77e2deb6aeab036c9071da82"
+  },
+  {
+    "path": "jinhsi/images/11.png",
+    "hash": "17320836d55a72d2d3ff74746133620e"
+  },
+  {
+    "path": "jinhsi/images/12.png",
+    "hash": "a382b9331cf232e3441487f31a79af4d"
   },
   {
     "path": "jiujiu/images/0.png",
@@ -6546,6 +6598,14 @@
   {
     "path": "scroll/images/corner4.png",
     "hash": "40a04aa8c2ffb9243119c865ece04cc4"
+  },
+  {
+    "path": "sekaiichi_kawaii/images/0.png",
+    "hash": "584e8d4d4437f638aca32ffa53b04f94"
+  },
+  {
+    "path": "sekaiichi_kawaii/images/1.png",
+    "hash": "4d7fd5a8d2c91ff753e590698693abde"
   },
   {
     "path": "shiroko_pero/images/0.png",
