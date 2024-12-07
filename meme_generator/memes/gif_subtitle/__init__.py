@@ -134,7 +134,7 @@ add_gif_meme(
     ("哟 云崽机器人", "今天掉线了没", "来给他弹个版本过低"),
     fontsize=18,
     date_created=datetime(2024, 12, 5),
-    date_modified=datetime(2024, 12, 7),
+    date_modified=datetime(2024, 12, 5),
 )
 
 add_gif_meme(

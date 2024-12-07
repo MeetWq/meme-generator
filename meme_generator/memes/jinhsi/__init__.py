@@ -47,38 +47,23 @@ def jinhsi(images, texts: list[str], args: Model):
     else:
         raise MemeFeedback(f"图片编号错误，请选择 1~{total_num}")
 
-    params = [
-        ((320, 375), (39, 155), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 160), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 160), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 165), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 162), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 166), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 164), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 164), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 165), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 160), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 169), ((0, 0), (140, 0), (140, 148), (0, 148))),
-        ((320, 375), (39, 166), ((0, 0), (140, 0), (140, 148), (0, 148))),
-    ]
-    size, loc, points = params[num - 1]
+    paddings = (55, 43, 50, 36, 40, 33, 36, 38, 33, 46, 26, 33)
     frame = BuildImage.open(img_dir / f"{num:02d}.png")
-    text_img = BuildImage.new("RGBA", size)
-    padding = 0
+    padding = paddings[num - 1]
+
     try:
-        text_img.draw_text(
-            (padding, padding, size[0] - padding, size[1] - padding),
+        frame.draw_text(
+            (0, frame.height - padding, frame.width, frame.height),
             text,
-            max_fontsize=40,
-            min_fontsize=40,
+            max_fontsize=50,
+            min_fontsize=20,
             allow_wrap=True,
             lines_align="center",
             font_families=["FZShaoEr-M11S"],
-            fill="#3b0b07",
+            fill="black",
         )
     except ValueError:
         raise TextOverLength(text)
-    frame.paste(text_img.perspective(points), loc, alpha=True)
     return frame.save_png()
 
 
@@ -86,11 +71,11 @@ add_meme(
     "jinhsi",
     jinhsi,
     min_texts=1,
-    max_texts=8,
+    max_texts=1,
     default_texts=["汐汐"],
     args_type=args_type,
     keywords=["汐汐", "今汐"],
     tags=MemeTags.jinhsi,
-    date_created=datetime(2024, 5, 5),
-    date_modified=datetime(2024, 5, 6),
+    date_created=datetime(2024, 12, 7),
+    date_modified=datetime(2024, 12, 7),
 )
