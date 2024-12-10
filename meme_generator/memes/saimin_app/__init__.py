@@ -30,7 +30,7 @@ def saimin_app(images: list[BuildImage], texts, args):
         return make
 
     return make_gif_or_combined_gif(
-        images, maker, 25, 0.03, FrameAlignPolicy.extend_last
+        images, maker, 25, 0.03, FrameAlignPolicy.extend_loop
     )
 
 
