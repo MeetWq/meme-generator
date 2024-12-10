@@ -8,6 +8,7 @@ from meme_generator.utils import FrameAlignPolicy, Maker, make_gif_or_combined_g
 
 img_dir = Path(__file__).parent / "images"
 
+
 def saimin_app(images: list[BuildImage], texts, args):
     app_w, app_h = BuildImage.open(img_dir / "0.png").size
     img_w, img_h = images[0].size
@@ -39,6 +40,6 @@ add_meme(
     min_images=1,
     max_images=1,
     keywords=["催眠app"],
-    date_created=datetime(2024,12,10),
-    date_modified=datetime(2024,12,10),
+    date_created=datetime(2024, 12, 10),
+    date_modified=datetime(2024, 12, 10),
 )
