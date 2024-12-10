@@ -44,7 +44,7 @@ add_meme(
     arona_throw, 
     min_images=1, 
     max_images=1, 
-    keywords=["阿罗那扔"],
+    keywords=["阿罗娜扔"],
     tags=MemeTags.arona,
     date_created=datetime(2024, 12, 10),
     date_modified=datetime(2024, 12, 10),
