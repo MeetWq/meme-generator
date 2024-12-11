@@ -1,12 +1,19 @@
 import random
-from typing import Literal
 from pathlib import Path
-from pydantic import Field
-from meme_generator import add_meme, MemeArgsModel, MemeArgsType, ParserArg, ParserOption
+from typing import Literal
+
 from arclet.alconna import store_value
 from pil_utils import BuildImage
-from meme_generator.exception import MemeFeedback, TextOverLength
+from pydantic import Field
 
+from meme_generator import (
+    MemeArgsModel,
+    MemeArgsType,
+    ParserArg,
+    ParserOption,
+    add_meme,
+)
+from meme_generator.exception import MemeFeedback, TextOverLength
 
 img_dir = Path(__file__).parent / "images"
 
@@ -42,12 +49,19 @@ args_type = MemeArgsType(
     ],
 )
 
+
 def kokona(images: list[BuildImage], texts, args: Model):
-    position = args.position 
+    position = args.position
     left = position in ["left", "both"]
     right = position in ["right", "both"]
 
-    img_name = "01.png" if left and not right else "02.png" if right and not left else f"{random.randint(1, 2):02d}.png"
+    img_name = (
+        "01.png"
+        if left and not right
+        else "02.png"
+        if right and not left
+        else f"{random.randint(1, 2):02d}.png"
+    )
 
     frame = BuildImage.open(img_dir / img_name)
     text = texts[0]
@@ -60,7 +74,7 @@ def kokona(images: list[BuildImage], texts, args: Model):
                 max_fontsize=70,
                 min_fontsize=30,
                 fill="black",
-                lines_align="center"
+                lines_align="center",
             )
         if right and img_name == "02.png":
             frame.draw_text(
@@ -69,7 +83,7 @@ def kokona(images: list[BuildImage], texts, args: Model):
                 max_fontsize=70,
                 min_fontsize=30,
                 fill="black",
-                lines_align="center"
+                lines_align="center",
             )
     except TextOverLength:
         raise TextOverLength(text)
@@ -78,11 +92,11 @@ def kokona(images: list[BuildImage], texts, args: Model):
 
 
 add_meme(
-    "kokona",  
-    kokona,  
-    min_texts=1, 
-    max_texts=1, 
-    default_texts=["那我问你"], 
+    "kokona",
+    kokona,
+    min_texts=1,
+    max_texts=1,
+    default_texts=["那我问你"],
     args_type=args_type,
-    keywords=["春原心奈", "春原心菜"], 
+    keywords=["春原心奈", "春原心菜"],
 )
