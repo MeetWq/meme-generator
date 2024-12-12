@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
@@ -13,15 +14,18 @@ from meme_generator import (
     ParserOption,
     add_meme,
 )
-from meme_generator.exception import MemeFeedback, TextOverLength
+from meme_generator.exception import TextOverLength
+from meme_generator.tags import MemeTags
 
 img_dir = Path(__file__).parent / "images"
 
-help_text = "消息框的位置，包含 left、right、both"
+help_text = "消息框的位置，包含 left、right、random"
 
 
 class Model(MemeArgsModel):
-    position: Literal["left", "right", "both"] = Field("both", description=help_text)
+    position: Literal["left", "right", "random"] = Field(
+        "random", description=help_text
+    )
 
 
 args_type = MemeArgsType(
@@ -29,7 +33,6 @@ args_type = MemeArgsType(
     args_examples=[
         Model(position="left"),
         Model(position="right"),
-        Model(position="both"),
     ],
     parser_options=[
         ParserOption(
@@ -38,50 +41,45 @@ args_type = MemeArgsType(
             help_text=help_text,
         ),
         ParserOption(
-            names=["--left", "左边"], dest="position", action=store_value("left")
+            names=["--left", "左"], dest="position", action=store_value("left")
         ),
         ParserOption(
-            names=["--right", "右边"], dest="position", action=store_value("right")
-        ),
-        ParserOption(
-            names=["--both", "两边"], dest="position", action=store_value("both")
+            names=["--right", "右"], dest="position", action=store_value("right")
         ),
     ],
 )
 
 
-def kokona(images: list[BuildImage], texts, args: Model):
+def kokona_say(images, texts: list[str], args: Model):
     position = args.position
-    left = position in ["left", "both"]
-    right = position in ["right", "both"]
-
-    img_name = (
-        "01.png"
-        if left and not right
-        else "02.png"
-        if right and not left
-        else f"{random.randint(1, 2):02d}.png"
+    left = (
+        True
+        if position == "left"
+        else False
+        if position == "right"
+        else random.choice([True, False])
     )
+    img_name = "01.png" if left else "02.png"
 
     frame = BuildImage.open(img_dir / img_name)
     text = texts[0]
 
     try:
-        if left and img_name == "01.png":
+        if left:
             frame.draw_text(
                 (0, 0, 680, 220),
                 text,
-                max_fontsize=70,
-                min_fontsize=30,
+                max_fontsize=100,
+                min_fontsize=50,
                 fill="black",
                 lines_align="center",
             )
-        if right and img_name == "02.png":
+        else:
             frame.draw_text(
-                (frame.height - 680, 0, frame.height, 220),
+                (frame.width - 680, 0, frame.width, 220),
                 text,
-                max_fontsize=70,
-                min_fontsize=30,
+                max_fontsize=100,
+                min_fontsize=50,
                 fill="black",
                 lines_align="center",
             )
@@ -92,11 +90,14 @@ def kokona(images: list[BuildImage], texts, args: Model):
 
 
 add_meme(
-    "kokona",
-    kokona,
+    "kokona_say",
+    kokona_say,
     min_texts=1,
     max_texts=1,
     default_texts=["那我问你"],
     args_type=args_type,
-    keywords=["春原心奈", "春原心菜"],
+    keywords=["心奈说"],
+    tags=MemeTags.kokona,
+    date_created=datetime(2024, 12, 12),
+    date_modified=datetime(2024, 12, 12),
 )
