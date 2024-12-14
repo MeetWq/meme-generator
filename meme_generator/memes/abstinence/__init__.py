@@ -89,5 +89,5 @@ add_meme(
     args_type=args_type,
     keywords=["戒导"],
     date_created=datetime(2024, 12, 13),
-    date_modified=datetime(2024, 12, 13),
+    date_modified=datetime(2024, 12, 14),
 )
