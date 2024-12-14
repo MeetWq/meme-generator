@@ -1,5 +1,13 @@
 [
   {
+    "path": "abstinence/images/base.png",
+    "hash": "eab5c86adda19164d59f056aab45513f"
+  },
+  {
+    "path": "abstinence/images/stamp.png",
+    "hash": "5c95a9657a78900cb8c3661144d94d22"
+  },
+  {
     "path": "ace_attorney_dialog/images/bubble.png",
     "hash": "dcfbf78adece47297792310e887d7960"
   },
