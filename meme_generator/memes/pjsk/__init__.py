@@ -25,157 +25,157 @@ characters = [
         "name_cn": "爱莉",
         "name_en": "airi",
         "color": "#FB8AAC",
-        "img_num":14
+        "img_num":15
     },
     {
         "name_cn": "彰人",
         "name_en": "akito",
         "color": "#FF7722",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "杏",
         "name_en": "an",
         "color": "#00BADC",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "梦",
         "name_en": "emu",
         "color": "#FF66BB",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "绘名",
         "name_en": "ena",
         "color": "#B18F6C",
-        "img_num":15
+        "img_num":16
     },
     {
         "name_cn": "遥",
         "name_en": "haruka",
         "color": "#6495F0",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "穗波",
         "name_en": "honami",
         "color": "#F86666",
-        "img_num":14
+        "img_num":15
     },
     {
         "name_cn": "一歌",
         "name_en": "ichika",
         "color": "#33AAEE",
-        "img_num":14
+        "img_num":15
     },
     {
         "name_cn": "KAITO",
         "name_en": "kaito",
         "color": "#3366CC",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "奏",
         "name_en": "kanade",
         "color": "#BB6688",
-        "img_num":13
+        "img_num":14
     },
     {
         "name_cn": "心羽",
         "name_en": "kohane",
         "color": "#FF6699",
-        "img_num":13
+        "img_num":14
     },
     {
         "name_cn": "连",
         "name_en": "len",
         "color": "#D3BD00",
-        "img_num":13
+        "img_num":14
     },
     {
         "name_cn": "流歌",
         "name_en": "luka",
         "color": "#F88CA7",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "真冬",
         "name_en": "mafuyu",
         "color": "#7171AF",
-        "img_num":13
+        "img_num":14
     },
     {
         "name_cn": "MEIKO",
         "name_en": "meiko",
         "color": "#E4485F",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "初音未来",
         "name_en": "miku",
         "color": "#33CCBB",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "实乃理",
         "name_en": "minori",
         "color": "#F39E7D",
-        "img_num":13
+        "img_num":14
     },
     {
         "name_cn": "瑞希",
         "name_en": "mizuki",
         "color": "#CA8DB6",
-        "img_num":13
+        "img_num":14
     },
     {
         "name_cn": "宁宁",
         "name_en": "nene",
         "color": "#19CD94",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "铃",
         "name_en": "rin",
         "color": "#E8A505",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "类",
         "name_en": "rui",
         "color": "#BB88EE",
-        "img_num":15
+        "img_num":16
     },
     {
         "name_cn": "咲希",
         "name_en": "saki",
         "color": "#F5B303",
-        "img_num":14
+        "img_num":15
     },
     {
         "name_cn": "志步",
         "name_en": "shiho",
         "color": "#A0C10B",
-        "img_num":14
+        "img_num":15
     },
     {
         "name_cn": "雫",
         "name_en": "shizuku",
         "color": "#5CD0B9",
-        "img_num":12
+        "img_num":13
     },
     {
         "name_cn": "冬弥",
         "name_en": "touya",
         "color": "#0077DD",
-        "img_num":14
+        "img_num":15
     },
     {
         "name_cn": "司",
         "name_en": "tsukasa",
         "color": "#F09A04",
-        "img_num":14
+        "img_num":15
     }
 ]
 
@@ -216,9 +216,9 @@ def pjsk(images, texts: list[str], args:Model):
         raise MemeFeedback(f"角色编号错误，请输入1-26")
     
     if args.number == 0:
-        n = random.randint(1, character["img_num"])
+        n = random.randint(0, character["img_num"])
     elif args.number in range(1, character["img_num"]+1):
-        n = args.number
+        n = args.number - 1
     else:
         raise MemeFeedback(f"角色{character['name_cn']}的图片编号错误，请输入1-{character['img_num']}。")
 
