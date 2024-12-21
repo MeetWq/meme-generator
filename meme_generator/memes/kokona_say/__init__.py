@@ -73,6 +73,7 @@ def kokona_say(images, texts: list[str], args: Model):
                 min_fontsize=50,
                 fill="black",
                 lines_align="center",
+                allow_warp=True,
             )
         else:
             frame.draw_text(
@@ -82,6 +83,7 @@ def kokona_say(images, texts: list[str], args: Model):
                 min_fontsize=50,
                 fill="black",
                 lines_align="center",
+                allow_warp=True,
             )
     except TextOverLength:
         raise TextOverLength(text)
